@@ -6,5 +6,11 @@ function counter(start = 0) {
       return increment;
     };
   }
-  
-  counter()( )()( );
+counter()()()();
+counter()()
+
+/*const myCounter = counter();
+myCounter(); // 1
+myCounter(); // 2
+myCounter(); // 3
+myCounter(); // 4*/
