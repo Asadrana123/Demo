@@ -9,4 +9,4 @@ function test() {
     funcs[1]();
     funcs[2]();
   }
-  
+  test();

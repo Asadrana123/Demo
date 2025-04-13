@@ -1,40 +1,14 @@
-function outer() {
-  let name = "Riya";
-
-  function inner() {
-    console.log(name);
+const obj={
+  name:"Asad",
+  city:{
+      name:"delhi",
+      area:"10km"
   }
-
-  function changeName() {
-    name = "Priya";
-  }
-
-  return { inner, changeName };
 }
-
-const { inner, changeName } = outer();
-inner();
-changeName();
-inner();
-
-
-function createCounter() {
-  let count = 0;
-
-  function increment() {
-    count++;
-  }
-  function decrement() {
-    return count--;
-  }
-  function getCount(){
-     return count
-  } 
-  return {increment,decrement,getCount}
-}
-
-const {increment,decrement,getCount}= createCounter();
-increment();
-console.log(count);
-const {increment1,decrement1,getCount1}= createCounter();
-console.log(count);
+const shallowcopy={...obj};
+shallowcopy.name="Rana";
+shallowcopy.city.name="muzaffarnagar"
+console.log(`shallow name:${shallowcopy.name}`);
+console.log(`shallow copy city name: ${shallowcopy.city.name}}`)
+console.log(`orgiinal name: ${obj.name}`)
+console.log(`original city name: ${obj.city.name}}`)
