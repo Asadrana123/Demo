@@ -7,5 +7,4 @@ const obj = {
   
   const greetFn = obj.greet;
   greetFn();
-  // here we are simply copying the function in a variable 
   

@@ -1,0 +1,3 @@
+JSON.stringify() is used to convert a JavaScript object or value into a JSON string.
+
+JSON.parse() is used to convert a JSON string back into a JavaScript object.
