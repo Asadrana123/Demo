@@ -2,6 +2,13 @@ A function that “remembers” the variables from the scope in which it was def
 even after that scope has finished executing.
 
 
-//Closures aren’t formed when you just write nested functions.
-//They're formed when you call the outer function, and  it defines the inner one — that’s
-// when the closure is “born” and locks onto the variables in that specific call.
+Closures aren’t formed when you just write nested functions.
+They're formed when you call the outer function, and  it defines the inner one — that’s
+when the closure is “born” and locks onto the variables in that specific call.
+
+
+difference between closure and scope:-
+
+Scope: Controls access to a variable like decides which variable is accesible by which part of code.
+
+Closure: Keeps track of variable even when the outer function is done with excuting
