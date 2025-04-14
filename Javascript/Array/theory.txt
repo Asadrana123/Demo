@@ -1,8 +1,8 @@
 Array :- In JavaScript, arrays are sparse — meaning they can have “holes”
         (i.e., undefined elements in between).
 
-sparse array :- A sparse array is an array where some indexes are missing — meaning there are holes between elements.
-These holes are not undefined values — they are truly missing entries in the array.
+sparse array :- A sparse array is an array where some indexes are missing — meaning there are holes 
+between elements. These holes are not undefined values — they are truly missing entries in the array.
 
 const arr = [1, 2, 3];
 
@@ -16,4 +16,5 @@ const arr = {
 if we do arr[5] then it will give us undefined
 
 JavaScript Is Saying:
-"I don’t care if you access an index I’ve never seen before. I’ll just give you undefined and move on."
+"I don’t care if you access an index I’ve never seen before. 
+I’ll just give you undefined and move on."

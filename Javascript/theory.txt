@@ -1,0 +1,24 @@
+breakpoint:-A breakpoint is a spot in your code where you tell Chrome:
+"Pause execution when you get here, and let me inspect what’s going on."
+
+scope:-All the variables that are currently in scope — meaning:
+✅ What the JavaScript engine can “see” at the paused point in execution.
+What variables, functions, and values are available right now, at this exact line of code?”
+
+Local:-Variables defined in the current function or block where the execution is currently paused.
+
+Script:-The Script tab shows variables that are defined at the 
+top level of the current script file, outside of any function.These variables are not added to the 
+window object — they live in a different environment that DevTools calls Script.
+
+Global:-The Global tab shows variables that are globally available — that is, properties of the 
+global object (window in browsers).
+
+why let and const not present in global tab:-When you declare something with **const** (or let) at the top level, it is not added to the global object 
+— even though it's accessible globally within the module or script file.
+
+Closure Tab:- This showsThe variables from outer lexical scopes that your function still has access 
+to — even after those outer functions have finished execution.
+
+:-It doesn’t display a “Closure” tab if the captured variables are from the global scope, 
+because technically they're always accessible anyway.

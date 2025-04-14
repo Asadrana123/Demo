@@ -1,3 +1,7 @@
+A function that “remembers” the variables from the scope in which it was defined — 
+even after that scope has finished executing.
+
+
 //Closures aren’t formed when you just write nested functions.
-//They're formed when you call the outer function, and it defines the inner one — that’s
+//They're formed when you call the outer function, and  it defines the inner one — that’s
 // when the closure is “born” and locks onto the variables in that specific call.
