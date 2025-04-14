@@ -11,10 +11,7 @@ function secretHolder(secret) {
   
   const holder = secretHolder("initial");
   
-  console.log(holder.getSecret()); // Line A
+  console.log(holder.getSecret()); 
   holder.setSecret("updated");
-  console.log(holder.getSecret()); // Line B
+  console.log(holder.getSecret()); 
   
-//Closures aren’t formed when you just write nested functions.
-//They're formed when you call the outer function, and it defines the inner one — that’s
-// when the closure is “born” and locks onto the variables in that specific call.

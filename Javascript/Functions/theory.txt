@@ -1,0 +1,7 @@
+function:- A function in JavaScript is a block of reusable code that performs a specific task. 
+It allows us to write a piece of logic once and reuse it multiple times.
+
+
+IIFE:-An IIFE (Immediately Invoked Function Expression) is a function that is defined and 
+invoked immediately. It's often used to create a new scope and
+avoid polluting the global namespace.

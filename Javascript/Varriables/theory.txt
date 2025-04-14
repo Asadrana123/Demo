@@ -1,0 +1,4 @@
+different between let and const
+let:-can be decalre without intitialization and can be updated
+const :-can not update or decalare without intitialization 
+

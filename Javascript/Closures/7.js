@@ -1,5 +1,5 @@
 
-function outer2(){
+function outest(){
     function outer(){
         function inner(){
             console.log(b);
@@ -11,4 +11,4 @@ function outer2(){
    return outer();
 }
 let b=1;
-const a=outer2()();
+const a=outest()();

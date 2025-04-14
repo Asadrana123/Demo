@@ -1,14 +1,9 @@
-const obj={
+const settings={
   name:"Asad",
-  city:{
-      name:"delhi",
-      area:"10km"
-  }
+  age:24,
+  level:90
 }
-const shallowcopy={...obj};
-shallowcopy.name="Rana";
-shallowcopy.city.name="muzaffarnagar"
-console.log(`shallow name:${shallowcopy.name}`);
-console.log(`shallow copy city name: ${shallowcopy.city.name}}`)
-console.log(`orgiinal name: ${obj.name}`)
-console.log(`original city name: ${obj.city.name}}`)
+
+const data=JSON.stringify(settings,['age','level']);
+
+console.log(data);
