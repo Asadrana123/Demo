@@ -1,0 +1,22 @@
+classes:- In JavaScript, classes are a way to create objects and handle object-oriented programming 
+more cleanly and clearly.
+
+
+What is Object-Oriented Programming (OOP)?
+OOP is a programming style based on the concept of "objects".
+
+These objects contain:
+
+Properties (data) — like name, age
+
+Methods (functions) — like greet(), login()
+
+It helps you:
+
+Organize code better 🔧
+
+Reuse code more easily 🔁
+
+Build scalable and maintainable applications 🏗️
+
+

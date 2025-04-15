@@ -1,0 +1,3 @@
+call:- The .call() method can be used on any regular function to explicitly set the value of this. 
+It’s not limited to object methods. It’s especially useful when borrowing functions from other 
+objects or when controlling the execution context manually.
