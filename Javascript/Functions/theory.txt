@@ -5,3 +5,25 @@ It allows us to write a piece of logic once and reuse it multiple times.
 IIFE:-An IIFE (Immediately Invoked Function Expression) is a function that is defined and 
 invoked immediately. It's often used to create a new scope and
 avoid polluting the global namespace.
+
+Arguments:-arguments is a built-in object available inside every regular function (but not in arrow functions).
+It behaves like an array (but isn't a real array) and contains all the arguments passed to the function
+
+Rest Operator (...): Collects values into an array or object (used in function parameters,
+array/object destructuring).
+
+Spread Operator (...): Spreads elements from an array or object into a new array or object 
+(used for copying or merging).
+
+
+
+difference between arrow and regular function:-
+
+Feature	Regular Function	Arrow Function
+Syntax	function name() {}	const fn = () => {}
+this binding	     Dynamic (depends on caller)	Lexical (inherits from parent scope)
+arguments object	     Available	       ❌ Not available (use ...args)
+Used as constructor	    ✅ Can use new	  ❌ Cannot be used as constructor
+super / new.target	    Available	       ❌ Not available
+prototype property	   ✅ Exists	          ❌ Doesn’t exist
+Hoisting	           ✅ Hoisted	     ❌ Not hoisted

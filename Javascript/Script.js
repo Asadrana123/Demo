@@ -1,14 +1,15 @@
-var length=4;
+const animals=[
+  {species:"Lion",name:"King"},
+  {species:"Whale",name:"Queen"}
+]
 
-function callback(){
-    console.log(this.length);
+function PrintAnimals(i){
+  this.species="Human",
+  this.name="King"
+  this.print=function(){
+      console.log(this.species,this.name)
+  }
+  //return this.print;
 }
-
-const obj={
-    name:"Asad",
-    length:5,
-    method(callback){
-       callback();
-    }
-}
-obj.method(callback)
+PrintAnimals();
+console.log(this.name);
