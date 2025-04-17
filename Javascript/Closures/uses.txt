@@ -1,0 +1,5 @@
+Encapsulation
+event handlers
+settimeout/setinterval
+currying
+partial application

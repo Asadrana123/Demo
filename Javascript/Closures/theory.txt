@@ -12,3 +12,10 @@ difference between closure and scope:-
 Scope: Controls access to a variable like decides which variable is accesible by which part of code.
 
 Closure: Keeps track of variable even when the outer function is done with excuting
+
+Garbage Collection:-JavaScript doesn’t garbage collect outer function’s variables if they’re still referenced 
+by an inner function that is still in use (e.g., returned, stored, or passed elsewhere).
+That inner function closes over the variables — and this is what forms a closure.
+
+:- "garbage collected" means that the memory used by variables or objects that are no longer needed 
+ is automatically freed up by the JavaScript engine.

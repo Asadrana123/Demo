@@ -18,3 +18,8 @@ if we do arr[5] then it will give us undefined
 JavaScript Is Saying:
 "I don’t care if you access an index I’ve never seen before. 
 I’ll just give you undefined and move on."
+
+:-[6] * 2 → "6" * 2 → 12
+:-If [6] was [6, 7], it would become "6,7" * 2 → NaN.
+
+Length of array:-The length of the array is determined by the highest index in the array, not the number of defined elements.

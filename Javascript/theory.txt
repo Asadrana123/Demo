@@ -23,8 +23,15 @@ to — even after those outer functions have finished execution.
 :-It doesn’t display a “Closure” tab if the captured variables are from the global scope, 
 because technically they're always accessible anyway.
 
-
-
 :-Node.js wraps your code in a module, so top-level var is not added to the global object (global). 
 wraps in a module means wraps code in a function 
 example:-(function (exports, require, module, __filename, __dirname) Your code goes here )();
+
+In JavaScript, only 7 values are falsy:
+false
+0
+-0
+''
+null
+undefined
+NaN

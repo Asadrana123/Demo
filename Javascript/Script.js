@@ -1,15 +1,2 @@
-const animals=[
-  {species:"Lion",name:"King"},
-  {species:"Whale",name:"Queen"}
-]
-
-function PrintAnimals(i){
-  this.species="Human",
-  this.name="King"
-  this.print=function(){
-      console.log(this.species,this.name)
-  }
-  //return this.print;
-}
-PrintAnimals();
-console.log(this.name);
+const arr = [1,2,3,4,[5,6,[7,8,9]],[9,10,11,12],[13,14,[15]]];
+console.log(...arr);

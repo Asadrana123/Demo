@@ -1,0 +1,29 @@
+call syntax:functionName.call(thisArg, arg1, arg2, ...);
+
+apply syntax:functionName.apply(thisArg, [arg1, arg2, ...]);
+
+bind syntax:const boundFunction = functionName.bind(thisArg, arg1, arg2, ...);
+
+
+call:- The .call() method can be used on any regular function to explicitly set the value of this. 
+It’s not limited to object methods. It’s especially useful when borrowing functions from other 
+objects or when controlling the execution context manually.
+
+bind:-if a function is bound using bind keyword then it can never be rebound
+
+uses:-
+1.Borrowing Methods Between Objects 
+2.Event Handlers in UI Development
+function Button(label) {
+  this.label = label;
+  this.clickHandler = function () {
+    console.log(`${this.label} button clicked!`);
+  };
+}
+
+const button1 = new Button("Submit");
+const button2 = new Button("Cancel");
+
+setTimeout(button1.clickHandler.bind(button1), 1000); // Submit button clicked!
+setTimeout(button2.clickHandler.bind(button2), 2000); // Cancel button clicked!
+3.
