@@ -35,3 +35,26 @@ false
 null
 undefined
 NaN
+
+
+✅ Methods That Do NOT Call the Callback for Empty Slots:
+forEach()
+
+map()
+
+filter()
+
+reduce()
+
+reduceRight()
+
+some()
+
+every()
+
+🚨 Methods That DO Call the Callback for Empty Slots:
+fill()
+
+splice()
+
+concat()
