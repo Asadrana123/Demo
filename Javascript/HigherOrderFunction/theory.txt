@@ -1,0 +1,6 @@
+What is a Higher-Order Function?
+A Higher-Order Function is a function that either:
+
+Takes one or more functions as arguments, OR
+
+Returns a function
