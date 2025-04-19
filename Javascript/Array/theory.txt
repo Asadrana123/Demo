@@ -44,3 +44,8 @@ so result is:
 
 spliced:-return the removed elements and make changes in origininal array 
 syntax:-arr.splice(start,number of elements,...elements to add);
+
+.every():-
+The every() method is a built-in array method that checks whether all elements in an array pass the test
+implemented by the provided function. It returns true if every element satisfies the condition, and false
+if any element does not.
