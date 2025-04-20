@@ -24,6 +24,9 @@ I’ll just give you undefined and move on."
 
 Length of array:-The length of the array is determined by the highest index in the array, not the number 
 of defined elements.
+let arr = [];
+arr[5] = 10;  // Setting an element at index 5
+console.log(arr.length);  // Output: 6
 
 for each:-.forEach() does not iterate over empty slots. It skips over them, 
 unlike other methods such as map(), which leave an empty slot in the result.
@@ -31,7 +34,7 @@ unlike other methods such as map(), which leave an empty slot in the result.
 :-Array indices must be non-negative integers (i.e., 0, 1, 2,...).
 
 Negative Indices in slice() and splice()
-🟢 slice(start, end):
+slice(start, end):-
 Negative values count from the end of the array.
 
 Example:
@@ -40,7 +43,7 @@ then:
 slice(-4, -1) → start from 4th-last (which is 15) and go up to but not including the last one (which is 30), 
 so result is:
 
-👉 sliced = [15, 20, 25]
+sliced = [15, 20, 25]
 
 spliced:-return the removed elements and make changes in origininal array 
 syntax:-arr.splice(start,number of elements,...elements to add);

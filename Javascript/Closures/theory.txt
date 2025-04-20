@@ -19,3 +19,10 @@ That inner function closes over the variables — and this is what forms a closu
 
 :- "garbage collected" means that the memory used by variables or objects that are no longer needed 
  is automatically freed up by the JavaScript engine.
+
+HOF and Closure:-
+HOFs and closures are complementary to each other. Higher-order functions provide a way to 
+create functions dynamically, and closures allow those functions to retain access to their 
+lexical environment (variables from the outer function). You can’t fully leverage the power 
+of higher-order functions without closures, because the returned functions often need to "remember" 
+values, and closures make that possible.

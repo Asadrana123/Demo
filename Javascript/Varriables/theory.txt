@@ -1,4 +1,11 @@
 different between let and const
-let:-can be decalre without intitialization and can be updated
-const :-can not update or decalare without intitialization 
+1. Reassignment:
+let: Can be reassigned.
+
+const: Cannot be reassigned.
+
+2. Immutability:
+let: Value can be changed (even for objects/arrays).
+
+const: Reference is immutable; the value can still be mutated (for objects/arrays).
 

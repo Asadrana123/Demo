@@ -1,5 +1,4 @@
-Currying is a functional programming concept where a function that takes 
-multiple arguments is transformed into a series of functions, each taking a single argument.
-Each function returns another function that accepts 
-the next argument until all arguments are provided,
-at which point the final result is computed.
+Currying Definition:
+Currying is a technique in functional programming where a function that takes multiple arguments is 
+transformed into a sequence of functions, each taking a single argument. This allows you to break 
+down the function into smaller, reusable functions, and apply the arguments step by step, one at a time.

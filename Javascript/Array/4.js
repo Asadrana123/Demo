@@ -6,6 +6,6 @@ Array.prototype.myReduce=function(cb,acc){
 }
 let input=[1,2,3,4];
 const result=input.myReduce((acc,curr)=>{
-      return acc+1;
+      return acc+curr;
 },0)
 console.log(result);
