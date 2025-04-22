@@ -13,8 +13,8 @@ const isValidMobileNumber=(value,field)=>{
     if(value.trim().length<10) return `${field} should be of length 10`
 }
 
-console.log(validation('name')(isEmpty)(''))
-console.log(validation('mobile')(isValidMobileNumber)('123'));
+const userValidation=validation("User Name")(isEmpty);
+console.log(userValidation(""))
 
 //if you are thinking you can do this with normal function like 
 //Let's say you're validating "username" in 5 different places, and using the same rule:

@@ -6,7 +6,7 @@ const UserProfile=({user})=>{
 const Wrapper=(wrappedComponent)=>{
        return ({isLoading,user})=>{
               if(isLoading) return <div>...Loading</div>
-              else return <div>{user.name}</div>      
+              else return <wrappedComponent user={user}/>      
        }
 }
 const App=()=>{

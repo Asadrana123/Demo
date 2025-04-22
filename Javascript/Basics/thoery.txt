@@ -1,5 +1,5 @@
 The == operator is a loose equality operator, which performs type coercion.
-
+when we use==, which means JavaScript tries to convert the values to the same type.
 The === operator is a strict equality operator, which does not perform type coercion.
 
 Things cant be converted to number:-

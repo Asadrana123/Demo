@@ -1,4 +1,6 @@
-console.log(typeof null);         
+console.log(typeof null);   
+//This is a well-known JavaScript bug (yes, a real bug that’s never been fixed for backward 
+// compatibility reasons).      
 console.log(null instanceof Object); 
 
 console.log([] == []);

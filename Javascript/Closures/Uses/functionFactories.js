@@ -11,4 +11,5 @@ function createLogger(level) {
   infoLogger("Everything is running smoothly!"); // [INFO] Everything is running smoothly!
   warningLogger("This is a warning!");          // [WARNING] This is a warning!
   errorLogger("An error occurred!");            // [ERROR] An error occurred!
-  
+  //A function factory is a function that returns another function. In other words, 
+  // it's a function that creates and returns new functions when called.

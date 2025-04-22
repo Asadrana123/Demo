@@ -8,7 +8,7 @@ setTimeout(()=>{
         return this.status;
     }
    }
-   console.log(data.getStatus());
+  console.log(data.getStatus());
   console.log(data.getStatus.call(this));
 },1000)
 

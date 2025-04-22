@@ -1,4 +1,5 @@
 console.log([] == ![]);
+//all objects are truthy value in javascript
 //When comparing an object (array is an object) to a primitive (false), JavaScript coerces the object to a primitive.
 console.log("5" + true);
 console.log(5 == "5");

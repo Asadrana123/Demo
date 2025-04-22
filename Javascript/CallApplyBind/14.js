@@ -15,7 +15,7 @@ Function.prototype.mybind=function(context={},...arg){
       return function(){
               context.fn(...arg,...arguments);
       }
-}
+} 
 const result=purchasecar.mybind(car1,"$",1000);
 result();
 

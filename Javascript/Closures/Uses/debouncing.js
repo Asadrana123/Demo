@@ -1,8 +1,6 @@
 function debounce(fn,delay){
      let timeoutId;
-     console.log(fn);
      return function(query){
-            console.log(fn);
             clearTimeout(timeoutId);
             timeoutId=setTimeout(()=>fn(query),delay)
      }
@@ -13,8 +11,9 @@ function fetchresult(query){
 }
 const debounceresult=debounce(fetchresult,500);
 
-debounceresult("h",500)
-debounceresult("he",500)
-debounceresult("hel",500)
-debounceresult("hello",500)
-
+debounceresult("h")
+debounceresult("he")
+debounceresult("hel")
+debounceresult("hello")
+//Debouncing is a programming technique used to ensure that a 
+//function is only executed once after a specified delay, after a series of rapid triggers.

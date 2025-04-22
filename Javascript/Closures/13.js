@@ -12,6 +12,6 @@ function counter(){
     return {getValue,increment,decrement};
 }
 const {getValue,increment,decrement}=counter();
- getValue();
- increment();
- getValue();
+getValue();
+increment();
+getValue();
