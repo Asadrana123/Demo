@@ -24,3 +24,11 @@ null
 undefined	
 NaN	
 false	
+
+Throw:-
+throw in JavaScript is used to create an error manually.
+It immediately stops the normal flow of code.
+It jumps to the nearest .catch() block (for Promises) or try...catch block (for normal code).
+It rejects the current Promise (if used inside a Promise).
+If no catch block found, 🚨 the program crashes — and the error goes to the browser console 
+(or Node.js console).
