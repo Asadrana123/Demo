@@ -32,3 +32,6 @@ It jumps to the nearest .catch() block (for Promises) or try...catch block (for 
 It rejects the current Promise (if used inside a Promise).
 If no catch block found, 🚨 the program crashes — and the error goes to the browser console 
 (or Node.js console).
+
+If you use throw inside a .then() or a .catch(),
+it immediately returns a rejected Promise.

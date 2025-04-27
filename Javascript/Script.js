@@ -1,21 +1,18 @@
-function job(){
-    return new Promise((resolve,reject)=>{
-           reject();
-    })
-}
-let promise=job();
-
-let temp=promise
-.then((result)=>{
-     console.log(result);
-})
-console.log(temp);
-// .then((result)=>{
-//     console.log(result);
-// })
-// .catch((result)=>{
-//     console.log(result);
-// })
-// .then((result)=>{
-//     console.log(result);
-// })
+function Animal() {
+    this.type = 'Animal';
+  }
+  
+  Animal.prototype.sayType = function() {
+    console.log(this.type);
+  };
+  
+  function Dog() {
+    Animal.call(this);
+    this.breed = 'Labrador';
+  }
+  
+  Dog.prototype = Object.create(Animal.prototype);
+  Dog.prototype.constructor = Dog;
+  
+  const dog = new Dog();
+  console.log(dog)
