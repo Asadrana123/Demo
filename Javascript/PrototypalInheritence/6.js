@@ -10,6 +10,7 @@ Animal.prototype.sayType = function () {
 };
 function Dog() {
      Animal.call(this);
+//Animal.call(this); manually copies properties from Animal constructor into this (the Dog object).
     this.breed = 'Labrador';
 }
 Dog.prototype = Object.create(Animal.prototype);

@@ -5,7 +5,8 @@
 //When you try to access a property or method on an object, 
 //JavaScript first looks for it on the object itself. If it’s not found,
 //it will look up the prototype chain — meaning, it will check the object’s prototype, 
-//then the prototype’s prototype, and so on, until it either finds the property or reaches 
+//then the prototype’s prototype, 
+//and so on, until it either finds the property or reaches 
 //the end of the chain (null).
 //Where it gets it from depends on how you create the object.
 const person = {

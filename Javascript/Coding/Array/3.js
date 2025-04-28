@@ -11,20 +11,15 @@
 
 function firstNonRepeating(arr) {
     let countMap = new Map();
-
-    // Count occurrences of each element
     for (let i = 0; i < arr.length; i++) {
         countMap.set(arr[i], (countMap.get(arr[i]) || 0) + 1);
     }
-
-    // Find the first element that appears exactly once
     for (let i = 0; i < arr.length; i++) {
         if (countMap.get(arr[i]) === 1) {
             return arr[i];
         }
     }
-
-    return null; // Return null if no non-repeating element is found
+    return null; 
 }
 
-console.log(firstNonRepeating([7, 4, 5, 1, 2, 1, 5, 4])); // Output: 7
+console.log(firstNonRepeating([7, 4, 5, 1, 2, 1, 5, 4])); 

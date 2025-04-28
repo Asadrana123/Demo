@@ -1,6 +1,5 @@
 //A Promise is an object in JavaScript that represents the eventual
-//  completion or failure of an asynchronous operation.
-
+//completion or failure of an asynchronous operation.
 function wait(){
      return new Promise((resolve,reject)=>{
             setTimeout(()=>{

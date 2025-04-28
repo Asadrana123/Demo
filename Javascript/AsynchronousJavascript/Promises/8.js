@@ -5,4 +5,6 @@ const promise1=new Promise((resolve,reject)=>{
 promise1
 .then((result)=>{
      console.log(result)
+}).catch((err)=>{
+      console.log(err)
 })
