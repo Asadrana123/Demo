@@ -1,3 +1,7 @@
 The Event Loop is the mechanism in JavaScript that handles asynchronous operations.
 The Event Loop constantly checks: if the call stack is empty and there are pending tasks, it moves
 them into the call stack to be executed.
+
+Promise.any:-
+if all promises failed in this it will give error:-
+Rejected: [AggregateError: All promises were rejected] { [errors]: [ 1, 2, 3 ] }
