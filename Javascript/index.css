@@ -1,0 +1,7 @@
+.line-through{
+    text-decoration: line-through;
+}
+.list-style{
+   display: flex;
+   gap: 10px;
+}
