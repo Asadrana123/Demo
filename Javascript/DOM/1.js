@@ -1,6 +1,43 @@
-//The DOM is an object-based representation of the web page that allows JavaScript to interact 
+//The DOM is an object-based representation of the web page that allows JavaScript to interact
 //with and manipulate the content and structure dynamically.
 //Think of the DOM as a map of your webpage.
 
-//When your HTML page loads, the browser builds a tree of elements. 
+//When your HTML page loads, the browser builds a tree of elements.
 // This tree is what JavaScript uses to read or change things on your page (like text, color, etc.).
+
+
+//Difference Between Node and Element:-
+// Node:
+// A node is a general term for any kind of object in the DOM (Document Object Model).
+// There are different types of nodes (element, text, attribute, comment, etc.).
+// Think of a node as a basic "building block" in the DOM that could represent anything in the document.
+
+// Element:
+// An element is a specific type of node.
+// It refers to the actual HTML tags (like <div>, <p>, <a>, etc.) in the document.
+// Elements are a subset of nodes. So, all elements are nodes, but not all nodes are elements.
+
+//Event Delegation
+// Event delegation is a technique in JavaScript that allows you to handle events on a parent element
+// rather than attaching event listeners to individual child elements. This is especially useful when
+//  dealing with dynamically added elements or when you have many child elements that need the same
+//  event listener.
+// list.addEventListener('click', function(event) {
+//     // Check if the clicked element is an <li>
+//     if (event.target.tagName === 'LI') {
+//       alert(event.target.textContent);
+//     }
+//   });
+
+
+//1. innerHTML
+//What it does: Gets or sets the HTML including tags inside an element.
+//Use case: When you want to read or write HTML content (not just plain text).
+
+//2. innerText
+//What it does: Gets or sets the visible text (what you see in the browser), ignores hidden text, and respects line breaks.
+//Use case: When you only care about what's actually displayed to the user.
+
+// 3. textContent
+// What it does: Gets or sets all the text inside an element, regardless of visibility or formatting.
+// Use case: When you want all text content, even if some of it is hidden with CSS.
