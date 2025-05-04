@@ -21,10 +21,6 @@ previousButton.addEventListener('click', function () {
 for (let i = 0; i < arrImg.length; i++) {
     let newDot = document.createElement('span');
     newDot.classList.add('dot-circle');
-    newDot.addEventListener('click',function(){
-        showNextImage(undefined,i);
-        pauseAutoSlide(5000);
-    })
     if (i === activeIndex) {
         newDot.classList.add('dark-background');
     } else {
@@ -32,22 +28,78 @@ for (let i = 0; i < arrImg.length; i++) {
     }
     dotsContainer.append(newDot);
 }
-let intervalId=setInterval(() => {
+setInterval(() => {
     showNextImage(step);
 }, 2000)
-function pauseAutoSlide(delay){
-    clearInterval(intervalId);
-    setTimeout(()=>{
-        intervalId=setInterval(()=>{
-            showNextImage(step)
-        },2000)
-    },delay)
-}
-function showNextImage(step=1,forceIndex) {
-    console.log(forceIndex);
+
+function showNextImage(step) {
     dotsContainer.children[activeIndex].classList.remove('dark-background');
     dotsContainer.children[activeIndex].classList.add('light-background');
-    activeIndex = forceIndex!==undefined?forceIndex:(activeIndex + step + arrImg.length) % arrImg.length;
+    activeIndex = (activeIndex + step + arrImg.length) % arrImg.length;
     dotsContainer.children[activeIndex].classList.add('dark-background');
     image.setAttribute('src', arrImg[activeIndex]);
 }
+
+// <!DOCTYPE html>
+// <html lang="en">
+
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Document</title>
+//     <link rel="stylesheet" href="./index.css">
+// </head>
+
+// <body>
+//     <div class="slider">
+//         <img />
+//         <div class="button-container">
+//             <button id="previous-button">Previous</button>
+//             <button id="next-button">Next</button>
+//         </div>
+//         <div class="dot-circle-container">
+
+//         </div>
+//     </div>
+//     <script src="./Script.js"></script>
+// </body>
+
+// </html>
+
+
+// .slider{
+//     position: relative;
+//     width: 400px;
+//     height: 500px;
+//     margin: 0 auto;
+//     border: 1px solid black;
+// }
+// .slider img{
+//     object-fit:contain;
+//     width: 100%;
+//     height: 100%;
+// }
+// .button-container{
+//     display: flex;
+//     justify-content: center;
+//     gap: 10px;
+//     margin: 0 auto;
+// }
+// .dot-circle-container{
+//     display: flex;
+//     justify-content: center;
+//     gap: 5px;
+//     margin: 0 auto;
+//     margin-top: 10px;
+// }
+// .dot-circle{
+//     width: 10px;
+//     height: 10px;
+//     border-radius: 50%;
+// }
+// .light-background{
+//     background-color: aqua;
+// }
+// .dark-background{
+//     background-color:black;
+// }

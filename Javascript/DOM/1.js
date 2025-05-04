@@ -37,7 +37,9 @@
 //2. innerText
 //What it does: Gets or sets the visible text (what you see in the browser), ignores hidden text, and respects line breaks.
 //Use case: When you only care about what's actually displayed to the user.
+// Output: "Hello\nWorld"
 
 // 3. textContent
 // What it does: Gets or sets all the text inside an element, regardless of visibility or formatting.
 // Use case: When you want all text content, even if some of it is hidden with CSS.
+// Output: "HelloWorld"
