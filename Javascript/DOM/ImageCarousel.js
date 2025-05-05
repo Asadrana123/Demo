@@ -21,6 +21,10 @@ previousButton.addEventListener('click', function () {
 for (let i = 0; i < arrImg.length; i++) {
     let newDot = document.createElement('span');
     newDot.classList.add('dot-circle');
+    newDot.addEventListener('click', function () {
+        showNextImage(undefined, i);
+        pauseAutoSlide(5000);
+    })
     if (i === activeIndex) {
         newDot.classList.add('dark-background');
     } else {
@@ -28,14 +32,32 @@ for (let i = 0; i < arrImg.length; i++) {
     }
     dotsContainer.append(newDot);
 }
-setInterval(() => {
+let intervalId = setInterval(() => {
     showNextImage(step);
 }, 2000)
-
-function showNextImage(step) {
+function pauseAutoSlide(delay) {
+    clearInterval(intervalId);
+    setTimeout(() => {
+        intervalId = setInterval(() => {
+            showNextImage(step)
+        }, 2000)
+    }, delay)
+}
+image.addEventListener('mouseenter', function () {
+    console.log('hi');
+    clearInterval(intervalId);
+})
+image.addEventListener('mouseleave', function () {
+    clearInterval(intervalId);
+    intervalId = setInterval(() => {
+        showNextImage(step)
+    }, 2000)
+})
+function showNextImage(step = 1, forceIndex) {
+    console.log(forceIndex);
     dotsContainer.children[activeIndex].classList.remove('dark-background');
     dotsContainer.children[activeIndex].classList.add('light-background');
-    activeIndex = (activeIndex + step + arrImg.length) % arrImg.length;
+    activeIndex = forceIndex !== undefined ? forceIndex : (activeIndex + step + arrImg.length) % arrImg.length;
     dotsContainer.children[activeIndex].classList.add('dark-background');
     image.setAttribute('src', arrImg[activeIndex]);
 }
@@ -67,39 +89,41 @@ function showNextImage(step) {
 // </html>
 
 
-// .slider{
+// .slider {
 //     position: relative;
 //     width: 400px;
 //     height: 500px;
 //     margin: 0 auto;
 //     border: 1px solid black;
 // }
-// .slider img{
-//     object-fit:contain;
+// .slider img {
+//     object-fit: contain;
 //     width: 100%;
 //     height: 100%;
+//     cursor: pointer;
 // }
-// .button-container{
+// .button-container {
 //     display: flex;
 //     justify-content: center;
 //     gap: 10px;
 //     margin: 0 auto;
 // }
-// .dot-circle-container{
+// .dot-circle-container {
 //     display: flex;
 //     justify-content: center;
 //     gap: 5px;
 //     margin: 0 auto;
 //     margin-top: 10px;
 // }
-// .dot-circle{
+// .dot-circle {
 //     width: 10px;
 //     height: 10px;
 //     border-radius: 50%;
+//     cursor: pointer;
 // }
-// .light-background{
+// .light-background {
 //     background-color: aqua;
 // }
-// .dark-background{
-//     background-color:black;
+// .dark-background {
+//     background-color: black;
 // }

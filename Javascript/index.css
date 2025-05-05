@@ -1,37 +1,32 @@
-.slider {
-    position: relative;
-    width: 400px;
-    height: 500px;
-    margin: 0 auto;
-    border: 1px solid black;
-}
-.slider img {
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
-}
-.button-container {
+.faq-container{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.question-list{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
     gap: 10px;
-    margin: 0 auto;
 }
-.dot-circle-container {
+.question-container{
     display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin: 0 auto;
-    margin-top: 10px;
+    flex-direction: column;
+    min-width: 80%;
 }
-.dot-circle {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+.question{
+    font-size: 18px;
     cursor: pointer;
 }
-.light-background {
-    background-color: aqua;
+.ans{
+    font-size: 18px;
+    color: grey;
+    transition: height .3s ease-in-out;
 }
-.dark-background {
-    background-color: black;
+.hide{
+    height: 0px;
+    overflow: hidden;
+}
+.show{
+    height: 50px;
 }
