@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="./index.css">
+Q.What is <link>
+The <link> tag is used to link external resources to your HTML document.
+
+Q.What are external resources
+External resources mean:
+Files that are outside your HTML file but are used by it — like:
+CSS files for styling (.css)
+Fonts, icons, or other assets
+
+Q.why we can not include javascript using link tagIn HTML?
+we use the <link> tag to include external resources like stylesheets, but not JavaScript,
+because the <link> tag is designed for resources that are non-blocking 
+and do not execute code, whereas JavaScript needs to be executed in the page's context.
+
+What does rel="stylesheet" mean?
+The rel attribute specifies the relationship between the HTML document and the linked resource
+(in this case, the index.css file).
+✅ rel="stylesheet"
+This tells the browser:
+“The file you're linking to is a CSS stylesheet.”

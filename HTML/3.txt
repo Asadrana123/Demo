@@ -1,0 +1,62 @@
+Q.What is the <meta> Tag?
+The <meta> tag is an HTML element used to provide metadata about the webpage.
+Metadata is information about the data, which is not displayed on the page but helps browsers, 
+search engines, and other tools understand your site better.
+
+We write different meta tag for different purposes.
+If you try to write everything in one <meta> tag, like this:
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+The browser will only recognize one purpose, usually the first attribute (charset).
+
+What is charset="UTF-8"?
+The charset attribute in the <meta> tag defines the character encoding used to interpret the text on your 
+web page. UTF-8 stands for "Unicode Transformation Format - 8 bits", and it is the most widely used character 
+encoding on the web today and also It doesn’t need name and content, because it's not sending name–value data.
+
+Q.<meta name="viewport" content="width=device-width, initial-scale=1.0">
+name:-The name attribute is used to label the kind of metadata you're giving like description, keywords and 
+
+Q.viewport
+The viewport meta tag is used to control how your webpage scales and fits on different devices, 
+especially mobile devices.
+Purpose: It helps make your page responsive, ensuring it displays properly on various 
+screen sizes (mobile, tablet, desktop).
+
+Q.What is content="width=device-width, initial-scale=1.0"?
+This is telling the browser how to control the layout on different screen sizes.
+🔹 width=device-width
+Sets the page width to match the device's screen width.
+So, the layout fits properly on any device (mobile, tablet, etc.).
+🔹 initial-scale=1.0
+Sets the initial zoom level of the page when it first loads.
+1.0 means no zoom (100% scale).
+
+
+Q. description meta tag
+Gives a short summary of your web page. Search engines like Google may show this in search results.
+Helps improve click-through rate in search results.
+Gives users a quick idea of your page’s content.
+<meta name="description" content="Best blog for fitness and travel tips.">
+
+Q. keywords meta tag
+Used to list keywords related to your page content (for SEO).
+<meta name="keywords" content="fitness, travel, health, lifestyle">
+Search engines (like Google) noticed people were misusing this tag to cheat the system.
+So now, most search engines ignore the keywords meta tag because:
+It became unreliable.
+They now focus on the actual content of the page, not the keywords tag.
+
+Q.Commonly Used <meta> Tags:
+<meta name="author" content="Your Name">
+Says who wrote the page.
+<meta http-equiv="refresh" content="30">
+Refreshes the page every 30 seconds.
+Can also redirect (e.g., content="5; URL=anotherpage.html").
+<meta name="robots" content="index, follow">
+Tells search engines whether to index the page and follow links.
+Values: index/noindex, follow/nofollow.
+<meta name="theme-color" content="#4285f4">
+Sets browser toolbar color on mobile.
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+Makes sure the page works in the latest version of Internet Explorer.
+

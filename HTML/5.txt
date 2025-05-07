@@ -1,0 +1,26 @@
+Script tag
+Q.Where can we place the <script> tag?
+You can place it in two main locations:
+✅ 1. Inside the <head> tag:
+<head>
+  <script src="script.js"></script>
+</head>
+⚠️ Not recommended unless necessary.
+❌ Blocks the page from rendering until the script is loaded.
+✅ 2. Before the closing </body> tag (recommended):
+<body>
+  <!-- content here -->
+  <script src="script.js"></script>
+</body>
+✅ The page loads first, then the script runs.
+✅ Better for performance.
+
+Q.What happens with async?
+The browser starts parsing the HTML.
+When it sees <script src="... async">, it:
+Starts downloading the script in parallel (while continuing to parse HTML).
+As soon as the script is downloaded, it pauses HTML parsing.
+Then, it executes the script immediately.
+After execution, it resumes parsing HTML.
+Download happens in parallel with HTML.
+⚠️ Execution happens immediately after download, which can interrupt HTML parsing.

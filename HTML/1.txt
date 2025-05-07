@@ -1,0 +1,30 @@
+Q. What is <!DOCTYPE html>?
+<!DOCTYPE html> is a Document Type Declaration (DOCTYPE) that tells the browser 
+that the document is an HTML5 document. It must be the first line in an HTML file.
+
+DOCTYPE
+It stands for Document Type Declaration.
+
+It tells the browser:
+👉 “Hey! This is an HTML document — render it in standards mode (not quirks mode).”
+
+✅ html
+This part says:
+👉 “The type of document is HTML5 (the latest HTML version).”
+
+Why do we need to tell the browser to use standards mode?
+Because browsers have to support billions of old web pages that were created before modern HTML standards 
+existed — and many of those old pages contain non-standard or broken code. otherwise it will render in quirk mode.
+
+ What is meant by “quirks” in this context?
+"Quirks" refer to the non-standard, inconsistent, or buggy behaviors of early web browsers.
+
+Quirks Mode is when a browser runs your website using old rules to support outdated websites.
+
+
+Q.Is <!DOCTYPE> an HTML tag?
+<!DOCTYPE> is not an HTML tag — it's a declaration that tells the browser what type of HTML to expect and 
+how to render it (standards mode vs quirks mode).
+
+Q.Is <!DOCTYPE> case-sensitive?
+No

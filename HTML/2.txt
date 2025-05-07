@@ -1,0 +1,20 @@
+Q. what is <html></html>
+The <html> tag is the root element of an HTML document. It contains all the other elements of the page, 
+such as the head and body sections.
+
+Q.What is lang="en" under the <html lang="en"> tag?
+The lang="en" attribute specifies the language of the content in the HTML document.
+In this case, "en" stands for English.
+it is important for:-
+1. screen readers will know the language of the content
+2. also important for SEO purposes
+
+Q.what is head in html
+The <head> tag in HTML is used to contain meta-information about the document, 
+such as the title, links to 
+stylesheets, and other settings that don't appear directly on the page content.
+
+Q.what is title
+Purpose: Sets the title of the HTML document.
+Where it's shown: Appears in the browser tab, bookmarks, and search engine results.
+Where to place it: Inside the <head> tag (only one <title> allowed per document).

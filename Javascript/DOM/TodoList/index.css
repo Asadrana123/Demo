@@ -1,0 +1,34 @@
+.todo-list-container,.list-style {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    gap: 10px;
+}
+.list-style{
+    align-items: center;
+}
+.todo-list-container input,
+.todo-list-container button {
+    padding: 10px;
+    border-radius: 5px;
+}
+#taskList button {
+    padding: 10px;
+    border-radius: 5px;
+}
+#taskList li{
+    margin-top: 10px;
+}
+#taskList span{
+    min-width: 100px;
+}
+.line-through {
+    text-decoration: line-through;
+}
+.list-style input{
+    padding: 10px;
+    border-radius: 5px;
+}
+.hidden {
+    display: none;
+}
