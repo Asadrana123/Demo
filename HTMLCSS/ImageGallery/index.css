@@ -1,0 +1,18 @@
+nav{
+    display: flex;
+    justify-content: center;
+}
+.grid-container{
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(4,200px);
+    grid-template-rows: repeat(4,200px);
+    /* gap: 20px; */
+    width: 860px;
+    justify-content: space-between;
+}
+.grid-container img{
+    width: 95%;
+    height: 95%;
+    cursor: pointer;
+}

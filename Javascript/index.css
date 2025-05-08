@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 300px;
+    background: lightgray;
+    gap: 10px;
+    align-content: center;
+    align-items: center;
+}
+
+.item {
+    background: coral;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+}

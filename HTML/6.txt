@@ -1,0 +1,59 @@
+Sementic tag:-
+<header>: Header section of the page.
+<footer>: Footer section of the page.
+
+<main>: Primary content.
+<main> — What It Is:
+Represents the main content of the page.
+There should be only one <main> per page.
+Excludes headers, footers, nav, sidebars.
+<main>
+  <section>
+    <h2>About Us</h2>
+    <p>We are a tech company...</p>
+  </section>
+  <section>
+    <h2>Services</h2>
+    <p>Web design, SEO, marketing...</p>
+  </section>
+</main>
+
+<article>: Self-contained content (like blog posts).
+Content that makes sense on its own, even outside the page.
+
+<section>: Section of related content.
+Used to group related content into a logical section.
+Think of it as a chapter or part of a document.
+
+<nav>: Navigation links.
+<aside>: Sidebar or supplementary content.
+<figure>: Images, charts, or diagrams.
+<mark>: Highlighted text.
+<time>: Date/time representation.
+
+
+<details>: Collapsible content section.
+<summary>: Summary heading for <details>.
+<details>
+  <summary>Click to see more details</summary>
+  <p>This is some hidden content that can be revealed by clicking the summary above.</p>
+  <p>Additional details appear when the section is expanded.</p>
+</details>
+The <details> element is visible (because it contains the <summary>).
+The <summary> is always shown — it's the clickable part.
+The <p> (or any content inside <details>, except <summary>) is hidden by default.
+When the user clicks the <summary>, the hidden content becomes visible.
+
+
+1. Improved Accessibility
+Screen readers rely on semantic tags (like <nav>, <header>, <main>, <article>, etc.) to understand your page structure.
+
+Without them, visually impaired users might hear just "div, div, div..." — which is useless for navigation.
+
+2. Better SEO (Search Engine Optimization)
+Search engines like Google use semantic HTML to understand your page content better.
+
+Using <article> tells search engines “this is a block of content,” <nav> means “this is navigation,” etc., which helps improve indexing and ranking.
+
+3. Code Readability & Maintainability
+When other developers (or future you!) look at your code, it's easier to understand:
