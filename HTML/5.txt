@@ -24,3 +24,15 @@ Then, it executes the script immediately.
 After execution, it resumes parsing HTML.
 Download happens in parallel with HTML.
 ⚠️ Execution happens immediately after download, which can interrupt HTML parsing.
+
+Q.defer–Deferred Execution
+<script src="script.js" defer></script>
+Downloads the script in parallel with HTML parsing (like async).
+Waits to execute the script until the entire HTML is fully parsed.
+Scripts with defer are executed in the order they appear in the HTML.
+
+
+async means:
+→ “Download asynchronously, and execute asynchronously (immediately when done, without waiting for HTML).”
+defer means:
+→ “Download asynchronously, but defer execution until the entire HTML is parsed.”
