@@ -1,5 +1,11 @@
 Sementic tag:-
+Tags in HTML that clearly describe their meaning or purpose in the context of web content. 
+These tags make the structure of the web page understandable both to browsers (for correct rendering) 
+and developers (for readability and SEO).
+
 <header>: Header section of the page.
+it’s common and semantically correct to place <nav> inside <header> because the navigation is typically
+ part of the site's introductory or branding section.
 <footer>: Footer section of the page.
 
 <main>: Primary content.
