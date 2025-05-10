@@ -1,3 +1,28 @@
 Difference between align-items and align-content
 both align-items and align-content  
 have same work but one work with one new line and other one work with multiple lines
+
+
+Flexbox:-
+flex-shrink:-flex-shrink controls how much a flex item shrinks when there’s not enough space in the container.
+flex-grow:- It tells about how will item grow if we change the size of the container.
+flex-basis:-flex-basis sets the initial/main size of a flex item before any shrinking (flex-shrink) or growing
+(flex-grow) happens.
+
+flex:- flex-grow value flex-shrink value flex-basis value
+
+.item {
+  flex-basis: 200px;
+  width: 100px;
+}
+In a flex container:
+The item’s base size = 200px (from flex-basis, not width).
+width: 100px is ignored in this context.
+
+align-self:-
+You have multiple items in a flex container.
+You want one specific item to align differently vertically (in a row layout) or horizontally (in a column layout).
+
+.item {
+  align-self: flex-start | flex-end | center | baseline | stretch;
+}

@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .container {
     display: flex;
     justify-content: center;
@@ -6,12 +9,21 @@
     background: lightgray;
     gap: 10px;
     align-content: center;
-    align-items: center;
+    align-items: stretch;
 }
 
 .item {
     background: coral;
     padding: 20px;
-    width: 100px;
-    height: 100px;
 }
+.item-1{
+    /* flex-grow: 1; */
+    flex-basis: 200px;
+}
+/* .item-2{
+    flex-grow: 1;
+}
+.item-3{
+    flex-grow: 1;
+} */
+
