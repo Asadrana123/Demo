@@ -11,5 +11,8 @@ Clear, semantic HTML can help search engines interpret the structure of your sit
 <nav> + <ul> + <li> gives more meaningful context than a series of random <div> elements.
 
 
-It improves code readability and maintainability for teams and future developers.
+Why <h1> is Recommended for SEO:
+The <h1> tag typically represents the main heading or topic of a page.
+Search engines like Google use it as a signal to understand what the page is about.
+It helps with content hierarchy and improves crawlability and user experience.
 

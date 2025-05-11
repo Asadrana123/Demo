@@ -18,23 +18,28 @@
         <nav>
             <ul id="large-screen-list">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <ul id="small-screen-list">
-                <li><i id="cross-icon" class="fa-solid fa-x"></i></li>
+                <li id="cross-icon-container"><i id="cross-icon" class="fa-solid fa-x"></i></li>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <div id="icon-container"><img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"/> <i id="bar-icon" class="fa-solid fa-bars"></i></div>
+            <div id="icon-container"><img alt="user-image"
+                    src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" />
+                <i id="bar-icon" class="fa-solid fa-bars"></i>
+            </div>
         </nav>
     </header>
     <main>
         <section id="about">
-            <h3>Hi My self Asad Rana</h3>
+            <h1>Hi My self Asad Rana</h1>
             <p>
                 I am a passionate front-end developer with a love for creating beautiful, responsive, and user-friendly
                 websites. With a strong foundation in web technologies like HTML, CSS, JavaScript, and React, I aim to
@@ -49,13 +54,14 @@
             </p>
         </section>
         <section id="projects">
-            <h3>My Projects</h3>
+            <h2>My Projects</h2>
             <div class="projects-card-container">
                 <div class="project-card">
-                    <img
-                        src="https://images.unsplash.com/photo-1733506903133-9d65b66d299a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D" />
+                    <img alt="project-image"
+                        src="https://images.unsplash.com/photo-1733506903133-9d65b66d299a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D"
+                        loading="lazy" />
                     <div class="project-details">
-                        <h4>Project Name</h4>
+                        <h3>Project Name</h3>
                         <p>A fully responsive e-commerce website designed to showcase products in various categories.
                             This project uses modern web technologies like HTML5, CSS3, and JavaScript to create an
                             engaging and seamless shopping experience. It features an interactive shopping cart, a user
@@ -64,10 +70,11 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img
-                        src="https://images.unsplash.com/photo-1733506903133-9d65b66d299a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D" />
+                    <img alt="project-image"
+                        src="https://images.unsplash.com/photo-1733506903133-9d65b66d299a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D"
+                        loading="lazy" />
                     <div class="project-details">
-                        <h4>Project Name</h4>
+                        <h3>Project Name</h3>
                         <p>
                             A fully responsive e-commerce website designed to showcase products in various categories.
                             This project uses modern web technologies like HTML5, CSS3, and JavaScript to create an
@@ -77,10 +84,11 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img
-                        src="https://images.unsplash.com/photo-1733506903133-9d65b66d299a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D" />
+                    <img alt="project-image"
+                        src="https://images.unsplash.com/photo-1733506903133-9d65b66d299a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D"
+                        loading="lazy" />
                     <div class="project-details">
-                        <h4>Project Name</h4>
+                        <h3>Project Name</h3>
                         <p>
                             A fully responsive e-commerce website designed to showcase products in various categories.
                             This project uses modern web technologies like HTML5, CSS3, and JavaScript to create an
@@ -92,7 +100,7 @@
             </div>
         </section>
         <section id="skills">
-            <h3>My skills</h3>
+            <h2>My skills</h2>
             <div class="skills-container">
                 <div>
                     HTML
@@ -106,7 +114,7 @@
             </div>
         </section>
         <section id="contact">
-            <h3>Connect with me</h3>
+            <h2>Connect with me</h2>
             <div class="contact-container">
                 <div>
                     <a href="#">Email</a>

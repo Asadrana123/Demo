@@ -1,0 +1,2 @@
+Benefit of box-sizing: border-box:
+It makes layout predictable — padding and border are included inside the element's total width and height.

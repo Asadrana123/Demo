@@ -26,3 +26,9 @@ You want one specific item to align differently vertically (in a row layout) or 
 .item {
   align-self: flex-start | flex-end | center | baseline | stretch;
 }
+
+padding short combo:-
+1.<all-sides>
+2.<vertical> <horizontal>
+3.<top> <horizontal> <bottom>
+4.<top> <right> <bottom> <left>
