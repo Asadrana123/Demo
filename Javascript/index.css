@@ -1,29 +1,4 @@
-*{
-    box-sizing: border-box;
+.item{
+    width: 30px;
+    border: 1px solid red;
 }
-.container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    height: 300px;
-    background: lightgray;
-    gap: 10px;
-    align-content: center;
-    align-items: stretch;
-}
-
-.item {
-    background: coral;
-    padding: 20px;
-}
-.item-1{
-    /* flex-grow: 1; */
-    flex-basis: 200px;
-}
-/* .item-2{
-    flex-grow: 1;
-}
-.item-3{
-    flex-grow: 1;
-} */
-
