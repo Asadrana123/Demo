@@ -1,0 +1,20 @@
+DIFFERENCE BETWEEN position: absolute AND position: fixed
+
+| Feature                 | position: absolute                          | position: fixed                             |
+|------------------------|---------------------------------------------|---------------------------------------------|
+| Reference Point        | Nearest positioned ancestor (relative/abs)  | Viewport (browser window)                   |
+| Scroll Behavior        | Moves with scroll                           | Stays fixed during scroll                   |
+| Depends on Parent?     | ✅ Yes (if parent is positioned)             | ❌ No (ignores all parent positions)         |
+| Use Cases              | Tooltips, overlays inside containers        | Headers, menus, back-to-top buttons         |
+| Responsive to Viewport | ❌ No                                        | ✅ Yes                                       |
+| Used for Sticky UIs?   | ❌ Rarely                                    | ✅ Commonly                                  |
+| Parent Clipping Risk   | ✅ Yes (can be hidden if parent has overflow)| ❌ No (not affected by parent overflow)      |
+
+KEY SUMMARY:
+- `absolute`: positioned **relative to a parent**, scrolls with page.
+- `fixed`: positioned **relative to the viewport**, **does not scroll**.
+
+EXAMPLE DIFFERENCE:
+→ absolute inside a scrollable div will move with content.
+→ fixed stays pinned in place on screen even when scrolling.
+

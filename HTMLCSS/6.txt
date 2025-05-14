@@ -1,0 +1,50 @@
+CSS POSITION: FIXED (In-Depth Guide)
+
+/* BASIC DEFINITION */
+position: fixed;
+→ Removes the element from the normal document flow.
+→ Positions the element relative to the **viewport** (browser window), not any parent.
+→ It stays fixed in place even when the page is scrolled.
+
+/* KEY CHARACTERISTICS */
+1. Element is completely taken out of the flow.
+2. Uses offset properties: top, right, bottom, left.
+3. Remains visible at the same position on screen, regardless of scrolling.
+
+/* OFFSET PROPERTIES */
+top: 0;       → Pin element to top edge of the screen
+left: 0;      → Pin to the left side
+right: 0;     → Pin to the right side
+bottom: 0;    → Pin to the bottom
+
+/* DOES NOT RESPOND TO PARENT POSITION */
+Unlike absolute, fixed does NOT care about parent positioning.
+→ It is always relative to the viewport.
+
+/* COMMON USE CASES */
+- Sticky headers
+- Back to top buttons
+- Fixed navigation bars
+- Floating chat or help buttons
+
+/* EXAMPLE */
+<div style="position: fixed; top: 0; left: 0; width: 100%; background: black; color: white;">
+  This header stays at the top of the page even when you scroll
+</div>
+
+/* FIXED IS POWERFUL BUT TRICKY */
+- Often used with z-index to stay above other content
+- Be careful: fixed elements can overlap or hide content if not styled carefully
+
+------------------------
+SUMMARY:
+
+| Property             | position: fixed                    |
+|----------------------|------------------------------------|
+| Removed from flow?   | ✅ Yes                             |
+| Uses offsets?        | ✅ Yes                             |
+| Space reserved?      | ❌ No                              |
+| Reference point?     | 📌 Viewport (NOT parent)           |
+| Stays on scroll?     | ✅ Yes                             |
+| Main use?            | Sticky UI elements                 |
+| Z-index works?       | ✅ Yes                             |

@@ -1,0 +1,53 @@
+CSS POSITION: RELATIVE (In-Depth Guide)
+
+/* BASIC DEFINITION */
+position: relative;
+→ Positions the element **relative to its normal position** in the document flow.
+→ The element still **takes up its original space**.
+→ You can then use offset properties: top, right, bottom, left.
+
+/* KEY POINTS */
+1. The element stays in the document flow (does NOT get removed like absolute).
+2. It can be moved visually using offset values (top, left, etc.).
+3. Other elements behave as if the element is still in its original position.
+
+/* OFFSET PROPERTIES */
+top: 10px;     → Moves element 10px DOWN from where it would normally be.
+left: 20px;    → Moves element 20px RIGHT from its normal position.
+right, bottom  → Same logic, but from opposite directions.
+
+/* COMMON USE CASES */
+- Nudging an element slightly without removing it from flow.
+- Creating a reference point for absolutely positioned children.
+
+Example:
+<div style="position: relative; top: 20px; left: 10px;">
+  I have been shifted from my original spot!
+</div>
+
+/* RELATIVE + ABSOLUTE COMBO */
+If a parent is `position: relative` and child is `position: absolute`, then:
+→ The absolutely positioned child is placed relative to the parent.
+
+Example:
+<div style="position: relative;">
+  Parent
+  <div style="position: absolute; top: 0; right: 0;">
+    Child positioned in top-right corner of parent
+  </div>
+</div>
+
+/* DOESN'T AFFECT LAYOUT AROUND IT */
+Even if a relatively positioned element moves, other elements behave as if it hasn’t.
+
+------------------------
+SUMMARY:
+
+| Property             | position: relative                |
+|----------------------|-----------------------------------|
+| Removed from flow?   | ❌ No                             |
+| Uses offsets?        | ✅ Yes                            |
+| Space still reserved?| ✅ Yes                            |
+| Use with abs. child? | ✅ Common                         |
+| Main use?            | Slight shifts + abs. positioning |
+

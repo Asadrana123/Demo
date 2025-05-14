@@ -1,13 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./index.css">
-</head>
-<body>
-    <div class="item ">Box</div>
-    <div class="item ">Box</div>
-</body>
-</html>
+<style>
+  .box {
+    width: 100px;
+    height: 100px;
+  }
+
+  .red {
+    background: red;
+  }
+
+  .green {
+    background: green;
+    position: relative;
+    top: 20px;
+    left: 30px;
+  }
+
+  .blue {
+    background: blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+</style>
+
+<div class="red box">
+  <div class="green box">
+    <div class="blue box"></div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+CSS POSITION: ABSOLUTE (In-Depth Guide)
+
+/* BASIC DEFINITION */
+position: absolute;
+→ Removes the element completely from the normal document flow.
+→ The element no longer affects or is affected by other elements.
+→ You must use offsets (top, right, bottom, left) to position it.
+
+/* HOW IT WORKS */
+1. The element is positioned relative to its **nearest positioned ancestor**.
+   → That means the closest parent with:
+     position: relative / absolute / fixed / sticky.
+
+2. If no such ancestor exists, it's positioned relative to the entire <html> (viewport).
+
+/* OFFSET PROPERTIES (used with position: absolute) */
+top: 20px;      → 20px from the top of the positioned ancestor
+left: 30px;     → 30px from the left of the positioned ancestor
+right: 0;       → Flush against the right edge
+bottom: 0;      → Flush against the bottom edge
+
+/* IMPORTANT: REMOVED FROM FLOW */
+- Other elements behave as if the absolutely positioned element doesn’t exist.
+- It will not push or be pushed by siblings.
+
+/* COMMON USE CASES */
+- Popups, tooltips, dropdowns
+- Stacking elements (z-index works)
+- Positioning elements inside a relatively positioned container
+
+/* EXAMPLE */
+<div style="position: relative;">
+  Parent Box
+  <div style="position: absolute; top: 0; right: 0;">
+    This child is pinned to the top-right corner
+  </div>
+</div>
+
+/* RELATION TO PARENT */
+- If parent has position: relative → child uses it as reference
+- If parent has no position → child uses the page (viewport) as reference
+
+------------------------
+SUMMARY:
+
+| Property             | position: absolute                 |
+|----------------------|------------------------------------|
+| Removed from flow?   | ✅ Yes                             |
+| Uses offsets?        | ✅ Yes                             |
+| Space reserved?      | ❌ No                              |
+| Depends on parent?   | ✅ If parent is positioned         |
+| Main use?            | Exact placement inside containers  |
+| Z-index works?       | ✅ Yes                             |

@@ -1,0 +1,41 @@
+🎯 CSS ALIGNMENT PROPERTIES – COMPLETE COMPARISON TABLE
+
+🔹 Properties Compared:
+- justify-content
+- justify-items
+- justify-self
+- align-content
+- align-items
+- align-self
+
+| Property         | Type        | Applies To   | Works In      | Axis        | Affects            | Values                                                               |
+|------------------|-------------|--------------|---------------|-------------|---------------------|----------------------------------------------------------------------|
+| justify-content   | Container   | Container    | Grid & Flex   | Main Axis   | All items as a group| start, center, end, space-between, space-around, space-evenly       |
+| justify-items     | Container   | Container    | Grid only     | Main Axis   | Each item in cell   | start, center, end, stretch                                          |
+| justify-self      | Item        | Grid Items   | Grid only     | Main Axis   | Single item         | start, center, end, stretch                                          |
+| align-content     | Container   | Container    | Grid & Flex   | Cross Axis  | All rows/columns    | start, center, end, space-between, space-around, space-evenly, stretch |
+| align-items       | Container   | Container    | Grid & Flex   | Cross Axis  | Each item in track  | start, center, end, stretch                                          |
+| align-self        | Item        | Any item     | Grid & Flex   | Cross Axis  | Single item         | start, center, end, stretch                                          |
+
+------------------------------------------------------------
+📌 QUICK NOTES:
+
+✅ Container-level properties:
+   - `justify-content`, `justify-items`, `align-content`, `align-items`
+   - Used on **parent/container**
+
+✅ Item-level properties:
+   - `justify-self`, `align-self`
+   - Used on **individual items**
+
+✅ Axis:
+   - **Main Axis**: horizontal in `flex-direction: row`
+   - **Cross Axis**: vertical in `flex-direction: row`
+
+✅ Grid-Only:
+   - `justify-items` and `justify-self` don't work in Flexbox
+
+✅ Shorthands to remember:
+   - `place-items: align-items + justify-items`
+   - `place-self: align-self + justify-self`
+   - `place-content: align-content + justify-content`

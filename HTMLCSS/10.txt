@@ -1,0 +1,16 @@
+Grid:-
+.grid-container{
+    display: grid;
+    background-color: blueviolet;
+    padding: 10px;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    grid-template-columns: 100px 100px;
+    grid-template-rows: 100px;
+} 
+
+But that only defines the size of the first row and columns — it doesn’t limit the grid to just 1 row.
+If you place more than 2 items, new rows will be created automatically to accommodate them — even though 
+only the first row’s height is explicitly defined (100px), the next rows will auto-size (usually to auto).
+
+If you do not give a fixed height (like height: 100vh; or height: 500px;) to the container, then 1fr means nothing 
