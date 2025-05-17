@@ -1,0 +1,59 @@
+🎯 CSS cubic-bezier() – COMPLETE CHEATSHEET
+
+───────────────────────────────────────────────────────
+📌 WHAT IS `cubic-bezier()`?
+
+- `cubic-bezier()` is a CSS timing function used in transitions and animations to control the **speed curve**.
+- It gives you **fine-tuned control** over how an animation progresses over time.
+- Instead of relying on pre-defined timing functions (`ease`, `linear`, etc.), you define your own custom easing.
+
+───────────────────────────────────────────────────────
+🧠 HOW IT WORKS
+
+- `cubic-bezier(x1, y1, x2, y2)` takes 4 numbers.
+- It defines a Bézier curve with:
+  - Start point: (0, 0)
+  - Control point 1: (x1, y1)
+  - Control point 2: (x2, y2)
+  - End point: (1, 1)
+
+- The x-axis = time (0% → 100%)
+- The y-axis = progress of animation (0 → 1)
+
+Point	Purpose	Range
+x1	When (time) the animation speed changes near the start	0 to 1
+y1	How much progress the animation has made at time x1	Any number
+x2	When (time) the animation speed changes near the end	0 to 1
+y2	How much progress the animation has made at time x2	Any number
+
+───────────────────────────────────────────────────────
+🧪 DEFAULT TIMING FUNCTION EQUIVALENTS
+
+| Keyword        | Equivalent cubic-bezier()            |
+|----------------|--------------------------------------|
+| linear         | cubic-bezier(0.0, 0.0, 1.0, 1.0)     |
+| ease           | cubic-bezier(0.25, 0.1, 0.25, 1.0)   |
+| ease-in        | cubic-bezier(0.42, 0.0, 1.0, 1.0)    |
+| ease-out       | cubic-bezier(0.0, 0.0, 0.58, 1.0)    |
+| ease-in-out    | cubic-bezier(0.42, 0.0, 0.58, 1.0)   |
+
+───────────────────────────────────────────────────────
+🔧 SYNTAX EXAMPLES
+
+```css
+/* With transition */
+.box {
+  transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+/* With animation */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100px); }
+}
+
+.box {
+  animation: slide 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+

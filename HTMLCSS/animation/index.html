@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background-color: beige;
+            box-sizing: border-box;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: blue;
+            animation-name: slide;
+            animation-duration: 2s;
+            animation-timing-function: steps(5,start);
+            animation-delay: 0;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes slide {
+            from {
+                transform: translateX(0%);
+                background-color: red;
+            }
+
+            to {
+                transform: translateX(200%);
+                background-color: black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+
+        </div>
+    </div>
+</body>
+
+</html>
