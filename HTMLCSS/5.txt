@@ -51,3 +51,7 @@ SUMMARY:
 | Depends on parent?   | ✅ If parent is positioned         |
 | Main use?            | Exact placement inside containers  |
 | Z-index works?       | ✅ Yes                             |
+
+
+*****Padding is part of the containing block for absolute positioning — 
+it affects where top: 0; left: 0; places the element, even though the element is out of the normal flow.
