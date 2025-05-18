@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .bob-container {
+        width: 100%;
+        height: 100vh;
+        background-color: blanchedalmond;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bob {
+        width: 200px;
+        height: 200px;
+        /* border-radius: 30px; */
+        background-color: aqua;
+        background: linear-gradient(135deg, #00f2fe, #4facfe);
+        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+        animation-name: morphing;
+        animation-duration: 10s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+/* top-left top-right bottom-right bottom-left */
+    @keyframes morphing {
+        0% {
+            border-radius: 42% 58% 28% 72%;
+        }
+
+        25% {
+            border-radius: 60% 40% 30% 70%;
+        }
+
+        50% {
+            border-radius: 70% 30% 60% 40%;
+            transform: rotate(20deg);
+        }
+
+        75% {
+            border-radius: 50% 50% 30% 70%;
+            transform: rotate(-20deg);
+        }
+
+        100% {
+            border-radius: 42% 58% 28% 72%;
+            transform: rotate(0deg);
+        }
+
+    }
+</style>
+
+<body>
+    <div class="bob-container">
+        <div class="bob">
+
+        </div>
+    </div>
+</body>
+
+</html>

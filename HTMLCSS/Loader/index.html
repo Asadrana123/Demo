@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spinning Dots Loader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        .loader {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+
+        .dot {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 0;
+            left: 0;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation-name: spin;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .dot1 {
+            animation-delay: .6s;
+        }
+
+        .dot2 {
+            animation-delay: .4s;
+        }
+
+        .dot3 {
+            animation-delay: .2s;
+        }
+
+        .dot4 {
+            animation-delay: 0s;
+        }
+
+        .inner-dot {
+            width: 15px;
+            height: 15px;
+            background-color: blue;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader">
+        <div class="dot dot1">
+            <div class="inner-dot"></div>
+        </div>
+        <div class="dot dot2">
+            <div class="inner-dot"></div>
+        </div>
+        <div class="dot dot3">
+            <div class="inner-dot"></div>
+        </div>
+        <div class="dot dot4">
+            <div class="inner-dot"></div>
+        </div>
+    </div>
+</body>
+
+</html>
