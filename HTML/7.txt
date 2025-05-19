@@ -1,9 +1,11 @@
 Why Developers Use <ul> and <li> for Navbars:
 
-A navigation menu is a list of links — so using <ul> communicates the intent clearly to browsers, screen readers, and other tools.
+A navigation menu is a list of links — so using <ul> communicates the intent clearly to browsers, 
+screen readers, and other tools.
 
 2. Accessibility (♿ Better Support for Screen Readers)
-Assistive technologies (like screen readers) understand <ul>/<li> structures and announce them as lists, which helps users understand the structure of the page.
+Assistive technologies (like screen readers) understand <ul>/<li> structures and announce them as lists,
+which helps users understand the structure of the page.
 
 3. SEO Benefits (🔍 Better for Search Engines)
 Clear, semantic HTML can help search engines interpret the structure of your site more effectively.

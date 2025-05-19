@@ -5,7 +5,8 @@
 
 - `cubic-bezier()` is a CSS timing function used in transitions and animations to control the **speed curve**.
 - It gives you **fine-tuned control** over how an animation progresses over time.
-- Instead of relying on pre-defined timing functions (`ease`, `linear`, etc.), you define your own custom easing.
+- Instead of relying on pre-defined timing functions (`ease`, `linear`, etc.), you define your own custom
+ easing.
 
 ───────────────────────────────────────────────────────
 🧠 HOW IT WORKS

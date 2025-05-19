@@ -38,6 +38,10 @@ grid-auto-flow:
 → Values: row (default) | column | dense
 → Example: grid-auto-flow: column dense;
 
+Goal of dense
+dense tells the browser:
+"If there's empty space and a smaller item could fit there — go back and fill the gap with it."
+
 ----------------------------------------------------------
 🎯 PLACING ITEMS ON THE GRID (CHILD ELEMENTS)
 ----------------------------------------------------------

@@ -13,4 +13,9 @@ But that only defines the size of the first row and columns — it doesn’t lim
 If you place more than 2 items, new rows will be created automatically to accommodate them — even though 
 only the first row’s height is explicitly defined (100px), the next rows will auto-size (usually to auto).
 
-If you do not give a fixed height (like height: 100vh; or height: 500px;) to the container, then 1fr means nothing 
+If you do not give a fixed height (like height: 100vh; or height: 500px;) to the container, then 1fr 
+means nothing 
+
+Grid-template-areas:-
+"grid-template-areas lets you define named areas on a CSS grid, making layout easier to 
+read and manage."

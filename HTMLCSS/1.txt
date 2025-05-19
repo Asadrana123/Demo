@@ -1,8 +1,7 @@
 
 Difference between align-items and align-content
-both align-items and align-content  
-have same work but one work with one new line and other one work with multiple lines
-
+align-items aligns items within a line.
+align-content aligns the lines themselves. 
 
 Flexbox:-
 flex-shrink:-flex-shrink controls how much a flex item shrinks when there’s not enough space in the container.

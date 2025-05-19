@@ -14,7 +14,8 @@ This part says:
 
 Why do we need to tell the browser to use standards mode?
 Because browsers have to support billions of old web pages that were created before modern HTML standards 
-existed — and many of those old pages contain non-standard or broken code. otherwise it will render in quirk mode.
+existed — and many of those old pages contain non-standard or broken code. otherwise it will render in 
+quirk mode.
 
  What is meant by “quirks” in this context?
 "Quirks" refer to the non-standard, inconsistent, or buggy behaviors of early web browsers.
@@ -28,3 +29,35 @@ how to render it (standards mode vs quirks mode).
 
 Q.Is <!DOCTYPE> case-sensitive?
 No
+
+
+/* HTML TAG */
+- A tag is just the markup keyword used to define HTML content.
+- Always wrapped in angle brackets < >.
+- Can be an opening tag (<p>), closing tag (</p>), or self-closing tag (<img />).
+- Tags alone don’t carry any content.
+
+Example:
+<p>       → Opening tag
+</p>      → Closing tag
+<img />   → Self-closing tag
+
+/* HTML ELEMENT */
+- An element is the complete structure including:
+  → Opening tag + content (optional) + closing tag
+- Represents actual HTML content on the page.
+- Can include attributes and nested elements.
+
+Example:
+<p>Hello World</p>   → This is a full element
+<img src="logo.png" alt="Logo" />   → Self-closing element
+
+/* SUMMARY */
+
+| Property           | HTML Tag                   | HTML Element                            |
+|--------------------|----------------------------|------------------------------------------|
+| Meaning            | Keyword inside angle brackets | Full structure: tag + content + tag |
+| Content            | ❌ No                      | ✅ Yes                                   |
+| Includes Attributes| ❌ No                      | ✅ Yes                                   |
+| Self-contained     | ❌ No                      | ✅ Yes                                   |
+| Example            | `<h1>`, `</div>`, `<img />` | `<h1>Hello</h1>`, `<img src="" />`      |
