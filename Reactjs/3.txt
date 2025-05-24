@@ -1,0 +1,16 @@
+What is crossorigin?
+
+When your website loads something (like a script) from another domain (like unpkg.com),
+it’s called a cross-origin request.
+Normally, browsers block access to some info (like errors) for security.
+The crossorigin attribute tells the browser how to handle that request.
+
+
+Why use crossorigin?
+Without it:
+If the script fails to load, you won’t see useful error messages in your browser console.
+The browser treats it like an “anonymous” request and gives you limited info.
+With crossorigin:
+
+The browser says: “Hey, I want to load this from another site, but also get error info 
+if something goes wrong.”

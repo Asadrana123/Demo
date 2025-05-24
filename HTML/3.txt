@@ -30,6 +30,20 @@ So, the layout fits properly on any device (mobile, tablet, etc.).
 🔹 initial-scale=1.0
 Sets the initial zoom level of the page when it first loads.
 1.0 means no zoom (100% scale).
+but this functiolity not works for desktop view because, it does not need to be zoom in
+
+How your website server know how render content mobile view or desktop view:-
+
+Chrome knows its OS (like Android, iOS, Windows, etc.) because it's installed inside that OS.
+When you open a website, Chrome automatically sends an HTTP request to the server.
+This request includes a User-Agent string in the headers.
+That User-Agent contains info about:
+The browser
+The operating system
+The device type (mobile, desktop, etc.)
+👉 This helps websites decide how to render content — mobile view or desktop view.
+
+
 
 
 Q. description meta tag

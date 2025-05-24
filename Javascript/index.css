@@ -1,4 +1,37 @@
-.item{
-    width: 30px;
-    border: 1px solid red;
-}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .circle-container {
+    width: 530px;
+    padding: 10px;
+    height: auto;
+    border: 1px solid black;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+
+  .red-background {
+    background-color: red;
+  }
+
+  .green-background {
+    background-color: green;
+  }
+
+  #reset-button {
+    width: 150px;
+    height: 100px;
+    margin: 0 auto;
+  }
