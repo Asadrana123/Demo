@@ -1,0 +1,40 @@
+👀 Who looks into `node_modules`?
+
+✅ Node.js:
+- When you run backend or server-side JavaScript using Node.js and use `require()` or `import`, Node.js looks into `node_modules` to find the module.
+
+✅ Webpack (or other bundlers like Vite, Parcel):
+- When bundling frontend JavaScript, Webpack also looks into `node_modules` to include those packages in your final bundle.
+
+🎯 Summary:
+- ✅ Node.js looks into `node_modules` during **runtime** for backend code.
+- ✅ Webpack looks into `node_modules` during **build time** for frontend bundling.
+
+Both use `node_modules` but at different stages and for different purposes.
+
+❓ Is code bundled only in production?
+
+❌ No — code is **also bundled in development**, but differently.
+
+✅ Explanation:
+
+🛠 In **development**:
+- Tools like Webpack, Vite, or Parcel still **bundle** your code.
+- The bundling is **faster**, **less optimized**, and includes things like:
+  - Source maps
+  - Hot Module Replacement (HMR)
+  - No minification
+  - Easier debugging
+
+🚀 In **production**:
+- The bundling is **heavily optimized**:
+  - Code splitting
+  - Tree shaking
+  - Minification
+  - Compression
+  - Removing dev-only code
+
+📌 Summary:
+- Development mode → **Fast bundling for dev experience**
+- Production mode → **Optimized bundling for performance**
+
