@@ -1,0 +1,51 @@
+✅ Difference between `npx` and `npm`:
+
+📦 `npm` (Node Package Manager):
+- Used to **install**, **uninstall**, and **manage** packages.
+- Example: `npm install create-react-app`
+  → Installs `create-react-app` **into your project**.
+
+🚀 `npx` (Node Package Execute):
+- Used to **run a package directly** without installing it globally.
+- Example: `npx create-react-app my-app`
+  → Runs `create-react-app` **without permanently installing** it.
+
+🧠 Summary:
+- `npm` → installs packages.
+- `npx` → executes packages temporarily (great for one-time use CLI tools).
+
+💡 Tip:
+- Use `npx` to avoid cluttering your system with globally installed tools.
+
+
+
+✅ Where does `npx` add the package if not in `node_modules`?
+
+📦 `npx` downloads the package to a **temporary cache folder**, NOT `node_modules`.
+
+🗂 On most systems, it's stored in:
+- Linux/macOS: `~/.npm/_npx/`
+- Windows: `%USERPROFILE%\AppData\Local\npm-cache\_npx\`
+
+🧹 After running the command:
+- It deletes the temporary files (unless cached)
+- So it won’t stay in your project folder
+
+💡 That’s why you don’t see it in `node_modules` — it’s only used temporarily!
+
+✅ What does "unless cached" mean in `npx`?
+
+🧠 When you run a command with `npx`, it may **temporarily download the package**.
+
+💾 If the same version of that package is already **stored (cached)** on your system from before, then `npx` will **reuse** it instead of downloading again.
+
+📍 That cache is usually located at:
+- macOS/Linux: `~/.npm/_npx/`
+- Windows: `%USERPROFILE%\AppData\Local\npm-cache\_npx\`
+
+🧹 After execution:
+- The actual package code used by `npx` is removed from the temp folder.
+- But the **npm cache** might still keep it for later use, saving download time.
+
+💡 So "unless cached" means:
+> If the package was already downloaded and stored earlier, it can be reused.

@@ -1,5 +1,6 @@
 ✅ What is a Plugin (General Definition)
-A plugin is a tool or piece of software that adds extra features or functionality to an existing program, without changing its core code.
+A plugin is a tool or piece of software that adds extra features or functionality to an existing program, 
+without changing its core code.
 
 🧠 Example: Like a Chrome extension — adds power without touching the browser itself.
 

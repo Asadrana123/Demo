@@ -1,3 +1,36 @@
+Library:-
+A library is a collection of pre-written code (functions, classes, utilities) 
+that helps you perform common tasks — like working with arrays, making API requests, 
+or building a UI — without writing that code yourself.
+
+
+Package:-
+A package is a bundle that contains:
+The actual code (like a library),
+And also some extra information (metadata) about that code:
+
+Name
+Version
+Author
+What other packages it needs
+Entry point (main file)
+License, etc.
+
+You're installing the lodash package — which contains:
+✅ The Lodash library code
+✅ A package.json file (with version, name, etc.)
+✅ Maybe docs, type definitions, or tests
+
+
+Dependency:-
+Dependencies are listed in package.json file and that are the list of packages which our projects need to run.
+
+
+
+
+
+
+
 What is a bundler in React?
 A bundler is a tool that takes all your project files (JavaScript, CSS, images, etc.) and combines 
 them into a few optimized files (called bundles) for the browser.
@@ -23,3 +56,109 @@ parcel
 
 
 webpack give us more control over how things will work
+
+🔧 Core Tasks Performed by Parcel/Bundlers
+📦 1. Module Bundling
+Combines many JavaScript modules/files into fewer files (often just one for production).
+
+Resolves import/require dependencies.
+
+🔍 2. Dependency Resolution
+Resolves file imports (JS, CSS, images, etc.).
+
+Handles third-party libraries from node_modules.
+
+📄 3. Asset Handling
+Supports assets like:
+
+Images (JPG, PNG, SVG, etc.)
+
+Fonts (WOFF, TTF)
+
+Media (MP4, MP3)
+
+Inlines small assets or copies large ones to the build folder.
+
+📚 4. Transpilation
+Uses tools like Babel to convert modern JavaScript (ES6+, JSX) into backward-compatible JavaScript.
+
+Enables use of features like:
+
+JSX (for React)
+
+Optional chaining
+
+Arrow functions
+
+🧵 5. CSS/SCSS Handling
+Processes and bundles CSS or SCSS files.
+
+Supports:
+
+PostCSS
+
+CSS Modules
+
+Autoprefixing for cross-browser compatibility
+
+🎨 6. HTML Processing
+Parses HTML files, rewrites asset paths (e.g., images or scripts).
+
+Supports dynamic insertion of scripts/styles into index.html.
+
+🔁 7. Hot Module Replacement (HMR)
+Replaces updated modules in the browser without a full reload.
+
+Speeds up development workflow.
+
+⚡ 8. Development Server
+Starts a local HTTP server.
+
+Watches for file changes and reloads automatically.
+
+🧹 9. Tree Shaking
+Removes unused code during the build to reduce bundle size.
+
+🧽 10. Minification
+Minifies JavaScript, CSS, and HTML to reduce file size.
+
+Removes whitespace, comments, and shortens variable names.
+
+✂️ 11. Code Splitting
+Splits code into multiple chunks for faster load times.
+
+Enables lazy loading (e.g., only load a page component when needed).
+
+🔐 12. Environment Variable Injection
+Injects .env variables into your app.
+
+Differentiates between dev and prod builds.
+
+📁 13. Output Management
+Writes compiled files into a dist/ or build/ directory.
+
+Supports cache-busting with hashed filenames.
+
+✅ 14. Source Map Generation
+Generates source maps to help debug minified code.
+
+🧪 15. Plugin System
+Allows custom behavior via plugins (e.g., TypeScript, GraphQL, Pug, etc.).
+
+🌐 16. Browser Compatibility Handling
+Adds polyfills for older browsers (if configured).
+
+Ensures your app works across different environments.
+
+🛠️ Parcel-Specific Features
+Parcel also does some of these automatically without needing configuration:
+
+Automatic plugin detection (e.g., if you install sass, it just works).
+
+Built-in support for many file types (e.g., JSON, WebAssembly, WASM).
+
+Blazing-fast caching and parallel builds.
+
+Zero-config TypeScript support.
+
+Smart default settings.
