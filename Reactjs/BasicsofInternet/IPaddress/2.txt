@@ -1,0 +1,28 @@
+What is a Private IP Address?
+A Private IP address is an IP assigned to devices within a local network like:
+
+Your home Wi-Fi
+Office LAN
+School computer lab
+These IPs are not accessible from the internet directly.
+
+Main Uses of Private IP Addresses
+Identify devices within a local network
+
+Example: Your phone, laptop, and printer all get different private IPs from your router.
+
+Enable local communication between devices
+
+For file sharing, printing, LAN gaming, etc.
+
+Access the internet through NAT (via your router)
+
+Devices use the router’s public IP to connect to the internet.
+
+Control smart home devices locally
+
+Like smart TVs, Alexa, Wi-Fi bulbs, and CCTV cameras.
+
+Support local development and testing
+
+Web developers use private IPs to test apps on local servers.

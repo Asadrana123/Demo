@@ -1,0 +1,35 @@
+ How Data Travels Between Two Devices Over the Internet
+🧾 Your Understanding (Rephrased & Confirmed):
+Step-by-Step:
+🧑‍💻 Your Device (with Private IP)
+For example:
+Laptop (192.168.1.10) wants to visit www.google.com.
+
+🌐 Your Router (with Public IP)
+Your router has a public IP like 103.22.54.90 assigned by your ISP.
+
+🔁 NAT (Network Address Translation)
+Your router replaces the private IP in the outgoing packet with its public IP so it can go onto the internet.
+
+🚀 Internet Routing
+Routers on the internet use the public IP to deliver the request across many hops to the destination server/router.
+
+🧭 At the Destination Side
+The destination router (e.g., Google’s server) receives the request on its public IP, processes it,
+ and prepares the response.
+
+🔙 Back to Your Router
+The response travels back to your router using your public IP.
+
+🎯 Router Maps it Back to You
+Using NAT, your router knows:
+
+nginx
+Copy
+Edit
+Response for 103.22.54.90 → send it to 192.168.1.10 (your laptop)
+and delivers the message to your private IP device.
+
+🧠 Summary Sentence:
+The message travels over the internet using public IPs, and inside each local network, the router 
+delivers it to the correct device using private IPs.

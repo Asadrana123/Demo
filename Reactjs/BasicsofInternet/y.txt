@@ -1,0 +1,139 @@
+You are in India (on your laptop), and you visit a website hosted in USA:
+📍 Your Laptop (India) → 🌍 google.com Server (USA)
+
+🗺️ High-Level Path Overview:
+arduino
+Copy
+Edit
+Laptop → Home Router → ISP → Undersea Cables → US ISP → Google Data Center → Google Server
+Now let’s go layer by layer and hop by hop, including MAC, IP, DNS, NAT, and more.
+
+🔁 FULL DETAILED STEP-BY-STEP BREAKDOWN
+🔹 Step 0: You type www.google.com in browser
+💡 At this point, your computer doesn’t even know Google’s IP yet.
+
+🟨 Step 1: DNS Resolution (Find IP Address of Google)
+Your computer sends a DNS query to your local DNS resolver (usually your ISP’s server).
+
+That resolver may ask global DNS servers to find google.com's IP.
+
+Eventually, it gets a response like:
+www.google.com → 142.250.195.132
+
+Now your PC knows where to send the HTTP request.
+
+✅ DNS uses IP & MAC locally for communication.
+
+🟨 Step 2: Building the HTTP Request
+App Layer: Creates a request → GET / HTTP/1.1
+
+Transport Layer (TCP): Adds port numbers
+
+Network Layer (IP): Adds your source IP (192.168.1.2), destination IP (142.250.195.132)
+
+Data Link Layer: Adds your MAC, and the router’s MAC as destination
+
+✅ Now the full frame is ready to be sent.
+
+🟨 Step 3: Your Laptop → Home Router
+Layer	Address Used
+IP	Source: 192.168.1.2, Dest: 142.250.195.132
+MAC	Source: Laptop MAC, Dest: Router MAC
+
+Your laptop sends the frame.
+
+Router receives it.
+
+Router reads the IP and says: "This is for outside the local network."
+
+🟨 Step 4: NAT at the Router
+Since you're using a Private IP, router:
+
+Uses NAT (Network Address Translation)
+
+Replaces source IP 192.168.1.2 with its Public IP (e.g., 49.37.88.7)
+
+Keeps track of the session in a NAT table
+
+🟨 Step 5: Router → ISP Network
+Now the frame is sent to the next hop, the ISP gateway
+
+New MAC addresses are used:
+
+Source MAC = router
+
+Destination MAC = ISP gateway
+
+✅ IP address remains same (public), MAC address changes
+
+🟨 Step 6: ISP → Backbone → Undersea Cable → US ISP
+Your data travels across multiple routers using IP routing
+
+At each router:
+
+IP stays the same (Public source & destination)
+
+MAC changes every hop (frame is rebuilt at each router)
+
+✅ This is how the data crosses cities, countries, oceans 🌍
+Some of these routers are in:
+
+Local ISP
+
+Regional ISP
+
+Internet Backbone
+
+US ISP (e.g., Comcast, Verizon)
+
+🟨 Step 7: Reaches Google’s Data Center (USA)
+Final packet reaches Google’s edge router
+
+It forwards the packet to the internal network
+
+Google’s internal router checks: “Ah, this IP belongs to my server rack!”
+
+🟨 Step 8: Google Router → Google Server (LAN)
+Google’s router looks up the MAC of the destination server using ARP
+
+Frame is sent to the correct server (e.g., MAC = 22:33:44:55:66:77)
+
+✅ IP is still 142.250.195.132, but now we’re using local MAC again.
+
+🟨 Step 9: Google Server Responds
+Server replies with HTTP response
+
+Source IP: 142.250.195.132
+
+Destination IP: 49.37.88.7 (your router’s public IP)
+
+TCP ports included to match the session
+
+The journey back begins 🔁
+Each hop again:
+
+IP remains constant
+
+MAC keeps changing hop by hop
+
+When your router receives it, NAT maps the response back to your PC (192.168.1.2).
+
+🔄 Summary Table: Journey Stages
+Step	From	To	IP Address Used	MAC Address Used
+1	Laptop	Router	✅	✅
+2	Router	ISP Gateway	✅	✅ (changes)
+3	Routers Across Internet	Next router	✅	✅ (changes every hop)
+4	US Router	Google Server	✅	✅
+5	Google Server	Your Router	✅	✅
+6	Your Router	Your Laptop	✅	✅
+
+✅ Final Conclusion
+✔️ Every message passes through multiple layers of network
+✔️ At each hop:
+
+IP address remains constant (for routing)
+
+MAC address changes (for local delivery)
+✔️ NAT converts private IP to public IP
+✔️ DNS helps resolve domain names to IPs
+✔️ Switches and NICs need MAC, Routers need IP

@@ -1,0 +1,69 @@
+📘 OSI Model – Layer 1: Physical Layer
+
+The **Physical Layer** is the **lowest level (Layer 1)** of the OSI model.  
+It deals with the **physical connection** between devices and **transmits raw bits** (0s and 1s) over communication channels.
+
+──────────────────────────────────────────
+✅ Responsibilities:
+──────────────────────────────────────────
+
+1. 🧲 Bit Transmission  
+   - Sends raw bits (0s and 1s) via electrical/light/radio signals.
+
+2. 🔌 Physical Medium Definition  
+   - Defines cables, connectors, ports (e.g., RJ45, fiber, coaxial).
+
+3. 🎚️ Data Rate  
+   - Specifies transmission speed (e.g., 100 Mbps, 1 Gbps).
+
+4. 🎛️ Signal Encoding  
+   - Defines how 0s and 1s are represented (e.g., voltages, pulses).
+
+5. ⌛ Synchronization  
+   - Syncs sender and receiver to read bits correctly.
+
+6. ❌ No Data Meaning  
+   - Doesn’t understand or modify data — just transmits bits.
+
+──────────────────────────────────────────
+🛠️ Devices That Work at Physical Layer:
+──────────────────────────────────────────
+
+- Cables (Twisted Pair, Coaxial, Fiber)
+- Hubs
+- Repeaters
+- NICs (physical part)
+- Modems
+
+──────────────────────────────────────────
+🧪 Examples of Physical Layer Technologies:
+──────────────────────────────────────────
+
+- Ethernet (cable & connectors)
+- Wi-Fi (radio signals)
+- Bluetooth
+- USB
+- DSL / Fiber optics
+
+──────────────────────────────────────────
+📦 Data Unit: Bits
+──────────────────────────────────────────
+
+- Transmits raw binary data
+- No headers or structure
+
+──────────────────────────────────────────
+🧠 Real-Life Analogy:
+──────────────────────────────────────────
+
+The **postal vehicle** that physically carries your mail.
+It doesn't care what’s inside the envelope, just delivers it.
+
+──────────────────────────────────────────
+🧪 Common Interview Questions:
+──────────────────────────────────────────
+
+- What happens in the Physical Layer?
+- Examples of guided vs unguided media?
+- Differences between hub, switch, and router?
+- How is data encoded on physical media?

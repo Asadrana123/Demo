@@ -1,0 +1,94 @@
+📘 OSI Model – Layer 3: Network Layer
+
+The **Network Layer** is Layer 3 of the OSI model.  
+Its main job is to figure out **where data needs to go** and **how to get it there**, especially when traveling between different networks (like from India to a U.S. server).
+
+You can think of it like a **GPS + courier service** for your data.
+
+──────────────────────────────────────────
+✅ Main Responsibilities of the Network Layer:
+──────────────────────────────────────────
+
+1. 🌐 Logical Addressing (IP Addressing)
+   - Assigns each device a **unique IP address** so it can be identified on the network.
+   - IP address = digital address of the device.
+   - Uses IPv4 (e.g. 192.168.1.1) or IPv6 (e.g. 2001:db8::1).
+
+2. 🧭 Routing
+   - Determines the **best path** for the data to reach its destination, possibly across many networks.
+   - Uses routing tables and protocols to do this.
+   - Routers operate at this layer.
+
+3. 📦 Packet Forwarding
+   - Sends data from one network to another using **routers**.
+   - Each router checks the destination IP address and forwards the packet to the next hop.
+
+4. 🧱 Packet Fragmentation and Reassembly
+   - If a data packet is too large for a network, it is split into smaller fragments.
+   - Destination reassembles these into the original packet.
+
+5. 🚫 Error Handling (Basic)
+   - Uses protocols like **ICMP** to report errors like "host unreachable" or "time exceeded".
+
+──────────────────────────────────────────
+🛠️ Protocols Used in the Network Layer:
+──────────────────────────────────────────
+
+1. **IP (Internet Protocol)**
+   - Core protocol used for addressing and routing data packets.
+
+2. **ICMP (Internet Control Message Protocol)**
+   - Used for error messages and diagnostic tools like `ping`.
+
+3. **IGMP (Internet Group Management Protocol)**
+   - Used for managing multicast group memberships.
+
+4. **IPSec**
+   - Used for securing IP communications (encryption + authentication).
+
+──────────────────────────────────────────
+📌 Difference: MAC Address vs IP Address
+──────────────────────────────────────────
+
+| Feature         | MAC Address                  | IP Address               |
+|----------------|------------------------------|--------------------------|
+| Type            | Physical address (hardware) | Logical address (software) |
+| Set By          | Manufacturer                | Network/DHCP             |
+| Used In         | Local Network (LAN)         | Internet/WAN             |
+| Example         | A4:5E:60:1A:C3:BD            | 192.168.1.10             |
+
+──────────────────────────────────────────
+📦 Devices Used at Network Layer:
+──────────────────────────────────────────
+
+- **Router**: Forwards data between different networks using IP addresses.
+- **Layer 3 Switch**: Advanced switch with routing capabilities.
+
+──────────────────────────────────────────
+🧠 Real-Life Analogy:
+──────────────────────────────────────────
+
+Sending a letter internationally:
+- 🏠 Your home address → IP address
+- 📦 Letter → Data Packet
+- 🛣️ Route planning → Routing
+- 📮 Post Office stops → Routers
+- 📬 Receiver’s address → Destination IP
+
+──────────────────────────────────────────
+📍 Key Terms Summary:
+──────────────────────────────────────────
+
+| Term             | Meaning                                  |
+|------------------|------------------------------------------|
+| IP Address       | Unique identifier for a device on network|
+| Routing          | Selecting best path for data             |
+| Packet           | A unit of data sent across a network     |
+| Fragmentation    | Breaking packets into smaller pieces     |
+| ICMP             | Used for ping and error messages         |
+
+──────────────────────────────────────────
+🧪 Interview Summary:
+──────────────────────────────────────────
+
+> The **Network Layer** is responsible for **IP addressing**, **routing**, **packet forwarding**, and **error handling** across different networks. It ensures that data travels from the sender to the receiver across multiple networks using routers and IP addresses.

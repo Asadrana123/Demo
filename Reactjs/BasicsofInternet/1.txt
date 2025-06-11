@@ -1,0 +1,21 @@
+What is a Local Area Network (LAN)?
+A Local Area Network (LAN) is a group of computers and devices that are connected together 
+in one small area like a:
+home 🏠
+office 🏢
+school 🏫
+They can talk to each other directly, without needing the internet.
+
+in local area network
+
+There Are Two Ways Devices Connect:-
+1. Wired LAN (using Ethernet cables)
+Devices (like a PC, printer, smart TV) are connected with LAN cables (also called RJ45 or Ethernet cables).
+All cables are plugged into a central device:
+→ a router or a network switch.
+
+
+2. Wireless LAN (Wi-Fi)
+Devices connect without cables, using Wi-Fi signals.
+All devices talk to one central device: the Wi-Fi router.
+They still form a LAN even without wires!

@@ -1,0 +1,87 @@
+📘 OSI Model – Layer 4: Transport Layer
+
+The **Transport Layer** is Layer 4 of the OSI model.  
+Its main job is to ensure **reliable and orderly delivery of data** between devices over a network.
+
+You can think of it as the **postmaster** that breaks big messages into smaller parts, ensures they are delivered correctly, and reassembled properly.
+
+──────────────────────────────────────────
+✅ Main Responsibilities of the Transport Layer:
+──────────────────────────────────────────
+
+1. 📦 Segmentation and Reassembly
+   - Breaks large data into smaller segments.
+   - Adds sequence numbers so that data can be reassembled correctly.
+   - Helps handle large files efficiently.
+
+2. 📬 Reliable Delivery
+   - Ensures the data actually reaches the destination.
+   - Uses acknowledgments and retransmissions to confirm delivery (via TCP).
+
+3. ❌ Error Detection and Correction
+   - Adds checksums to detect corrupted data.
+   - If errors are found, it triggers retransmission.
+
+4. 🔢 Sequencing
+   - Ensures that packets arrive in the correct order.
+   - Prevents data from being jumbled.
+
+5. 🛡️ Flow Control
+   - Controls how much data is sent at a time.
+   - Prevents sender from overwhelming the receiver.
+
+6. 🚦 Congestion Control
+   - Detects and manages network congestion.
+   - Reduces sending speed if the network is overloaded.
+
+7. 🎯 Port Addressing
+   - Uses **port numbers** to deliver data to the correct application on a device.
+   - Example: Port 80 = HTTP, Port 443 = HTTPS
+
+──────────────────────────────────────────
+⚙️ Key Protocols in the Transport Layer:
+──────────────────────────────────────────
+
+1. 🔹 **TCP (Transmission Control Protocol)**
+   - Connection-oriented
+   - Reliable delivery (acknowledgments, retransmissions)
+   - Maintains order and ensures no duplication
+   - Slower, but accurate
+
+   📍 Used in: Web browsing (HTTP/HTTPS), email, file downloads
+
+2. 🔹 **UDP (User Datagram Protocol)**
+   - Connectionless
+   - No guarantee of delivery or order
+   - Lightweight and fast
+   - No error correction
+
+   📍 Used in: Video streaming, online gaming, VoIP (Zoom, WhatsApp calls)
+
+──────────────────────────────────────────
+📌 Real-Life Examples:
+──────────────────────────────────────────
+
+| Scenario                  | Transport Layer Role                      |
+|---------------------------|-------------------------------------------|
+| File download (HTTP)      | Ensures reliable and complete delivery    |
+| YouTube video playback    | Uses UDP for low latency streaming        |
+| Sending an email          | Uses TCP for guaranteed message delivery  |
+| Playing PUBG online       | Uses UDP for fast and responsive gameplay |
+
+──────────────────────────────────────────
+📍 Port Number Examples:
+──────────────────────────────────────────
+| Port | Use Case              |
+|------|------------------------|
+| 80   | HTTP                   |
+| 443  | HTTPS                  |
+| 25   | SMTP (Email sending)   |
+| 53   | DNS                    |
+| 3306 | MySQL                  |
+| 5000 | Custom APIs            |
+
+──────────────────────────────────────────
+🧠 Interview Summary:
+──────────────────────────────────────────
+> The Transport Layer ensures **reliable**, **ordered**, and **error-checked** delivery of data between devices. It uses **port numbers** to deliver data to the right app and manages **segmentation**, **flow control**, **error checking**, and **congestion control** using protocols like TCP and UDP.

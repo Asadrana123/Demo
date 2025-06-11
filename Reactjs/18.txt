@@ -49,3 +49,18 @@
 
 💡 So "unless cached" means:
 > If the package was already downloaded and stored earlier, it can be reused.
+
+
+
+You can use npx with any npm package — not just create-react-app — 
+if that package has a CLI (command-line interface) entry point (a runnable file).
+
+Example:
+Package: create-react-app
+Has a CLI command: create-react-app
+
+✅ So you can run: npx create-react-app my-app
+
+npx runs npm packages that expose CLI commands (via the bin field in package.json).
+You can tell a package includes a CLI by checking its documentation or seeing if it provides 
+terminal commands.

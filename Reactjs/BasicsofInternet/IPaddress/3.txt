@@ -1,0 +1,24 @@
+What is a Public IP Address?
+A Public IP address is an IP assigned to your network/router by your Internet Service Provider (ISP).
+It’s globally unique and visible on the internet.
+
+It allows your home or office network to communicate with websites, apps, servers, etc. on the internet.
+
+Typical Uses of Public IP
+Access websites, YouTube, apps, etc.
+→ Your device uses the public IP of the router to talk to the outside world.
+
+Host servers and websites
+→ If you want people to reach your service, your server needs a public IP.
+
+Remote access
+→ If you want to access your CCTV, PC, or IoT device from outside, you need a public IP or special 
+configuration (like port forwarding).
+
+Note: One Public IP = Many Devices Inside Network
+This is called NAT (Network Address Translation).
+That’s why:
+
+Your whole home can access the internet using 1 public IP
+
+Even if you have 10 devices inside your house

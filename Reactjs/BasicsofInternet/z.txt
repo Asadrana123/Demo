@@ -1,0 +1,127 @@
+# Step-by-Step: What Happens When You Type a URL in the Browser
+
+---
+
+## 🧑‍💻 PART 1: User Action (Visible)
+
+1. User opens a browser (e.g., Chrome, Firefox).
+2. User types a URL like `https://www.google.com` in the address bar.
+3. User presses Enter.
+4. Browser starts processing the URL.
+
+---
+
+## ⚙️ PART 2: URL Parsing (Behind the Scenes)
+
+5. Browser parses the URL:
+   - Protocol: `https`
+   - Hostname: `www.google.com`
+   - Path: `/` (default if no path is given)
+   - Port: `443` (default for HTTPS)
+
+6. Browser checks **cache**:
+   - DNS cache (for IP address)
+   - HTTP cache (for previously loaded resources)
+   - If not found, continue to DNS resolution.
+
+---
+
+## 🌐 PART 3: DNS Resolution (How Domain is Translated to IP)
+
+7. Browser asks the **OS** for the IP of `www.google.com`.
+8. OS checks local cache or `/etc/hosts` file.
+9. If not found, OS forwards the request to a **DNS Resolver** (usually from your ISP or a custom resolver like 8.8.8.8).
+
+10. The DNS Resolver performs:
+   - 🔎 Ask **Root Name Server** → "Who handles `.com` TLD?"
+   - 🔎 Ask **.com TLD Server** → "Who is the authoritative server for `google.com`?"
+   - 🔎 Ask **Google’s Authoritative Name Server** → "What is the IP of `www.google.com`?"
+
+11. DNS Resolver gets IP address like `142.250.182.36`.
+12. DNS Resolver caches this result.
+13. IP address is returned to the browser.
+
+---
+
+## 🔒 PART 4: TCP + TLS Handshake (Secure Connection Setup)
+
+14. Browser opens a **TCP connection** to the IP `142.250.182.36` on port `443`.
+15. TCP 3-Way Handshake happens:
+   - SYN → SYN-ACK → ACK
+
+16. Browser initiates **TLS Handshake** (since it's HTTPS):
+   - ClientHello (supported TLS version, ciphers)
+   - ServerHello (chosen TLS version, certificate)
+   - Server sends SSL certificate (verified by browser)
+   - Client and server exchange encryption keys
+   - Secure session is established (encrypted channel)
+
+---
+
+## 📨 PART 5: HTTP Request Sent
+
+17. Browser sends HTTP request:
+
+
+18. Server at Google receives the request.
+
+---
+
+## 🧠 PART 6: Server-Side Processing
+
+19. Server reads HTTP request.
+20. Server processes the request:
+- Validates headers
+- Routes request to appropriate handler
+- Fetches content (HTML, data, etc.) from backend
+- May talk to databases, caching layers, other microservices
+
+21. Server generates the HTTP response:
+- Status code: `200 OK`
+- Response headers (e.g., Content-Type: text/html)
+- HTML content body
+
+22. Server sends HTTP response back to browser over TLS + TCP.
+
+---
+
+## 📦 PART 7: Browser Receives and Processes Response
+
+23. Browser receives HTML response.
+24. Starts parsing HTML (rendering begins even before full page arrives).
+25. Parses DOM tree and looks for:
+- `<link>` for CSS
+- `<script>` for JS
+- `<img>` for images
+- `<iframe>` for embeds
+
+26. For each external resource (CSS/JS/images):
+- Browser repeats: DNS → TCP → TLS → HTTP GET
+
+27. Executes JavaScript.
+28. Applies CSS styles.
+29. Renders layout and paint.
+30. Starts downloading any async resources (e.g., fonts, videos).
+
+---
+
+## 🧪 PART 8: Optional Extra Actions
+
+31. Browser may:
+- Open multiple TCP connections (parallel fetching)
+- Use HTTP/2 multiplexing if supported
+- Show progress bar/spinner
+- Use browser prefetch or preconnect optimizations
+
+---
+
+## ✅ PART 9: Final Render
+
+32. Browser finishes rendering the page.
+33. User sees the full website on screen.
+34. JavaScript continues running (animations, user interaction, etc.).
+35. Tracking scripts, analytics, cookies may load in background.
+
+---
+
+# 🎉 DONE: Webpage Loaded!

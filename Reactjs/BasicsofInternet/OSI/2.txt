@@ -1,0 +1,60 @@
+📘 OSI Model – Layer 6: Presentation Layer
+
+The Presentation Layer is **Layer 6** of the OSI model.  
+It acts as a **translator** between the Application Layer (Layer 7) and the layers below it.  
+
+Its main job is to ensure that the **data sent from the sender** is **understood by the receiver**, regardless of differences in formats, languages, or encryption.
+
+──────────────────────────────────────────
+✅ Main Responsibilities of the Presentation Layer:
+──────────────────────────────────────────
+
+1. 🔤 Data Translation
+   - Converts data from application-specific formats into a common format for transmission (and vice versa).
+   - Example: Translates character encoding between ASCII, Unicode, or EBCDIC.
+
+2. 🔐 Data Encryption & Decryption
+   - Handles encryption before data is sent and decryption after it's received.
+   - Ensures privacy and security during transmission.
+   - Example protocols:
+     - SSL (Secure Sockets Layer)
+     - TLS (Transport Layer Security)
+
+3. 📦 Data Compression & Decompression
+   - Reduces the size of the data for faster and more efficient transmission.
+   - Example formats:
+     - ZIP, JPEG, MP3, MPEG
+
+4. 🧩 Data Formatting
+   - Ensures that data formats used by the application (like PDF, JPEG, HTML) are properly interpreted by the receiving system.
+   - Standardizes the structure of files and media.
+
+5. 📄 Syntax Negotiation
+   - Ensures both ends agree on how the data is formatted and interpreted.
+   - Example: Deciding which video/audio format to use in a video call.
+
+──────────────────────────────────────────
+🧠 Real-Life Examples:
+──────────────────────────────────────────
+
+| Scenario                      | What Presentation Layer Does                  |
+|------------------------------|-----------------------------------------------|
+| Accessing HTTPS site         | Initiates SSL/TLS for encryption              |
+| Downloading an image         | Translates and decompresses JPEG format       |
+| Sending a compressed file    | Compresses it into ZIP before transmission    |
+| Video conferencing           | Negotiates audio/video codecs (H.264, Opus)   |
+| Reading multilingual text    | Translates different character encodings      |
+
+──────────────────────────────────────────
+📌 Example Technologies & Formats:
+──────────────────────────────────────────
+- 🔐 Encryption: SSL, TLS
+- 🗜️ Compression: ZIP, GZIP
+- 🎨 Formats: JPEG, PNG, HTML, JSON, XML
+- 📑 Encoding: ASCII, Unicode
+
+──────────────────────────────────────────
+🧠 Interview Summary:
+──────────────────────────────────────────
+> The Presentation Layer (Layer 6) is responsible for **formatting, encrypting, decrypting, compressing, and translating** data so the sender and receiver can understand each other — even if they use different formats. It acts as a universal “translator” for data between applications.
+

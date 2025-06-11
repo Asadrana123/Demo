@@ -162,3 +162,32 @@ Blazing-fast caching and parallel builds.
 Zero-config TypeScript support.
 
 Smart default settings.
+
+
+
+✅ List of what Parcel does:
+
+- Bundles JavaScript, CSS, HTML, images, and more
+- Supports zero config setup
+- Automatically installs missing dependencies
+- Hot Module Replacement (HMR)
+- Tree shaking
+- Code splitting
+- Minification
+- Source maps generation
+- Caching for faster builds
+- Transpiles modern JS (via Babel internally)
+- Supports TypeScript out of the box
+- Supports JSX and React
+- Handles static assets (images, fonts, etc.)
+- PostCSS support
+- Environment variable support
+- Automatic polyfilling
+- Parallel builds using workers
+- Built-in development server
+- Supports multiple targets (browser, node)
+- Generates production-ready optimized output
+- Plugin system for customization
+- Handles async imports
+- Resolves node_modules
+- Can output as ESModules or CommonJS

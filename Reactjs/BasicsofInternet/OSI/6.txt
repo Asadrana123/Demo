@@ -1,0 +1,93 @@
+📘 OSI Model – Layer 2: Data Link Layer
+
+The **Data Link Layer** is Layer 2 of the OSI model.  
+It’s responsible for **direct communication between devices on the
+ same local network (LAN)** using **MAC addresses**.  
+Think of it as the **postal system inside one office building** — delivering 
+data only within the same building (LAN).
+
+──────────────────────────────────────────
+✅ Main Responsibilities of the Data Link Layer:
+──────────────────────────────────────────
+
+1. 🪪 MAC Addressing (Physical Addressing)
+   - Adds MAC addresses to identify source and destination devices within the same LAN.
+   - MAC = Media Access Control address (unique hardware address).
+   - Format: A4:5E:60:1A:C3:BD
+
+2. 📦 Framing
+   - Breaks raw bits into structured **frames** (data + header + trailer).
+   - Header contains MAC addresses; trailer contains error-checking info.
+
+3. ❌ Error Detection (Not Correction)
+   - Uses FCS (Frame Check Sequence) to detect if data was corrupted.
+   - Corrupted frames are discarded; no auto-correction here.
+
+4. ⛔ Access Control & Flow Control
+   - Manages how multiple devices share the same medium (e.g. Wi-Fi or Ethernet).
+   - Prevents data collisions and ensures fair communication.
+
+5. 📍 Reliable Delivery Within LAN
+   - Ensures data reaches the correct device within the same local network using MAC.
+
+──────────────────────────────────────────
+🛠️ Protocols Used in the Data Link Layer:
+──────────────────────────────────────────
+
+1. **Ethernet (IEEE 802.3)** – Wired LAN protocol
+2. **Wi-Fi (IEEE 802.11)** – Wireless LAN protocol
+3. **PPP (Point-to-Point Protocol)** – Direct node-to-node connections
+4. **HDLC** – Used in WAN connections
+5. **ARP** (Address Resolution Protocol) – Resolves IP ↔ MAC addresses (works between Layer 2 & 3)
+
+──────────────────────────────────────────
+🔌 Devices Operating at Layer 2:
+──────────────────────────────────────────
+
+| Device   | Function                                        |
+|----------|-------------------------------------------------|
+| Switch   | Uses MAC to forward data within LAN             |
+| Bridge   | Connects two LANs and filters traffic by MAC    |
+| NIC      | Network card that sends/receives using MAC      |
+
+──────────────────────────────────────────
+🧠 Real-Life Analogy:
+──────────────────────────────────────────
+
+- You = a device
+- Your name tag = MAC address
+- Sealed envelope = frame
+- Office assistant = switch
+- Everyone in the office = devices in the LAN
+
+The assistant checks the name on the envelope (MAC) and delivers it only within the office (LAN).
+
+──────────────────────────────────────────
+🔁 MAC Address vs IP Address:
+──────────────────────────────────────────
+
+| Feature         | MAC Address (Layer 2)     | IP Address (Layer 3)     |
+|----------------|----------------------------|---------------------------|
+| Type            | Physical address           | Logical address           |
+| Assigned By     | Device manufacturer        | Network/router            |
+| Used For        | LAN communication          | Internet/WAN communication|
+| Example         | A4:5E:60:1A:C3:BD           | 192.168.1.1               |
+
+──────────────────────────────────────────
+📦 Data Unit of Layer 2:
+──────────────────────────────────────────
+
+**Frame** – Structured unit containing:
+- Destination MAC
+- Source MAC
+- Payload (actual data)
+- Trailer (FCS for error checking)
+
+──────────────────────────────────────────
+🧪 Interview Summary:
+──────────────────────────────────────────
+
+> The **Data Link Layer** ensures **device-to-device communication** within a **local network**, 
+using **MAC addresses**. 
+It breaks data into **frames**, adds addressing and error-checking, and helps manage shared access 
+to the medium via Ethernet or Wi-Fi. Devices like **switches** and **NICs** work at this layer.
