@@ -1,0 +1,44 @@
+What is NAT?
+NAT = Network Address Translation
+It is a technique used by your router to allow multiple devices to share one public IP address.
+
+ Now if all 3 devices want to use the internet:
+They send requests to the router
+
+Router uses NAT to:
+Replace their private IPs with its public IP
+Keep a record of who asked what
+When the responses come back:
+The router checks its NAT table
+Sends the reply to the correct private IP device
+
+
+ Now: You open google.com from your laptop
+Step 1: Laptop sends a request:
+From: 192.168.0.2:54321
+
+To: 142.250.195.132:80 (Google's server)
+
+Step 2: Router receives this request and does NAT
+It changes the source IP to public IP:
+49.37.88.7:10001 (assigns a unique port)
+
+Stores in NAT table:
+
+Private IP:Port	Public IP:Port
+192.168.0.2:54321	49.37.88.7:10001
+
+✅ This tells the router:
+
+“If a reply comes to 49.37.88.7:10001, send it to 192.168.0.2:54321 (Laptop)”
+
+Step 3: Google server replies
+Sends data to: 49.37.88.7:10001
+
+Step 4: Router checks NAT table
+It finds: 10001 → 192.168.0.2
+
+So it sends the reply to your laptop
+
+
+

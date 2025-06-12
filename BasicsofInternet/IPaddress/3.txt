@@ -22,3 +22,4 @@ That’s why:
 Your whole home can access the internet using 1 public IP
 
 Even if you have 10 devices inside your house
+
