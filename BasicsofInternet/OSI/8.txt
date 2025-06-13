@@ -1,0 +1,15 @@
+Here are the 7 layers of the OSI model in order (from top to bottom):
+
+Application Layer
+
+Presentation Layer
+
+Session Layer
+
+Transport Layer
+
+Network Layer
+
+Data Link Layer
+
+Physical Layer

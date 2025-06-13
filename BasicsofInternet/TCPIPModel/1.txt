@@ -1,0 +1,17 @@
+What is the TCP/IP Model?
+The TCP/IP Model (also called Internet Protocol Suite) is a simpler, practical model that 
+the Internet is built upon.
+
+It was developed by the U.S. Department of Defense in the 1970s, even before OSI.
+
+It’s called TCP/IP because the two main protocols in it were:
+
+TCP (Transmission Control Protocol)
+
+IP (Internet Protocol)
+
+TCP/IP Layer	OSI Equivalent
+Application	    Application + Presentation + Session
+Transport	    Transport (TCP/UDP)
+Internet	    Network (IP)
+Link	        Data Link + Physical

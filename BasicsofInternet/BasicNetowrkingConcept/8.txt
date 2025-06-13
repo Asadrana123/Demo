@@ -1,0 +1,122 @@
+TCP Segment Structure
+0                   1                   2                   3  
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1  
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Source Port          |       Destination Port        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                        Sequence Number                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Acknowledgment Number                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| Data |Rese-|     |U|A|P|R|S|F|                               |
+|Offset|rved |Flags|R|C|S|S|Y|I|      Window Size               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|         Checksum              |     Urgent Pointer            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|               Options (if any) + Padding                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Payload (Data)                          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+1. Source Port (16 bits)
+The port number of the sender.
+
+E.g., 49512 (random ephemeral port).
+
+🔹 2. Destination Port (16 bits)
+The port number of the receiver.
+
+E.g., 80 for HTTP, 443 for HTTPS.
+
+🔹 3. Sequence Number (32 bits)
+The sequence number of the first byte in this segment.
+
+Helps receiver order data correctly.
+
+If SYN is set, this is the Initial Sequence Number (ISN).
+
+🔹 4. Acknowledgment Number (32 bits)
+Only valid if the ACK flag is set.
+
+Tells the sender: “I’ve received everything up to this byte number minus one.”
+
+🔹 5. Data Offset (4 bits) (also called Header Length)
+Tells where the data begins.
+
+Since TCP header can vary in length (due to options), this is needed.
+
+Value is in 32-bit words (4-byte units). So 5 = 20 bytes.
+
+🔹 6. Reserved (3 bits)
+Reserved for future use.
+
+Always set to 0.
+
+🔹 7. Flags / Control Bits (9 bits)
+Bit	Flag	Purpose
+0	URG	Urgent pointer is valid
+1	ACK	Acknowledgment number is valid
+2	PSH	Push function — deliver to app immediately
+3	RST	Reset the connection
+4	SYN	Synchronize — start of connection
+5	FIN	Finish — end the connection
+6–8	ECN	Explicit Congestion Notification (optional)
+
+In practice, most data packets have ACK set to 1.
+
+🔹 8. Window Size (16 bits)
+How much data the receiver can accept.
+
+Used for flow control.
+
+E.g., a value of 1024 means “I can receive 1024 more bytes.”
+
+🔹 9. Checksum (16 bits)
+Used for error detection.
+
+Covers TCP header + data + a pseudo-header from IP.
+
+Ensures data is not corrupted in transit.
+
+🔹 10. Urgent Pointer (16 bits)
+Only valid if URG = 1.
+
+Points to the byte after the urgent data.
+
+Rarely used in modern applications.
+
+🔹 11. Options (variable length)
+Extra information like:
+
+Maximum Segment Size (MSS)
+
+Window Scaling
+
+Timestamps
+
+Selective Acknowledgments (SACK)
+
+Not always present.
+
+Fills the space between 20 bytes and the data start.
+
+🔹 12. Padding (0–3 bytes)
+TCP options must end at a multiple of 4 bytes.
+
+Padding is added to ensure proper alignment.
+
+🔹 13. Payload (Data)
+This is the actual application data.
+
+Can be 0 bytes (e.g., SYN-only packet) or up to 1460+ bytes (in normal MTU).
+
+🔍 Example: Typical TCP Packet
+Imagine a web request:
+
+Port: 54321 → 80
+
+Sequence: 1
+
+ACK: 1
+
+Data: "GET / HTTP/1.1"

@@ -1,0 +1,70 @@
+Domain Name System (DNS) — Explained for Front-End Developers & CS Students
+✅ What is DNS?
+DNS stands for Domain Name System.
+It’s like the phonebook of the internet.
+It translates human-readable domain names like www.google.com into IP addresses like 142.250.64.100.
+
+✅ Why Do We Need DNS?
+Computers communicate using IP addresses (e.g., 192.168.1.1)
+
+Humans remember names, not numbers
+
+DNS bridges the gap by converting domain → IP
+
+✅ Real-Life Analogy
+Action	DNS Equivalent
+You search "Pizza Hut" on Maps	Google Maps finds its location
+You type facebook.com in browser	DNS finds its IP address
+
+✅ Example (What Happens When You Type a URL)
+You type www.facebook.com:
+
+Browser asks OS: “Do you know the IP of facebook.com?”
+
+OS checks local DNS cache
+
+If not found → sends request to DNS resolver (ISP)
+
+Resolver checks its own cache
+
+If still not found → asks Root DNS server
+
+Then goes to TLD server (.com, .net, etc.)
+
+Then goes to Authoritative DNS (holds actual IP)
+
+Finally, the IP is returned and browser makes request
+
+✅ DNS Lookup Flow
+
+Browser → OS → DNS Resolver (ISP)
+           ↓
+       Root Server
+           ↓
+      TLD Server (.com)
+           ↓
+Authoritative DNS Server
+           ↓
+        IP Address
+✅ Types of DNS Servers
+Server Type	Role
+DNS Resolver	First server (usually from your ISP)
+Root Server	Directs to the TLD servers
+TLD Server	Handles top-level domains like .com, .org, etc.
+Authoritative Server	Knows actual IP of requested domain
+
+
+✅ DNS Caching
+To improve speed, DNS responses are cached:
+
+Where It's Cached	Purpose
+Browser	Immediate access to past sites
+Operating System	Faster local lookup
+DNS Resolver (ISP)	Avoid asking root servers
+
+⏱ TTL (Time To Live) = How long to cache DNS entry
+
+✅ What Happens if DNS Fails?
+Typing google.com won’t work because IP is unknown
+
+You get a "DNS_PROBE_FINISHED_NXDOMAIN" error

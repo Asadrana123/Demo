@@ -1,0 +1,8 @@
+OSI didn’t try to replace TCP/IP — it was created to solve a different problem:
+Giving the world a clean, vendor-neutral, universal reference model to design, teach, 
+and troubleshoot any kind of network — not just the internet.
+
+Yes, TCP/IP works great, but OSI teaches you why it works and how to think in layers — 
+that’s the real value.
+
+TCP/IP  is optimized and primarily designed for internet-based communication.
