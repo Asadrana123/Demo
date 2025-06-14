@@ -1,7 +1,8 @@
 📘 OSI Model – Layer 3: Network Layer
 
 The **Network Layer** is Layer 3 of the OSI model.  
-Its main job is to figure out **where data needs to go** and **how to get it there**, especially when traveling between different networks (like from India to a U.S. server).
+Its main job is to figure out **where data needs to go** and **how to get it there**, 
+especially when traveling between different networks (like from India to a U.S. server).
 
 You can think of it like a **GPS + courier service** for your data.
 
@@ -91,4 +92,6 @@ Sending a letter internationally:
 🧪 Interview Summary:
 ──────────────────────────────────────────
 
-> The **Network Layer** is responsible for **IP addressing**, **routing**, **packet forwarding**, and **error handling** across different networks. It ensures that data travels from the sender to the receiver across multiple networks using routers and IP addresses.
+> The **Network Layer** is responsible for **IP addressing**, **routing**, **packet forwarding**, 
+and **error handling** across different networks. It ensures that data travels from the sender 
+to the receiver across multiple networks using routers and IP addresses.

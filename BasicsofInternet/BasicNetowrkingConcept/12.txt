@@ -1,0 +1,33 @@
+What is a Port (in Networking)?
+A port is like a door or entry gate on a computer where data enters or leaves.
+
+🔑 Think of your computer like a huge building 🏢
+Each app or service (like browser, email, VS Code, etc.) lives on a different floor
+The IP address gets the data to the building
+The Port helps deliver it to the correct room or app
+
+For your laptop:-
+When data is sent to your computer:
+It first reaches your IP address (your house)
+Then it looks at the port number
+Your operating system checks which program is listening on that port
+It gives the data to the correct app
+
+For server:-
+✅ DNS lookup is the process of converting a domain name (like www.example.com) into an 
+IP address — which tells us which server to contact.
+
+✅ The port number (like :80 for HTTP or :443 for HTTPS) tells the server 
+which service (or application) we want to communicate with — such as the web server.
+
+✅ The domain name is also included in the Host header of the HTTP request. 
+This tells the server which website we want to access — 
+especially important if multiple websites are hosted on the same server (same IP).
+
+
+🔹 By default, web servers use:
+   - Port 80 for HTTP
+   - Port 443 for HTTPS
+🔹 These are the "standard ports" that browsers use automatically.
+🔹 But developers can configure servers to listen on **custom ports** like 3000, 8080, 5000, etc.
+🔹 If a server uses a custom port, users must specify it in the URL (e.g., http://example.com:8080).
