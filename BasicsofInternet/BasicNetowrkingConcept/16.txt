@@ -1,0 +1,34 @@
+How Does HTTPS Work? (Step-by-step)
+You type: https://example.com
+
+Browser says: “Hey server, show me your SSL certificate!”
+
+Server replies: “Here’s my certificate (proof I’m real).”
+
+Browser verifies it (using trusted certificate authority list)
+
+Both browser and server agree on encryption keys
+
+✅ Secure encrypted communication begins!
+
+📜 What is an SSL/TLS Certificate?
+It’s like a website’s ID card, issued by a Certificate Authority (CA) like:
+
+Let’s Encrypt
+
+DigiCert
+
+GoDaddy
+
+Cloudflare
+
+It includes:
+
+The domain name
+
+The public key (for encryption)
+
+Expiration date
+
+CA’s digital signature
+

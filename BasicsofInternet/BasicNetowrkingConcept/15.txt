@@ -1,0 +1,13 @@
+What is HTTPS?
+HTTPS stands for HyperText Transfer Protocol Secure
+It’s the secure version of HTTP — all communication is encrypted between 
+your browser and the server.
+
+What Makes HTTPS Secure?
+HTTPS =
+HTTP + SSL/TLS (Secure Sockets Layer / Transport Layer Security)
+These are cryptographic protocols that:
+Encrypt your data (so no one else can read it)
+Authenticate the server (so you know it’s really Google, not a fake)
+Ensure data integrity (no one can change the data in transit)
+

@@ -1,0 +1,36 @@
+HTTP Protocol:-
+HTTP (HyperText Transfer Protocol) is an application-layer protocol used for communication 
+between two systems over a network. It defines how requests and responses are formatted and 
+exchanged, typically to transfer data like webpages, files, or APIs. While it’s widely used 
+for web browsing, it’s not limited to browsers or the internet —
+ HTTP can be used in any environment where two systems need to exchange structured information,
+as long as there's a TCP connection.
+HTTP stands for HyperText Transfer Protocol
+It’s the language your browser and web servers use to talk to each other.
+
+A universal set of rules (protocol) that both the sender (client) and receiver (server) follow 
+to communicate smoothly and efficiently over the web.
+
+Because HTTP doesn’t care what content it transfers —
+it's just a transport protocol.
+
+
+
+GET /index.html HTTP/1.1
+Host: www.example.com
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 1245
+
+<html> ... </html>
+
+
+Why Is HTTP Called “Stateless”?
+HTTP doesn’t remember anything.
+
+Every request is independent.
+
+If you visit a page 3 times, the server treats each as new, unless cookies or sessions are used.
+
+
