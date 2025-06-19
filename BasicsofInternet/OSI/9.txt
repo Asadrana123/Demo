@@ -1,0 +1,161 @@
+ Example: Submitting a form on one website that sends data to another website
+Imagine:
+You're on https://client-website.com. You fill a form (say, contact form), and it sends your data (name = Asad) to an API at https://api.target-website.com.
+
+Let’s now walk deeply, layer by layer, through what happens according to the OSI model:
+
+🔷 Layer 7 – Application Layer
+🔧 What happens:
+
+You type your name into an HTML form.
+
+You click “Submit”.
+
+Browser prepares an HTTP POST request to https://api.target-website.com.
+
+🧠 Tools / Protocols:
+
+HTTP or HTTPS
+
+Browser (Chrome/Firefox)
+
+Form data converted to JSON or URL-encoded data.
+
+📦 Request example:
+
+http
+Copy
+Edit
+POST /submit HTTP/1.1
+Host: api.target-website.com
+Content-Type: application/json
+
+{
+  "name": "Asad"
+}
+✅ Passed to Layer 6.
+
+🔷 Layer 6 – Presentation Layer
+🔧 What happens:
+
+Browser encodes the request properly.
+
+If HTTPS is used (very common), the browser encrypts the entire HTTP payload using TLS.
+
+This ensures privacy — attackers can't read your form data.
+
+🧠 Tools:
+
+TLS 1.2 or 1.3 encryption
+
+Certificates / keys (SSL certificate)
+
+✅ Encrypted message passed to Layer 5.
+
+🔷 Layer 5 – Session Layer
+🔧 What happens:
+
+Browser and api.target-website.com already have an established secure TLS session.
+
+That session is identified by a session ID, re-used for multiple requests.
+
+Handles re-authentication, reconnection if needed.
+
+🧠 Tools:
+
+TLS Handshake
+
+Session management (SSL sessions)
+
+✅ Session ready → passed to Layer 4.
+
+🔷 Layer 4 – Transport Layer
+🔧 What happens:
+
+Browser sends the request via TCP (Transmission Control Protocol).
+
+A connection is established via 3-way handshake:
+
+SYN → SYN-ACK → ACK
+
+TCP splits your request into segments, numbers them for order and reliability.
+
+🧠 Protocol: TCP
+
+Ensures delivery.
+
+Retransmits if packet lost.
+
+✅ Segments passed to Layer 3.
+
+🔷 Layer 3 – Network Layer
+🔧 What happens:
+
+Each TCP segment is wrapped inside an IP packet.
+
+The destination IP is looked up via DNS if not cached.
+
+E.g., api.target-website.com → 143.110.222.123
+
+IP packet includes:
+
+Source IP: Your laptop (e.g., 192.168.1.8)
+
+Dest IP: API server
+
+🧠 Protocols:
+
+IP (IPv4 or IPv6)
+
+DNS lookup (if needed)
+
+✅ IP packet → Layer 2.
+
+🔷 Layer 2 – Data Link Layer
+🔧 What happens:
+
+Your browser is sending this over Wi-Fi or Ethernet.
+
+The packet is wrapped in a frame (Ethernet or Wi-Fi).
+
+MAC addresses are added:
+
+Source MAC: Your machine
+
+Destination MAC: Your router (gateway)
+
+🧠 Protocols:
+
+Ethernet / Wi-Fi
+
+MAC addressing
+
+ARP (to find MAC address of gateway)
+
+✅ Frame → Layer 1.
+
+🔷 Layer 1 – Physical Layer
+🔧 What happens:
+
+1s and 0s (bits) are converted into electromagnetic signals (Wi-Fi) or electric pulses (Ethernet).
+
+These signals travel through:
+
+Router → Modem → ISP → Internet → Destination server
+
+🧠 Physical media:
+
+Wi-Fi antennas, Ethernet cables, optical fiber, etc.
+
+🔁 On the API Server Side (target-website.com):
+Server receives the encrypted request.
+
+TLS decrypts it.
+
+Passes to web server (like NGINX).
+
+Your JSON is parsed by the backend app (Node.js, Python, etc.).
+
+Response is generated (e.g., “Form submitted successfully!”).
+
+The same OSI layers are used in reverse to send the response back to you.

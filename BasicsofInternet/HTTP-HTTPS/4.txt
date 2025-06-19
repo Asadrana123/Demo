@@ -1,0 +1,61 @@
+ What is 307 Temporary Redirect?
+🔑 Definition (easy words):
+“This page is temporarily moved. Go to the new location — but keep using the same HTTP method.”
+
+🔄 Why 307 Was Introduced?
+The older 302 Found confused browsers 😵.
+
+When server sent this:
+
+HTTP/1.1 302 Found  
+Location: /new-login
+And user sent:
+
+
+POST /login
+Many browsers wrongly said:
+
+“Hmm, it’s a redirect... let’s just make a GET request to /new-login.”
+
+😡 That broke things like:
+
+Forms
+
+Login systems
+
+Any POST/PUT request
+
+✅ How 307 Fixes That
+With 307 Temporary Redirect, the browser/server says:
+
+“Redirect to this new location — but do NOT change the method.”
+
+So if the original request was:
+
+
+POST /submit-form
+and the response is:
+
+
+HTTP/1.1 307 Temporary Redirect  
+Location: /new-form
+Then the browser correctly resends:
+
+
+POST /new-form
+✨ Including body, headers, everything — just like the original.
+
+👨‍💻 Example in Real World:
+Imagine you submit a payment:
+
+POST /checkout
+But the server temporarily wants to process payments on another backend:
+
+
+/new-checkout
+The server will send:
+
+
+HTTP/1.1 307 Temporary Redirect  
+Location: /new-checkout
+Browser resends the same POST /new-checkout — safely.

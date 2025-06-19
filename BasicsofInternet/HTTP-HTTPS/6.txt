@@ -1,0 +1,114 @@
+ Request Headers (Sent by browser/client)
+These are sent when you request something from the server.
+
+Let’s go one by one:
+
+1️⃣ Host
+🧠 Says: "I’m trying to reach this website."
+
+📦 Example:
+
+makefile
+Copy
+Edit
+Host: www.google.com
+🔍 Why? Because a server can host multiple websites. This tells the server which one you want.
+
+2️⃣ User-Agent
+🧠 Says: "I’m Chrome on Windows" or "I’m Safari on iPhone."
+
+📦 Example:
+
+css
+Copy
+Edit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+🔍 Why? Helps the server deliver platform-specific content (e.g., mobile vs desktop layout).
+
+3️⃣ Accept
+🧠 Says: "I want these content types (formats)."
+
+📦 Example:
+
+bash
+Copy
+Edit
+Accept: text/html, application/json
+🔍 Why? So the server knows whether to send HTML, JSON, XML, etc.
+
+4️⃣ Accept-Language
+🧠 Says: "I prefer this language."
+
+📦 Example:
+
+makefile
+Copy
+Edit
+Accept-Language: en-US,en;q=0.9,hi;q=0.8
+🔍 Why? Lets websites serve content in your language (English, Hindi, etc.).
+
+5️⃣ Accept-Encoding
+🧠 Says: "You can compress the response to save size."
+
+📦 Example:
+
+makefile
+Copy
+Edit
+Accept-Encoding: gzip, deflate, br
+🔍 Why? Enables compression like gzip to reduce response size = faster load time.
+
+6️⃣ Content-Type (used with POST/PUT)
+🧠 Says: "Here’s the format of the data I’m sending."
+
+📦 Example:
+
+pgsql
+Copy
+Edit
+Content-Type: application/json
+🔍 Why? Server needs to know how to read the body — JSON, form data, etc.
+
+7️⃣ Authorization
+🧠 Says: "Here’s my login token or credentials."
+
+📦 Example:
+
+makefile
+Copy
+Edit
+Authorization: Bearer eyJhbGciOiJIUzI1...
+🔍 Why? For protected APIs, the server needs this to check if you're allowed.
+
+8️⃣ Cookie
+🧠 Says: "Here are my cookies (session, user info)."
+
+📦 Example:
+
+makefile
+Copy
+Edit
+Cookie: session_id=12345; theme=dark
+🔍 Why? For keeping you logged in, saving preferences, etc.
+
+9️⃣ Referer (Yes, it's misspelled in HTTP spec 😄)
+🧠 Says: "I came here from this page."
+
+📦 Example:
+
+arduino
+Copy
+Edit
+Referer: https://example.com/home
+🔍 Why? Analytics, security, tracking where requests come from.
+
+🔟 Origin
+🧠 Says: "This is the domain that made the request."
+
+📦 Example:
+
+arduino
+Copy
+Edit
+Origin: https://myfrontend.com
+🔍 Why? Important for CORS (Cross-Origin Resource Sharing) — lets server allow or block it.

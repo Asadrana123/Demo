@@ -1,0 +1,38 @@
+What is 308 Permanent Redirect?
+🔑 Definition (in simple words):
+"This resource has moved permanently to a new URL. Go there — and use the same HTTP method as the original request."
+
+🤯 Why Was 308 Introduced?
+In older days:
+
+301 Moved Permanently redirected fine, but changed the method from POST to GET.
+
+That was bad for forms, API calls, and payments.
+
+
+🧠 Example
+Let’s say your payment endpoint has permanently changed:
+
+Original:
+
+
+POST /pay-now
+New:
+
+
+https://secure.example.com/payments
+Server response:
+
+
+HTTP/1.1 308 Permanent Redirect
+Location: https://secure.example.com/payments
+Browser resends the exact same request using:
+
+
+POST https://secure.example.com/payments
+Keeps method: ✅
+
+Keeps body: ✅
+
+Redirects permanently: ✅
+

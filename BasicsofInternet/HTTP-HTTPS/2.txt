@@ -1,0 +1,78 @@
+What Are HTTP Status Codes?
+When you make a request (GET, POST, etc.), the server replies with a status code —
+a 3-digit number that tells the result of your request.
+
+ Status Code Categories
+All status codes fall into 5 categories based on their first digit:
+
+Range	  Category	      Meaning
+1xx	      Informational	  "Got your request, keep going"
+2xx	      Success	      "All good!"
+3xx	      Redirection	  "Go somewhere else"
+4xx	      Client Error	  "You made a mistake"
+5xx	      Server Error	  "Server messed up"
+
+🔵 1xx – Informational
+Usually handled by browser or proxy, rarely used in frontend.
+
+100 Continue: Server says “Okay, send the rest of the request”
+
+101 Switching Protocols: Used in WebSockets
+
+
+
+
+🟢 2xx – Success
+✅ 200 OK
+🎯 Everything worked fine
+
+Used for: GET, POST, etc.
+
+✅ 201 Created
+New resource was successfully created
+
+Used after POST (e.g., new user)
+
+✅ 204 No Content
+Request succeeded, but no content to return
+
+Example: DELETE success
+
+
+🟡 3xx – Redirection
+
+
+🔁 301 – Moved Permanently
+🧠 Meaning:
+The page has permanently moved to a new URL. You should update your bookmarks or links.
+
+📦 Use case:
+
+Moving from http://example.com to https://example.com
+
+Changing /about-us to /about
+
+🔍 Important for SEO:
+Search engines (like Google) will pass SEO power (ranking) to the new URL.
+
+🔗 Example:
+
+Old URL: http://example.com/about-us
+New URL: http://example.com/about
+
+If someone visits /about-us, the server responds with:
+HTTP/1.1 301 Moved Permanently
+Location: /about
+And the browser will go to /about.
+
+for front end we have to add this in our vercel.json for example:-
+✅ If you're using Vercel:
+1. Create a `vercel.json` file in your project root.
+2. Define redirects using:
+   {
+     "source": "/old-path",
+     "destination": "/new-path",
+     "permanent": true
+   }
+3. Vercel will return real HTTP 301 for those paths.
+4. This is great for SEO and user experience. 
