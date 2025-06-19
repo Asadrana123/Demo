@@ -1,114 +1,132 @@
- Request Headers (Sent by browser/client)
-These are sent when you request something from the server.
+1. 400 Bad Request
+🧠 Meaning:
+“The request you sent is broken. I can’t even read it.”
 
-Let’s go one by one:
+🧪 Example:
+You send invalid JSON:
 
-1️⃣ Host
-🧠 Says: "I’m trying to reach this website."
+{ name: "John"  // ← missing closing bracket
+Or your query string is malformed:
 
-📦 Example:
 
-makefile
-Copy
-Edit
-Host: www.google.com
-🔍 Why? Because a server can host multiple websites. This tells the server which one you want.
+/search?q=&&
+Or content type is missing or incorrect:
 
-2️⃣ User-Agent
-🧠 Says: "I’m Chrome on Windows" or "I’m Safari on iPhone."
+Content-Type: text/plain  ← instead of application/json
+🧠 When it happens?
+Form data is corrupted
 
-📦 Example:
+JSON body is bad
 
-css
-Copy
-Edit
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-🔍 Why? Helps the server deliver platform-specific content (e.g., mobile vs desktop layout).
+Headers are malformed
 
-3️⃣ Accept
-🧠 Says: "I want these content types (formats)."
+✅ Fix: Double-check your payload, headers, query params.
 
-📦 Example:
+🔒 2. 401 Unauthorized
+🧠 Meaning:
+“You’re not logged in. I need credentials first.”
 
-bash
-Copy
-Edit
-Accept: text/html, application/json
-🔍 Why? So the server knows whether to send HTML, JSON, XML, etc.
+🧪 Example:
+You try to access:
 
-4️⃣ Accept-Language
-🧠 Says: "I prefer this language."
 
-📦 Example:
+GET /dashboard
+But don’t include a token or session cookie.
 
-makefile
-Copy
-Edit
-Accept-Language: en-US,en;q=0.9,hi;q=0.8
-🔍 Why? Lets websites serve content in your language (English, Hindi, etc.).
+Response:
 
-5️⃣ Accept-Encoding
-🧠 Says: "You can compress the response to save size."
+401 Unauthorized
+WWW-Authenticate: Bearer
+✅ Fix:
 
-📦 Example:
+Login first
 
-makefile
-Copy
-Edit
-Accept-Encoding: gzip, deflate, br
-🔍 Why? Enables compression like gzip to reduce response size = faster load time.
+Or include your token in headers:
 
-6️⃣ Content-Type (used with POST/PUT)
-🧠 Says: "Here’s the format of the data I’m sending."
+Authorization: Bearer <your-token>
+🚫 3. 403 Forbidden
+🧠 Meaning:
+“I know who you are, but you’re not allowed to do this.”
 
-📦 Example:
+🧪 Example:
+You're logged in, but you try to:
 
-pgsql
-Copy
-Edit
-Content-Type: application/json
-🔍 Why? Server needs to know how to read the body — JSON, form data, etc.
+Access an admin page without being an admin
 
-7️⃣ Authorization
-🧠 Says: "Here’s my login token or credentials."
+Delete someone else’s account
 
-📦 Example:
+Upload to a restricted folder
 
-makefile
-Copy
-Edit
-Authorization: Bearer eyJhbGciOiJIUzI1...
-🔍 Why? For protected APIs, the server needs this to check if you're allowed.
+✅ Fix:
 
-8️⃣ Cookie
-🧠 Says: "Here are my cookies (session, user info)."
+Ask admin to grant permission
 
-📦 Example:
+Update user roles/authorization rules
 
-makefile
-Copy
-Edit
-Cookie: session_id=12345; theme=dark
-🔍 Why? For keeping you logged in, saving preferences, etc.
+❓ 4. 404 Not Found
+🧠 Meaning:
+“This URL doesn’t exist on the server.”
 
-9️⃣ Referer (Yes, it's misspelled in HTTP spec 😄)
-🧠 Says: "I came here from this page."
+🧪 Example:
+You visit:
 
-📦 Example:
 
-arduino
-Copy
-Edit
-Referer: https://example.com/home
-🔍 Why? Analytics, security, tracking where requests come from.
+GET /profile/asad1234
+But there's no user asad1234.
 
-🔟 Origin
-🧠 Says: "This is the domain that made the request."
+Or frontend calls:
 
-📦 Example:
+GET /api/blogs/9999
+But there is no blog with ID 9999.
 
-arduino
-Copy
-Edit
-Origin: https://myfrontend.com
-🔍 Why? Important for CORS (Cross-Origin Resource Sharing) — lets server allow or block it.
+✅ Fix:
+
+Check if route or resource exists
+
+Add 404 page in frontend
+
+💣 5. 405 Method Not Allowed
+🧠 Meaning:
+“This endpoint exists — but you used the wrong HTTP method.”
+
+🧪 Example:
+js
+// Server only supports GET
+app.get("/books", ...)
+You send:
+
+
+POST /books
+Response:
+
+
+405 Method Not Allowed
+Allow: GET
+✅ Fix:
+
+Use the correct method (GET, POST, etc.)
+
+Read the API docs or error message
+
+💡 6. 429 Too Many Requests
+🧠 Meaning:
+“Whoa! You’re sending too many requests. Slow down.”
+
+🧪 Example:
+You hit the login API 20 times in 10 seconds
+
+Or your app sends 500 requests per minute
+
+Response:
+
+
+429 Too Many Requests
+Retry-After: 60
+✅ Fix:
+
+Add rate limiting on frontend
+
+Respect Retry-After header
+
+Use exponential backoff in API calls
+

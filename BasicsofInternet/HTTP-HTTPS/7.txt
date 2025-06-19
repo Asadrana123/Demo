@@ -1,0 +1,17 @@
+ 1. 500 Internal Server Error
+🧠 Meaning:
+“The server crashed while trying to handle your request.”
+
+🔧 Example:
+A bug in backend code throws an unhandled error:
+let result = someUndefinedFunction(); // Crash 💥
+Database went down suddenly
+
+Null pointer, division by zero, syntax error in controller
+
+⚠️ Server’s fault — not yours as the client
+✅ Fix (server side):
+
+Check logs
+Add better error handling
+Use try–catch, error middleware

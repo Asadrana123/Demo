@@ -1,0 +1,5 @@
+ 4. 504 Gateway Timeout
+🧠 Meaning:
+“I tried contacting another server on your behalf — but it took too long to respond.”
+This happens when you (the user) are not directly hitting the real server, but instead hitting
+ a proxy, gateway, or load balancer.
