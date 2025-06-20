@@ -1,0 +1,90 @@
+🧁 1. Session Cookies
+Stored temporarily in memory
+
+Deleted automatically when the browser/tab is closed
+
+No expires or max-age is set
+
+🔧 Example:
+document.cookie = "sessionId=abc123";
+✅ Used for:
+
+Logged-in session tracking
+
+Shopping carts (while browsing)
+
+🍩 2. Persistent Cookies
+Stored on disk until a specified expiration date
+
+You set them with expires or max-age
+
+🔧 Example:
+document.cookie = "theme=dark; max-age=31536000"; // 1 year
+✅ Used for:
+
+"Remember me" login
+
+Saving user preferences (theme, language)
+
+🥐 3. Secure Cookies
+Only sent over HTTPS connections
+
+Not sent over http://
+
+🔧 Example:
+Set-Cookie: authToken=xyz; Secure
+✅ Used for:
+
+Authentication
+
+Sensitive user data
+
+🍮 4. HttpOnly Cookies
+Can’t be accessed from JavaScript (document.cookie)
+
+Only sent in HTTP requests
+
+🔧 Example:
+Set-Cookie: token=abc; HttpOnly
+✅ Used for:
+
+Protecting against XSS attacks
+
+Storing JWTs or session tokens securely
+
+🧊 5. SameSite Cookies
+Control whether cookies are sent with cross-site requests
+
+Helps prevent CSRF attacks
+
+🟩 Three values:
+
+Value	Meaning
+Strict	Never sent on cross-site requests (most secure)
+Lax	Sent on GET cross-site requests (safe default)
+None	Sent on all cross-site requests (must be Secure)
+
+🔧 Example:
+Set-Cookie: token=abc; SameSite=Strict
+✅ Used for:
+
+Controlling cookie exposure during cross-origin requests
+
+🎂 6. Third-Party Cookies
+Set by a domain different from the one you’re visiting
+
+Mostly used by ad networks, trackers, analytics
+
+Example:
+
+You visit news.com, but it loads an ad from ads.google.com
+→ ads.google.com may set a cookie = third-party cookie
+
+✅ Used for:
+
+Ad personalization
+
+Cross-site tracking
+
+⚠️ Most browsers are now blocking these by default
+

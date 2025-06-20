@@ -1,0 +1,21 @@
+what is sessionStorage:-
+✅ sessionStorage is a browser storage mechanism that stores key-value pairs,
+✅ The data is only available during a single **browser tab session**.
+❌ It is cleared when the tab or browser is closed.
+
+🛠️ How to Use sessionStorage
+🔸 1. Set data
+sessionStorage.setItem("username", "Asad");
+🔸 2. Get data
+
+
+const name = sessionStorage.getItem("username");
+console.log(name); // "Asad"
+🔸 3. Remove one item
+
+
+sessionStorage.removeItem("username");
+🔸 4. Clear all sessionStorage
+
+
+sessionStorage.clear();
