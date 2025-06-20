@@ -5,14 +5,8 @@ A proxy is a middleman between your browser and the server you're trying to reac
 When you send a request:
 
 Without proxy:
-scss
-Copy
-Edit
 YOU (Browser) 🧑‍💻 ───────▶ SERVER 🌐
 With proxy:
-markdown
-Copy
-Edit
 YOU (Browser) 🧑‍💻 ─────▶ PROXY 🧱 ─────▶ SERVER 🌐
                                  ▲
                                  └─── Response goes back the same way
@@ -32,9 +26,7 @@ Browser says: ❌ "Nope, can't access that other port. CORS error."
 
 So you tell Vite:
 
-js
-Copy
-Edit
+
 server: {
   proxy: {
     '/api': 'http://localhost:5000'

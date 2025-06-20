@@ -1,0 +1,19 @@
+What is “Origin” in Web?
+In web development, an origin is defined by 3 things:
+
+Origin = Scheme + Host + Port
+
+Component	     Example
+Scheme	         http or https
+Host (domain)	 example.com
+Port	         80, 443, 5173, etc.
+
+What is Cross-Origin?
+A cross-origin request happens when your frontend (browser) tries to access 
+a resource from a server that has a different origin.
+
+That means any one of these 3 things is different:
+
+Scheme
+Domain
+Port

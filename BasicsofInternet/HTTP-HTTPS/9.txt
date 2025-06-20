@@ -14,9 +14,7 @@ It translates traffic from your private IP (e.g., 192.168.x.x) to a public IP an
 
 Example:
 
-nginx
-Copy
-Edit
+
 Laptop (192.168.0.101) → Router (192.168.0.1) → Internet
 2. 🔁 API Gateway
 Used in microservices architecture.
