@@ -1,0 +1,12 @@
+DNS = Domain Name System
+It’s like the **phonebook of the internet**.
+It converts human-readable domain names (like www.google.com) into IP
+ addresses (like 142.250.195.78) so that your browser can connect to servers.
+
+1. Check Browser Cache
+2. Check OS Cache
+3. Check DNS Resolver (ISP's cache)
+4. Ask Root DNS Server
+5. Ask TLD DNS Server (.com, .org, etc.)
+6. Ask Authoritative DNS Server (holds actual IP)
+

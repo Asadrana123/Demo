@@ -1,0 +1,6 @@
+🧾 Key CORS Headers sent by server
+Header Name	Purpose
+Access-Control-Allow-Origin	Which origin(s) can access
+Access-Control-Allow-Methods	    Allowed HTTP methods (GET, POST, etc.)
+Access-Control-Allow-Headers	    Allowed custom headers (Authorization, etc.)
+Access-Control-Allow-Credentials	Allow cookies/token in cross-origin requests

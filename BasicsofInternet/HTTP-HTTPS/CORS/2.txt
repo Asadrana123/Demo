@@ -1,0 +1,26 @@
+🧠 What is a Preflight Request (in CORS)?
+A preflight request is a "permission check" sent by your browser before the real request,
+just to ask the server:
+
+👉 “Hey, is it okay if I make this kind of request?”
+
+It’s like knocking on someone’s door before entering their house.
+
+🛫 Real-Life Analogy:
+You want to enter someone’s home (the API server).
+But first, you ask:
+
+“Hey, can I come in and do X, Y, Z?”
+
+If they say yes, you enter (real request is sent).
+
+If they say no, the browser cancels the request before it even hits the server logic.
+
+🔁 When does the browser send a preflight request?
+✅ Only when the real request is "complex"
+The browser auto-sends a preflight OPTIONS request before your real one if:
+
+Condition	Example
+1. Method is not GET, POST, or HEAD	e.g. PUT, DELETE, PATCH
+2. You send custom headers	e.g. Authorization, X-Token, etc.
+3. Content-Type is not application/x-www-form-urlencoded, multipart/form-data, or text/plain	

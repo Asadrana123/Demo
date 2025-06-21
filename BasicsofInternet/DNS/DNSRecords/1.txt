@@ -1,0 +1,26 @@
+🧠 What are DNS Records? (Explained Clearly)
+When you buy a domain like example.com, it’s like owning an empty piece of land.
+
+But for the internet to know what to do when someone types that domain into the browser,
+you have to give it instructions.
+
+These instructions are called DNS records.
+
+They are stored in a DNS zone file, which is a file maintained by your domain 
+registrar (e.g., GoDaddy, Namecheap) or a DNS hosting service (like Cloudflare).
+
+
+❓1. Where do we set DNS records?
+✅ You set them in the DNS Management panel of your domain registrar or your DNS hosting provider.
+
+🎯 Examples:
+If you bought your domain from GoDaddy, you log into GoDaddy → DNS settings →
+ Add/Edit records (like A, CNAME, etc.)
+
+If you use Cloudflare for DNS, then DNS settings are set in your Cloudflare dashboard.
+
+If you're hosting on Vercel, and your domain is pointing to Vercel's nameservers, 
+you'll set records in Vercel.
+
+🔑2. Who gives us these DNS records (like A record, CNAME)?
+✅ Your hosting provider (like Vercel, Netlify, AWS, etc.) gives you the DNS records to set.

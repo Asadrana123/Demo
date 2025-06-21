@@ -1,0 +1,63 @@
+Example: You visit https://www.example.com
+
+✅ Step 1: Browser Cache
+🔍 First, your browser checks:
+“Have I already looked up this domain recently?”
+✅ If yes: use cached IP
+❌ If no: go to next step
+
+🧠 Browsers like Chrome/Firefox cache DNS entries for a few minutes.
+
+
+✅ Step 2: OS Cache (System Cache)
+🖥️ Your operating system (Windows, Mac, Linux) checks:
+“Is this domain in my local DNS cache?”
+✅ If yes: use the IP address
+❌ If not found: move to step 3
+
+
+✅ Step 3: ISP's DNS Resolver (Recursive Resolver)
+🌐 Your system asks your ISP’s DNS resolver:
+“Do you know the IP address of www.example.com?”
+✅ If resolver has it cached: done!
+❌ If not: resolver will now perform the full DNS lookup on your behalf (next steps)
+
+
+✅ Step 4: Root DNS Server
+📡 Resolver now contacts a **Root DNS Server**
+
+🌍 Root server doesn’t know the final IP, but replies:
+“I don’t know the IP, but I can tell you where to find the .com servers”
+✅ Root server returns the IP address of the TLD server for `.com`
+🧠 There are 13 sets of root servers in the world (labeled A–M).
+
+
+✅ Step 5: TLD (Top-Level Domain) DNS Server
+🌐 Resolver now asks the `.com` DNS server:
+“Where can I find example.com?”
+✅ TLD server replies:
+“Go ask the authoritative name server for example.com”
+🧠 TLDs include .com, .org, .in, .dev, etc.
+
+✅ Step 6: Authoritative DNS Server
+📦 Resolver now contacts the Authoritative DNS Server for example.com:
+“Please give me the IP for www.example.com”
+
+✅ This server replies:
+“Sure! IP = 93.184.216.34”
+🧠 This is the final source of truth — owned by the domain's hosting provider or 
+DNS host (like Cloudflare, GoDaddy, etc.)
+
+✅ Step 7: Return the IP to Your Browser
+🧠 Now the resolver has the answer.
+📨 It returns the IP address to your operating system.
+🧭 Your OS returns it to the browser.
+🚀 Browser now sends an HTTP(S) request to that IP.
+
+✅ Step 8: Cache the Result
+🧠 The IP is now cached in:
+- Your browser
+- Your operating system
+- Your ISP's DNS resolver
+
+So next time, the DNS lookup is super fast.

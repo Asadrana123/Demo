@@ -1,0 +1,44 @@
+🛡️ What is CORS?
+Cross-Origin Resource Sharing
+
+📌 CORS is:
+✅ A security mechanism (or browser policy)
+❌ Not a protocol
+❌ Not an algorithm
+❌ Not part of HTTP methods
+✅ It’s a set of rules built into browsers
+
+Why was CORS created?
+To protect users and stop websites from making unwanted requests to other websites 
+on your behalf (cross-origin).
+
+What is a “Cross-Origin” Request?
+A request is cross-origin if the origin (domain, protocol, or port) of the frontend is different 
+from the backend.
+
+Example:
+Frontend is hosted at https://myapp.com
+Backend is hosted at https://api.mybackend.com
+This is a cross-origin request → CORS is triggered.
+
+✅ To **protect users** from malicious websites trying to access sensitive data 
+from other sites.
+❌ Without CORS, any random site could steal data using JavaScript by calling 
+APIs on other domains.
+
+
+✅ How to Fix It?
+// Node.js + Express example
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*"); // allow all origins
+  next();
+});
+
+
+res.header("Access-Control-Allow-Origin", "https://my-frontend.com");
+
+
+🔄 Types of Requests
+Type	Description
+🟢 Simple	GET, POST (with simple content-type)
+🔴 Preflighted	Other types → require an OPTIONS request

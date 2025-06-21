@@ -1,0 +1,58 @@
+🔄 STEP-BY-STEP ENCRYPTION FLOW
+🔵 STEP 1: Browser sends ClientHello
+Says: "Hi server, I want to talk securely"
+
+Includes:
+
+TLS version
+
+List of supported encryption methods (like AES)
+
+Random number (client_random)
+
+🔓 This step is NOT encrypted
+
+🟢 STEP 2: Server replies with ServerHello + Certificate
+Server says: "Okay, let’s talk securely"
+
+Sends:
+
+Chosen encryption method
+
+Server’s digital certificate (contains public key)
+
+Random number (server_random)
+
+🔓 Still not encrypted yet
+
+🔴 STEP 3: Browser validates server’s certificate
+Checks if certificate is real (using Certificate Authority).
+
+✅ If valid, the browser trusts the server’s public key.
+
+🟣 STEP 4: Browser creates a Pre-Master Key
+Browser generates a random secret number (called pre-master key)
+
+Browser encrypts it using the server’s public key
+
+Sends this encrypted pre-master key to the server
+
+🔐 This message is encrypted (only server can decrypt it)
+
+🔵 STEP 5: Server receives and decrypts
+Server uses its private key to decrypt the pre-master key
+
+Now both browser and server have the same pre-master key
+
+🟢 STEP 6: They both generate Session Key
+Browser and server use pre-master key + client_random + server_random
+
+They run a Key Derivation Function (KDF) to generate a shared session key
+
+💡 This session key is the final secret used to encrypt/decrypt real data.
+
+🟡 STEP 7: Secure Communication Begins
+Both sides use the session key with AES encryption
+
+Now everything (text, passwords, images) is encrypted and safe
+

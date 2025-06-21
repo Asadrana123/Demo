@@ -1,0 +1,25 @@
+CORS is like a “rulebook” the browser and server follow to decide 
+if a cross-origin request should be allowed or blocked.
+
+Here are the main rules that CORS includes (in easy language):
+
+1. Rule: Only the server can decide who is allowed.
+   ➤ Server sends header: Access-Control-Allow-Origin
+   ➤ Example: Allow all (*) or only specific domains
+
+2. Rule: For unsafe HTTP methods (PUT, DELETE, etc.), browser must ask first.
+   ➤ This is called a "Preflight Request"
+   ➤ Browser sends an OPTIONS request first to check permission
+
+3. Rule: Server must respond to OPTIONS with permission headers.
+   ➤ Access-Control-Allow-Methods: POST, GET, PUT, DELETE
+   ➤ Access-Control-Allow-Headers: Content-Type, Authorization, etc.
+
+4. Rule: If credentials (cookies, tokens) are used, both sides must agree.
+   ➤ Client must set: credentials: "include"
+   ➤ Server must set:
+      - Access-Control-Allow-Origin: not "*", but specific domain
+      - Access-Control-Allow-Credentials: true
+
+5. Rule: If any rule fails, browser will block the request.
+   ➤ Even if server responds — if headers are wrong, browser stops it.

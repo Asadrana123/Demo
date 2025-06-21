@@ -1,0 +1,39 @@
+🔑 1. AES – Advanced Encryption Standard
+🔧 Type: An encryption algorithm
+🔒 Purpose: Encrypts actual data (like your messages, files, etc.)
+
+✅ Key Points:
+Symmetric encryption: Same key is used to encrypt and decrypt.
+
+Very fast and secure — great for encrypting big amounts of data.
+Used after a secure connection is established (like in HTTPS).
+
+Example: When you're chatting or sending images — AES encrypts the actual content.
+
+🔐 2. TLS – Transport Layer Security
+📦 Type: A security protocol
+🛡️ Purpose: Creates a secure channel between two devices (like your browser and a website)
+
+✅ Key Points:
+TLS is a protocol, not an algorithm.
+
+It uses algorithms like AES (for data), RSA (for key exchange), SHA (for integrity), etc.
+
+Replaced SSL (which is old and insecure).
+
+HTTPS = HTTP over TLS.
+
+Latest version is TLS 1.3 (very fast and secure).
+
+❌ 3. SSL – Secure Sockets Layer
+🧓 Type: The older version of TLS
+☠️ Status: Deprecated (no longer considered secure)
+
+✅ Key Points:
+SSL 2.0 and 3.0 were early attempts at secure connections.
+
+TLS 1.0 was introduced as the upgrade to SSL 3.0.
+
+Today, SSL is mostly a name people still use, but it's actually TLS under the hood.
+
+If you see “SSL certificate,” it actually means “TLS certificate.”
