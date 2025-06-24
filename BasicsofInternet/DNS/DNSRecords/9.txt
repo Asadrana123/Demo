@@ -1,0 +1,36 @@
+🛠️ Common Use Cases of TXT Records (Explained Simply)
+
+1️⃣ Domain Verification (Used by Google, Facebook, etc.)
+You sign up for Google Workspace and they ask:
+
+“Prove this domain is yours.”
+
+They give you a TXT value like:
+
+"google-site-verification=AbC123xYz987"
+✅ You add it to your domain’s DNS settings.
+
+🔍 Google checks:
+“Does asad.com have this TXT record?”
+If yes → Domain verified!
+
+
+SPF
+
+SPF (Sender Policy Framework) is an email security mechanism that:
+✅ Tells the world which mail servers are allowed to send emails on behalf of your domain.
+
+Example:
+   If your domain is asad.com,
+   SPF helps prevent spammers from sending fake emails like:
+   "From: support@asad.com" — using some random server.
+
+---
+
+🛡️ Why is SPF important?
+
+✔️ Protects your domain reputation  
+✔️ Reduces spam and phishing  
+✔️ Helps your emails land in inbox (not spam)
+
+

@@ -1,0 +1,33 @@
+✅ Solid Real-Life Example: Using Cloudflare / AWS / Netlify / Vercel
+🏗 Scenario: You have a main website hosted on Vercel
+Their root server domain looks like:
+
+your-project.vercel.app → 76.76.21.21
+You want your domain to be:
+
+
+www.asaddev.com
+❌ Option 1: Using A Record
+You'd have to manually find the IP Vercel uses (e.g. 76.76.21.21) and then add:
+
+
+A   www.asaddev.com   →   76.76.21.21
+Problems:
+
+If Vercel changes their server IP → your site breaks
+
+You have to maintain it manually
+
+Not scalable or portable
+
+✅ Option 2: Using CNAME Record
+You just point your domain to the domain they gave you:
+
+
+CNAME   www.asaddev.com   →   your-project.vercel.app
+💡 Now Vercel can change their IP behind the scenes, but your domain still works!
+
+✅ You get flexibility
+✅ Zero IP maintenance
+✅ Vercel manages the A record behind the scenes
+✅ Works even with CDN, load balancers, etc.

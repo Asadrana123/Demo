@@ -1,0 +1,31 @@
+🟡 What is DKIM?
+DKIM stands for DomainKeys Identified Mail.
+
+It is an email security standard that:
+✅ Adds a digital signature to your email
+✅ Lets the receiver verify:
+ ✔️ The email really came from your domain
+ ✔️ The content hasn’t been tampered with in transit
+
+🧠 Think of it like this:
+Imagine you're sending a letter.
+You seal it with a wax stamp that has your unique logo.
+
+When someone receives the letter, they look at that stamp and say:
+✔️ “Yep, this really came from Asad — and nobody changed it.”
+
+That “stamp” in email is DKIM’s digital signature.
+
+🔧 How does DKIM work (step by step)?
+You send an email (e.g. from support@asad.com via Gmail or your server)
+
+Your mail server adds a DKIM signature in the email’s header
+ 👉 It uses a private key to sign it (this key stays secret)
+
+The receiving mail server (like Gmail, Outlook, etc.)
+ ➤ Looks up your public key from your DNS (via a TXT record)
+
+It verifies the signature using the public key:
+ ✔️ If it matches → Email is trusted
+ ❌ If not → Email may be flagged as spam or rejected
+

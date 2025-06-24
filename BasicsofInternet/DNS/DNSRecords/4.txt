@@ -1,0 +1,18 @@
+🔸 CNAME Record (Canonical Name)
+What it does:
+It creates an alias. It says: “Instead of pointing to an IP, point to another domain.”
+
+Why it exists:
+Because sometimes you don’t know the IP address
+(e.g., using platforms like GitHub Pages, Vercel, Netlify, etc.) — they handle the IP internally.
+
+So instead of giving you an IP, they say:
+“Set your CNAME to something like your-project.vercel.app”
+
+Example:
+www.example.com → your-site.vercel.app
+
+
+🤔 So why do we need CNAME if we can just use A?
+Because CNAME brings flexibility, indirection, and centralized control — 
+especially in real-life SaaS, cloud, and multi-environment setups.

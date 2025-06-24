@@ -1,0 +1,51 @@
+🔷 What is DMARC?
+DMARC stands for:
+🔐 Domain-based Message Authentication, Reporting & Conformance
+
+It is a policy that tells receiving email servers:
+
+"Here’s how to handle emails that fail SPF or DKIM, and please send me reports about it."
+
+DMARC gives you:
+
+Control
+
+Protection
+
+Visibility into email activity for your domain
+
+🧠 Real-world analogy:
+Imagine you run a company and hire two guards:
+
+SPF checks if the person has an approved badge (who can send)
+
+DKIM checks if their ID is legit and untouched (email is signed & safe)
+
+Now, DMARC is the policy you write for the guards:
+
+“If someone fails both ID and badge check — block them. Also, tell me who tried.”
+
+🔄 How does DMARC work?
+You publish a DMARC policy as a TXT record in your DNS
+
+When an email arrives at someone’s inbox:
+
+The recipient checks if SPF or DKIM passes
+
+Then DMARC tells them what to do if they fail
+
+The server sends reports back to you (if you ask for them)
+
+
+
+✅ What does a DMARC record look like?
+Example DNS TXT record:
+
+_dmarc.asad.com  TXT
+"v=DMARC1; p=reject; rua=mailto:reports@asad.com"
+
+Breakdown:
+
+v=DMARC1 → Version
+p=reject → Policy (reject, quarantine, or none)
+rua=... → Where to send reports

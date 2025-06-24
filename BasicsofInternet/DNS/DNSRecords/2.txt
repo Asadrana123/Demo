@@ -36,7 +36,8 @@ IPv4 only	    A record only maps to IPv4 addresses (4-block, like 1.2.3.4)
 Fast lookup	    It’s the most common and fastest DNS record
 Required	    Almost every website needs at least one A record
 One-to-many	    You can map multiple domains to same IP (many A records with same IP)
-Load balancing	You can assign multiple A records to one domain — DNS will return them randomly or in round-robin
+Load balancing	You can assign multiple A records to one domain — DNS will return them randomly or 
+                in round-robin
 
 🧪 Real DNS A Record
 
@@ -50,3 +51,7 @@ Browser now connects directly to that IP.
  that takes my request and routes it to the best, nearest actual server where my 
  site’s files are stored.”
 
+
+Most users and hosts use A record for the root domain
+
+and use CNAME for subdomain

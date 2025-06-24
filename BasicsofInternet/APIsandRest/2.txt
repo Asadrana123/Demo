@@ -1,0 +1,100 @@
+🧠 What Is REST?
+REST stands for:
+
+Representational State Transfer
+
+But ignore the long name for now. It’s not helpful in the beginning. Let’s understand what REST really is:
+
+🟢 Simple Definition:
+REST is a set of rules to design APIs in a clean, organized, and predictable way — using HTTP.
+
+When an API follows REST rules, it becomes easier for frontend developers (like you) to use and understand.
+
+🧩 REST Uses These 4 Main Concepts:
+
+1. ✅ Use HTTP Methods Properly
+Method	Purpose
+GET	    Get data
+POST	Create new data
+PUT	    Replace data
+PATCH	Update part of data
+DELETE	Delete data
+
+REST says: “Use these methods meaningfully.”
+
+Example:
+
+GET /users → get all users
+POST /users → add a new user
+DELETE /users/2 → delete user with id 2
+
+2. ✅ Use Meaningful URLs (called Resources)
+
+A RESTful API uses nouns, not verbs in URLs:
+
+Bad:
+/getAllUsers
+Good (RESTful):
+
+/users
+The action (GET) is decided by the method — not the URL.
+
+3. ✅ Stateless Communication
+
+Each request must carry all the info it needs.
+The server should NOT remember past requests.
+That’s called “stateless”.
+
+Why? It makes the system simpler and scalable.
+
+Example:
+
+When the client sends a request, it must include things like:
+
+Auth token
+Parameters
+Body
+
+Every time. No memory on server side.
+
+4. ✅ JSON Format (Usually)
+REST APIs usually return and accept data in JSON format:
+
+Example response:
+
+json
+{
+  "id": 1,
+  "name": "Asad"
+}
+This is easy for browsers and frontend code (like React, JS) to work with.
+
+📘 Example of a REST API Structure:
+Let’s say we’re building a Books API:
+
+Method	URL	Action
+GET	    /books	    Get all books
+POST	/books	    Add a new book
+GET	    /books/3	Get book with id 3
+PUT	    /books/3	Replace book with id 3
+PATCH	/books/3	Update part of book 3
+DELETE	/books/3	Delete book with id 3
+
+This is a RESTful API. It's:
+
+Clean
+Predictable
+Organized
+
+🔄 Why Is REST So Popular?
+Easy to use with browsers (uses HTTP)
+
+Follows standard rules
+Language-agnostic (can use with JS, Python, etc.)
+Works well with frontend frameworks (React, Angular)
+
+
+***If an API follows REST rules (like using GET/POST correctly, using nouns in URLs, stateless requests),
+ we call it a:
+RESTful API
+

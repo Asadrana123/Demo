@@ -1,0 +1,57 @@
+🟢 Step 1: What is a CDN (Content Delivery Network)?
+CDN is a network of servers around the world that store and deliver 
+website content (images, videos, scripts, HTML, etc.) to users more quickly.
+
+🧠 Main idea:
+Instead of your content coming all the way from your original server (maybe in the USA),
+ it comes from a nearby location — like Delhi, Mumbai, London, etc.
+
+📦 Example:
+You visit www.example.com from India
+→ Instead of going to the USA server, the CDN serves your request from a server in Mumbai
+→ Much faster! ✅
+
+🧊 CDN stores copies of static content like:
+
+Images, CSS, JS, videos, etc.
+
+Sometimes even entire HTML pages
+
+🛡️ Bonus: CDN also helps in protecting against DDoS attacks.
+
+🟢 Step 2: What is DNS-based Routing?
+DNS-based routing is the process of choosing which server (or location) to 
+send the user to — based on DNS lookup and some logic like:
+
+User's location (GeoDNS)
+
+Server health/load
+
+Latency
+
+📦 Example:
+You type www.example.com
+→ Your browser asks DNS: “What is the IP of www.example.com?”
+→ DNS provider looks at your location
+→ If you're in India → returns IP of Mumbai server
+→ If you're in Germany → returns IP of Frankfurt server
+
+📌 This whole thing is called "DNS-based routing" (also called geo-routing or geo-DNS sometimes).
+
+🟢 Step 3: How CDN uses DNS-based routing (Together)
+Here’s the magic ✨
+
+When you use a CDN (like Cloudflare, Akamai, AWS CloudFront), it acts like a smart 
+DNS manager + static content server.
+
+Here's what happens step by step:
+
+🔹 Step 1: You type www.example.com
+🔹 Step 2: Browser looks up DNS for example.com
+🔹 Step 3: DNS-based routing happens → chooses closest CDN server
+🔹 Step 4: Browser gets IP of nearest CDN edge server
+🔹 Step 5: Browser sends request to that edge server
+🔹 Step 6: CDN gives cached content (image, CSS, etc.)
+     Or fetches it from your main server if needed
+🔹 Step 7: Response is sent faster to the user ✅
+

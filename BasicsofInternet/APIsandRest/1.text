@@ -1,0 +1,23 @@
+🧠 What Actually Is an API in Web Development?
+Let’s say it super simply:
+✅ An API is like a menu of the backend server.
+When the frontend wants to talk to the backend, it needs some defined ways to ask for data or send data. 
+These ways are called APIs.
+
+📦 An API is:
+A set of rules (URLs + methods) defined by the backend server that the frontend can use to:
+
+get data
+send data
+update data
+delete data
+
+Think of it as the "official entry points" into a server.
+
+
+❌ Misunderstanding Cleared
+❌ API is NOT just a URL.
+❌ API is NOT the HTTP request.
+✅ API is the "set of rules + endpoints" made available by the server.
+
+The HTTP request is how you call or use the API.

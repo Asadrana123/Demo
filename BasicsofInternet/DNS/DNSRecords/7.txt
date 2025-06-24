@@ -1,0 +1,14 @@
+🧰 Step-by-step: What happens when an email is sent to asad.com
+💌 Someone sends an email to hello@asad.com
+
+📬 The sending mail server looks up the MX record of asad.com
+
+📡 It gets a response like:
+
+10 mail1.asad.com
+20 mail2.asad.com
+
+
+🚀 It tries to connect to mail1.asad.com (highest priority)
+✅ If it connects, it delivers the email
+❌ If that fails, it tries mail2.asad.com instead

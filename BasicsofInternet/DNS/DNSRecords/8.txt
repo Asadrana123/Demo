@@ -1,0 +1,37 @@
+What is a TXT Record?
+TXT (Text) record is a type of DNS record that allows a domain owner to attach 
+human-readable or machine-readable information to their domain.
+
+🧠 Why is it used?
+Originally, TXT records were meant for humans to attach any information they wanted.
+
+🧠 Why did humans want to attach information?
+Because they wanted to:
+
+✅ Leave public comments or instructions
+
+Example:
+v=info Contact admin@asad.com for support.
+
+✅ Add copyright or organization details
+
+Example:
+v=org Asad Web Services, India.
+
+✅ Make internal notes for other admins
+
+Example:
+v=internal Migrated from old DNS server in 2020.
+
+✅ Share public keys or debug info
+
+Example:
+v=debug Mail server moved to 192.168.1.20
+
+🟡 But later, people found smarter uses…
+Over time, big services (like Google, Gmail, Microsoft, etc.) realized:
+
+“Hey, we can use TXT records to publish security data — like SPF, DKIM, DMARC, and domain verification keys.”
+
+So now, TXT records are mostly used by machines, but originally they were meant for humans.
+

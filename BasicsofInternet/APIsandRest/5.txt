@@ -1,0 +1,15 @@
+✅ What is fetch?
+fetch() is a built-in JavaScript function used to make HTTP requests 
+(like GET, POST, PUT, DELETE) from the browser.
+
+Think of fetch() like a way for your frontend code to talk to a backend server or API, 
+just like how we use WhatsApp to send messages.
+
+fetch(url, options)
+  .then(response => response.json())
+  .then(data => {
+    // use the data here
+  })
+  .catch(error => {
+    // handle errors
+  });

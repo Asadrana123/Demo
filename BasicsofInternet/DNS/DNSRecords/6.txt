@@ -1,0 +1,25 @@
+🟡 What is an MX Record?
+MX (Mail Exchange) record is a type of DNS record that tells the world:
+
+“If you want to send email to me (like to hello@asad.com), here’s where you should deliver that email.”
+
+🔁 In simple terms:
+It maps a domain name to the mail server responsible for handling emails for that domain.
+
+🧠 Why is it needed?
+Let’s say someone wants to send an email to:
+
+
+hello@asad.com
+To deliver this email, the sender's mail server must figure out:
+
+“Where is the email server that handles mail for asad.com?”
+
+It does this by checking the MX record of asad.com.
+
+
+🔍 Example MX Records for asad.com:
+
+Priority    Mail Server
+10          mail1.asad.com
+20          mail2.asad.com
