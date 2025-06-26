@@ -1,0 +1,26 @@
+💡 What is AJAX?
+🔤 Full Form:
+AJAX = Asynchronous JavaScript And XML
+
+✅ Simple Definition:
+AJAX is a technique that allows a web page to talk to the server in the background, without 
+reloading the entire page.
+
+This means:
+
+JavaScript can ask the server for new data,
+
+And update part of the page (like a table, form, message, or dropdown),
+
+Without refreshing or navigating away from the current page.
+
+🔍 What is AJAX actually made of?
+AJAX is not a single technology — it's a combination of 5 things working together:
+
+Technology	        Role in AJAX
+HTML	            Structure of the page
+CSS	                Styling the page
+JavaScript	        Adds logic and handles dynamic behavior
+DOM API	Updates     parts of the page
+XHR or Fetch API	Talks to the server in background
+

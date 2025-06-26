@@ -1,0 +1,28 @@
+🧨 What is CSRF?
+CSRF (Cross-Site Request Forgery) is an attack where 
+the attacker tricks a logged-in user into unknowingly performing an action on a 
+trusted website — like transferring money or changing a password — without their consent.
+
+Real-Life CSRF Example (Without Protection)
+You’re logged in to:
+
+https://yourbank.com
+Your cookies:
+
+Cookie: sessionId=abc123
+Now, attacker tricks you to click a fake link:
+
+<img src="https://yourbank.com/transfer?to=hacker&amount=1000" />
+Since your browser automatically sends cookies with every request:
+
+The bank sees the request as legitimate
+The money is transferred ❌
+
+🧠 Why CSRF Works
+Browsers automatically attach cookies with every request to the domain
+
+Server trusts the cookie
+
+There’s no way to tell if the request came from your app or from an attacker
+
+

@@ -1,0 +1,105 @@
+🧠 What Is API Versioning?
+API versioning means giving different versions to an API so that:
+
+Old users can keep using the old version
+
+New features/changes can be added in the new version
+
+You don’t break existing apps
+
+🔧 Why Do We Need API Versioning?
+Imagine this:
+You’re building a React app and using this API:
+
+
+GET https://api.example.com/users
+Now the backend changes the structure of the response. If there’s no versioning, your frontend breaks!
+
+🔑 Versioning protects the frontend from sudden backend changes.
+
+✅ When Should APIs Be Versioned?
+You change the response structure
+
+You remove or rename fields
+
+You change the behavior of an endpoint
+
+You want to test new features without breaking production
+
+🚀 Common API Versioning Strategies
+There are 3 main ways to do it:
+
+1️⃣ URI Versioning (most common)
+📌 You add the version directly in the URL.
+
+
+GET https://api.example.com/v1/users
+GET https://api.example.com/v2/users
+✅ Pros:
+
+Easy to understand and implement
+
+Version is visible in URL
+
+Works great with browser and cache
+
+❌ Cons:
+
+Some say it violates REST purity (URI should represent a resource, not version)
+
+2️⃣ Header Versioning
+📌 Version is sent via custom HTTP header
+
+
+GET /users
+Headers: 
+  Accept: application/vnd.example.v1+json
+✅ Pros:
+
+Clean URLs
+
+More RESTful
+
+❌ Cons:
+
+Harder to test manually (you must set headers)
+
+Not supported well by all clients (like browser)
+
+3️⃣ Query Parameter Versioning
+📌 Add version as a query parameter
+
+
+GET /users?version=1
+✅ Pros:
+
+Easy to add
+
+Doesn’t change path structure
+
+❌ Cons:
+
+Some caching tools ignore query strings
+
+Not very RESTful
+
+🔄 Real-Life Example
+Let’s say in v1, this is the API response:
+
+
+GET /v1/users
+{
+  "id": 101,
+  "full_name": "Asad Ahmed"
+}
+But in v2, they change it to:
+
+
+GET /v2/users
+{
+  "id": 101,
+  "first_name": "Asad",
+  "last_name": "Ahmed"
+}
+If you didn’t version it, your old app would break when this change goes live.
+

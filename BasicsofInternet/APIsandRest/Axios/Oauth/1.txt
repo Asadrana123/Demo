@@ -1,0 +1,43 @@
+3️⃣ OAuth 2.0 — 🌍 Used in Big Platforms (Google, Facebook, GitHub)
+🧠 What is it?
+OAuth is an authorization framework that lets users log in using another service (like Google or GitHub).
+
+You don't manage passwords — the third-party does.
+
+🔁 Workflow:
+(For front-end login with Google, GitHub, etc.)
+User clicks “Login with Google”
+
+Redirects to Google’s consent screen
+
+User allows permissions (email, profile)
+
+Google redirects back with a code
+
+Frontend exchanges that code for an access token
+
+Use token to make requests on behalf of user
+
+✅ Pros:
+Secure login using trusted identity providers
+
+No password stored by you
+
+Used by almost all social login systems
+
+❌ Cons:
+Complex to implement
+
+Multiple steps + redirects
+
+Needs secure backend handling
+
+
+
+✅ Frontend Example (OAuth with Google)
+
+https://accounts.google.com/o/oauth2/v2/auth?
+  client_id=...
+  &redirect_uri=...
+  &response_type=code
+  &scope=email profile

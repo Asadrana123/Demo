@@ -1,0 +1,52 @@
+✅ What is XHR (XMLHttpRequest)?
+XMLHttpRequest is a built-in constructor function provided by web browsers that allows 
+JavaScript to create an object for making asynchronous HTTP requests to a server 
+without reloading the page.
+
+When you write:
+
+const xhr = new XMLHttpRequest();
+You're creating an instance of the XMLHttpRequest class.
+
+This object (xhr) provides methods like .open(), .send(), .setRequestHeader(), 
+and events like .onload, .onerror, etc.
+
+It lets JavaScript communicate with the server in the background — something JavaScript 
+cannot do on its own.
+
+✅ Why was XMLHttpRequest added to browsers?
+Before XMLHttpRequest, if a website needed new data (like loading new messages), 
+it had to reload the entire page — even for a small change. This was:
+
+Slow
+Bad for UX
+Inefficient
+
+XHR was introduced (by Microsoft in IE5, 1999) to enable dynamic content 
+loading via JavaScript, leading to the AJAX revolution (Asynchronous JavaScript and XML).
+
+✅ Is XHR a browser object?
+Technically:
+
+XMLHttpRequest is a constructor function (a class) provided by the browser's JavaScript environment.
+When you call new XMLHttpRequest(), you get an object instance (xhr) that lets you make HTTP requests.
+
+So:
+Term	         Type
+XMLHttpRequest	 ✅ Built-in constructor function
+xhr (after new)	 ✅ JavaScript object created from that constructor
+
+✅ Can JavaScript talk to the server directly?
+❌ No.
+JavaScript (by itself) cannot open network connections — it has no built-in access to sockets, HTTP, or TCP/IP.
+
+✅ Browsers provide networking tools like XMLHttpRequest, fetch(), and WebSocket — 
+as Web APIs that JavaScript can use.
+
+✅ Does fetch() use XHR under the hood?
+❌ No.
+
+fetch() is a completely separate, modern API introduced in 2015.
+It’s not a wrapper over XHR.
+Both fetch and XMLHttpRequest use the same internal browser networking layer, but they are independent.
+

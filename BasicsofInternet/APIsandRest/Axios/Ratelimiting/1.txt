@@ -1,0 +1,59 @@
+🚦 What Is Rate Limiting?
+Rate limiting is a technique used to control how many times a client can 
+make requests to a server within a certain time frame.
+
+Think of it like:
+
+"You can call me only 60 times per hour. If you call more than that, I’ll ignore you or block you." 🔕📵
+
+🧠 Why Is Rate Limiting Important?
+Reason	         Why it matters
+🔒 Security	     Prevents abuse like brute-force attacks or spam
+🌐 Fair Usage	 Stops one user from overloading the server
+⚙️ Stability	 Keeps API fast for everyone
+💸 Cost control	 For paid APIs, it enforces usage limits per plan (e.g. free vs premium)
+
+📦 Real-World Example
+Imagine you're using OpenAI’s API or Twitter's API. They might say:
+
+"You can make 100 requests per 15 minutes."
+
+So if you make the 101st request, you get this error:
+
+
+{
+  "error": "Rate limit exceeded. Try again later."
+}
+🧰 How Is It Implemented?
+On the backend, rate limiting is typically done using:
+
+IP-based: limits per user IP
+
+API key-based: limits per app/user
+
+Token-based: limits per access token
+
+Endpoint-based: different limits for different endpoints
+
+🔁 Techniques Used (You might hear these terms):
+Technique	    Description
+Fixed Window	Counts requests in fixed intervals (e.g., 1 minute)
+Sliding Window	Smoother version of fixed; looks at recent time
+Token Bucket	Each request costs a token; tokens refill over time
+Leaky Bucket	Processes requests at fixed rate; excess is dropped
+
+📉 What Happens When Rate Limit Is Hit?
+Server returns HTTP status code 429 (Too Many Requests)
+
+Response may include headers like:
+
+
+HTTP/1.1 429 Too Many Requests
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 0
+X-RateLimit-Reset: 1719242400
+Frontend should read these headers and:
+
+Stop retrying
+Show error to user
+Try again after reset time

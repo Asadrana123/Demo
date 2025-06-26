@@ -1,0 +1,42 @@
+✅ Common Directives         (Rules)
+Directive	                  What it controls
+default-src           	      Default rule for all content
+script-src	                  Allowed JS sources
+style-src	                  Allowed CSS
+img-src	                      Allowed image URLs
+font-src	                  Allowed fonts
+connect-src	                  Allowed AJAX / WebSocket / fetch connections
+frame-src	                  Allowed iframes
+object-src	                  Allowed plugins (like Flash)
+
+🧾 Example 1: Basic Strict CSP
+Content-Security-Policy:
+  default-src 'self';
+  script-src 'self';
+  style-src 'self';
+🔒 Only load HTML, JS, and CSS from your own domain.
+
+
+
+🧾 Example 2: Allow Google Fonts, but block everything else
+
+Content-Security-Policy:
+  default-src 'self';
+  font-src https://fonts.gstatic.com;
+  style-src 'self' https://fonts.googleapis.com;
+
+
+🧾 Example 3: Allow images from CDN and self
+Content-Security-Policy:
+  img-src 'self' https://cdn.example.com;
+
+
+  ❌ Things That Will Be Blocked by Strict CSP
+
+  | Dangerous Element                | Why blocked                    |
+| -------------------------------- | ------------------------------ |
+| `<script>alert('XSS')</script>`  | Inline script                  |
+| `eval()` in JavaScript           | Unsafe execution               |
+| `<script src="http://evil.com">` | Not from allowed source        |
+| `<img src= onerror=alert(1)>`    | Inline JS event                |
+| Inline CSS styles                | If `unsafe-inline` not allowed |

