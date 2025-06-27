@@ -1,0 +1,33 @@
+⚠️ Content Security Policy (CSP) Keywords — Detailed Explanation
+
+1️⃣ 'self' — "Only allow from my own origin"
+✅ Meaning:
+Allows content (JS, CSS, images, etc.) only from your own domain.
+
+If your site is:
+
+
+https://asadfitness.in
+Then this allows only:
+
+
+https://asadfitness.in/...
+✅ Example:
+
+
+Content-Security-Policy: script-src 'self';
+✅ This allows scripts like:
+
+
+
+2️⃣ 'none' — "Allow nothing"
+❌ Meaning:
+Blocks everything for the specified directive.
+
+✅ Example:
+
+Content-Security-Policy: script-src 'none';
+👉 This disables all JavaScript from loading or executing.
+
+Use 'none' to completely block a content type.
+

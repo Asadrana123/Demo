@@ -1,0 +1,33 @@
+3️⃣ 'unsafe-inline' — "Allow inline <script> or style tags"
+⚠️ Meaning:
+Allows inline code like:
+
+
+<script>alert('XSS');</script>
+<style>body { color: red }</style>
+✅ Useful when:
+
+Your old app uses a lot of inline styles or scripts
+
+You want to allow quick testing
+
+❌ Very risky: Attackers can inject scripts easily if you allow this.
+
+🔥 Real attack vector:
+A user enters this into a form:
+
+
+<img src=x onerror="alert('Hacked')">
+If innerHTML is used and 'unsafe-inline' is allowed → 💥 XSS runs.
+
+CSP blocks inline JS by default unless you explicitly allow it using 
+'unsafe-inline' — which is considered a security risk.
+
+
+4️⃣ 'unsafe-eval' — "Allow use of eval() or new Function()"
+
+Content-Security-Policy: script-src 'self' 'unsafe-eval';
+
+
+https:	Allow any secure origin
+data:	Allow inline base64 data (not recommended)

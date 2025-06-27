@@ -1,0 +1,46 @@
+There are two main ways to implement Content Security Policy (CSP) on your website:
+
+✅ 1. Via HTTP Response Header (Most Common & Recommended)
+This is the preferred method for production websites.
+
+🔧 How it works:
+The server includes a Content-Security-Policy header in the HTTP response.
+
+🧱 Example (in header):
+
+Content-Security-Policy: script-src 'self' https://apis.example.com; style-src 'self';
+💡 How to add it:
+Depends on your server:
+
+🔹 Apache (.htaccess)
+
+Header set Content-Security-Policy "script-src 'self'; style-src 'self';"
+🔹 Nginx
+nginx
+Copy
+Edit
+add_header Content-Security-Policy "script-src 'self'; style-src 'self';";
+🔹 Node.js + Express
+
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "script-src 'self'; style-src 'self'");
+  next();
+});
+
+✅ 2. Via <meta> Tag (HTML)
+You can also define CSP inside your HTML document using a <meta> tag:
+
+🧱 Example:
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; style-src 'self'">
+
+🟡 Bonus: CSP Reporting Only Mode
+Use the Content-Security-Policy-Report-Only header to test your policy without enforcing it:
+
+
+Content-Security-Policy-Report-Only: script-src 'self'
+🔎 This lets you:
+
+See violations in browser DevTools
+
+Collect reports via report-uri or report-to
+
