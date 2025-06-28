@@ -1,0 +1,31 @@
+🔥 WHAT is a WebSocket?
+✅ WebSocket is a network protocol — officially defined by RFC 6455.
+✅ Its purpose: enable full-duplex, bidirectional communication between a 
+client (like a browser) and a server over a single, long-lived TCP connection.
+
+🔥 WHAT is a WebSocket?
+✅ WebSocket is a network protocol — officially defined by RFC 6455.
+✅ Its purpose: enable full-duplex, bidirectional communication between a 
+client (like a browser) and a server over a single, long-lived TCP connection.
+
+
+✅ HOW does it work?
+1️⃣ The client (browser) starts with a normal HTTP request with Upgrade: websocket header.
+
+2️⃣ If the server supports it, it replies:
+
+
+HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+3️⃣ Now the connection switches from HTTP to the WebSocket protocol over TCP.
+This is called the WebSocket handshake.
+
+4️⃣ From this point on:
+
+The connection stays open.
+
+Both sides (client & server) can send messages any time — without waiting for the other side.
+
+This is called full-duplex communication.
+

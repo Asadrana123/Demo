@@ -1,0 +1,40 @@
+✅ 2️⃣ What are ETags?
+An ETag (Entity Tag) is a unique ID (like a hash or version string) 
+that the server attaches to a resource.
+
+When the browser caches the resource, it saves the ETag too.
+
+
+🔑 Why use it?
+On next request, the browser says:
+
+“Hey server, my copy has ETag abc123. Is that still the latest?”
+
+If the file hasn’t changed:
+
+Server responds 304 Not Modified → no new download!
+
+Saves bandwidth.
+
+If the file has changed:
+
+Server sends a new file + new ETag.
+
+⚡ Real-life example
+1️⃣ You request main.js
+
+2️⃣ Server responds:
+HTTP/1.1 200 OK
+ETag: "v1.2.3"
+
+
+3️⃣ Next visit:
+GET /main.js
+If-None-Match: "v1.2.3"
+Server:
+
+If ETag matches → 304 Not Modified
+
+If ETag doesn’t match → sends updated main.js
+
+
