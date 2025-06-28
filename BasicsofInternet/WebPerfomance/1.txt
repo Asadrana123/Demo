@@ -1,0 +1,22 @@
+1️⃣ Latency → Delay (Waiting Time)
+📖 Definition:
+Latency is the time it takes for a message to travel from the sender to the receiver.
+
+🕒 It’s measured in milliseconds (ms).
+
+💡 Think of it like:
+🚗 How long it takes to START the car and get it moving.
+Not how fast it drives or how much it carries.
+
+🔁 In Web Terms:
+Time between clicking a button → and seeing a server response
+
+Time to connect to a server (TCP handshake, DNS lookup, SSL negotiation)
+
+🧪 Example:
+You click a button → request goes to:
+
+https://api.asadfitness.in/get-data
+If the latency is 100 ms, it means:
+
+It took 100 milliseconds for the first byte of data to arrive from the server

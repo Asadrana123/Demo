@@ -1,0 +1,75 @@
+1️⃣ Physical distance
+🗺️ How far is your user from your server?
+Data travels over cables and through networks at about ⅔ the speed of light.
+
+More distance → more time → higher latency.
+
+Example:
+If your server is in New York, but your user is in Singapore, the data has to travel halfway around the world.
+
+2️⃣ Number of network hops
+🪜 How many intermediate routers and switches are in the path?
+Data doesn’t go directly — it goes through multiple routers, switches, and sometimes other networks.
+
+Each “hop” adds a tiny delay (processing time).
+
+More hops → more latency.
+
+3️⃣ Quality of the network connection
+🕸️ Network congestion, packet loss, and routing
+Congested networks (lots of traffic) can cause delays.
+
+Packet loss means some data has to be resent, adding time.
+
+Bad routing: Sometimes data takes inefficient paths.
+
+4️⃣ DNS resolution time
+🌐 How long does it take to look up the server’s IP?
+When you visit www.example.com, your browser must ask a DNS server: “What is the IP?”
+
+DNS lookups can add 10–200ms of latency.
+
+5️⃣ TCP connection setup
+🤝 The “handshake”
+Before data transfers, your browser and the server establish a TCP connection (3-way handshake).
+
+Each handshake = 1 round trip.
+
+More connections → more handshake overhead → more latency.
+
+6️⃣ TLS/SSL negotiation
+🔐 Secure connections
+If your site uses HTTPS (which it should!), there’s a TLS handshake to establish encryption.
+
+This adds extra round trips.
+
+So HTTPS is slightly higher latency than plain HTTP (but needed for security).
+
+7️⃣ Server processing time
+🗂️ How fast does the server handle your request?
+After the request arrives, the server needs to:
+
+Parse it
+
+Run logic
+
+Query the database
+
+Prepare a response
+
+Slow backends or heavy database queries = higher latency.
+
+8️⃣ Payload size
+📦 How much data are you transferring?
+Bigger files take longer to send.
+
+Compression helps reduce this, but large images or videos can increase latency.
+
+9️⃣ CDN and caching
+🌍 Using edge servers
+CDNs (Content Delivery Networks) serve data from edge servers closer to the user.
+
+This reduces physical distance and latency.
+
+No CDN → higher latency for global users.
+

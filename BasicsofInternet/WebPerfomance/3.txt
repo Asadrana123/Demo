@@ -1,0 +1,10 @@
+✅ What is bandwidth?
+Bandwidth is the maximum amount of data that can be transferred over a network connection per second.
+
+It’s usually measured in bits per second (bps) — e.g., Mbps (megabits per second) or Gbps
+ (gigabits per second).
+
+📶 Simple analogy:
+Think of bandwidth like the width of a water pipe — the wider the pipe, the more water (data)
+ can flow through at the same time.
+

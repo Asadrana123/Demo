@@ -1,0 +1,18 @@
+✅ 2️⃣ CDN Caching
+How it works
+A CDN (Content Delivery Network) keeps copies of your files on edge servers worldwide.
+
+When a user requests your file, it’s served from the nearest POP (Point of Presence).
+
+This cuts down distance → lower latency.
+
+Also reduces load on your origin server.
+
+Real example
+Cloudflare, Akamai, AWS CloudFront — all do this.
+
+Your image.jpg is stored on a CDN edge server in Singapore → user in Jakarta gets it lightning fast, 
+instead of from your origin in New York.
+
+✅ Excellent for static content: images, videos, CSS, JS, fonts.
+

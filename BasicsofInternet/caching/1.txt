@@ -1,0 +1,32 @@
+✅ What is caching?
+Caching means storing copies of data closer to where they’re needed,
+so they can be reused without re-fetching from the original source every time.
+
+⚡ Faster response → reduces latency
+📦 Less data transfer → saves bandwidth
+⚙️ Less work for the backend
+
+✅ 1️⃣ Browser Caching
+How it works
+When your browser loads a page, it stores static assets (like CSS, JS, images) in its local cache.
+
+Next visit → browser reuses those files if they’re still valid.
+
+How you control it
+HTTP headers tell the browser what to cache and for how long.
+
+Cache-Control: e.g., max-age=86400 → cache for 24 hours
+
+ETag: version identifier → if file changes, new version loads
+
+Last-Modified: compare if file has changed
+
+Real example
+Your site’s main.css is cached for 1 week.
+
+User revisits → no new download → page loads instantly → zero extra bandwidth.
+
+✅ Good for static files (CSS, JS, images).
+
+❌ Not good for dynamic API responses — they change often!
+
