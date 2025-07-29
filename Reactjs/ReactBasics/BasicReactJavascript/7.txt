@@ -1,0 +1,6 @@
+<script type="module" src="/src/main.jsx"></script>
+
+in this the reason of writing type='module' is that we are telling the browser to load script as ES6 module.
+Enables import/export to work.
+Makes variables scoped to the module (not global).
+Allows defer-like behavior by default.

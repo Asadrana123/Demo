@@ -1,0 +1,29 @@
+Library:-
+A library is a collection of pre-written code (functions, classes, utilities) 
+that helps you perform common tasks — like working with arrays, making API requests, 
+or building a UI — without writing that code yourself.
+
+
+Package:-
+A package is a bundle that contains:
+The actual code (like a library),
+And also some extra information (metadata) about that code:
+
+Name
+Version
+Author
+What other packages it needs
+Entry point (main file)
+License, etc.
+
+You're installing the lodash package — which contains:
+✅ The Lodash library code
+✅ A package.json file (with version, name, etc.)
+✅ Maybe docs, type definitions, or tests
+
+
+Dependency:-
+Dependencies are listed in package.json file and that are the list 
+of packages which our projects need to run.
+
+

@@ -1,0 +1,21 @@
+What is CDN?
+CDN stands for Content Delivery Network.
+It is a group of servers located around the world that store copies of website files
+ (like images, videos, CSS, 
+JS, etc.).
+
+When a user opens a website, instead of loading all files from the main server 
+(which could be far away),
+the files are loaded from the nearest CDN server. This makes websites load faster, 
+reduces server load, and improves performance for global users.
+Benefits of a CDN:
+Faster website loading
+Better experience for users around the world
+Less pressure on the main server
+Higher reliability and uptime
+Some CDNs offer security like DDoS protection
+
+
+
+
+

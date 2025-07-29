@@ -1,0 +1,32 @@
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+this is loading the React library from a CDN called unpkg.com.
+unpkg.com is a public CDN that serves files directly from npm (Node Package Manager).
+It helps developers quickly use libraries like React, Vue, etc., without downloading and hosting them manually.
+
+
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
+
+That script tag loads ReactDOM (v18) in development mode from a CDN. It's used to render React components 
+into the DOM during development (with helpful warnings and errors).
+
+
+The reason why React and ReactDOM are provided as two separate libraries (react and react-dom) is due 
+to the design philosophy of modularity and separation of concerns.
+
+
+react: This is the core library that handles the logic for creating and managing 
+components, hooks, state, context, etc.
+
+react-dom: This library is responsible for rendering React components to the DOM, specifically 
+for web browsers. (There's also react-native, react-dom/server, etc.)
+
+If you're building a React Native app, you don’t need react-dom at all.
+This modular approach helps keep bundles smaller and improves performance.
+
+
+React isn't just for the web:
+
+react-dom is for web browsers.
+react-native is for mobile apps.
+react-dom/server is for server-side rendering.

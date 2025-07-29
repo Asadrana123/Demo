@@ -1,0 +1,6 @@
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js">
+         console.log("hi");
+</script>
+inner content is ignored by the script tag when there is scr attribute.
+
+
