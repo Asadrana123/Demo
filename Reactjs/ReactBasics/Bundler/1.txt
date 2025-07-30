@@ -1,0 +1,26 @@
+What is a bundler in React?
+A bundler is a tool that takes all your project files (JavaScript, CSS, images, etc.) and combines 
+them into a few optimized files (called bundles) for the browser.
+
+
+React apps use:
+Many JS files and components
+import/export (ES6 modules)
+JSX (which the browser doesn’t understand directly)
+
+CSS modules, assets, etc.
+🧠 The browser can’t handle all of that directly — so the bundler:
+Compiles JSX to JavaScript.
+Resolves imports between files.
+Minifies & optimizes code.
+Creates final output files the browser can understand.
+
+
+the bundlers in react are :-
+vite
+webpack
+parcel
+
+
+
+

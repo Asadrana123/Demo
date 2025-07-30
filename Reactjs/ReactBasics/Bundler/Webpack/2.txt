@@ -1,0 +1,25 @@
+4. Plugins (Extra Functionality)
+   Add extra features like HTML generation, minification, cleaning folders, etc.
+   Example:
+   plugins: [
+     new HtmlWebpackPlugin({ template: './index.html' })
+   ]
+
+5. Mode Control
+   Tells Webpack whether to optimize for development or production.
+   Example:
+   mode: 'development' // or 'production'
+
+6. Dev Server Control
+   Configures the local development server for hot reload, port, etc.
+   Example:
+   devServer: {
+     port: 3000,
+     hot: true,
+     open: true
+   }
+
+Summary:
+Webpack gives full control over how your app is built: starting point (entry), output location, 
+handling different file types (loaders), adding extra features (plugins),
+development or production mode, and local dev server behavior.

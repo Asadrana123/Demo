@@ -1,0 +1,83 @@
+What type of controls does Webpack give us?
+
+1. Entry Control
+   Tells Webpack where to start bundling the app.
+   Example:
+   entry: './src/index.js'
+
+2. Output Control
+   Controls the name and location of the final bundled file.
+   Example:
+   output: {
+     filename: 'bundle.js',
+     path:path.resolve(__dirname, 'dist')
+   }
+
+3. Loaders (File Handling Control)
+   Tells Webpack how to handle files like .css, .jsx, .ts, images, etc.
+   Example:
+   module: {
+     rules: [
+       {
+         test: /\.css$/,
+         use: ['style-loader', 'css-loader']
+       }
+     ]
+   }
+Details:
+- "test": A regular expression to match file types. Here, /\.css$/ means "all .css files".
+- "use": An array of loaders to handle those files.
+   → 'css-loader' reads the CSS file and turns it into JavaScript.
+   → 'style-loader' takes that CSS and injects it into the <style> tag in the HTML page.
+
+
+   🧩 Example: CSS to JavaScript
+👇 Suppose you write this CSS:
+
+/* App.css */
+.button {
+  color: red;
+  padding: 10px;
+}
+🧠 Step 1: What css-loader does
+It converts the CSS file into a JS module like this (simplified):
+
+export default `
+.button {
+  color: red;
+  padding: 10px;
+}
+`;
+So now your CSS file is just a JavaScript string.
+
+🧠 Step 2: What style-loader does
+It takes the above string and does something like this:
+
+const css = `
+.button {
+  color: red;
+  padding: 10px;
+}
+`;
+
+const styleTag = document.createElement("style");
+styleTag.innerText = css;
+document.head.appendChild(styleTag);
+So the CSS string is dynamically inserted into a <style> tag at runtime in your HTML document’s <head>.
+
+🔬 Final Result in Browser
+<head>
+  ...
+  <style>
+    .button {
+      color: red;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+
+
+
+
+
