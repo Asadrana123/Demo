@@ -1,0 +1,20 @@
+function Example() {
+  const [count, setCount] = useState(0);
+  const [name, setName] = useState('Alice');
+
+  const handleClick = () => {
+    setCount(prev => prev + 1);
+    setCount(prev => prev + 1);
+    setName('Bob');
+    console.log('Clicked! Count:', count);
+  };
+
+  useEffect(() => {
+    console.log('Effect ran: count is', count, 'name is', name);
+  }, [count, name]);
+
+  return <button onClick={handleClick}>Click Me</button>;
+}
+
+2️⃣ React does not re-render after each setState.
+Instead, it queues the updates.

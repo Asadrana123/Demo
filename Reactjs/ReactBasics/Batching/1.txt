@@ -1,0 +1,8 @@
+✅ What “batching” means
+👉 React collects multiple state updates that happen in the same event loop tick,
+and applies them all in one render, so the UI only updates once.
+
+This improves performance and consistency.
+
+“Same event loop tick” means all the state updates run in the same synchronous block of code,
+before the JS engine goes back to the event loop to pick the next task.

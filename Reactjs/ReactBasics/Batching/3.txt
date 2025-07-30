@@ -1,0 +1,33 @@
+🔹 When does Batching break?
+Older React (pre-18):
+Only batches in React event handlers.
+Not batched in:
+setTimeout
+Promise.then
+Native event listeners
+Example:
+
+setTimeout(() => {
+  setCount(count + 1);
+  setName('Ali');
+});
+
+❌ Each runs separately → two renders.
+
+🔹 Modern React (18+): Automatic Batching
+React 18 introduced automatic batching everywhere.
+
+Works for async callbacks like:
+setTimeout
+fetch().then()
+await
+Example:
+
+
+async function load() {
+  setCount(1);
+  await fetch('/api');
+  setName('Ali');
+}
+
+✅ Both updates batched → one render.
