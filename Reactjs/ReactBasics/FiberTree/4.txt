@@ -1,0 +1,9 @@
+2️⃣ Double Buffering — current & workInProgress Fibers
+React uses a double buffering approach:
+
+Current Fiber Tree: Represents what’s currently rendered and committed on the screen.
+Work-In-Progress (WIP) Fiber Tree: The new tree React is building during the render phase.
+Every Fiber Node has an alternate pointer linking it to its counterpart in the other tree.
+
+During render, React traverses and mutates the WIP tree without touching the current tree.
+Once done, React swaps the trees.

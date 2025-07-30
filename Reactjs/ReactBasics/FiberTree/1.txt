@@ -1,0 +1,29 @@
+🔥 What is the Fiber Tree?
+The Fiber Tree is a linked tree of Fiber Nodes — each representing a 
+React element (component or DOM node). It is React’s internal data structure that tracks 
+the current UI and work-in-progress updates.
+
+function App() {
+  return (
+    <div>
+      <Header />
+      <Main />
+    </div>
+  );
+}
+
+function Header() {
+  return <h1>Hello!</h1>;
+}
+
+function Main() {
+  return <p>Welcome!</p>;
+}
+
+
+FiberNode: App (type: FunctionComponent)
+ └─ FiberNode: div (type: HostComponent)
+      ├─ FiberNode: Header (type: FunctionComponent)
+      │    └─ FiberNode: h1 (type: HostComponent)
+      └─ FiberNode: Main (type: FunctionComponent)
+           └─ FiberNode: p (type: HostComponent)

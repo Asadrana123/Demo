@@ -1,0 +1,52 @@
+function Example() {
+  const [count, setCount] = useState(1);
+  const [name, setName] = useState('Alice');
+
+  // Some update calls happened:
+  setCount(prev => prev + 1); // count: 1 → ?
+  setCount(prev => prev + 1); // count: ? → ?
+  setName('Bob');
+}
+
+
+/const fiberNode = {
+  tag: 0,               // FunctionComponent
+  type: Example,        // The component function
+  stateNode: null,      // Not needed for FunctionComponent
+  memoizedProps: {},    // Whatever props you passed
+  memoizedState: {      // This is the FIRST HookNode: (count)
+    memoizedState: 1,   // BEFORE applying updates
+    queue: {
+      pending: {        // Circular linked list of updates
+        action: prev => prev + 1,
+        next: {
+          action: prev => prev + 1,
+          next: '[Circular]' // back to first update
+        }
+      },
+      dispatch: setCount,     // The stable dispatch function
+      lastRenderedReducer: basicStateReducer,
+      lastRenderedState: 1
+    },
+    next: { // NEXT HookNode: (name)
+      memoizedState: 'Alice', // BEFORE applying updates
+      queue: {
+        pending: {
+          action: 'Bob',
+          next: '[Circular]'
+        },
+        dispatch: setName,
+        lastRenderedReducer: basicStateReducer,
+        lastRenderedState: 'Alice'
+      },
+      next: null // end of Hooks list
+    }
+  },
+
+  child: null,
+  sibling: null,
+  return: null,
+  alternate: { /* previous fiber snapshot */ },
+  flags: 0,
+  // ... other fields not shown for brevity
+};

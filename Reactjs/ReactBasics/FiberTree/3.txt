@@ -1,0 +1,23 @@
+1️⃣ Fiber Node — The building block
+Each node in the Fiber Tree is a Fiber Node (or just "Fiber"). It’s a 
+JavaScript object with rich metadata.
+
+Key properties of a Fiber Node:
+
+| Property            | Description                                                                                        |
+| ------------------- | -------------------------------------------------------------------------------------------------- |
+| `type`              | Component type (function/class) or string for DOM elements (`'div'`, `'span'`, etc.)               |
+| `key`               | Unique identifier used in lists to identify nodes                                                  |
+| `stateNode`         | Reference to the local instance: DOM node for host components, class instance for class components |
+| `return`            | Pointer to the parent Fiber node                                                                   |
+| `child`             | Pointer to the first child Fiber node                                                              |
+| `sibling`           | Pointer to the next sibling Fiber node                                                             |
+| `index`             | Index of this Fiber among its siblings                                                             |
+| `ref`               | Reference to the component or DOM node                                                             |
+| `pendingProps`      | New props waiting to be applied on this render                                                     |
+| `memoizedProps`     | Props from the previous render                                                                     |
+| `memoizedState`     | State from the previous render                                                                     |
+| `updateQueue`       | Queue of pending state updates                                                                     |
+| `flags` (effectTag) | Flags describing side-effects or operations needed (Placement, Update, Deletion, etc.)             |
+| `lanes`             | Priority lanes assigned for scheduling                                                             |
+| `alternate`         | The other Fiber node for this component — current vs. work-in-progress                             |
