@@ -1,0 +1,18 @@
+Why is root.render(<Children />) correct but not root.render(Children)?
+1. Children is a component function (or class), NOT an element
+Children alone refers to the component itself (a function or class), not the JSX element.
+
+root.render expects a React element, which is the result of calling that component or JSX.
+
+2. <Children /> creates a React element
+Writing <Children /> is JSX syntax that tells React:
+“Call the Children function, create an element from its output.”
+
+This creates a React element object that React DOM can render.
+
+3. What happens if you do root.render(Children)?
+You’re passing the component itself (a function), not an element.
+
+React DOM does not know how to render a function directly.
+
+This causes an error 

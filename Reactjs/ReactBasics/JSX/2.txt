@@ -1,0 +1,14 @@
+Differences Between HTML and JSX
+
+| Aspect               | HTML                              | JSX                                                    |
+| -------------------- | --------------------------------- | ------------------------------------------------------ |
+| Syntax               | Standard HTML syntax              | JavaScript XML syntax inside JS                        |
+| Attribute names      | lowercase, e.g., `class`, `for`   | camelCase: `className`, `htmlFor`                      |
+| Closing tags         | Optional for some (e.g., `<img>`) | All tags must be closed (`<img />`)                    |
+| JavaScript in markup | Not supported inside HTML         | Can embed JS expressions inside `{}`                   |
+| Style attribute      | String, e.g., `style="color:red"` | Object, e.g., `style={{color: 'red'}}`                 |
+| Comments             | `<!-- comment -->`                | `{/* comment */}`                                      |
+| Event handlers       | lowercase, e.g., `onclick`        | camelCase, e.g., `onClick`                             |
+| Boolean attributes   | Just attribute, e.g., `disabled`  | Must be assigned: `disabled={true}`                    |
+| HTML entities        | Uses named entities (`&nbsp;`)    | Can use Unicode or entities, but escaped automatically |
+| HTML attributes case | Case-insensitive                  | Case-sensitive (camelCase only)                        |

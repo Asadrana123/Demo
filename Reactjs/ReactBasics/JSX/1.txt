@@ -1,0 +1,41 @@
+✅ 1️⃣ What is JSX?
+JSX stands for JavaScript XML.
+
+It’s a syntax extension for JavaScript —
+not a new language — 
+that lets you write UI code that looks like HTML directly inside your JavaScript.
+
+Example:
+
+const element = <h1>Hello, JSX!</h1>;
+Looks like HTML?
+It’s not HTML.
+It’s just syntax that tools like Babel transform into plain JavaScript.
+
+✅ 2️⃣ Why does JSX exist?
+JSX makes writing UI easier and clearer because:
+
+Writing UI in pure React.createElement calls is ugly:
+
+const element = React.createElement('h1', null, 'Hello, JSX!');
+But with JSX, you write:
+
+
+const element = <h1>Hello, JSX!</h1>;
+It feels more declarative: “What should the UI look like?”
+It’s closer to how HTML works, which web devs already understand.
+
+✅ 3️⃣ Is JSX required?
+No!
+React does not need JSX.
+JSX is just syntactic sugar for React.createElement.
+
+This:
+<App name="Asad">Hello!</App>
+is equivalent to:
+
+
+React.createElement(App, { name: 'Asad' }, 'Hello!');
+Your browser never sees JSX.
+Your build tools (like Babel) convert it to JS.
+
