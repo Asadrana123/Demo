@@ -1,0 +1,21 @@
+✅ 1️⃣ Recap: what does useCallback do?
+const memoizedFn = useCallback(fn, deps);
+
+It memoizes the function reference, so React gives you the same function instance 
+if dependencies don’t change.
+
+It does NOT change how the function works — just its identity.
+
+Why? So child components, effects, or any hook that depends on the 
+callback doesn’t see a new function on every render.
+
+✅ 2️⃣ Why does this matter?
+By default, functions inside components are re-created each render:
+
+function MyComponent() {
+  const fn = () => {};
+  // new fn every render!
+}
+
+This breaks React.memo or custom hooks that depend on reference equality:
+A new function means React thinks something changed, even if logic is the same.

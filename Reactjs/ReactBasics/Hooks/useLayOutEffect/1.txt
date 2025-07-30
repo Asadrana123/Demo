@@ -1,0 +1,30 @@
+Step 1: In-Depth Technical Understanding—useLayoutEffect in the React Commit Lifecycle
+Synchronous Execution Context
+useLayoutEffect fires synchronously after the DOM is updated but before the browser
+paints the screen. This phase is called the "layout effect" phase and is distinct from the 
+standard "effect" phase (useEffect).
+
+All browser layout operations triggered in useLayoutEffect (e.g., measurements, mutations)
+are completed before the user can see the result. This ensures the UI the user sees reflects 
+any urgent adjustments you make—no flicker, no visual tearing, no incorrect measurements.
+
+Technical Sequence
+Render Phase: React builds the virtual DOM tree.
+
+Commit Phase: The virtual DOM is reconciled with the real DOM.
+
+useLayoutEffect Callbacks: Run after the DOM is mutated but before the next paint.
+All child component layout effects run before moving to parents (bottom-up).
+
+Browser Paint: The browser paints the updated UI.
+
+useEffect Callbacks: Fired after painting.
+
+React’s Intent
+React gives you this hook to allow synchronous, post-DOM but pre-paint manipulations—something that’s
+crucial for advanced UI concerns like animation, focus management, scrollers, or any scenario where
+layout reads and immediate DOM mutations must happen before the next frame.
+
+Senior-Level Note
+In terms of the React Reconciler, useLayoutEffect is conceptually similar to componentDidMount and 
+componentDidUpdate, but it allows consolidated and predictable effect management in functional components.

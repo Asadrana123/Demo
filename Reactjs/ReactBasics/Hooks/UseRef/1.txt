@@ -1,0 +1,20 @@
+What is the ref property?
+It’s a special React property on Fiber nodes and elements.
+Holds a reference object or callback function passed from your JSX via ref={...}.
+Used to link React elements or fibers to external mutable values 
+(usually DOM nodes or class instances).
+
+Not all Fiber nodes contain refs, but some do depending on the type:
+HostComponent Fibers (e.g., <div>, <input>) can have refs because they correspond to 
+real DOM elements.
+ClassComponent Fibers can have refs, as class instances can be referenced.
+FunctionComponent Fibers generally do not have refs attached directly 
+(since function components don’t have instances).
+Other Fiber types like HostText, Suspense, etc., typically do not hold refs.
+
+
+
+Internals of ref
+On a Fiber node, ref is a field:
+fiber.ref = refObject | refCallback | null;
+

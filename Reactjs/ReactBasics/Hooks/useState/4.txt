@@ -1,0 +1,24 @@
+✅ How useState works under the hood (quick context)
+When you call useState, React keeps a queue of updates for that state variable in the Fiber Node.
+
+When you call setState (setCount), React pushes an update object to that queue.
+
+During the render phase, React processes this queue in order, computing the final state.
+
+✅ 1️⃣ Direct state update
+setCount(count + 1);
+What happens internally:
+
+count + 1 is evaluated immediately, using the current count value from the closure.
+
+The resulting value (e.g., 5) is stored in the update object:
+
+
+{ action: 5 }
+Later, React processes this queue and replaces the state with this fixed value.
+
+If you call multiple direct updates in the same render, each one uses the same old value (stale).
+
+✅ Key: It does NOT re-evaluate!
+It uses the snapshot you captured.
+

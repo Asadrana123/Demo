@@ -1,0 +1,25 @@
+How React Tracks Context Updates Internally :-
+
+When you use useContext, you are subscribing your component to the value of a particular 
+context — and React tracks this at the Fiber level.
+We'll explore what React does step-by-step internally, including how it decides 
+when to re-render.
+
+
+🔁 Context Value Update Flow
+Let’s say we have:
+const ThemeContext = React.createContext();
+
+function App() {
+  const [theme, setTheme] = useState('light');
+  return (
+    <ThemeContext.Provider value={theme}>
+      <Child />
+    </ThemeContext.Provider>
+  );
+}
+
+function Child() {
+  const theme = useContext(ThemeContext);
+  return <div>{theme}</div>;
+}

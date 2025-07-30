@@ -1,0 +1,9 @@
+Lifecycle of ref
+During commit phase, React:
+Calls attachRef(fiber.stateNode, fiber.ref) to assign or update.
+For object refs: sets ref.current = fiber.stateNode (DOM node or class instance).
+For callback refs: calls ref(fiber.stateNode).
+
+On unmount or ref change, React cleans up by setting:
+ref.current = null or
+calling callback with null.

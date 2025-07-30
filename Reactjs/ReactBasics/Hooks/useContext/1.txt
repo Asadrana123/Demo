@@ -1,0 +1,48 @@
+API (Application Programming Interface) is:
+A set of functions, objects, methods, or rules that a software library or system exposes 
+so other code can interact with it.
+Examples:
+In React, useState, useEffect, createContext — all are part of React's API.
+In JavaScript, Math.random() is part of the Math API.
+So an API can include functions. It's not a separate thing — 
+it's the interface (set of accessible features)
+
+✅ Step 1 — What is React Context?
+📌 Definition:
+React Context is a built-in API that lets you share values between components 
+without explicitly passing props through every level of the component tree.
+
+This creates a Context object with two main parts:
+MyContext.Provider
+MyContext.Consumer (used internally by useContext);
+
+
+🔎 What is inside MyContext?
+It’s an object with these main properties:
+{
+  $$typeof: Symbol(react.context),         // internal React type
+  _currentValue: ...,                      // current context value (used in legacy mode)
+  _currentValue2: ...,                     // current value (used in concurrent mode)
+  Provider: { $$typeof: Symbol(react.provider), ... },  // React component for providing context
+  Consumer: { $$typeof: Symbol(react.context), ... },   // Legacy way to consume context
+  displayName: undefined or string         // optional name for debugging
+}
+
+Why Symbol.for(react.context) :-
+In large apps, bundlers like Webpack may include multiple 
+React versions (e.g., app vs. library).
+If React used Symbol('react.context'), then:
+React in app and React in library would create different Symbols
+Even though both say "react.context", React wouldn't recognize it
+🔥 Breaks features like context, elements, etc.
+✅ With Symbol.for('react.context'), both versions pull the same global Symbol, 
+so they stay in sync
+
+
+
+Why are there two context values: _currentValue and _currentValue2?
+✅ The clean answer (no confusion):
+| Name             | Used when                  | Why it exists                                                         |
+| ---------------- | -------------------------- | --------------------------------------------------------------------- |
+| `_currentValue`  | **Normal (old) React**     | For synchronous rendering (everything at once)                        |
+| `_currentValue2` | **New React (Concurrent)** | For advanced rendering (like background rendering, transitions, etc.) |

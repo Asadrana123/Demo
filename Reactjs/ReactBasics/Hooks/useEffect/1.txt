@@ -1,0 +1,20 @@
+✅ 1️⃣ What is useEffect?
+
+
+useEffect is a React Hook for running side effects after your component renders.
+Side effect = any logic that reaches outside React’s render output
+e.g., fetch data, subscribe to an event, manipulate DOM directly, timers, logs, etc.
+
+
+“Outside React’s render output” means anything that doesn’t directly 
+produce the UI markup (the JSX/DOM).
+
+Examples:
+
+Fetching data from an API 🗂️
+Setting up a timer ⏰
+Subscribing to a WebSocket 📡
+Manually changing the DOM 🖌️
+
+👉 These actions affect things outside the React virtual DOM render process —
+ so they’re called side effects.

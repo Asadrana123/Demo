@@ -1,0 +1,7 @@
+✅ 7️⃣ How useEffect fits in React’s lifecycle
+
+| Class method           | useEffect equivalent                     |
+| ---------------------- | ---------------------------------------- |
+| `componentDidMount`    | `useEffect(() => {}, [])`                |
+| `componentDidUpdate`   | `useEffect(() => {}, [dep])`             |
+| `componentWillUnmount` | The function returned inside `useEffect` |

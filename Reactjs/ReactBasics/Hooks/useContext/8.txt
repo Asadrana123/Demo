@@ -1,0 +1,9 @@
+propagateContextChange() is an internal React function.
+
+Its actual work:
+Triggered when context value changes in <Context.Provider>.
+
+Walks the fiber tree downward from the provider.
+Finds all context consumers (subscribed fibers) under that provider.
+Marks them as needing re-render if they consume the changed context value.
+👉 It ensures only affected consumers are re-rendered, not the whole subtree.

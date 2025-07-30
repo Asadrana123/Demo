@@ -1,0 +1,13 @@
+The Complete Picture: Why React Doesn't Auto-Memoize
+
+1. Memory Overhead
+Every memoized value consumes memory.
+
+4. Developer Intent and Control
+Senior engineers need explicit control over performance optimizations. 
+Auto-memoization would hide these decisions and make performance debugging harder.
+
+The Framework Design Philosophy
+React's approach reflects a broader design philosophy:
+
+Opt-in optimization: Developers choose where to optimize

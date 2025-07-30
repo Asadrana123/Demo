@@ -1,0 +1,9 @@
+✅ 2️⃣ When does unmounting happen?
+
+| Scenario                | What happens                                                          |
+| ----------------------- | --------------------------------------------------------------------- |
+| ✅ Stops rendering       | Parent removes it from JSX                                            |
+| ✅ Conditional rendering | `isOpen ? <Modal /> : null` — Modal unmounts when `isOpen` is `false` |
+| ✅ Route change          | Switch pages → old route components unmount                           |
+| ✅ List items            | Remove item from an array → corresponding `<Item />` unmounts         |
+| ✅ App exit              | Entire React tree unmounts                                            |

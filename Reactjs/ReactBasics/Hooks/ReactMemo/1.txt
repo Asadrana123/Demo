@@ -1,0 +1,35 @@
+✅ 1️⃣ What is React.memo?
+React.memo is a Higher-Order Component (HOC) for function components.
+It tells React: “Only re-render this component if its props have changed.”
+
+const MemoizedComponent = React.memo(MyComponent);
+
+✅ React.memo internal simplified structure
+function memo(Component, areEqual) {
+  function MemoizedComponent(props, ref) {
+    // React treats this as a special component type with memoization
+    return React.createElement(Component, props, ref);
+  }
+  
+  MemoizedComponent.type = Component;   // original component
+  MemoizedComponent.compare = areEqual; // optional custom prop comparison
+  MemoizedComponent.$$typeof = Symbol.for('react.memo'); // React uses this to identify memo components
+
+  return MemoizedComponent;
+}
+
+
+const Child = React.memo(({ value }) => {
+  console.log("Child rendered");
+  return <div>{value}</div>;
+});
+
+function Parent() {
+  const [count, setCount] = useState(0);
+  return (
+    <>
+      <Child value="static prop" />
+      <button onClick={() => setCount(count + 1)}>Re-render parent</button>
+    </>
+  );
+}

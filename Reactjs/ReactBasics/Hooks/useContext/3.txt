@@ -1,0 +1,11 @@
+✅ displayName is used only for debugging purposes — especially in React DevTools.
+
+const UserContext = React.createContext();
+UserContext.displayName = "MyUserContext";
+
+Then in React DevTools, you will see:
+<MyUserContext.Provider>
+
+When you have many contexts, displayName helps you:
+Know which context you’re looking at
+Avoid confusion in deeply nested trees

@@ -1,0 +1,22 @@
+✅ 2️⃣ Functional state update (callback)
+
+
+setCount(prevCount => prevCount + 1);
+What happens internally:
+
+The function prev => prev + 1 is stored in the update queue:
+
+{ action: function }
+During the render, React processes the queue in order:
+
+It takes the latest state, runs your function:
+
+
+newState = action(prevState);
+So if you call it twice:
+
+prev is updated each time, so you get cumulative changes.
+
+✅ Key: The function is always run with the up-to-date state.
+It’s not frozen — React executes it on the latest version each time.
+

@@ -1,0 +1,36 @@
+🟢 1️⃣ What is componentWillUnmount?
+
+It’s a React class component lifecycle method.
+
+Runs right before the component is removed from the DOM.
+
+Gives you a chance to clean up side effects → to prevent memory leaks, 
+dangling timers, or open subscriptions.
+
+
+🟢 2️⃣ When does it run?
+
+| Phase   | Runs?                                                |
+| ------- | ---------------------------------------------------- |
+| Mount   | ❌                                                    |
+| Update  | ❌                                                    |
+| Unmount | ✅ Runs once, right before the component is destroyed |
+
+
+
+
+When your component is removed, you should:
+✅ Clear timers
+✅ Remove event listeners
+✅ Close WebSocket connections
+✅ Abort network requests
+✅ Cancel subscriptions
+
+Otherwise, those things keep running in memory, causing:
+
+Bugs
+
+Memory leaks
+
+Wasted CPU/bandwidth
+

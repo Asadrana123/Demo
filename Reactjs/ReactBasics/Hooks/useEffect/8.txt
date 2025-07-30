@@ -1,0 +1,98 @@
+🟢 What does cleanup do?
+Cleanup = undo or stop side effects when:
+
+A component re-renders
+
+Or unmounts
+
+Without cleanup, you can get:
+❌ Memory leaks
+❌ Duplicate subscriptions
+❌ Stale data
+❌ Performance bugs
+
+✅ Solid benefit examples
+📌 1️⃣ Prevent duplicate subscriptions
+Example: Listening to window resize
+
+
+useEffect(() => {
+  const onResize = () => console.log("Resized!");
+
+  window.addEventListener("resize", onResize);
+
+  return () => {
+    window.removeEventListener("resize", onResize);
+  };
+}, []);
+Why?
+
+Without cleanup, every time the effect runs again, you’d add another listener.
+
+You’d end up with many duplicate listeners → logs would fire multiple times for one resize!
+
+📌 2️⃣ Stop background tasks
+Example: setInterval for a timer
+
+
+useEffect(() => {
+  const id = setInterval(() => console.log("Tick"), 1000);
+
+  return () => clearInterval(id);
+}, []);
+Why?
+
+If you don’t clear the interval, the timer keeps running even if your component is gone.
+
+Leads to memory leaks and unnecessary CPU work.
+
+📌 3️⃣ Cancel pending async requests
+Example: Cancelling a fetch request
+
+
+useEffect(() => {
+  const controller = new AbortController();
+
+  fetch("/api/data", { signal: controller.signal })
+    .then(res => res.json())
+    .then(data => console.log(data));
+
+  return () => controller.abort();
+}, []);
+Why?
+
+If the component unmounts before the fetch finishes, you don’t care about the result.
+Aborting prevents updating state on an unmounted component, which would cause a warning.
+
+📌 4️⃣ Close connections
+Example: WebSocket
+
+useEffect(() => {
+  const socket = new WebSocket("ws://example.com");
+
+  socket.onmessage = msg => console.log(msg);
+
+  return () => socket.close();
+}, []);
+Why?
+
+Keeps your server and client from having hanging connections.
+
+Frees up network resources.
+
+📌 5️⃣ Remove DOM event listeners
+Example: Click outside to close a modal
+
+
+useEffect(() => {
+  const onClick = e => console.log("Clicked!");
+
+  document.addEventListener("click", onClick);
+
+  return () => document.removeEventListener("click", onClick);
+}, []);
+Why?
+
+If you don’t clean up, the listener stays attached forever, 
+even if the modal closes → causes bugs or memory leaks.
+

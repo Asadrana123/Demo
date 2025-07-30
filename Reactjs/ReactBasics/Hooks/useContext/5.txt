@@ -1,0 +1,14 @@
+🧬 Step-by-Step Internal Flow
+
+🔹 1. createContext() creates a context object
+
+const ThemeContext = {
+  $$typeof: Symbol(react.context),
+  _currentValue: 'light',        // legacy mode
+  _currentValue2: 'light',       // concurrent mode
+  Provider: ...,                 // the actual provider component
+  Consumer: ...,                 // legacy consumer
+  _threadCount: 0,
+};
+
+🧠 Key: React uses _currentValue to keep track of the latest value that should be read by consumers.

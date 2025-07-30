@@ -1,0 +1,18 @@
+👉 Direct state update:
+
+It takes a snapshot of the state value (like count) at the time your code runs.
+
+The count + 1 is evaluated immediately, so the actual setCount() stores that fixed number.
+
+This value is frozen, does NOT react to later changes.
+
+👉 Functional state update:
+
+It takes a snapshot of the function you provide.
+
+The function itself is stored in React’s update queue.
+
+Later, during render, React executes that function with the latest up-to-date state from the Fiber tree.
+
+So the function always runs on the fresh value, not the stale closure.
+

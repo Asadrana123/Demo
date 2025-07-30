@@ -1,0 +1,19 @@
+function ExpensiveComponent({ items }) {
+  // This runs on EVERY render - even if 'items' hasn't changed
+  const expensiveCalculation = items.reduce((sum, item) => {
+    // Imagine this is a complex operation taking 100ms
+    return sum + item.value * Math.pow(item.multiplier, 2);
+  }, 0);
+
+  return <div>{expensiveCalculation}</div>;
+}
+
+
+useMemo trades memory (storing cached results) for computational performance. This isn't always beneficial.
+
+// This is SLOWER with useMemo than without
+const simpleSum = useMemo(() => a + b, [a, b]);
+// Because React must:
+// 1. Check if dependencies changed (comparison cost)
+// 2. Decide whether to use cached result or recalculate
+// 3. Update the cache if needed

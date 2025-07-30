@@ -1,0 +1,29 @@
+✅ 3️⃣ Example: Conditional rendering
+
+function App() {
+  const [show, setShow] = useState(true);
+
+  return (
+    <>
+      {show && <Child />}
+      <button onClick={() => setShow(!show)}>Toggle</button>
+    </>
+  );
+}
+
+function Child() {
+  useEffect(() => {
+    console.log('Mount');
+
+    return () => console.log('Unmount');
+  }, []);
+
+  return <div>Child</div>;
+}
+
+
+👉 What happens?
+
+First render → Child mounts → logs “Mount”
+
+Click toggle → Child is removed → unmounts → logs “Unmount”

@@ -1,0 +1,14 @@
+🔹 3. <Provider value={...}> renders
+When React sees a Provider:
+It compares newValue with the previous value using Object.is()
+
+if (!Object.is(oldValue, newValue)) {
+   propagateContextChange(context, newValue);
+}
+
+If value has changed, React:
+Updates _currentValue2 inside context object
+Finds all consuming fibers (by walking all the descendents fiber)
+Marks each fiber to be scheduled for update
+React scheduler takes care of batching updates if needed
+

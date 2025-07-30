@@ -1,0 +1,19 @@
+✅ 6️⃣ What does the cleanup function do?
+
+Before the effect runs again (for the previous effect).
+
+useEffect(() => {
+  console.log("Subscribe to chat room:", roomId);
+
+  return () => {
+    console.log("Cleanup: Unsubscribe from room:", roomId);
+  };
+}, [roomId]);
+
+
+and when component unmount.
+
+
+👉 In React, the cleanup for each useEffect always runs immediately before its own effect 
+runs again — BUT when there are multiple effects, they are batched in a 
+single passive effects phase, so all cleanups run first, then all effects run.

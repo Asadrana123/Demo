@@ -1,0 +1,12 @@
+👉 Memory leak:
+When your app keeps holding on to memory it no longer needs, 
+instead of letting the JavaScript engine clean it up (garbage collection).
+
+✅ In React example:
+If you add an event listener (e.g., window.addEventListener) 
+in useEffect but don’t remove it in cleanup, the listener 
+stays active even if the component unmounts → the memory for 
+that listener can’t be freed → memory keeps growing → app slows down over time.
+
+✔️ So:
+Always clean up side effects like subscriptions, timers, or listeners to avoid memory leaks.

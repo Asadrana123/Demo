@@ -1,0 +1,38 @@
+✅ 2️⃣ Why do we need useEffect?
+
+
+❌ 1️⃣ Duplicate executions
+
+React can re-render your component multiple times → your side effect runs every time.
+
+Example: An API call in render will hit the server again and again → wasted network, 
+duplicate database writes.
+
+
+3️⃣ Race conditions
+React’s render is meant to be predictable.
+
+Side effects in render run while React is still building the UI, 
+which can cause weird bugs if your side effect depends on the real DOM being ready.
+
+function Example() {
+  // BAD: Trying to access real DOM during render
+  const el = document.getElementById('my-div');
+  if (el) {
+    el.style.background = 'red';  // Trying to modify DOM before React finished painting
+  }
+
+  return <div id="my-div">Hello</div>;
+}
+
+
+4️⃣ Unexpected stale data
+If you start side effects in render, you can’t easily control when they run or what data they use.
+useEffect gives you dependencies to react to changes safely.
+
+
+
+❌ 5️⃣ Bad for performance
+Side effects in render block React’s render process.
+
+This slows down UI updates, because React can’t batch or defer the extra work.

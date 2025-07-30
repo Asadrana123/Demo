@@ -1,0 +1,13 @@
+const [state, setState] = useState(0);
+const memoFn = useCallback(() => { ... }, [state]);
+fiber.memoizedState = {
+  // useState hook
+  memoizedState: 0,       // state value
+  queue: {...},           // update queue
+  next: {
+    // useCallback hook
+    memoizedState: yourMemoizedFunction,
+    deps: [0],            // dependencies when created
+    next: null
+  }
+}

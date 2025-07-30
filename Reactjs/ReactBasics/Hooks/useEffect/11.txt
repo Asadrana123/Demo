@@ -1,0 +1,7 @@
+🟢 1️⃣ What is componentDidUpdate?
+It’s a lifecycle method in React class components.
+
+It runs after every update, meaning after the component 
+re-renders due to props or state changes.
+
+It does not run after the initial render — only on updates!

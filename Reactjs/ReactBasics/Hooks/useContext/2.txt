@@ -1,0 +1,17 @@
+🧠 Key Idea:
+React may render more than one thing at the same time 
+(like new page preparing in background).
+To avoid bugs, it needs a separate value for this — that's what _currentValue2 is for.
+
+You don’t need to manage this.
+
+✅ For you as a developer:
+<MyContext.Provider value="Asad">
+  <App />
+</MyContext.Provider>
+
+
+React will decide:
+Use _currentValue if rendering normally
+Use _currentValue2 if rendering concurrently
+You don't need to worry about managing them.

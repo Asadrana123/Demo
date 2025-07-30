@@ -1,0 +1,50 @@
+🔹 1️⃣ What is a “render” in React?
+Render means: React runs your component function to produce what should appear on the screen.
+
+Example:
+
+function Example() {
+  const [count, setCount] = useState(0);
+  return <span>{count}</span>;
+}
+When you first load the page: React calls Example() → it returns <span>0</span>.
+
+If count changes → React calls Example() again → this time it might return <span>1</span>.
+
+So, rendering = executing your function → generating JSX → React uses this to update the DOM.
+
+🔹 2️⃣ Why does state need to be “preserved”?
+If React just called your function again, any normal variables would reset:
+
+
+function Example() {
+  let count = 0;
+  // every render → count starts from 0 again!
+}
+This won’t “remember” anything.
+
+But useState works differently: it stores count outside your function, in React’s internal memory (the fiber).
+
+🔹 3️⃣ How does useState preserve the value?
+useState is like:
+
+const [count, setCount] = ReactInternalState[hookIndex];
+React keeps a special “hooks array” for each component instance.
+
+Each useState you declare is like:
+
+hooks = [  // for that component
+  { state: 0 },  // 1st useState
+  { state: 'abc' }  // 2nd useState
+]
+When you call setCount(1):
+
+React updates the state in its internal slot.
+
+On next render, your function runs again → but useState returns the preserved value (1), not 0 again.
+
+🔹 4️⃣ Why does this matter?
+Normal variables get wiped every time the function runs.
+
+useState values live in React’s fiber tree, so they survive across renders.
+

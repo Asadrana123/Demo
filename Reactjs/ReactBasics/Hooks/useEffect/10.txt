@@ -1,0 +1,30 @@
+🟢 1️⃣ What is componentDidMount?
+
+It’s a lifecycle method in class components.
+Runs once, right after the component’s first render, and after the DOM is added to the page.
+
+🟢 2️⃣ When does it run?
+
+| Phase                  | What happens                   |
+| ---------------------- | ------------------------------ |
+| Constructor            | Sets up initial state          |
+| Render                 | Creates the Virtual DOM        |
+| Commit                 | Updates the real DOM           |
+| 🔥 `componentDidMount` | Runs **after** DOM is in place |
+
+
+class UserProfile extends React.Component {
+  state = { user: null };
+
+  componentDidMount() {
+    // Runs only once after mounting
+    fetch('/api/user')
+      .then(res => res.json())
+      .then(data => this.setState({ user: data }));
+  }
+
+  render() {
+    if (!this.state.user) return <div>Loading...</div>;
+    return <div>Hello, {this.state.user.name}</div>;
+  }
+}

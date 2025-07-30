@@ -1,0 +1,4 @@
+4️⃣ Why not use useState for mutable values?
+useState triggers re-renders on update.
+useRef allows you to hold mutable data without causing re-renders.
+Use useRef for values that don’t affect the UI directly.
