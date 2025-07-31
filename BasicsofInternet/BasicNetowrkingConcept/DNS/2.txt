@@ -1,0 +1,19 @@
+✅ DNS Lookup Flow
+
+Browser → OS → DNS Resolver (ISP)
+           ↓
+       Root Server
+           ↓
+      TLD Server (.com)
+           ↓
+Authoritative DNS Server
+           ↓
+        IP Address
+✅ Types of DNS Servers
+Server Type	Role
+DNS Resolver	First server (usually from your ISP)
+Root Server	Directs to the TLD servers
+TLD Server	Handles top-level domains like .com, .org, etc.
+Authoritative Server	Knows actual IP of requested domain
+
+

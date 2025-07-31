@@ -1,0 +1,49 @@
+What Are HTTP Methods?
+HTTP methods are verbs that tell the server what kind of action the
+client (like your browser or frontend app) wants to perform on a resource (like a file, user, or product).
+
+Think of them like CRUD operations:
+
+Create → POST
+
+Read → GET
+
+Update → PUT / PATCH
+
+Delete → DELETE
+
+🔍 The Main HTTP Methods (with Real-World Examples)
+1. 🔹 GET – Fetch Data
+
+📦 It requests data from the server.
+
+🚫 Doesn’t change anything (read-only).
+
+📂 Data is sent in URL, not in body.
+
+
+GET /users/42 HTTP/1.1
+Host: example.com
+Used for: loading pages, fetching user data, loading images, etc.
+
+🧪 Safe? ✅ Yes
+🧪 Idempotent? ✅ Yes (same request, same result)
+
+2. 🔸 POST – Create Something New
+🛠 Sends data to the server to create a resource.
+
+🧾 Data is sent in the request body, not in URL.
+
+POST /users HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "name": "Asad",
+  "role": "developer"
+}
+Used for: form submissions, login, signups, uploading files
+
+🧪 Safe? ❌ No
+🧪 Idempotent? ❌ No (2 calls = 2 records)
+

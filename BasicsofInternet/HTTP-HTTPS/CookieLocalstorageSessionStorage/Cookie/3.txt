@@ -1,0 +1,41 @@
+🧁 1. Session Cookies
+Stored temporarily in memory
+
+Deleted automatically when the browser/tab is closed
+
+No expires or max-age is set
+
+🔧 Example:
+document.cookie = "sessionId=abc123";
+✅ Used for:
+
+Logged-in session tracking
+
+Shopping carts (while browsing)
+
+🍩 2. Persistent Cookies
+Stored on disk until a specified expiration date
+
+You set them with expires or max-age
+
+🔧 Example:
+document.cookie = "theme=dark; max-age=31536000"; // 1 year
+✅ Used for:
+
+"Remember me" login
+
+Saving user preferences (theme, language)
+
+🥐 3. Secure Cookies
+Only sent over HTTPS connections
+
+Not sent over http://
+
+🔧 Example:
+Set-Cookie: authToken=xyz; Secure
+✅ Used for:
+
+Authentication
+
+Sensitive user data
+

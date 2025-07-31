@@ -1,0 +1,39 @@
+✅ What Happens in a Local Network?
+Your device wants to talk to 192.168.0.1 (router)
+It sends an ARP request: “Who has IP 192.168.0.1?”
+Router replies with its MAC address
+Device then sends the data using that MAC address
+Switch forwards the data based on MAC – not IP
+
+✅ Types of MAC Address
+Type	Meaning
+Unicast	Identifies a single device (normal case)
+Multicast	Identifies a group of devices (like live stream)
+Broadcast	Sent to all devices on the network
+
+✅ Can We Change MAC Address?
+Yes. It's called MAC spoofing:
+For privacy
+For testing networks
+But usually not needed for most users
+
+
+
+What happens under the hood
+When you say:
+
+"Send this packet to 192.168.0.5"
+
+Your system says:
+
+“Okay, to do that, I must first find the MAC address of 192.168.0.5”
+
+Sends an ARP request to ask:
+“Who has IP 192.168.0.5? Tell me your MAC.”
+
+Once it gets the MAC, it puts the data inside a frame addressed to that MAC
+
+Ethernet frame = like an envelope
+MAC address = recipient's name
+IP = logical address inside the letter
+

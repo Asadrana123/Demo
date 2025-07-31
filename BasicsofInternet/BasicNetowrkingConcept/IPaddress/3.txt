@@ -1,0 +1,41 @@
+✅ How Devices Get IPs (In Simple Terms)
+DHCP (Dynamic Host Configuration Protocol) runs on your router.
+
+When your phone or laptop connects to Wi-Fi:
+
+It asks for an IP.
+
+Router gives a free one from its private range.
+
+This IP is used inside your home.
+
+✅ Real-Life Example
+You visit google.com from your laptop:
+
+Your laptop has a private IP (e.g., 192.168.1.5)
+
+Router has a public IP (e.g., 49.204.90.22)
+
+Router translates your request (NAT) and sends it to Google using the public IP.
+
+Google responds, router sends it back to your laptop.
+
+✅ NAT (Network Address Translation)
+NAT is what allows multiple devices to use one public IP.
+
+Example:
+
+Your router has public IP 203.0.113.5
+
+Your phone, laptop, and TV use private IPs
+
+Router uses NAT to manage them all under one public IP
+
+✅ Why IPv6 is the Future
+Feature	IPv4	IPv6
+Address Space	4.3 Billion	340 Undecillion
+NAT Needed?	Yes	No
+Security	Basic (optional)	Built-in (IPSec)
+Addressing	Manual or DHCP	Auto-config (stateless)
+Speed/Routing	Slower (more hops)	Faster (optimized)
+

@@ -1,0 +1,37 @@
+❓ 4. 404 Not Found
+🧠 Meaning:
+“This URL doesn’t exist on the server.”
+
+🧪 Example:
+You visit:
+
+
+GET /profile/asad1234
+But there's no user asad1234.
+
+Or frontend calls:
+
+GET /api/blogs/9999
+But there is no blog with ID 9999.
+
+✅ Fix:
+
+Check if route or resource exists
+
+Add 404 page in frontend
+
+💣 5. 405 Method Not Allowed
+🧠 Meaning:
+“This endpoint exists — but you used the wrong HTTP method.”
+
+🧪 Example:
+js
+// Server only supports GET
+app.get("/books", ...)
+You send:
+
+
+POST /books
+Response:
+
+

@@ -1,0 +1,16 @@
+4. Why do we need to call .json()?
+Because Response only gives a stream, .json() reads that stream fully, assembles all chunks, and parses them as JSON.
+
+Only after .json() completes do you get usable JavaScript data.
+
+
+Avoid stale closure traps by not relying on outer scoped variables inside effects.
+
+8. How to know if full data is arrived?
+When .json(), .text(), .blob(), or .arrayBuffer() resolves, full data has been received and processed.
+
+Alternatively, you can read the response body manually with streams to process data chunks.
+
+9. Why is fetch designed to complete when headers arrive but body still streams?
+It allows faster start of processing, better memory usage, and flexibility for various data types.
+

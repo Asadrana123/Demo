@@ -1,0 +1,23 @@
+✅ Why Do We Need MAC Addresses?
+Used to deliver data locally inside a network (LAN).
+
+Helps switch/router identify which device is which.
+
+IP address changes over time; MAC address stays constant (mostly).
+
+✅ Where is MAC Address Used?
+Layer	Protocol	Use of MAC
+Data Link Layer	Ethernet / Wi-Fi	Device-to-device communication
+
+Your router/switch uses MAC addresses to forward packets inside your home.
+
+ARP protocol maps IP → MAC so data reaches correct device.
+
+✅ MAC vs IP — The Difference
+Feature	MAC Address	IP Address
+Purpose	Unique ID for local device	Logical ID for global use
+Who assigns it?	Hardware manufacturer	Network (DHCP/ISP)
+Permanent?	Yes (can be changed manually)	No (can change anytime)
+Format	F4:5C:89:12:3B:7A	192.168.0.1
+Used in Layer	Layer 2 (Data Link)	Layer 3 (Network)
+

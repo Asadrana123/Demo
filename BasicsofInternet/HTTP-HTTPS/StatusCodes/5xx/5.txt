@@ -1,0 +1,49 @@
+4. ☁️ Cloud Storage Gateway
+Used in enterprise environments.
+
+Connects on-premise infrastructure to cloud storage services.
+
+Example:
+
+pgsql
+Copy
+Edit
+Local Server → AWS Storage Gateway → Amazon S3
+5. 🌍 VoIP Gateway
+Converts digital VoIP calls to analog telephone line signals.
+
+Enables communication between internet calls and traditional phones.
+
+Example:
+
+sql
+Copy
+Edit
+Zoom Call → VoIP Gateway → Landline Phone
+6. 🧪 Protocol Gateway
+Translates one protocol to another (e.g., HTTP ↔ MQTT).
+
+Used in IoT, telecom, and system integration.
+
+Example:
+
+java
+Copy
+Edit
+IoT Device (MQTT) → Protocol Gateway → Cloud API (HTTP/REST)
+📌 Summary Table
+Gateway Type	Purpose	Real-World Example
+Default Gateway	Connects local device to external network	Wi-Fi router
+API Gateway	Routes frontend requests to services	NGINX, AWS API Gateway
+Payment Gateway	Interfaces with bank/payment systems	Stripe, Razorpay, PayPal
+Cloud Gateway	Connects on-premise storage to cloud	AWS Storage Gateway
+VoIP Gateway	Converts IP voice to telephone signal	Zoom → Landline call
+Protocol Gateway	Converts between different communication protocols	MQTT → HTTP for IoT
+
+✅ Pro Tip for Interviews:
+
+“A Gateway is a bridge between two different environments — 
+whether it’s networks, services, or protocols. It ensures systems 
+that speak different ‘languages’ can communicate smoothly.”
+
+Let me know if you want this in Markdown, Notion, or a visual mind map too!

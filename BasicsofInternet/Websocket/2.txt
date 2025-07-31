@@ -1,0 +1,10 @@
+✅ 1️⃣ What is SSE?
+SSE means Server-Sent Events.
+It’s a built-in browser feature that lets your server send real-time updates 
+to the browser over a normal HTTP connection — but only one-way.
+
+
+✅ 7️⃣ Why not just use WebSockets always?
+SSE is built into browsers, super simple, works with normal HTTP/2 proxies.
+For one-way streaming (server → client), it’s lighter than WebSockets.
+WebSockets are better if you need bi-directional messages or complex real-time flows.

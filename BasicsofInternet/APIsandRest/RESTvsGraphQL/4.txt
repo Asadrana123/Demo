@@ -1,0 +1,49 @@
+🧬 Key Concepts of GraphQL
+1. ✅ Single Endpoint
+REST: multiple endpoints (/users, /users/1/posts, /comments)
+
+GraphQL: one endpoint (/graphql) and you describe what you want in the query.
+
+2. ✅ Precise Data Fetching
+Ask only for the fields you need.
+
+No over-fetching or under-fetching.
+
+3. ✅ Nested Requests in One Go
+In REST, to get:
+
+A user
+Their posts
+Comments on each post
+
+You need 3 separate requests.
+
+In GraphQL:
+
+graphql
+{
+  user(id: 1) {
+    name
+    posts {
+      title
+      comments {
+        text
+      }
+    }
+  }
+}
+📦 All in one request!
+
+4. ✅ Strongly Typed Schema
+GraphQL APIs have a schema that defines what data exists and what queries you can make.
+
+This schema is like:
+
+A contract between frontend and backend.
+
+Self-documented.
+Type-safe.
+
+5. ✅ Real-time Support with Subscriptions
+GraphQL supports live updates using something called "subscriptions", which is harder in REST.
+

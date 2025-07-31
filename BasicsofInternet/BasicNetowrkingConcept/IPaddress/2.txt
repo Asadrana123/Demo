@@ -1,0 +1,47 @@
+🟢 IPv6 — Explained Simply
+Uses 128 bits → 2¹²⁸ = MASSIVE number of addresses.
+
+Format: 8 groups of 4 hex digits (e.g., 2001:0db8:85a3::8a2e:0370:7334)
+
+Allows for almost unlimited IPs.
+
+Built to fix the IPv4 exhaustion problem.
+
+Also provides:
+
+Better security
+
+Faster routing
+
+No need for NAT (explained later)
+
+✅ Types of IP Addresses
+🔹 Public IP
+Given by your ISP
+
+Used to identify your network on the Internet
+
+Example: 183.82.123.99
+
+🔹 Private IP
+Used inside your home or office
+
+Given by router to connected devices
+
+Example: 192.168.0.1, 10.0.0.5
+
+🔒 Private IPs can't be accessed directly from the internet.
+
+✅ Static vs Dynamic IP
+Type	Meaning	Given by
+Static	Does not change	ISP/manual
+Dynamic	Changes over time (temporary)	DHCP Server
+
+Most users get dynamic IPs automatically.
+
+✅ Reserved Ranges for Private IP (IPv4)
+Range	Used For
+10.0.0.0/8	Large networks
+172.16.0.0/12	Medium networks
+192.168.0.0/16	Home/small networks
+

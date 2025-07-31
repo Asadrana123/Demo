@@ -1,0 +1,45 @@
+Accept-Encoding: gzip, deflate, br
+🔍 Why? Enables compression like gzip to reduce response size = faster load time.
+6️⃣ Content-Type (used with POST/PUT)
+🧠 Says: "Here’s the format of the data I’m sending."
+📦 Example:
+
+
+Content-Type: application/json
+🔍 Why? Server needs to know how to read the body — JSON, form data, etc.
+
+7️⃣ Authorization
+🧠 Says: "Here’s my login token or credentials."
+
+📦 Example:
+
+
+Authorization: Bearer eyJhbGciOiJIUzI1...
+🔍 Why? For protected APIs, the server needs this to check if you're allowed.
+
+8️⃣ Cookie
+🧠 Says: "Here are my cookies (session, user info)."
+
+📦 Example:
+
+
+Cookie: session_id=12345; theme=dark
+🔍 Why? For keeping you logged in, saving preferences, etc.
+
+9️⃣ Referer (Yes, it's misspelled in HTTP spec 😄)
+🧠 Says: "I came here from this page."
+
+📦 Example:
+
+
+Referer: https://example.com/home
+🔍 Why? Analytics, security, tracking where requests come from.
+
+🔟 Origin
+🧠 Says: "This is the domain that made the request."
+
+📦 Example:
+
+
+Origin: https://myfrontend.com
+🔍 Why? Important for CORS (Cross-Origin Resource Sharing) — lets server allow or block it.

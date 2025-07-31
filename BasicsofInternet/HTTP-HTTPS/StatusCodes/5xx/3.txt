@@ -1,0 +1,34 @@
+✅ 3. To Improve Speed (Caching)
+Some proxies save data (like images or scripts). If 1000 users request the same file:
+
+First one hits the real server
+
+The next 999 users get it from the proxy — way faster
+
+✅ 4. To Filter or Monitor Traffic
+In schools/offices:
+
+They use a proxy to block porn, social media, etc.
+
+Or to monitor what employees browse
+
+🎯 Real Example You Can Relate To:
+You open React app and run:
+
+npm run dev
+Now you call:
+
+
+fetch('/api/user')
+Your React app doesn't actually talk to the backend.
+Instead:
+
+React dev server sees that /api is in your proxy config
+
+It acts as a proxy and silently forwards the request to localhost:5000/api/user
+
+So:
+
+
+Browser → React dev server (proxy) → Backend server
+No CORS error, no headache.

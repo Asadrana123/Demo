@@ -1,0 +1,18 @@
+🟢 4. Data travels using IP Routing
+Every device on the internet has an IP address.
+
+Data is broken into packets and routed using the IP address to its destination.
+
+🟢 5. Communication happens using Protocols
+The most important ones are:
+
+IP (Internet Protocol) – Finds the destination.
+
+TCP (Transmission Control Protocol) – Ensures all packets arrive and in order.
+
+HTTP/HTTPS – Used to load websites.
+
+🟢 6. Servers handle your request
+If you visit a website, your request is sent to the server hosting that site.
+
+The server processes it and sends back HTML, CSS, JS, etc.

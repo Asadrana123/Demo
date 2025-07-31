@@ -1,0 +1,18 @@
+What Are HTTP Status Codes?
+When you make a request (GET, POST, etc.), the server replies with a status code —
+a 3-digit number that tells the result of your request.
+
+ Status Code Categories
+All status codes fall into 5 categories based on their first digit:
+
+Range	  Category	      Meaning
+1xx	      Informational	  "Got your request, keep going"
+2xx	      Success	      "All good!"
+3xx	      Redirection	  "Go somewhere else"
+4xx	      Client Error	  "You made a mistake"
+5xx	      Server Error	  "Server messed up"
+
+
+
+
+

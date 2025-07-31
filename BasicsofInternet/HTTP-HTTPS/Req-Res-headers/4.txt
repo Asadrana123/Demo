@@ -1,0 +1,61 @@
+1. Content-Type
+🧠 Meaning:
+Tells the browser what kind of content is being returned — like JSON, HTML, image, CSS, etc.
+
+✅ Common values:
+
+Content-Type: text/html
+Content-Type: application/json
+Content-Type: text/css
+Content-Type: image/png
+
+💡 Why it matters:
+Your browser renders or handles data differently based on this.
+If it says application/json, browser won’t try to render it as a page — it knows it's for 
+JavaScript to parse.
+
+
+🔹 2. Content-Length
+🧠 Meaning:
+The size (in bytes) of the response body.
+
+💡 Why it matters:
+Helps browsers know when the response is fully received.
+Some browsers or proxies may refuse to load incomplete content.
+
+
+3. Set-Cookie
+🧠 Meaning:
+Sends a cookie to the client. Your browser will store this and send it back with each request.
+
+Example:
+
+Set-Cookie: session_id=abc123; HttpOnly; Secure; Max-Age=86400
+🔐 Flags:
+
+HttpOnly: JavaScript cannot access this cookie (prevents XSS).
+Secure: Cookie is only sent over HTTPS.
+Max-Age: How long cookie should live (in seconds).
+SameSite: Controls cross-site request behavior.
+
+What is SameSite?
+SameSite is a security flag on a cookie that tells the browser:
+"Should this cookie be sent with cross-site requests or not?"
+It helps protect against attacks like CSRF (Cross-Site Request Forgery).
+
+
+🔹 4. Cache-Control
+🧠 Meaning:
+Gives caching instructions to browsers and CDNs.
+Cache-Control: no-cache
+Cache-Control: no-store
+Cache-Control: max-age=3600
+Cache-Control: public
+Cache-Control: private
+
+
+max-age=3600: Browser can cache for 1 hour.
+no-store: Don't save anything (e.g., for banking).
+public: Can be cached by CDNs or proxies.
+private: Only client browser should cache.
+

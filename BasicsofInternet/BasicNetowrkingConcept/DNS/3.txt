@@ -1,0 +1,14 @@
+✅ DNS Caching
+To improve speed, DNS responses are cached:
+
+Where It's Cached	Purpose
+Browser	Immediate access to past sites
+Operating System	Faster local lookup
+DNS Resolver (ISP)	Avoid asking root servers
+
+⏱ TTL (Time To Live) = How long to cache DNS entry
+
+✅ What Happens if DNS Fails?
+Typing google.com won’t work because IP is unknown
+
+You get a "DNS_PROBE_FINISHED_NXDOMAIN" error

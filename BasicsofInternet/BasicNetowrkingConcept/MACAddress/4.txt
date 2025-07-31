@@ -1,0 +1,36 @@
+💡 Why not redesign everything to use IP only?
+That’s a fair idea — but:
+
+Ethernet and MAC were designed decades ago, before IP even became dominant
+
+Billions of devices already depend on this structure
+
+IP operates at a higher layer (Layer 3), and Layer 2 has no concept of IP
+
+Ethernet is like a postal truck: it only understands names and apartment numbers (MAC) — 
+not street addresses (IP)
+
+🔁 Could we theoretically replace MAC with IP?
+In theory: yes — if we redesigned Ethernet and Wi-Fi from scratch.
+
+In practice: no — because:
+
+MACs are fast, hardware-level IDs
+
+IPs can change (via DHCP), but MACs are stable
+
+It separates physical delivery (MAC) from logical addressing/routing (IP), which gives flexibility
+
+✅ Final Answer
+We need MAC addresses because Ethernet and Wi-Fi don't understand IP.
+Because Ethernet and Wi-Fi hardware (Layer 2) is physically designed to understand MAC addresses only, 
+not IP addresses.
+Ethernet Frame (Layer 2):
+diff
+Copy
+Edit
++--------------------------------------------------------+
+| Destination MAC | Source MAC | Payload (IP packet)     |
++--------------------------------------------------------+
+They're hardware-level protocols that deliver data using MAC.
+address — that's why ARP exists: to bridge the gap.

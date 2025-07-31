@@ -1,0 +1,62 @@
+3️⃣ example ← Second-Level Domain (SLD)
+This is the main part you choose when you register a domain.
+
+You bought this from a domain registrar (like GoDaddy, Namecheap, etc.)
+
+It must be unique under .com.
+
+🧠 Think of it as:
+Your home name (like “House of Asad” 🏡).
+
+4️⃣ www ← Subdomain
+Stands for “World Wide Web”
+
+It’s just a nickname or a sub-section of your website.
+
+Technically optional — example.com and www.example.com can be set up separately.
+
+🧠 Think of it as:
+A room in your house (like “living room” = main homepage).
+
+You can also have:
+
+blog.example.com
+
+shop.example.com
+
+admin.example.com
+
+Each is a subdomain — part of the same house, but different rooms.
+
+🌐 Why was “www” used originally?
+Back in the 1990s and early 2000s:
+
+Websites were often hosted on www.example.com to separate them from other services like:
+
+ftp.example.com for file transfer
+
+mail.example.com for email
+
+It was a way to signal: “This is the website part.”
+
+But now, it’s mostly optional and often just branding.
+
+
+
+⚠️ Important: www.example.com ≠ example.com
+They are actually treated as two different domains by DNS!
+
+So:
+
+You must configure both in DNS or your server if you want both to work.
+
+Many people set up a redirect:
+
+From www.example.com → example.com
+
+Or from example.com → www.example.com
+
+Example:
+
+Visiting example.com redirects you to www.example.com — that’s a design decision.
+

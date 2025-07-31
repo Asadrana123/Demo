@@ -1,0 +1,21 @@
+1. Network Errors
+These happen when the request cannot be completed due to connectivity issues, DNS failure, CORS issues, or the request being blocked.
+
+Examples: No internet, server down, request timeout, blocked by browser.
+
+These errors cause fetch to reject the promise, so they are caught in the catch block.
+
+2. HTTP Errors (Response Errors)
+The request completes successfully at the network level, but the server responds with an error status code.
+
+Examples: 400 Bad Request, 401 Unauthorized, 404 Not Found, 500 Internal Server Error.
+
+The fetch promise resolves normally with a Response object — it does not reject.
+
+You have to check response.ok or response.status manually to detect these errors.
+
+Bonus: Other error types in handling
+Parsing errors (e.g., JSON parsing fails because the response is malformed) — will throw inside .json() and can be caught in catch.
+
+Timeout errors if you implement timeout manually (fetch doesn’t have built-in timeout).
+

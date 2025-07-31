@@ -1,0 +1,53 @@
+💥 What the f*** is a Proxy?
+A proxy is a middleman between your browser and the server you're trying to reach.
+
+🔧 In Simple Words:
+When you send a request:
+
+Without proxy:
+YOU (Browser) 🧑‍💻 ───────▶ SERVER 🌐
+With proxy:
+YOU (Browser) 🧑‍💻 ─────▶ PROXY 🧱 ─────▶ SERVER 🌐
+                                 ▲
+                                 └─── Response goes back the same way
+The proxy receives your request, forwards it to the server, gets the response, and passes it back to you.
+
+🧠 But Why the Hell Do We Need This Middleman?
+Great question. Here's why proxies are even used:
+
+✅ 1. To Bypass CORS in Development
+When you're building a React app:
+
+Frontend runs on localhost:5173
+
+Backend runs on localhost:5000
+
+Browser says: ❌ "Nope, can't access that other port. CORS error."
+
+So you tell Vite:
+
+
+server: {
+  proxy: {
+    '/api': 'http://localhost:5000'
+  }
+}
+Now Vite becomes your proxy, so browser never sees the cross-origin request.
+
+✅ Problem solved.
+
+✅ 2. To Hide Your Identity
+Proxies can hide your real IP address and location.
+
+You → Proxy → Server
+
+Server thinks the request is coming from the proxy, not you.
+
+Useful for:
+
+Privacy
+
+Accessing blocked websites
+
+VPNs use this idea
+

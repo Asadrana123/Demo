@@ -1,0 +1,36 @@
+5. 🧼 Cacheability
+REST encourages caching.
+
+Responses should say if they can be cached, and for how long.
+
+For example:
+
+If the product list doesn’t change often, allow the browser to cache it.
+
+Use HTTP headers like Cache-Control.
+
+📌 Why?
+Reduces server load and makes apps faster.
+
+6. 🔄 Layered System
+The client doesn’t need to know whether it’s talking directly to the server or through something else (like a proxy, gateway, or CDN).
+
+📌 Example:
+When you send a request to api.example.com, it might go through:
+
+A load balancer
+
+A CDN
+
+An API gateway
+
+And finally reach the backend server
+
+But you don’t need to know that. It should just work.
+
+🧪 Optional: Code on Demand
+This is the only optional principle.
+
+It means the server can send code (like JavaScript) to the client to execute.
+Not used often in REST APIs — more of a web browser thing.
+

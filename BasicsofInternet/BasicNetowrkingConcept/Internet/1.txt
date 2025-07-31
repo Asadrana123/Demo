@@ -1,0 +1,19 @@
+What is the Internet?
+The Internet is a worldwide system of interconnected computer networks that use the TCP/IP protocol to communicate.
+It connects billions of devices — computers, phones, servers, etc. — so they can send and receive data across the globe.
+
+✅ How the Internet Works — Step-by-Step
+🟢 1. Devices connect to a Local Network
+Your phone or laptop connects to a router, either by Wi-Fi or Ethernet cable.
+
+That router creates a Local Area Network (LAN).
+
+🟢 2. The Router connects to an ISP (Internet Service Provider)
+The router connects to your ISP via a wired connection (like a fiber optic or DSL line).
+
+ISP is your gateway to the Internet.
+
+🟢 3. ISP connects to the Internet Backbone
+ISPs are connected to larger ISPs, and eventually to the Internet backbone — huge data lines across countries and oceans.
+
+These backbones are owned by major telecom companies like Tata, AT&T, etc.

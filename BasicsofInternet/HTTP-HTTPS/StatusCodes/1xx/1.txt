@@ -1,0 +1,7 @@
+🔵 1xx – Informational
+
+Usually handled by browser or proxy, rarely used in frontend.
+
+100 Continue: Server says “Okay, send the rest of the request”
+
+101 Switching Protocols: Used in WebSockets

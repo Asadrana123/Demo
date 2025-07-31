@@ -1,0 +1,65 @@
+1. 400 Bad Request
+🧠 Meaning:
+“The request you sent is broken. I can’t even read it.”
+
+🧪 Example:
+You send invalid JSON:
+
+{ name: "John"  // ← missing closing bracket
+Or your query string is malformed:
+
+
+/search?q=&&
+Or content type is missing or incorrect:
+
+Content-Type: text/plain  ← instead of application/json
+🧠 When it happens?
+Form data is corrupted
+
+JSON body is bad
+
+Headers are malformed
+
+✅ Fix: Double-check your payload, headers, query params.
+
+🔒 2. 401 Unauthorized
+🧠 Meaning:
+“You’re not logged in. I need credentials first.”
+
+🧪 Example:
+You try to access:
+
+
+GET /dashboard
+But don’t include a token or session cookie.
+
+Response:
+
+401 Unauthorized
+WWW-Authenticate: Bearer
+✅ Fix:
+
+Login first
+
+Or include your token in headers:
+
+Authorization: Bearer <your-token>
+🚫 3. 403 Forbidden
+🧠 Meaning:
+“I know who you are, but you’re not allowed to do this.”
+
+🧪 Example:
+You're logged in, but you try to:
+
+Access an admin page without being an admin
+
+Delete someone else’s account
+
+Upload to a restricted folder
+
+✅ Fix:
+
+Ask admin to grant permission
+
+Update user roles/authorization rules
+

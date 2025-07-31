@@ -1,0 +1,35 @@
+✅ What is fetch?
+fetch() is a built-in JavaScript function used to make HTTP requests 
+(like GET, POST, PUT, DELETE) from the browser.
+
+Think of fetch() like a way for your frontend code to talk to a backend server or API, 
+just like how we use WhatsApp to send messages.
+
+fetch(url, options)
+  .then(response => response.json())
+  .then(data => {
+    // use the data here
+  })
+  .catch(error => {
+    // handle errors
+  });
+
+
+Summary: Understanding fetch, Response, and Reading Data
+1. What does fetch return?
+fetch() returns a Response object, not the actual data.
+
+This object contains metadata (status, headers) and the body as a stream.
+
+2. What is the response body?
+The body is a stream of bytes/text, like a pipe delivering data in chunks.
+
+It is not the complete data yet and can only be read once.
+
+3. Why is the response body a stream (sealed box) instead of fully ready data?
+Streaming lets your app start processing data before the entire response arrives.
+
+It improves performance and memory efficiency, especially for large files.
+
+Gives flexibility to read data as JSON, text, blob, etc.
+

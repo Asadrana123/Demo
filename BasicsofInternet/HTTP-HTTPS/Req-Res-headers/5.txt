@@ -1,0 +1,40 @@
+🔹 5. Access-Control-Allow-Origin
+his header is sent by the server to tell the browser which origin(s) (frontend domains)
+are allowed to access its resources via cross-origin requests.
+It's a response header added by the server (not the browser) that tells the browser:
+
+✅ “Yes, this origin (site) is allowed to access my data.”
+Without this header, your frontend will get a CORS error:
+Access to fetch at ... from origin ... has been blocked by CORS policy
+
+✅ 1. * (Wildcard)
+
+Access-Control-Allow-Origin: *
+✅ Meaning:
+"Allow any website to access this resource."
+
+No restriction — public API.
+
+⚠️ Limitations:
+❌ You cannot use * if you’re sending credentials (cookies, Authorization headers, etc.)
+
+✅ Only works with requests that don’t include credentials
+
+✅ Good for:
+Public APIs like weather, news, etc.
+
+Static content like images or fonts
+
+✅ 2. Specific Origin
+Access-Control-Allow-Origin: https://myfrontend.com
+✅ Meaning:
+"Only allow requests coming from https://myfrontend.com."
+
+🔐 Use Case:
+When your backend is private and should only serve your own frontend.
+
+🔒 Supports Credentials:
+You can also use this with:
+
+
+Access-Control-Allow-Credentials: true

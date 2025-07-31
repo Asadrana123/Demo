@@ -1,0 +1,15 @@
+🟢 2xx – Success
+✅ 200 OK
+🎯 Everything worked fine
+
+Used for: GET, POST, etc.
+
+✅ 201 Created
+New resource was successfully created
+
+Used after POST (e.g., new user)
+
+✅ 204 No Content
+Request succeeded, but no content to return
+
+Example: DELETE success

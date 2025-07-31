@@ -1,0 +1,27 @@
+Address Record (A Record)
+✅ What is an A Record?
+An A record (Address Record) maps a domain name to an IPv4 address (e.g., 93.184.216.34).
+
+💬 In short:
+Domain name → IP address
+Because browsers and servers understand IPs, not names.
+
+📍 Why do we need this?
+Humans type:
+
+www.example.com
+But computers talk in:
+
+93.184.216.34
+So, A record acts like a translator:
+
+"Hey DNS! When someone types www.example.com, send them to 93.184.216.34"
+🧠 Example:
+Let’s say you have a website hosted on a server with this IP:
+
+192.168.1.100
+You buy a domain:
+
+mycoolsite.com
+You go to your DNS manager and set this A record:
+

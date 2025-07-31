@@ -1,0 +1,48 @@
+What is 302 Found?
+Meaning:
+
+“The thing you’re looking for is temporarily at a different place — but come back here next time.”
+
+🔑 Key idea:
+Temporary redirect.
+The original URL is still valid — the new location is just a temporary detour.
+
+👶 Easy Real-World Example
+Imagine:
+
+You visit a clothing website:
+https://www.fashionstore.com/summer-sale
+
+But today, their sale page is under maintenance. So the server says:
+
+“Hey, instead of this, temporarily go to /sale-coming-soon.”
+
+But tomorrow, the sale page might be back. So the server sends a 302 status code with this response:
+
+HTTP/1.1 302 Found  
+Location: /sale-coming-soon
+Your browser will then go to https://www.fashionstore.com/sale-coming-soon — 
+but it does not update the original URL in your bookmarks.
+
+
+Feature rollout (redirect to different versions of a page)
+
+Temporarily moving users away from a broken or updating page
+
+⚠️ Drawback (Important)
+Older browsers (and even some tools) might change the HTTP method to GET.
+
+Example:
+You send POST /login, server replies with:
+
+
+302 Found  
+Location: /new-login
+But the browser might re-send it as:
+
+
+GET /new-login
+Which can break your form login!
+
+
+

@@ -1,0 +1,30 @@
+Type	Name	Value
+A	@ (or mycoolsite.com)	192.168.1.100
+
+Now when anyone types mycoolsite.com → DNS returns 192.168.1.100 → browser connects to that server.
+
+💡 Key Details:
+Feature	Explanation
+IPv4 only	    A record only maps to IPv4 addresses (4-block, like 1.2.3.4)
+Fast lookup	    It’s the most common and fastest DNS record
+Required	    Almost every website needs at least one A record
+One-to-many	    You can map multiple domains to same IP (many A records with same IP)
+Load balancing	You can assign multiple A records to one domain — DNS will return them randomly or 
+                in round-robin
+
+🧪 Real DNS A Record
+
+A   mycoolsite.com   93.184.216.34
+If someone types mycoolsite.com, the DNS response will be:
+
+Resolved IP: 93.184.216.34
+Browser now connects directly to that IP.
+
+***“It’s the IP address of a smart gateway (like a CDN or reverse proxy)
+ that takes my request and routes it to the best, nearest actual server where my 
+ site’s files are stored.”
+
+
+Most users and hosts use A record for the root domain
+
+and use CNAME for subdomain

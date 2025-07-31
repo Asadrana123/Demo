@@ -1,0 +1,57 @@
+🧠 The 6 RESTful Principles (also called constraints)
+Let’s break them down one by one, in plain English.
+
+1. 🔗 Uniform Interface
+✅ This is the core idea of REST.
+
+It means:
+
+“All your API endpoints should look and behave in a consistent way.”
+
+This includes:
+
+Use URLs to represent resources:
+/users, /products/123, /orders/567/items
+
+Use HTTP methods properly:
+
+GET → read data
+
+POST → create new data
+
+PUT → replace data
+
+PATCH → update part of the data
+
+DELETE → remove data
+
+Return proper status codes: 200, 201, 404, 400, etc.
+
+Use JSON (or other formats) to represent data consistently.
+
+📌 Why is this important?
+Because if the API is predictable, it’s easy to learn and use.
+
+2. 📦 Resources (Nouns, not Verbs)
+In REST, we treat everything as a resource.
+
+A resource is something you can create, read, update, or delete — like:
+
+users
+
+posts
+
+comments
+
+products
+
+So your endpoints should look like:
+
+✅ GET /users/1 — get user 1
+
+✅ POST /users — create user
+
+✅ DELETE /users/1 — delete user
+
+❌ Not like: GET /getUser, POST /addUser — these are verb-based and not RESTful.
+

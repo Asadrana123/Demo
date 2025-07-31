@@ -1,0 +1,36 @@
+
+🟡 3xx – Redirection
+🔁 301 – Moved Permanently
+🧠 Meaning:
+The page has permanently moved to a new URL. You should update your bookmarks or links.
+
+📦 Use case:
+
+Moving from http://example.com to https://example.com
+
+Changing /about-us to /about
+
+🔍 Important for SEO:
+Search engines (like Google) will pass SEO power (ranking) to the new URL.
+
+🔗 Example:
+
+Old URL: http://example.com/about-us
+New URL: http://example.com/about
+
+If someone visits /about-us, the server responds with:
+HTTP/1.1 301 Moved Permanently
+Location: /about
+And the browser will go to /about.
+
+for front end we have to add this in our vercel.json for example:-
+✅ If you're using Vercel:
+1. Create a `vercel.json` file in your project root.
+2. Define redirects using:
+   {
+     "source": "/old-path",
+     "destination": "/new-path",
+     "permanent": true
+   }
+3. Vercel will return real HTTP 301 for those paths.
+4. This is great for SEO and user experience. 

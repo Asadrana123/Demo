@@ -1,0 +1,50 @@
+What is UDP 
+UDP is a communication protocol used to send data fast over the internet, without worrying about:
+Order ❌
+Delivery ❌
+Errors ❌
+✅ Main goal: Send data quickly, even if some gets lost.
+How UDP Works (Step-by-Step)
+🧱 1. No Connection Needed
+Unlike TCP, UDP doesn’t do any handshake.
+You just send the data — no setup, no confirmation.
+
+🔹 That’s why UDP is called connectionless.
+
+📦 2. Sends Data in Packets (Datagrams)
+Data is split into small packets
+
+Each packet is called a datagram
+
+Packets travel independently
+
+They may arrive out of order, late, or not at all
+
+🔁 3. No Acknowledgment (ACK)
+UDP never checks:
+
+If the receiver got the data
+
+If the packet was damaged or lost
+
+If it arrived in the correct order
+
+Once sent, it’s gone — UDP doesn’t care
+
+📡 4. Very Fast
+Since UDP skips:
+
+Connection setup
+
+Acknowledgment
+
+Error checking
+
+0      7 8     15 16    23 24    31
++--------+--------+--------+--------+
+| Source Port      | Destination Port   |
++--------+--------+--------+--------+
+| Length           | Checksum           |
++--------+--------+--------+--------+
+|                Payload (Data)        |
++-------------------------------------+

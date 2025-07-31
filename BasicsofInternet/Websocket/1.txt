@@ -24,7 +24,7 @@ This is called the WebSocket handshake.
 4️⃣ From this point on:
 
 The connection stays open.
-
+ 
 Both sides (client & server) can send messages any time — without waiting for the other side.
 
 This is called full-duplex communication.

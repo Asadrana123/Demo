@@ -1,0 +1,29 @@
+1. Who is changing the method from POST to GET?
+➡️ The browser (client) is doing this.
+
+Not the server. Not HTTP itself. The browser sees 302 Found and says:
+
+“Oh, I should redirect! But I don’t know if I should keep using POST, so I’ll be safe and 
+switch to GET.”
+
+⚠️ This behavior is based on how browsers were historically implemented. And technically
+ allowed by the HTTP spec for 302.
+
+
+
+ What is a “Spec”?
+A spec (short for specification) is the official rulebook that defines how 
+a protocol or technology should work.
+
+HTTP Spec = 📜 Official document that defines how HTTP works
+
+What does a 302 mean?
+Should the client keep the method?
+What headers are allowed?
+How should caching work?
+What does Content-Type mean?
+
+
+Without a spec:
+
+Chrome, Firefox, Postman, Node.js, Apache, Nginx — all would behave differently 😵‍💫

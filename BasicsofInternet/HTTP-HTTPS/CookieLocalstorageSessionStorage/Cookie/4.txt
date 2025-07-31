@@ -1,0 +1,49 @@
+🍮 4. HttpOnly Cookies
+Can’t be accessed from JavaScript (document.cookie)
+
+Only sent in HTTP requests
+
+🔧 Example:
+Set-Cookie: token=abc; HttpOnly
+✅ Used for:
+
+Protecting against XSS attacks
+
+Storing JWTs or session tokens securely
+
+🧊 5. SameSite Cookies
+Control whether cookies are sent with cross-site requests
+
+Helps prevent CSRF attacks
+
+🟩 Three values:
+
+Value	Meaning
+Strict	Never sent on cross-site requests (most secure)
+Lax	Sent on GET cross-site requests (safe default)
+None	Sent on all cross-site requests (must be Secure)
+
+🔧 Example:
+Set-Cookie: token=abc; SameSite=Strict
+✅ Used for:
+
+Controlling cookie exposure during cross-origin requests
+
+🎂 6. Third-Party Cookies
+Set by a domain different from the one you’re visiting
+
+Mostly used by ad networks, trackers, analytics
+
+Example:
+
+You visit news.com, but it loads an ad from ads.google.com
+→ ads.google.com may set a cookie = third-party cookie
+
+✅ Used for:
+
+Ad personalization
+
+Cross-site tracking
+
+⚠️ Most browsers are now blocking these by default
+

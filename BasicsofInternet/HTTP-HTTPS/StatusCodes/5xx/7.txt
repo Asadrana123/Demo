@@ -1,0 +1,38 @@
+What is a Load Balancer?
+A Load Balancer is like a traffic manager that distributes 
+incoming requests across multiple servers, so no single server gets 
+overloaded and everything runs smoothly.
+
+It helps with:
+
+⚖️ Balanced performance
+
+🚀 Faster response times
+
+💥 Zero downtime (if one server crashes)
+
+🔄 Real-world Analogy:
+Imagine a restaurant with 4 cashiers 🍔
+
+Customers (requests) enter the restaurant (your app).
+
+If everyone lines up at 1 counter, it becomes slow 🐌.
+
+So, the manager (load balancer) sends customers to the least busy counter.
+
+That’s exactly what a load balancer does — distributes traffic to multiple servers.
+
+✅ Where it's used in a web app?
+Here’s a basic flow:
+
+txt
+Copy
+Edit
+         User (Browser)
+              ↓
+        [ Load Balancer ]
+          ↙      ↓      ↘
+   Server 1   Server 2   Server 3
+Your React app (frontend) calls your backend API → 
+the load balancer decides which server should handle it.
+

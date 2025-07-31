@@ -1,0 +1,28 @@
+
+What is an IP Address?
+An IP Address (Internet Protocol Address) is a unique number assigned to every device connected to a network.
+It acts like a home address on the Internet so data can find its way to the correct device.
+
+✅ Why Do We Need IP Addresses?
+To identify every device uniquely.
+
+To send and receive data on the Internet.
+
+Without IP addresses, data wouldn’t know where to go.
+
+✅ IP Address Format (2 Types)
+Type	Format Example	Total Addresses	Introduced
+IPv4	192.168.1.1	~4.3 Billion	1983
+IPv6	2001:0db8:85a3::8a2e:0370:7334	~340 undecillion (massive)	1998
+
+🟠 IPv4 — Explained Simply
+Uses 32 bits → 2³² = ~4.3 billion addresses.
+
+Format: A.B.C.D (e.g., 192.168.1.1)
+
+Each part ranges from 0 to 255
+
+Example: 192.0.2.1
+
+✅ Still widely used today, but running out of unique addresses.
+

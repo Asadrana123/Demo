@@ -1,0 +1,25 @@
+3. 🌐 Statelessness
+Every request must contain all the information needed to process it.
+
+✅ The server should not "remember" previous requests.
+Each request is treated as independent.
+
+This means:
+
+No server-side session storage
+
+If you're logged in, your request should include the token every time (usually in headers)
+
+📌 Why?
+This makes your API scalable — any server can handle any request, no memory needed.
+
+4. 💾 Client–Server Architecture
+The frontend (client) and backend (server) should be separate.
+
+Client: handles UI and user interaction
+
+Server: handles data storage, business logic
+
+📌 Why?
+This separation allows each side to evolve independently. You can redesign your frontend without touching backend logic, and vice versa.
+

@@ -1,0 +1,31 @@
+🟢 7. Data travels back through the same route
+Packets are returned to your device using the internet infrastructure.
+
+Your browser assembles the packets and renders the webpage.
+
+✅ Key Concepts Simplified
+Term	Meaning
+Router	Device that connects your local network to the internet
+ISP	Company that gives you access to the internet (like Jio, Airtel)
+IP Address	Unique ID given to every device on the internet
+Packet	Small chunk of data sent over the internet
+Backbone	Massive, high-speed fiber-optic cables connecting countries & ISPs
+TCP/IP	Protocols that ensure reliable data transfer
+HTTP/HTTPS	Protocols for transferring website content
+
+✅ Real World Analogy
+Devices (your laptop/phone) = Letter sender
+
+IP address = House address
+
+ISP = Post office
+
+Packets = Envelopes
+
+Routers = Roads and traffic lights
+
+Server = Receiver’s home
+
+Protocols (TCP/IP) = Delivery rules
+
+Internet = Global delivery network

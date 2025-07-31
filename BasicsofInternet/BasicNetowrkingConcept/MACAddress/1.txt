@@ -1,0 +1,20 @@
+MAC Address — Everything You Need to Know (for Front-End & CS Students)
+✅ What is a MAC Address?
+A MAC address (Media Access Control address) is a unique ID assigned to every network interface 
+(like your Wi-Fi or Ethernet port) by the manufacturer.
+It helps devices identify each other on a local network (LAN).
+
+✅ Format of MAC Address
+Looks like this: 00:1A:2B:3C:4D:5E
+
+6 groups of 2 hexadecimal digits (0–9, A–F)
+
+Total: 48 bits (6 bytes)
+
+✅ Example
+Device	MAC Address
+Laptop Wi-Fi	F4:5C:89:12:3B:7A
+Mobile Hotspot	AC:DE:48:00:11:22
+
+Each device’s network card (NIC) has a unique MAC address.
+

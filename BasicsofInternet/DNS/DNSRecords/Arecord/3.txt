@@ -1,0 +1,33 @@
+🧱 Full Breakdown of www.example.com
+Here’s the full domain structure:
+
+
+www.example.com.
+Yes, it actually has a dot at the end — representing the root of the DNS hierarchy. But browsers hide it.
+
+Now let’s go layer by layer from right to left:
+
+1️⃣ . ← Root Domain (hidden)
+Think of this as the top of the internet’s domain name system.
+
+It’s controlled by an organization called ICANN.
+
+You never type this, but DNS always includes it.
+
+🧠 Think of it as:
+The globe 🌍 — where the internet’s address system starts.
+
+2️⃣ .com ← Top-Level Domain (TLD)
+TLD means the “category” of the website.
+
+.com = commercial
+
+.org = organization
+
+.edu = education
+
+.in, .uk, .de = country-specific TLDs
+
+🧠 Think of it as:
+The country or region on the globe. 🗺️
+
