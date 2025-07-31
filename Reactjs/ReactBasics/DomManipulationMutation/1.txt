@@ -1,0 +1,23 @@
+what is the difference between dom mutation and dom manipulation
+
+DOM Manipulation
+Definition: The action performed by a developer (or code) to change the DOM.
+
+Who/What does it?: You, your script, or the browser’s own logic.
+
+Examples:
+Adding, removing, or editing HTML elements using JavaScript methods like appendChild(),
+removeChild(), setAttribute(), or innerHTML.
+Analogy: Pushing a book onto a shelf—the act of moving the book.
+
+DOM Mutation
+Definition: The result or effect—the actual change that appears in the DOM after manipulation.
+
+Who/What notices it?: Observers (like the browser, or tools like MutationObserver) that can “see”
+that something in the DOM just changed.
+
+Examples:
+The element has been added, removed, or updated, and this change occurs in the webpage’s underlying
+DOM structure.
+
+Analogy: The shelf now has a new book—the state of the shelf after you’ve moved a book.

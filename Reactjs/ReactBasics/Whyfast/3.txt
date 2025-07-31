@@ -1,0 +1,8 @@
+Where is the state stored during Reconciliation?
+useState values live in React’s fiber tree.
+
+Each fiber node represents a part of your UI (element/component).
+During Reconciliation:
+React reuses the fiber tree.
+Each fiber tracks its state, props, effects, etc.
+When changes are detected, fibers mark what needs to change in the DOM.

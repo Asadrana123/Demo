@@ -1,0 +1,17 @@
+🟢 2️⃣ React Fiber Tree
+
+What it is:
+
+The Fiber Tree is the full linked structure made up of many Fiber nodes.
+
+It represents your whole React component tree, but in Fiber format.
+
+This tree lets React do:
+
+Reconciliation: compare old vs new
+
+Scheduling: split rendering into units
+
+Commit phase: know exactly what changed
+
+✅ Think: “Fiber Tree = all the units of work connected together to represent your UI.”

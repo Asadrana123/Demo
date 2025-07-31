@@ -1,0 +1,19 @@
+✅ 📌 1️⃣ What are “lanes” in React Fiber?
+Definition:
+A lane is a bit field (bitmask) that represents a priority level for updates.
+
+
+🔑 Why do lanes exist?
+React’s Fiber architecture is all about scheduling.
+
+It allows multiple updates (setState, concurrent renders, transitions) to be tracked independently.
+
+Different updates may have different priorities (e.g., typing vs. a background image load).
+
+
+🔑 Why do lanes exist?
+React’s Fiber architecture is all about scheduling.
+
+It allows multiple updates (setState, concurrent renders, transitions) to be tracked independently.
+
+Different updates may have different priorities (e.g., typing vs. a background image load).

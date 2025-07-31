@@ -1,0 +1,35 @@
+✅ Efficient DOM update using React (Virtual DOM)
+
+<!-- index.html -->
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+<script>
+  const { useState } = React;
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+
+  function App() {
+    const [items, setItems] = useState(['Apple', 'Banana', 'Cherry']);
+
+    function update() {
+      const newItems = [...items];
+      newItems[1] = 'Blueberry'; // ✅ Change only second item
+      setItems(newItems);
+    }
+
+    return (
+      <div>
+        <ul>
+          {items.map((item, index) => (
+            <li key={index}>{item}</li> // ✅ Key helps React track individual items
+          ))}
+        </ul>
+        <button onClick={update}>Update</button>
+      </div>
+    );
+  }
+
+  root.render(<App />);
+</script>

@@ -1,0 +1,21 @@
+🟢 0️⃣ Context: Before Fiber
+
+✅ Old React (Stack Reconciler)
+Before React 16, React used a stack-based recursive reconciler.
+Reconciliation = figuring out how the Virtual DOM changed → what needs to update in the real DOM.
+It used recursive function calls → not interruptible.
+So once React started updating, it blocked the main thread until it finished.
+For huge trees → it caused jank, dropped frames, unresponsive UI.
+🔑 Problem: No way to pause, split, or prioritize work.
+
+
+🟢 3️⃣ Core idea: Incremental rendering
+✅ Fiber makes React:
+
+Interruptible → pause rendering work if the browser needs to handle a click or scroll.
+
+Prioritizable → urgent updates (like input typing) can jump ahead of slow ones.
+
+Cancelable → drop work if it’s outdated before finishing.
+
+This solves jank on complex trees.

@@ -1,0 +1,21 @@
+Step 2: Performance Considerations and Advanced Best Practices
+Mastering useLayoutEffect at a senior engineering level also means knowing where misuse can hurt 
+performance—and how to use it responsibly.
+
+1. Blocking the Main Thread
+useLayoutEffect is synchronous and blocks painting. If the logic inside is computationally expensive or 
+triggers additional layouts (e.g., multiple reads and writes to the DOM), it can delay how quickly users 
+see updates.
+Best Practice: Keep the content of your useLayoutEffect minimal—do the bare minimum needed for layout,
+and move anything that can wait (like API calls or non-layout state) into useEffect.
+
+2. Avoiding Layout Thrashing
+Layout thrashing occurs when sequentially reading and writing DOM values causes the browser 
+to repeatedly compute layouts, leading to performance hits.
+
+
+Example Anti-pattern:
+useLayoutEffect(() => {
+  const h1Rect = myHeader.current.getBoundingClientRect();
+  myHeader.current.style.width = h1Rect.width + 10 + 'px';
+});

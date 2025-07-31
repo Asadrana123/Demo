@@ -1,0 +1,9 @@
+✅ 1️⃣ What is the Diffing Algorithm?
+Definition:
+The diffing algorithm is the core part of Reconciliation that
+compares the previous virtual DOM tree and the new virtual DOM tree to figure out:
+
+“What exactly changed?”
+
+React uses this to compute the minimal set of DOM operations needed to update the UI.
+

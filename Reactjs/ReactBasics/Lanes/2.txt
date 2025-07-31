@@ -1,0 +1,19 @@
+✅ 📌 4️⃣ Where does this live?
+Each Fiber root (the top-level tree) has:
+
+
+root.pendingLanes       // all lanes with pending work
+root.suspendedLanes     // lanes that are currently suspended
+root.pingedLanes        // lanes that were suspended but can retry
+root.expiredLanes       // lanes that timed out
+
+
+✅ 📌 5️⃣ How does React use it?
+🔁 During scheduling:
+
+React looks at all pendingLanes in the root.
+
+Picks the highest priority lane(s) to work on.
+
+If it needs to pause work (e.g., user does something urgent), lower-priority lanes can be paused.
+

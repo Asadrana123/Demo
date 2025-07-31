@@ -1,0 +1,15 @@
+✅ 4️⃣ How does Fiber enable interruptible work?
+Core idea:
+
+Fiber splits rendering work into units of work.
+
+Each unit is a Fiber Node.
+
+React can pause after a unit, let the browser handle urgent tasks (like input), then continue.
+
+
+
+| Phase            | What happens                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------------------- |
+| **Render phase** | Builds a **work-in-progress Fiber tree**. Can be paused. Pure calculations only — no DOM changes. |
+| **Commit phase** | Applies the changes to the real DOM. Synchronous. Can’t be interrupted.                           |

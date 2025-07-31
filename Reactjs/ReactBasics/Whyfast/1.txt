@@ -1,0 +1,14 @@
+✅ 1️⃣ What exactly is Reconciliation?
+Definition:
+Reconciliation is React’s internal process of figuring out how to update 
+the UI efficiently when state or props change.
+
+✅ 2️⃣ Why is Reconciliation needed?
+The DOM is expensive to read/write.
+Instead of making changes blindly, React:
+Keeps a virtual DOM in memory.
+When data changes, it:
+Creates a new virtual DOM tree.
+Compares it to the previous virtual DOM tree.
+Calculates the smallest possible set of changes.
+Applies these changes to the real DOM in the browser.

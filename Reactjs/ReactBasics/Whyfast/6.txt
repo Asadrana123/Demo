@@ -1,0 +1,19 @@
+✅ 1️⃣ What is Fiber?
+
+Fiber is the new reconciliation engine in React (introduced in React 16).
+It’s an algorithm + data structure that makes rendering interruptible, incremental, and prioritized.
+Before Fiber, React’s render was stack-based and synchronous — big updates blocked the main thread.
+
+
+When React’s render was stack-based and synchronous, it did everything at once, without pausing.
+
+So, if rendering took a long time, JavaScript’s main thread was fully busy with React’s 
+work — nothing else could run (no user clicks, no animations, no other JS).
+
+Blocked main thread = browser can’t respond to user actions until React finishes rendering.
+
+
+The main thread is the single thread in the browser that runs your JavaScript, 
+renders the UI, and handles user events (clicks, scrolls, typing).
+
+If it’s busy, the page feels frozen because nothing else can run at the same time.

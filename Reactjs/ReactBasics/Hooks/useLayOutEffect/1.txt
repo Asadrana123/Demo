@@ -25,6 +25,3 @@ React gives you this hook to allow synchronous, post-DOM but pre-paint manipulat
 crucial for advanced UI concerns like animation, focus management, scrollers, or any scenario where
 layout reads and immediate DOM mutations must happen before the next frame.
 
-Senior-Level Note
-In terms of the React Reconciler, useLayoutEffect is conceptually similar to componentDidMount and 
-componentDidUpdate, but it allows consolidated and predictable effect management in functional components.

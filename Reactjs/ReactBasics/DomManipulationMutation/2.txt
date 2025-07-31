@@ -1,0 +1,6 @@
+Simple Examples of DOM Mutation
+
+let newDiv = document.createElement("div");
+document.body.appendChild(newDiv); // A new <div> is added to the page
+
+Here, the DOM tree is changed by adding a new <div>—that’s a mutation.

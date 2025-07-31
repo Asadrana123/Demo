@@ -1,0 +1,21 @@
+
+✅ 2️⃣ What is Concurrent Rendering?
+Definition:
+A rendering mode where React can:
+Work on multiple versions of your UI simultaneously
+Pause work, switch to something urgent, resume later
+Why? 👉 Makes complex UIs more responsive → heavy renders don’t block user input.
+
+🔹 Classic React (before Fiber)
+Rendering was synchronous:
+State update → React would render whole tree in one go.
+Large trees could block the main thread → UI jank.
+
+🔹 Fiber enables Concurrent Rendering
+React Fiber breaks rendering into units of work (like tasks).
+React does some units → checks if it should yield (pause) → does more later.
+Example:
+User types while expensive re-render runs:
+Classic React: input freezes.
+Concurrent: React pauses low-priority work → runs high-priority input → resumes rendering.
+

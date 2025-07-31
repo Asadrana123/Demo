@@ -1,0 +1,7 @@
+✅Fiber Architecture:-
+Fiber Architecture is React’s complete reimplementation of its reconciliation algorithm 
+introduced in React 16. It breaks rendering work into small units called fibers, enabling React 
+to pause, resume, and prioritize rendering tasks. This allows for incremental and concurrent 
+rendering, which improves app responsiveness and enables features like time-slicing and Suspense.
+In short, Fiber Architecture helps React handle complex UI updates efficiently without blocking 
+the main thread.

@@ -1,0 +1,15 @@
+The core steps of Reconciliation
+When React needs to update the UI:
+
+1️⃣ Trigger: State or props change → component re-renders.
+2️⃣ New Virtual DOM: React calls your function/component again → produces a new virtual DOM tree.
+3️⃣ Compare: React compares the new tree to the old tree (diffing).
+4️⃣ Compute changes: React figures out what parts of the real DOM need:
+
+Added
+Removed
+Updated
+Moved
+
+5️⃣ Commit changes: React updates the real DOM to match the new virtual DOM.
+

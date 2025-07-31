@@ -1,0 +1,33 @@
+✅ 2️⃣ Why was Fiber needed?
+
+| Old Stack Reconciler             | Fiber                                    |
+| -------------------------------- | ---------------------------------------- |
+| Updates are synchronous          | Updates can be paused, split into chunks |
+| No priorities                    | Updates can have priority levels         |
+| Can’t abort or reuse work        | Can stop work & continue later           |
+| Poor for animations/interactions | Smooth UIs possible                      |
+
+
+✅ 3️⃣ What is a Fiber Node?
+
+A Fiber Node is:
+
+A JS object representing each element in your React tree.
+
+Like a linked list node — each has:
+
+type: What type of component it is (DOM node, class, function)
+
+stateNode: The actual instance (like DOM element or class instance)
+
+child: First child fiber
+
+sibling: Next sibling fiber
+
+return: Parent fiber
+
+pendingProps & memoizedProps: New vs. last props
+
+alternate: Link to the old fiber (for diffing)
+
+✅ So the entire React tree is now a linked Fiber tree

@@ -1,0 +1,6 @@
+✅ 2️⃣ Why not use a full tree diff?
+Full tree comparison = O(n³) complexity → slow!
+
+React optimizes it to O(n) using assumptions and heuristics.
+
+These smart rules make updates fast for most real-world UI patterns.

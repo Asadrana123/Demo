@@ -1,0 +1,16 @@
+✅ 3️⃣ What’s actually inside a Virtual DOM node?
+Each node is a plain JS object, called a React Element.
+It looks like this (simplified):
+
+{
+  $$typeof: Symbol(react.element),
+  type: 'div',
+  key: null,
+  ref: null,
+  props: {
+    children: [ ... ],
+    className: 'container',
+    onClick: ...
+  },
+  _owner: FiberNode
+}

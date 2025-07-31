@@ -1,0 +1,16 @@
+SSR:-
+Server-Side Rendering (SSR) is a technique where your React app 
+(or any JavaScript framework) runs on a backend server to generate HTML for a page 
+before sending it to the user's browser.
+
+Normal (Client-Side Rendering): The browser downloads a mostly empty HTML file, loads JavaScript, 
+and then renders the page.
+
+SSR: The server renders the page’s HTML in advance and sends this “pre-built” HTML to the browser.
+This means users see content faster.
+
+Key points:
+SSR improves initial load time and SEO, since the HTML is ready before JavaScript runs.
+React components run both "on the server" (while generating HTML) and "in the browser" 
+(as interactive JavaScript).
+

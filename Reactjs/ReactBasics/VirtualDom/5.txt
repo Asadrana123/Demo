@@ -1,0 +1,38 @@
+2. Intelligent Diffing Algorithm
+
+React compares the new Virtual DOM tree with the previous one using its 
+efficient diffing algorithm to identify the minimal set of changes required
+
+
+🟥 Inefficient DOM update (without Virtual DOM)
+<!-- index.html -->
+<div id="container"></div>
+<button onclick="update()">Update</button>
+
+<script>
+  const container = document.getElementById('container');
+
+  let items = ['Apple', 'Banana', 'Cherry'];
+
+  function createElement(text) {
+    const li = document.createElement('li');
+    li.textContent = text;
+    return li;
+  }
+
+  function renderList(newItems) {
+    container.innerHTML = ''; // ❌ Destroy all
+    newItems.forEach(item => {
+      container.appendChild(createElement(item)); // 🔁 Recreate all
+    });
+  }
+
+  function update() {
+    items[1] = 'Blueberry'; // Update only second item
+    renderList(items); // ❌ Still re-renders all
+  }
+
+  // Initial render
+  renderList(items);
+</script>
+

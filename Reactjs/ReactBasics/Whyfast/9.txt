@@ -1,0 +1,10 @@
+✅ 6️⃣ Priorities in Fiber
+Fiber supports update lanes (priorities):
+
+User input (high priority)
+
+Data fetching (medium)
+
+Background rendering (low)
+
+React can decide which updates to run now, and which to defer.

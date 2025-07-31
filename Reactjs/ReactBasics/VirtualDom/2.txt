@@ -1,0 +1,14 @@
+1. Virtual DOM nodes are simple plain JS objects
+They just describe the UI: type, props, children, key, etc.
+
+No heavy browser-specific properties or methods.
+
+No event listeners, styles, layout info, or rendering data.
+
+2. Real DOM nodes are complex browser objects
+Each real DOM node is a full browser-native object (HTMLElement, TextNode, etc.)
+
+They hold a lot of extra info: styles, layout, event handlers, rendering state, 
+pointers to parent/child/sibling nodes, and more.
+
+They are tightly integrated with the browser’s rendering engine and memory management.

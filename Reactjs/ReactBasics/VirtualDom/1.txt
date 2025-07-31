@@ -1,0 +1,6 @@
+✅ 1️⃣ What is the Virtual DOM?
+In short:
+
+It’s a lightweight, in-memory tree that represents what your UI should look like.
+Think of it as a JS object version of your actual DOM.
+It’s not the real HTML — it’s a description of the desired UI.

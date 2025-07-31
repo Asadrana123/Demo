@@ -1,0 +1,80 @@
+Full SSR :— 
+1. User Requests the Page
+Browser sends an HTTP GET request to the server (/profile/42).
+No JavaScript has run in the browser yet.
+
+2. Server Receives the Request
+Node.js/Express server runs the React app to SSR the page.
+
+3. Server Renders the React Component
+Executes UserProfile({ userId: 42 }).
+
+useState:
+profile is null, loading is true (the initial state).
+
+useEffect:
+Is ignored on the server—never runs (React skips effects during SSR).
+What does the render function return?
+
+If loading is true, returns <div>Loading...</div>.
+So, SSR output is always the loading state at this step.
+
+4. Server Sends "Loading..." HTML
+The server produces an HTML string with only the loading view.
+
+Example:
+<html>
+  <body>
+    <div id="root">
+      <div>Loading...</div>
+    </div>
+    <script src="/static/js/bundle.js"></script>
+  </body>
+</html>
+Key: The only visible content is “Loading...”.
+
+5. Browser Receives & Displays the Page
+Browser sees and displays “Loading...” immediately.
+
+User perceives “content showed up fast”, but it’s placeholder—no data yet.
+
+6. Browser Downloads JavaScript Bundle
+Browser loads React JavaScript for your app.
+
+Now, React code starts running in the browser (“client side”).
+
+7. React Hydration Begins
+React attaches to the HTML that’s already there.
+Event handlers, component state logic, hooks setup—all initialized.
+
+8. useEffect Runs in the Browser
+This is the first time your data-fetch logic actually runs!
+
+React runs:
+fetch(`/api/user/42`)
+  .then(res => res.json())
+  .then(data => {
+    setProfile(data);
+    setLoading(false);
+  });
+(This network request happens in the client browser, not on the server!)
+
+9. State Updates, UI Re-renders
+Once data is received:
+profile updates with the user data.
+loading becomes false.
+React re-renders the component.
+
+10. User Finally Sees the Real Data
+“Loading...” is replaced with:
+
+
+<div>
+  <h2>Vikram</h2>
+  <p>Followers: 123</p>
+</div>
+At this point, the user can read the profile.
+
+11. User Can Interact
+If there are any buttons/links (e.g., “Follow”), those are now interactive, 
+because event handlers were attached during hydration.
