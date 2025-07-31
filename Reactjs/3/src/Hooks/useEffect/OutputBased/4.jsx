@@ -1,0 +1,30 @@
+import React, { useState, useEffect } from "react";
+
+export default function Example4() {
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
+
+  console.log("🐣 Render:", { a, b });
+
+  useEffect(() => {
+    console.log("🚀 Effect A:", a);
+    if (a < 1) {
+      setA(a + 1);
+    }
+    return () => {
+      console.log("💥 Cleanup A:", a);
+    };
+  }, [a]);
+
+  useEffect(() => {
+    console.log("🎈 Effect B:", b);
+    if (b < 1) {
+      setB(b + 1);
+    }
+    return () => {
+      console.log("💨 Cleanup B:", b);
+    };
+  }, [b]);
+
+  return <h1>{a} - {b}</h1>;
+}
