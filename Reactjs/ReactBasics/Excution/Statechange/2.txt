@@ -1,0 +1,18 @@
+🗝️ The core check is inside scheduleUpdateOnFiber
+It does:
+1️⃣ Determine what phase you’re in:
+
+Is React in the render phase?
+→ currentlyRenderingFiber is set, renderLanes are active.
+Or are you in passive effects, an event, or async code?
+→ renderLanes are empty, no synchronous work loop is running.
+
+2️⃣ Decide:
+
+If you’re in render:
+React must cancel current work & restart → immediate flush.
+If you’re outside render:
+React sets a bit on the root: “needs update”
+Schedules work on the scheduler for later.
+✅ So the decision point is when scheduleUpdateOnFiber runs.
+

@@ -1,0 +1,41 @@
+Calling setState:-
+The decision is made immediately when you call setState.
+The setState implementation knows where you are in React’s work loop:
+If you’re inside the render phase, React forces a sync flush.
+If you’re in passive effects, event handlers, or async callbacks, 
+React schedules the flush for later.
+
+
+✅ How React knows
+React’s setState (technically dispatchAction) does this:
+function dispatchAction(fiber, queue, action) {
+  const lane = requestUpdateLane(fiber);
+  const update = createUpdate(action, lane);
+
+  // Add update to the Hook's queue.
+  enqueueUpdate(queue, update);
+
+  const root = markUpdateLaneFromFiberToRoot(fiber, lane);
+
+  // This is the CRUCIAL check!
+  scheduleUpdateOnFiber(root, fiber, lane);
+}
+
+function scheduleUpdateOnFiber(root, fiber, lane) {
+  // 1️⃣ Mark the update lane on the root Fiber — tells React this root needs work at given priority
+  markRootUpdated(root, lane);
+
+  // 2️⃣ Check if React is currently rendering
+  if (isRendering()) {
+    // If we are already rendering (render phase update):
+    // React must flush immediately — cancel current render and restart synchronously
+    // This avoids inconsistent state during render
+    performSyncWorkOnRoot(root);
+  } else {
+    // 3️⃣ If NOT currently rendering (e.g. inside effects or event handlers)
+    // Schedule the work on React's Scheduler based on lane priority
+    ensureRootIsScheduled(root, lane);
+  }
+}
+
+

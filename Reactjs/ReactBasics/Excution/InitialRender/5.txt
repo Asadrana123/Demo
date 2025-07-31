@@ -1,0 +1,17 @@
+🟢 9. Work loop finishes the Render Phase
+The Work-In-Progress tree is complete:
+FunctionComponent Fiber with updated memoizedProps, memoizedState.
+Child Fibers for HostComponent <h1> and HostText "0 - 0".
+A mutation effect list is created for the commit phase:
+Add <h1>
+Set text node
+
+
+🟢 10. Commit Phase runs
+React flushes the mutation effect list:
+Creates the real <h1> DOM element.
+Creates the text node "0 - 0".
+Appends text to <h1>.
+Appends <h1> to container.
+Real DOM now matches the Fiber tree.
+

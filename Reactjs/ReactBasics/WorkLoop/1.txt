@@ -1,0 +1,23 @@
+📌 1️⃣ What is the “work loop”?
+The work loop is the core engine of React Fiber.
+It’s a while loop that processes units of work (Fiber nodes) one at a time.
+The loop runs during the Render Phase, not Commit.
+
+📌 2️⃣ Why does it exist?
+In React’s old stack reconciler (before Fiber), rendering was synchronous — React could not pause rendering once started.
+
+The work loop is what enables incremental rendering:
+React can split work into small chunks.
+It can pause, yield, and resume if higher priority work comes in.
+This is how Concurrent Mode works.
+
+
+✅ 3️⃣ What exactly is a “unit of work”?
+A unit of work is a Fiber node:
+
+while (nextUnitOfWork !== null && shouldYield() === false) {
+  nextUnitOfWork = performUnitOfWork(nextUnitOfWork)
+}
+Each unit represents one Fiber:
+e.g., a <div>, a <Button>, or a whole child subtree.
+

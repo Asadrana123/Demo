@@ -1,0 +1,29 @@
+2. Fiber Node for <Example4> is created
+Type: FunctionComponent.
+Key fields:
+tag: FunctionComponent
+type: Example4
+pendingProps: {}
+memoizedProps: {} (populated after render)
+memoizedState: linked list of hooks (populated during render)
+return: pointer to parent (Root Fiber)
+child: points to the first child Fiber
+alternate: points to the old Fiber (null for first render)
+
+🔑 Fiber nodes are created by React’s reconciler during rendering
+When React calls beginWork and reconcileChildren, it:
+Creates new Fiber nodes for new elements (via createFiberFromElement, createFiberFromTag, etc.)
+Updates existing Fibers if they already exist
+The React reconciler (the core diffing engine) is responsible for creating and linking Fiber 
+nodes as it builds the Fiber tree.
+
+
+⚙️ Summary flow:
+You write JSX → React.createElement produces React elements (JS objects)
+React reconciler compares old Fiber tree with new React elements
+For each element:
+Creates a new Fiber node if none exists
+Or reuses and updates existing Fiber node
+Links them as a Fiber tree
+
+

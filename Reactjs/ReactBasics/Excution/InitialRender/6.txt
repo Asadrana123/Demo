@@ -1,0 +1,27 @@
+ 11. Run passive effects
+useEffect A is pushed to the effect queue.
+useEffect B is pushed to the effect queue.
+React runs them in order:
+🚀 Effect A: 0
+🎈 Effect B: 0
+Both schedule state updates:
+setA(1) adds to hookA’s queue.
+setB(1) adds to hookB’s queue.
+✅ React marks the root Fiber as dirty again.
+
+
+🔑 What does React mark as dirty?
+1️⃣ The Fiber node for the component whose state changed
+
+React sets fiber.flags |= Update on that specific Fiber.
+
+This marks that component (and its subtree) for re-render.
+
+2️⃣ The root Fiber is also marked
+React sets root.pendingLanes |= lane — this means:
+“The whole tree might need work, starting from the root.”
+✅ So:
+Both get marked:
+🔹 The specific component’s Fiber → tells React where the change happened.
+🔹 The root Fiber → tells the Scheduler there’s work to schedule.
+👉 In short:

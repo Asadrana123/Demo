@@ -1,0 +1,20 @@
+🔹 What Are Props in React?
+Props (short for properties) are read-only inputs passed from a parent component to a child component.
+
+function Welcome({ name }) {
+  return <h1>Hello, {name}</h1>;
+}
+
+<Welcome name="Alice" />
+
+
+🔹 Props Are Immutable
+Props should never be mutated. They are immutable from the perspective of the child component.
+
+
+
+1.React does shallow comparison between memoizedProps and pendingProps means for primitive values
+like string, numbers it compare by value but for object,arrays it compare by reference
+not deep structure.
+
+2. The main reason is that mutating props is a bad practice because it will not re-render the component.

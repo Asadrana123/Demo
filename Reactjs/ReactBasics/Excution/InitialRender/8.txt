@@ -1,0 +1,21 @@
+🟢 14. Example4 runs again
+✅ console.log:
+🐣 Render: { a: 1, b: 1 }
+
+
+✅ reconcileChildren:
+Checks <h1> → same type → reuse HostComponent Fiber.
+
+Checks text → "1 - 1" ≠ "0 - 0" → update HostText Fiber.
+
+
+🟢 15. Commit Phase
+✅ Apply mutation to the real DOM.
+✅ Run cleanup for old effects:
+💥 Cleanup A: 0
+💨 Cleanup B: 0
+✅ Run new passive effects:
+🚀 Effect A: 1 → does not setA again
+🎈 Effect B: 1 → does not setB again
+✅ The tree is stable — no more updates.
+

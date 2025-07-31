@@ -1,0 +1,17 @@
+🟢 12. Scheduler kicks off another Render Phase
+The work loop picks up the update:
+setA and setB are in the update queue.
+
+🟢 13. Hooks are processed
+For useState(a):
+Base state: 0
+Queue: +1
+New state: 1
+For useState(b):
+Base state: 0
+Queue: +1
+New state: 1
+✅ New hook cells:
+
+hookA.memoizedState = 1
+hookB.memoizedState = 1

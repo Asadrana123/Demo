@@ -1,0 +1,15 @@
+1. Unidirectional Data Flow
+Data flows from parent to child via props — not the other way.
+
+2. Declarative Programming
+Describe what you want, React handles how to update the UI.
+
+3. Component-Based Architecture
+UI is built using isolated, reusable components.
+
+4. Immutability
+State and props should not be mutated directly. Helps with predictable re-renders.
+
+5. Virtual DOM & Efficient Reconciliation
+React uses a virtual DOM and diffs it for optimal UI updates.
+

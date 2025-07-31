@@ -1,0 +1,15 @@
+create-react-app:-
+create-react-app is a command-line tool that helps you create a new React project with a complete 
+setup (React, Webpack, Babel, ESLint, etc.) — without writing any configuration yourself.
+It is also an npm package.:-
+It sets up a new React project with a ready-to-use folder structure, tools like Webpack and Babel,
+and default configuration — so you don’t have to do everything manually.
+1. What problem does create-react-app solve?
+Before CRA, if you wanted to build a React app, you had to manually:
+
+Install react, react-dom
+Set up Webpack to bundle your files
+Set up Babel to convert JSX into JS
+Set up ESLint to check your code
+Create scripts for npm start, npm build, etc.
+Configure hot reloading, dev server, etc.

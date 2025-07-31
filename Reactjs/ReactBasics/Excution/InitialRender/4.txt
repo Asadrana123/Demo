@@ -1,0 +1,51 @@
+🟢 3. The Function Component runs
+React invokes Example4().
+Hook linked list starts empty: fiber.memoizedState = null.
+
+
+4. useState(0) is called for a
+React sees it’s a mount, so it creates:
+A new Hook object: { memoizedState: 0, queue: [] }
+This is linked:
+fiber.memoizedState → hook for a
+React returns [0, dispatchSetState].
+
+
+🟢 5. useState(0) is called for b
+Same: creates second Hook: { memoizedState: 0, queue: [] }
+Linked:
+First hook: fiber.memoizedState → hookA → hookB
+hookA.next = hookB
+React returns [0, dispatchSetState].
+
+
+🟢 6. console.log("🐣 Render:", { a: 0, b: 0 }) runs
+✅ Console output:
+🐣 Render: { a: 0, b: 0 }
+
+
+🟢 7. JSX is evaluated
+return <h1>{a} - {b}</h1>
+React.createElement → returns Virtual DOM:
+{
+  type: 'h1',
+  props: {
+    children: ['0 - 0']
+  }
+}
+
+
+🟢 8. React reconciles child
+reconcileChildren creates:
+
+Fiber Node for <h1>:
+tag: HostComponent
+type: 'h1'
+return: the parent FunctionComponent Fiber
+
+Fiber Node for text:
+tag: HostText
+type: null
+pendingProps: '0 - 0'
+return: the <h1> Fiber
+So you have this:

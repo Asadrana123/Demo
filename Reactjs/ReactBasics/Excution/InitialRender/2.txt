@@ -1,0 +1,17 @@
+🟢 0. App starts
+ReactDOM.createRoot().render(<Example4 />) is called.
+React sets up:
+The Root Fiber: a special Fiber that is the top of the tree.
+An Update is scheduled (scheduleUpdateOnFiber).
+
+
+🟢 1. React’s Scheduler kicks off the Work Loop
+The Render Phase starts:
+React calls performSyncWorkOnRoot.
+Sets up the Work-In-Progress Fiber Tree (the double buffer).
+
+
+1. React’s Scheduler kicks off the Work Loop
+The Render Phase starts:
+React calls performSyncWorkOnRoot.
+Sets up the Work-In-Progress Fiber Tree (the double buffer).
