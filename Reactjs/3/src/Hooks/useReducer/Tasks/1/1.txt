@@ -1,0 +1,42 @@
+Practical Task 1: Managing Multiple Form Fields with useReducer
+Scenario:
+Imagine you’re building a form with two inputs: name and email.
+You want a single state/root object to handle both, and you want clear, scalable
+updates—no juggling multiple useState hooks.
+
+import React, { useReducer } from "react";
+
+const initialState = { name: "", email: "" };
+
+function reducer(state, action) {
+  // Your reducer logic here
+}
+
+export default function ProfileForm() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  // handlers and JSX here
+  return (
+    <form>
+      <input
+        name="name"
+        value={state.name}
+        onChange={e => dispatch({ type: "SET_NAME", payload: e.target.value })}
+      />
+      <input
+        name="email"
+        value={state.email}
+        onChange={e => dispatch({ type: "SET_EMAIL", payload: e.target.value })}
+      />
+      <div>
+        <b>Current state:</b>
+        <pre>{JSON.stringify(state, null, 2)}</pre>
+      </div>
+    </form>
+  );
+}
+
+
+What To Do:
+Implement the reducer so "SET_NAME" and "SET_EMAIL" actions update only the right field in state.
+Type in the form fields and confirm state updates accordingly.

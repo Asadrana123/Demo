@@ -1,0 +1,14 @@
+When you call dispatch (or setState), React does not know yet if the state will change.
+
+React immediately schedules a "possible re-render": this means React
+plans to call your component function again soon (asynchronously).
+
+On that next scheduled render, React processes all pending state updates 
+(runs reducer/updater with latest state and queued actions).
+
+After running the reducer/updater, React compares the new state to the previous state.
+
+If the new state is different: React finishes the render and updates the UI.
+
+If the new state is the same (===): React discards the render (bails out) 
+and does NOT update the UI—for useState, React does not even re-run the component function in this case.

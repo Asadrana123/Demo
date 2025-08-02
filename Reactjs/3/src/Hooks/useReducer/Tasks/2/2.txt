@@ -1,0 +1,58 @@
+Practical Task 2: Managing a Dynamic List (e.g. Todo App) with useReducer
+Scenario:
+Build a simple todo list.
+You should be able to:
+Add a todo (by entering text and pressing "Add")
+Toggle a todo as completed (by clicking the item)
+Remove a todo (with a button)
+
+import React, { useReducer, useState } from "react";
+
+const initialState = []; // An array of { id, text, completed }
+
+function reducer(state, action) {
+  // Implement logic for ADD, TOGGLE, REMOVE
+}
+
+export default function TodoApp() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [input, setInput] = useState("");
+
+  const handleAdd = () => {
+    // Dispatch action to add todo
+  };
+
+  return (
+    <div>
+      <h3>Todo List</h3>
+      <input value={input} onChange={e => setInput(e.target.value)} />
+      <button onClick={handleAdd}>Add</button>
+      <ul>
+        {state.map(todo => (
+          <li
+            key={todo.id}
+            onClick={() => dispatch({ type: "TOGGLE", id: todo.id })}
+            style={{ cursor: "pointer", textDecoration: todo.completed ? "line-through" : "none" }}
+          >
+            {todo.text}
+            <button onClick={e => {
+              e.stopPropagation();
+              dispatch({ type: "REMOVE", id: todo.id });
+            }}>x</button>
+          </li>
+        ))}
+      </ul>
+      <pre>{JSON.stringify(state, null, 2)}</pre>
+    </div>
+  );
+}
+
+
+Your Tasks:
+Implement the reducer to handle these actions:
+
+"ADD": Add a new todo to the list.
+"TOGGLE": Toggle .completed on a todo by id.
+"REMOVE": Remove a todo by id.
+In handleAdd, dispatch the "ADD" action with the text of the input (and any unique id generation).
+Test: Add, toggle, and remove todos. Observe that the reducer keeps the array of todos correct at all times.

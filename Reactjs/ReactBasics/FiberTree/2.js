@@ -96,3 +96,6 @@ const MyComponentFiber = {
   flags: 0,              // Placement, Update, etc.
   deletions: null
 };
+/*Every time you trigger a state update (setCount, setName), it goes on that specific hook’s queue.
+Every time you use useEffect (or useLayoutEffect), it is registered in the Fiber’s updateQueue so React 
+knows to run them after painting the UI.*/
