@@ -1,0 +1,43 @@
+Practical Task 1: Accurate DOM Measurement (Without Flicker)
+Scenario
+You have a header whose height is dynamic (adjusts according to content or responsive breakpoints). 
+You want to render a content area below the header with a margin exactly equal to the header's 
+rendered height. The margin should be accurate on first paint (no “jumping” after render).
+
+Your Implementation Goals
+Use useRef to reference the header element.
+
+Use useLayoutEffect to measure its height right after render but before paint.
+Set that value as a margin (or padding) on the content area so positioning is always correct, 
+even on initial display and after header changes.
+
+
+import React, { useRef, useLayoutEffect, useState } from "react";
+
+function HeaderAndContent() {
+  const headerRef = useRef(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  // Your useLayoutEffect code here
+
+  return (
+    <div>
+      <header ref={headerRef} style={{ background: "#90cdf4", padding: 16 }}>
+        <h1>Dynamic Header</h1>
+        {/* You can add content here to change header size */}
+      </header>
+      <main style={{ marginTop: headerHeight, background: "#f7fafc", padding: 16 }}>
+        Content always sits just below header!
+      </main>
+    </div>
+  );
+}
+
+
+Instructions
+Add a useLayoutEffect that:
+Reads the header’s real height with headerRef.current.getBoundingClientRect().height.
+Sets this value to the headerHeight state.
+Test your implementation:
+Add and remove text in the header and observe if the content always stays perfectly aligned,
+with no visible jump.

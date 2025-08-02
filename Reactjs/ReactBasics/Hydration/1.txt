@@ -1,0 +1,66 @@
+What is Hydration?
+Hydration is when React attaches its JavaScript runtime to the existing HTML 
+that was generated and sent by the server (using SSR).
+
+It “wakes up” the page: linking event handlers, activating state management, running effects,
+and syncing everything so the app behaves like a standard React app after the initial load.
+
+Hydration Step-by-Step
+Let’s use a clear example:
+
+Example Component
+function Counter() {
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    console.log('Hydrated! You can now interact.');
+  }, []);
+
+  return (
+    <div>
+      <span>Count: {count}</span>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+1. On the Server
+The React component is rendered as HTML:
+"<div><span>Count: 0</span><button>Increment</button></div>"
+
+This HTML is sent to the browser as part of the page:
+<div id="root">
+  <div>
+    <span>Count: 0</span>
+    <button>Increment</button>
+  </div>
+</div>
+No JavaScript, no event handlers, no interactivity yet!
+
+2. Browser Loads the Page
+The user instantly sees the UI (“Count: 0” and the button), but clicking the button won't do anything right away.
+
+At this point, the page is just HTML—static and inert.
+
+3. Browser Loads React JS Bundle
+The JavaScript files for React download in the background.
+
+4. Hydration Starts
+React runs in the browser and “re-activates” the app with ReactDOM.hydrateRoot() 
+(or similar hydration methods, depending on the React version).
+React walks through the DOM and matches the rendered HTML to its virtual DOM.
+
+5. Wiring Up
+React attaches event handlers (e.g., for the Increment button).
+React initializes component state:
+
+In our example, this starts at 0 (matching the server-rendered output).
+Any useEffect blocks (side effects/hooks) now run for the first time in the browser.
+console.log('Hydrated! ...') prints to the console at this point.
+
+6. Page Is Now Fully Interactive
+The user can now click “Increment” — and setCount will update the state and the UI.
+
+All remaining React features (e.g. context, refs, effects) behave as normal:
+exactly as if you had loaded the app purely client-side.
+

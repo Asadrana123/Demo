@@ -1,5 +1,0 @@
-In any Node.js project, there’s a file called package.json. This file describes your project — 
-its name, version, dependencies, and other info.
-
-One important part of this file is "scripts". Think of "scripts" as a set of commands you define
-to run common tasks related to your project.

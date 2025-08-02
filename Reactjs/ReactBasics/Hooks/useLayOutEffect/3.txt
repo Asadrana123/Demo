@@ -1,0 +1,30 @@
+Why can't useLayoutEffect run during SSR?
+1. There’s No Real DOM in SSR
+SSR happens on a server (e.g., Node.js). The server does NOT have a real browser 
+environment or actual DOM API (like window, document, etc.).
+
+
+2. SSR Only Generates HTML Strings
+On the server, React components convert to a plain HTML string (e.g., <div>...</div>).
+No events, no DOM measurements, no layout calculations—just string building.
+
+3. useLayoutEffect Depends on Browser Layout
+useLayoutEffect’s job is to run after the DOM updates and before the browser paints.
+
+But when running on the server:
+There's no DOM to update.
+There's no “screen” or “painting” phase.
+There are no real nodes or layouts to measure or mutate.
+Running useLayoutEffect would either be useless (nothing to work with) or would crash the server 
+(because DOM APIs like window or document don't exist).
+
+4. React Intentionally Skips It on the Server
+React’s implementation ignores useLayoutEffect hooks during SSR.
+In development, React even gives a warning if you try to use useLayoutEffect in SSR code.
+
+5. It Should Only Run Where There’s a Visible UI
+All DOM-related (or layout-reading) logic should run only in the browser!
+
+For isomorphic code: If you want to “do something after render” in both environments,
+use useEffect (runs only on client) or check for environment before calling useLayoutEffect.
+
