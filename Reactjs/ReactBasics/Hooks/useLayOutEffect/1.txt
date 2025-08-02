@@ -25,3 +25,44 @@ React gives you this hook to allow synchronous, post-DOM but pre-paint manipulat
 crucial for advanced UI concerns like animation, focus management, scrollers, or any scenario where
 layout reads and immediate DOM mutations must happen before the next frame.
 
+
+
+Use Cases:-
+Preventing Layout Shift and Flicker
+Updating state based on measurements, and then re-rendering to adjust positions/dimensions before the 
+browser paints, avoiding intermediate/incorrect UI states visible to users.
+
+
+2. Scroll Management: Auto-Scroll to Bottom (e.g., Chat App)
+Auto-scroll to the latest message immediately after new messages render so users always see the newest content.
+
+import React, { useRef, useLayoutEffect } from "react";
+
+function Chat({ messages }) {
+  const bottomRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: "auto" });
+    }
+  }, [messages]);
+  
+  return (
+    <div style={{ height: 200, overflow: 'auto' }}>
+      {messages.map((msg, idx) => <div key={idx}>{msg}</div>)}
+      <div ref={bottomRef} />
+    </div>
+  );
+}
+
+
+3. Preventing Layout Shift: Synchronize Columns’ Height
+When you want two columns to always stay the same height—measure both and set the
+max height right after DOM updates, so there’s no visible jump.
+
+Conclusion:-
+Use useLayoutEffect for DOM interactions where timing is critical (layout reads, sync writes, 
+preventing flicker/layout jump).
+
+
+

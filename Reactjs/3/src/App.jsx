@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
-import Example1 from "./Hooks/useLayoutEffect/1";
+import Example2 from "./Hooks/useLayoutEffect/Tasks/2/2";
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Example1/>);
+root.render(<Example2/>);
 

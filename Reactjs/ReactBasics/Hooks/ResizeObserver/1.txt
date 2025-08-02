@@ -1,0 +1,16 @@
+what is ResizeObserver in DOM:-
+ResizeObserver is a modern JavaScript API that allows you to efficiently monitor changes 
+to the size of specific DOM elements, not just the window. It provides notifications whenever an element's 
+content or border box changes dimensions, enabling responsive behaviors and dynamic layouts beyond what CSS 
+media queries or window resize events offer.
+
+Key Concepts:
+
+Instead of listening to the global window resize event (which only detects browser viewport changes),
+ResizeObserver lets you watch size changes on any individual element, including those caused by dynamic content, 
+layout shifts, or style changes.
+
+Useful for responsive design, adaptive components, and scalable content where element sizes can change 
+independently of the viewport.
+
+

@@ -1,0 +1,16 @@
+How to Use ResizeObserver:
+
+Create a new ResizeObserver instance with a callback function.
+
+Use .observe(targetElement) to start watching a specific element.
+
+On every change in the observed element’s size, the callback receives an array of 
+ResizeObserverEntry objects, each describing the new dimensions.
+
+const observer = new ResizeObserver((entries) => {
+  for (const entry of entries) {
+    console.log('Element:', entry.target);
+    console.log('New size:', entry.contentRect.width, entry.contentRect.height);
+  }
+});
+observer.observe(document.querySelector('.my-element'));

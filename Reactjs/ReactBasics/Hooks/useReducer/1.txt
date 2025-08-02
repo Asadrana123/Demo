@@ -1,0 +1,10 @@
+What is useReducer?
+useReducer is a state management tool for React components.
+It lets you manage complex state by using a function called a reducer.
+Instead of updating state directly with a setter (like setState or setCount), you send an "action" to 
+the reducer, and it decides how to update the state.
+
+why useReducer:-
+Switch to useReducer when you have complex, related state, multiple ways to update state, 
+the need for organized logic, or want easier scalability and testing.
+

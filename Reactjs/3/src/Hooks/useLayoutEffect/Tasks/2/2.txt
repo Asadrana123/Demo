@@ -1,0 +1,36 @@
+Practical Task 2: Responding to Dynamic Content Changes with ResizeObserver
+In real applications, header size isn’t only affected by window resizing—it 
+can change due to dynamic data, user interaction, or responsive design. As a senior engineer, 
+you must ensure that the layout adapts not just on mount or resize, but whenever the header’s geometry changes.
+
+Scenario
+You have a header whose content can change dynamically (e.g., text is added by API response or a user interaction).
+You want the content area’s positioning to remain correct automatically, with no manual event triggers.
+
+Your Implementation Goals
+Use ResizeObserver inside useLayoutEffect to monitor header size changes.
+Automatically update the headerHeight state whenever the header’s height changes, 
+regardless of the cause (not just window resizing).
+
+import React, { useRef, useLayoutEffect, useState } from "react";
+
+export default function HeaderAndContent() {
+  const headerRef = useRef(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  // Your improved useLayoutEffect with ResizeObserver here
+
+  return (
+    <div>
+      <header ref={headerRef} style={{ background: "#90cdf4", padding: 16 }}>
+        <h1>Dynamic Header</h1>
+        {/* Add/remove/change content here to test dynamic header */}
+      </header>
+      <main style={{ marginTop: headerHeight, background: "#f7fafc", padding: 16 }}>
+        Content always sits just below header!
+      </main>
+    </div>
+  );
+}
+
+
