@@ -1,9 +1,7 @@
 👉 Direct state update:
 
 It takes a snapshot of the state value (like count) at the time your code runs.
-
 The count + 1 is evaluated immediately, so the actual setCount() stores that fixed number.
-
 This value is frozen, does NOT react to later changes.
 
 👉 Functional state update:

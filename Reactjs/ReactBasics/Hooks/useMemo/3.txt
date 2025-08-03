@@ -9,5 +9,4 @@ Auto-memoization would hide these decisions and make performance debugging harde
 
 The Framework Design Philosophy
 React's approach reflects a broader design philosophy:
-
-Opt-in optimization: Developers choose where to optimize
+optimization: Developers choose where to optimize

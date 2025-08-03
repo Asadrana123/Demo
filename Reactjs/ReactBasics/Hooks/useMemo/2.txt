@@ -10,7 +10,6 @@ function ExpensiveComponent({ items }) {
 
 
 useMemo trades memory (storing cached results) for computational performance. This isn't always beneficial.
-
 // This is SLOWER with useMemo than without
 const simpleSum = useMemo(() => a + b, [a, b]);
 // Because React must:

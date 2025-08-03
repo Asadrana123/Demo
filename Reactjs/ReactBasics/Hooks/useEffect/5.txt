@@ -1,10 +1,7 @@
 ✅ 1️⃣ What does “unmount” mean?
 
 Unmounting = React removes a component from the DOM.
-
 The component’s DOM nodes are deleted.
-
 React also destroys the component’s state, refs, effects, and event handlers.
-
 After unmounting, that component doesn’t exist anymore in the tree.
 

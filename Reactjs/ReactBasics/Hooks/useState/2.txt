@@ -15,8 +15,6 @@ So, rendering = executing your function → generating JSX → React uses this t
 
 🔹 2️⃣ Why does state need to be “preserved”?
 If React just called your function again, any normal variables would reset:
-
-
 function Example() {
   let count = 0;
   // every render → count starts from 0 again!
@@ -24,6 +22,7 @@ function Example() {
 This won’t “remember” anything.
 
 But useState works differently: it stores count outside your function, in React’s internal memory (the fiber).
+
 
 🔹 3️⃣ How does useState preserve the value?
 useState is like:
@@ -45,6 +44,5 @@ On next render, your function runs again → but useState returns the preserved 
 
 🔹 4️⃣ Why does this matter?
 Normal variables get wiped every time the function runs.
-
 useState values live in React’s fiber tree, so they survive across renders.
 

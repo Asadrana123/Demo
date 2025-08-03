@@ -2,13 +2,10 @@
 When you call setState:
 
 React schedules a re-render.
-
 Your component runs again with the new state.
 
 
 3️⃣ useState is asynchronous
 State updates don’t happen immediately:
-
 You cannot read the new state immediately after calling setState in the same run.
-
 React batches state updates for performance.

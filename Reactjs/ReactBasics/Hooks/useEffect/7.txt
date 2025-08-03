@@ -25,5 +25,4 @@ function Child() {
 👉 What happens?
 
 First render → Child mounts → logs “Mount”
-
 Click toggle → Child is removed → unmounts → logs “Unmount”

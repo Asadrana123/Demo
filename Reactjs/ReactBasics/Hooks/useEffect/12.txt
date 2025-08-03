@@ -27,10 +27,7 @@ When your component is removed, you should:
 ✅ Cancel subscriptions
 
 Otherwise, those things keep running in memory, causing:
-
 Bugs
-
 Memory leaks
-
 Wasted CPU/bandwidth
 

@@ -34,7 +34,8 @@ browser paints, avoiding intermediate/incorrect UI states visible to users.
 
 
 2. Scroll Management: Auto-Scroll to Bottom (e.g., Chat App)
-Auto-scroll to the latest message immediately after new messages render so users always see the newest content.
+Auto-scroll to the latest message immediately after new messages render so users always
+see the newest content.
 
 import React, { useRef, useLayoutEffect } from "react";
 

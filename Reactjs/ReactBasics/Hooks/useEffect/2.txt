@@ -34,5 +34,4 @@ useEffect gives you dependencies to react to changes safely.
 
 ❌ 5️⃣ Bad for performance
 Side effects in render block React’s render process.
-
 This slows down UI updates, because React can’t batch or defer the extra work.

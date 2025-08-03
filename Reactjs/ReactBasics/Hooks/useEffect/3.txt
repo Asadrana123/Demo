@@ -2,7 +2,6 @@
 By default:
 
 After every render where its dependencies have changed.
-
 Key: It runs after the paint, not during render → so it won’t block the UI.
 
 

@@ -1,9 +1,8 @@
 🧩 Where is this stored?
-React tracks render phase status via:
 
+React tracks render phase status via:
 currentlyRenderingFiber
 renderLanes
 executionContext
 ✅ These globals tell React’s scheduler:
-
 “Am I rendering right now? Or in passive effects? Or idle?”

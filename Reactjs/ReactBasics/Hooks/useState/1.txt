@@ -1,5 +1,5 @@
 ✅ What is useState?
-useState is a React Hook that lets you add state to function components.
 
+useState is a React Hook that lets you add state to function components.
 Before Hooks (in React classes), you’d use this.state and this.setState.
 Now, in functional components, useState does that job.

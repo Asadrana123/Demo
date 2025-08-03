@@ -1,0 +1,28 @@
+1. Render Phase
+React calls your component function(s); runs all hooks; builds a new Virtual DOM tree in memory.
+
+Processes all state updates, queued actions, or new props/context.
+
+Calculates what the UI should look like after updates.
+
+No DOM mutations happen—only calculations and memory work.
+
+Checks which components need to update and prepares the diff (reconciliation).
+
+Runs useMemo, useCallback, and computes output for useEffect/useLayoutEffect 
+(but does not execute their functions yet).
+
+2. Commit Phase
+React takes the changes determined in the render phase and updates the real DOM (adds, removes, updates, etc.).
+
+Runs layout effects (useLayoutEffect, useInsertionEffect) synchronously, immediately 
+after DOM changes but before painting to the screen.
+
+The browser repaints (UI visually updates).
+
+Then, React runs normal effects (useEffect) asynchronously after the UI is painted.
+
+Runs cleanup on any effects or refs removed during this update.
+
+React updates refs and runs callback refs if their targets changed.
+
