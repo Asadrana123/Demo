@@ -1,0 +1,91 @@
+// npm install axios if you haven't already
+import axios from 'axios';
+
+// 1) Create an Axios instance with shared defaults
+const api = axios.create({
+  baseURL: 'https://api.example.com', // prepended to every `url`
+  timeout: 10_000,                    // 10 s request timeout
+  headers: {                          // default headers
+    'Content-Type': 'application/json'
+  },
+  withCredentials: true               // send cookies on CORS requests
+});
+
+// 2) Example: GET with query parameters
+async function searchArticles() {
+  const res = await api.get('/articles', {
+    params: { q: 'react', page: 2, limit: 10 } // => /articles?q=react&page=2&limit=10
+  });
+  console.log('Search results:', res.data);
+}
+
+// 3) Example: POST JSON with custom headers
+async function createUser() {
+  const res = await api.post(
+    '/users',
+    { name: 'Ada Lovelace', email: 'ada@example.com' }, // `data`
+    {
+      headers: { Authorization: 'Bearer YOUR_JWT_TOKEN' } // per-call headers
+    }
+  );
+  console.log('User created:', res.data);
+}
+
+// 4) Example: PUT file upload with progress tracking
+async function uploadFile(file) {
+  const form = new FormData();
+  form.append('file', file);
+
+  const res = await api.put('/files', form, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+    onUploadProgress: e => {
+      const pct = Math.round((e.loaded / e.total) * 100);
+      console.log(`Upload: ${pct}%`);
+    }
+  });
+  console.log('File uploaded:', res.data);
+}
+
+// 5) Example: GET binary data as Blob/ArrayBuffer
+async function downloadPdf() {
+  const res = await api.get('/reports/123.pdf', {
+    responseType: 'blob' // or 'arraybuffer'
+  });
+  console.log('Downloaded', res.data.size, 'bytes');
+}
+
+// 6) Example: Basic-auth request
+async function fetchPrivateStats() {
+  const res = await axios.get('https://stats.example.com/secure', {
+    auth: { username: 'admin', password: 'secret' } // sets Authorization: Basic ...
+  });
+  console.log('Private stats:', res.data);
+}
+
+// 7) Example: transform request & response
+async function sendTransformed() {
+  const res = await api.post(
+    '/debug',
+    { raw: 'data' },
+    {
+      transformRequest: [data => JSON.stringify({ ...data, ts: Date.now() })],
+      transformResponse: [data => JSON.parse(data).result]
+    }
+  );
+  console.log('Transformed response:', res);
+}
+
+// Demo run (sequential so output stays readable)
+async function runDemo() {
+  try {
+    await searchArticles();
+    await createUser();
+    // await uploadFile(fileInput.files[0]); // browser only
+    await downloadPdf();
+    await fetchPrivateStats();
+    await sendTransformed();
+  } catch (err) {
+    console.error('Request failed:', err.message);
+  }
+}
+runDemo();

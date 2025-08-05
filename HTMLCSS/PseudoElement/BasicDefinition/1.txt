@@ -1,0 +1,14 @@
+Step 1: What is a CSS Pseudo-element?
+A pseudo-element is a special keyword you add to a selector in CSS to style part of 
+an element’s content, rather than the entire element itself.
+
+Step 1: What is a CSS Pseudo-element?
+A pseudo-element is a special keyword you add to a selector in CSS to style part of an 
+element’s content, rather than the entire element itself.
+
+Key points:
+Pseudo-elements let you target sub-parts of an element (like just the first letter of a paragraph, 
+or content before/after the element’s real content).
+
+They’re written with two colons (::) followed by their name.
+You don’t have to change your HTML to use them—they only exist in CSS and in the rendered page.

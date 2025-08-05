@@ -1,0 +1,30 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.star {
+    font-size: 3rem;
+    position: relative;
+    display: inline-block;
+    user-select: none;
+}
+
+.filled-star {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: gold;
+}
+
+.stars-container {
+    display: flex;
+}
+
+.range-container {
+    text-align: center;
+}

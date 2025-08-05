@@ -1,0 +1,21 @@
+.triangle-demo {
+  position: relative;
+  width: 100px;
+  height: 60px;
+  background: #eee; /* Just to show the parent */
+}
+
+.triangle-demo::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  /* Zero width and height! */
+  width: 0;
+  height: 0;
+  
+  /* The border settings create a triangle shape */
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 30px solid #e17055; /* The visible triangle color */
+}

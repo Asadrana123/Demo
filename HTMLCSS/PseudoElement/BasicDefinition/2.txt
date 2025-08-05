@@ -1,0 +1,13 @@
+Basic Syntax:
+
+selector::pseudo-element {
+  /* your CSS here */
+}
+
+Examples of pseudo-elements:
+::before — insert content or decoration before the element’s content.
+::after — insert content or decoration after the element’s content.
+::first-letter — style only the first letter.
+::first-line — style only the first line.
+::selection — style highlighted text.
+::marker — style list item bullets.

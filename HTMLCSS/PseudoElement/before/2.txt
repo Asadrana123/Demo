@@ -1,0 +1,22 @@
+Suppose you want to add a colored dot before each item in a list.
+If you do it in HTML, your code becomes repetitive and less clean:
+
+<ul>
+  <li><span class="dot"></span>Item 1</li>
+  <li><span class="dot"></span>Item 2</li>
+  <li><span class="dot"></span>Item 3</li>
+</ul>
+
+
+With ::before, your HTML stays clean:
+
+
+li::before {
+  content: '●';           /* Adds a dot before each item */
+  color: red;             /* Makes the dot red */
+  margin-right: 8px;      /* Adds some space after the dot */
+}
+
+What happens? A red dot appears before every list item—without any additional HTML!
+This keeps your HTML semantic and lets you add or remove decoration easily just by adjusting 
+CSS.

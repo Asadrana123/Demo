@@ -1,0 +1,5 @@
+Step 1: What is ::before?
+The ::before pseudo-element lets you insert content just before the content of an element.
+It behaves as if it's the first child inside the element.
+You must always use the content property; otherwise, the ::before element won’t appear.
+Commonly used for decorative purposes, icons, quotes, or extra info without changing the HTML.

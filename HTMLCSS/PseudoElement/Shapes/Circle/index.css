@@ -1,0 +1,18 @@
+.circle-demo {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: #eee; /* Just to show the parent */
+}
+
+.circle-demo::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: #3fa9f5;
+  border-radius: 50%;      /* This makes it a perfect circle! */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

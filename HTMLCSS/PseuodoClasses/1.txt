@@ -1,0 +1,32 @@
+Step 1: What Are CSS Pseudo-classes?
+Definition:
+A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected 
+element(s).
+
+Syntax Example:
+
+selector:pseudo-class {
+  /* styles here */
+}
+Example:
+
+button:hover {
+  background: blue;
+}
+Core Idea:
+Pseudo-classes let you style elements not just by their tag, class, or ID, but by their state
+or position in the document, such as:
+
+When the mouse is over a button
+When a link has already been visited
+When an input is focused
+When a list item is the first or last child
+
+What Can They Be Used For?
+
+Styling interactivity (hover, focus)
+Styling based on element position (first, last, nth-child)
+Styling form validation states (valid, invalid)
+Targeting elements based on user actions or browser state
+You DON’T need JavaScript for these—they’re purely CSS!
+

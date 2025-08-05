@@ -1,0 +1,23 @@
+The ::after pseudo-element in CSS is used to insert content after the content of a 
+selected element (but still inside that element). It’s commonly used for decorative purposes, 
+such as 
+adding icons, symbols, or extra text, without modifying your HTML.
+
+
+Example:
+p::after {
+  content: " ★";
+  color: gold;
+}
+
+If your HTML is:
+<p>Hello</p>
+Then the browser will display:
+Hello ★
+
+Some key points:
+::after creates a virtual last child within the selected element.
+It is not part of the document’s HTML (only in CSS).
+You can style it just like a normal element: add color, margin, background, etc.
+This helps you keep your HTML cleaner and separates structure from presentation.
+

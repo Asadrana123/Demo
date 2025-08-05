@@ -1,0 +1,39 @@
+🔸 2. ANIMATION PROPERTIES EXPLAINED:
+---------------------------------------------------
+
+🟡 animation-name:
+- Specifies the name of the `@keyframes` to run.
+- Example: `animation-name: fadeIn;`
+
+🟡 animation-duration:
+- Sets how long the animation takes to complete 1 cycle.
+- Values: `2s`, `500ms`, etc.
+- Example: `animation-duration: 1s;`
+
+🟡 animation-timing-function:
+- Defines the speed curve of the animation.
+- Values:
+  - `ease` (default) – starts slow, speeds up, ends slow
+  - `linear` – same speed throughout
+  - `ease-in` – starts slow
+  - `ease-out` – ends slow
+  - `ease-in-out` – slow at both ends
+  - `steps(n)` – jumps in `n` steps
+  - `cubic-bezier(...)` – custom curve
+- Example: `animation-timing-function: ease-in-out;`
+
+
+More Values 
+✅ step-start
+Jumps to the end immediately (value = 100%) at the start of the animation.
+
+No smooth transition.
+Feels like it happens instantly.
+🟦 Example use: dropdowns or instant UI changes.
+✅ step-end
+Stays at the start value for the entire duration.
+Jumps to the end only at the last moment.
+Looks like nothing happens, then suddenly switches.
+
+
+

@@ -1,0 +1,33 @@
+🎯 CSS ANIMATION – COMPLETE GUIDE
+
+CSS Animations allow elements to change styles over time without using JavaScript.
+
+🔸 1. Basic Structure:
+---------------------------------------------------
+To animate an element, you define two things:
+- A `@keyframes` rule (defines the animation)
+- CSS properties on the element (to apply the animation)
+
+📌 Example:
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.element {
+  animation-name: slideIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.2s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+

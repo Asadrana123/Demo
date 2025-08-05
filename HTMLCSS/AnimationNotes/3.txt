@@ -1,0 +1,45 @@
+🟡 animation-delay:
+- Sets how long to wait before the animation starts.
+- Values: `1s`, `500ms`, etc.
+- Example: `animation-delay: 0.5s;`
+
+🟡 animation-iteration-count:
+- Specifies how many times the animation should repeat.
+- Values:
+  - `1`, `2`, `3`... 
+  - `infinite` (loop forever)
+- Example: `animation-iteration-count: infinite;`
+
+🟡 animation-direction:
+- Controls the direction of the animation.
+- Values:
+  - `normal` – runs from start to end
+  - `reverse` – runs from end to start
+  - `alternate` – runs forward then backward
+  - `alternate-reverse` – backward then forward
+- Example: `animation-direction: alternate;`
+
+🟡 animation-fill-mode:
+- Determines the styles applied **before and after** the animation.
+- Values:
+  - `none` – default, element reverts to original styles
+  - `forwards` – keeps final keyframe style
+  - `backwards` – applies initial keyframe style before animation starts
+  - `both` – combination of forwards and backwards
+- Example: `animation-fill-mode: forwards;`
+
+🟡 animation-play-state:
+- Allows you to pause or resume the animation.
+- Values: `running`, `paused`
+- Example: `animation-play-state: paused;`
+
+🔸 3. Shorthand Property:
+---------------------------------------------------
+All animation properties can be combined using a shorthand:
+
+📌 Syntax:
+animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state];
+
+📌 Example:
+```css
+animation: slideIn 1s ease-out 0.3s 1 normal forwards running;

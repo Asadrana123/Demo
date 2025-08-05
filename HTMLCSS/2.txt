@@ -1,9 +1,0 @@
-What is a Media Query?
-A media query in CSS is a way to apply styles based on the characteristics of the device 
-(like its width, height, orientation, etc.).
-Use case: You want your website to look different on mobile, tablet, and desktop.
-
-Basic Structure of a Media Query:
-@media [media-type] and ([condition]) {
-  /* CSS rules here */
-}
