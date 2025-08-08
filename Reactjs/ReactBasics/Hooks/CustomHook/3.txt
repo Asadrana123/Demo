@@ -1,0 +1,20 @@
+Most basic differences
+
+React component
+
+Name starts with UPPER-case letter (e.g., TodoList).
+Used inside JSX like <TodoList />.
+Returns JSX or null.
+Gets its own React fiber and can display UI.
+Custom hook
+
+Name starts with use (e.g., useTodos).
+
+Called like a normal function inside a component.
+May call other hooks (useState, useEffect, …).
+Returns data or functions—never JSX.
+Shares the caller component’s fiber (no UI of its own).
+Plain helper function
+Any name that doesn’t follow the two patterns.
+Called anywhere (component, hook, or other code).
+Cannot call React hooks; only pure JavaScript logic

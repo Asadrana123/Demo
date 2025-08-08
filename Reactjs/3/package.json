@@ -16,6 +16,11 @@
   "dependencies": {
     "@babel/preset-react": "^7.27.1",
     "axios": "^1.11.0",
-    "parcel": "^2.15.4"
+    "parcel": "^2.15.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "buffer": "^6.0.3"
   }
 }

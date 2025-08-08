@@ -1,0 +1,18 @@
+Use --use-- in prefix of every custom hook:-
+
+Yes—your custom hook’s function name should start with use.
+
+Why it matters:
+
+React’s documentation explicitly states that “Hook names must start with use”.
+
+ESLint’s react-hooks/rules-of-hooks rule relies on that prefix to enforce the Rules of Hooks
+ (e.g., banning hook calls inside loops or conditions). If a function doesn’t start with use, 
+ the linter assumes it is a normal function and skips those checks.
+
+The prefix instantly tells every developer “this function calls other hooks internally,” improving 
+readability and reducing misuse.
+
+Technically React will still run the code without the prefix, but you lose lint-time safety and 
+clarity—so in practice, always start custom hook names with use (e.g., useInfiniteScroll, useScrollDetection).
+

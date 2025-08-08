@@ -1,0 +1,26 @@
+.loader {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-left: 20px solid rgb(197, 185, 185);
+    border-bottom: 20px solid rgb(197, 185, 185);
+    border-top: 20px solid rgb(116, 162, 189);
+    border-right: 20px solid rgb(116, 162, 189);
+    border-radius: 50%;
+    animation-name: rotate-loader;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-direction: normal;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate-loader {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,17 @@
+1. What is a Linter?
+A linter is a developer tool that analyzes your source code to find and flag problems before your code runs. 
+Think of it like a spell-checker for code!
+
+What Linters Do:
+Find errors: Syntax mistakes, potential bugs
+Check style: Inconsistent formatting, naming conventions
+Enforce rules: Team coding standards, best practices
+Prevent issues: Catch problems early, before they reach production
+
+
+What is ESLint?
+ESLint is a JavaScript linter - a tool that analyzes your JavaScript code to find and fix problems
+before you run it.
+
+Simple Definition:
+ESLint = "Spell-checker for JavaScript code" 🔍

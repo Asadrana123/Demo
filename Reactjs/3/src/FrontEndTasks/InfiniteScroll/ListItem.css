@@ -1,0 +1,10 @@
+.list-item-container {
+    padding: 20px;
+    border: 1px solid red;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.list-item-container h3 {
+    text-align: left;
+}
