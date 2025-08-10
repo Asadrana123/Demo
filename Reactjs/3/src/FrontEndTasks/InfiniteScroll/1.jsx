@@ -2,12 +2,12 @@ import React, { useCallback, useState, useEffect } from "react"
 import axios from "axios"
 import Header from "./Header"
 import ListItem from "./ListItem"
-import { useApiPagination } from "./hooks/hooks"
+import { useApiPagination } from "./hooks/useAPIPagination"
 import './1.css'
 import Loader from "./Loader"
 const LIMIT = 10;
 export default function Example1() {
-  const {items,error,loading,hasMore}=useApiPagination({limit:LIMIT})
+  const { items, error, loading, hasMore, targetDiv } = useApiPagination({ limit: LIMIT })
   return (
     <div className="main-container">
       <Header />
@@ -30,6 +30,9 @@ export default function Example1() {
         !hasMore &&
         <div className="no-items-container">No items to Load Know</div>
       }
+      <div style={{height: "100px"}} ref={targetDiv}>
+
+      </div>
     </div>
   )
 }
