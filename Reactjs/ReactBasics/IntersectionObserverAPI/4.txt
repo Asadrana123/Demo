@@ -1,0 +1,15 @@
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      console.log('Element is visible in viewport');
+      // do something, e.g., load image or fetch data
+    }
+  });
+}, {
+  root: null, // viewport
+  rootMargin: '0px',
+  threshold: 0.1
+});
+
+// To start observing an element:
+observer.observe(document.querySelector('#myElement'));

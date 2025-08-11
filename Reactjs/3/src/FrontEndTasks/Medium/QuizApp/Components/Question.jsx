@@ -9,7 +9,7 @@ function Question({ question, currentIndex, handleClick }) {
     return (
         <div className='question-container'>
             <div className='question-header'>
-                <div>Topic:React</div>
+                <div>Topic: React</div>
                 <div>{currentIndex + 1}/10</div>
             </div>
             <div className='question-title'>

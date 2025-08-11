@@ -1,0 +1,8 @@
+Step 1: What is Intersection Observer API?
+It’s a browser API for asynchronously watching when an element enters, exits, or crosses certain 
+thresholds of visibility within a container or the viewport.
+
+It replaces traditional scroll event listeners for detecting visibility with a highly performant, 
+event-driven mechanism.
+
+Useful for lazy loading images, infinite scrolling, animations on scroll, and more.

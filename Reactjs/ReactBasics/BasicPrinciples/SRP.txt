@@ -1,0 +1,14 @@
+In the context of ReactJS, the SRP (Single Responsibility Principle) means that each component should have one 
+clear responsibility or role. This is a core principle from SOLID design patterns that helps keep your code modular,
+maintainable, and understandable.
+What does SRP mean for React?
+A component should do one thing, and do it well.
+
+It should have only one reason to change—for example, a UI representation, or managing a specific 
+piece of logic or state.
+
+If a component starts doing more than one thing (e.g., fetching data and rendering UI and handling unrelated events),
+it violates SRP.
+
+SRP encourages you to split components and hooks so each piece handles just one concern,
+making code easier to maintain and test.

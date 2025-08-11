@@ -1,0 +1,38 @@
+.water-tank-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    gap: 10px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.buttons-container button {
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    width: 100px;
+    cursor: pointer;
+}
+
+
+.tank {
+    height: 300px;
+    width: 100px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.water {
+    width: 100%;
+    height: 0px;
+    transition: height 1s linear;
+    background-color: aqua;
+}

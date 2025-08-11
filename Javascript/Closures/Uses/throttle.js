@@ -18,5 +18,4 @@ setInterval(()=>result("hello"),1000)
 
 //for real use case:-
 //window.addEventListener("scroll", throttledScroll);
-
 //Date.now() returns the number of milliseconds elapsed since January 1, 1970 

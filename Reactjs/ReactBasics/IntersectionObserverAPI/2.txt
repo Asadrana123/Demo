@@ -1,0 +1,7 @@
+Creating an Intersection Observer
+You create an instance of IntersectionObserver by passing two things:
+
+Callback function: This function is called whenever the visibility of the observed element changes.
+It receives an array of IntersectionObserverEntry objects and the observer itself.
+
+Options object (optional): Defines the conditions for triggering the callback.

@@ -1,4 +1,4 @@
-const Questions = [
+const questionsList = [
   {
     question: "What is the primary purpose of React?",
     options: [
@@ -101,4 +101,4 @@ const Questions = [
   }
 ];
 
-export default Questions;
+export default questionsList;
