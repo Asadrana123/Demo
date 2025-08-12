@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useState } from 'react'
-function useOperations(setTanksData, tanksData, timeTracker) {
+function useOperations(setTanksData, tanksData, timeTracker, timeOutId) {
     const changeRange = (value) => {
         timeTracker.current = .5;
         setTanksData(Array.from({ length: Number(value) + 4 }, () => 0))
@@ -21,7 +21,8 @@ function useOperations(setTanksData, tanksData, timeTracker) {
             })
         }
         timeTracker.current = 1;
-        setTimeout(() => {
+        clearTimeout(timeOutId.current);
+        timeOutId.current = setTimeout(() => {
             let totalLitre = 0;
             tanksData.forEach((value, currentIndex) => {
                 if (currentIndex === index && event == 'add') {
@@ -42,7 +43,8 @@ function useOperations(setTanksData, tanksData, timeTracker) {
 export default function useManageTank() {
     const [tanksData, setTanksData] = useState(Array.from({ length: 4 }, () => 0));
     const timeTracker = useRef(1);
-    const { changeHeight, changeRange } = useOperations(setTanksData, tanksData, timeTracker);
+    const timeOutId = useRef(null)
+    const { changeHeight, changeRange } = useOperations(setTanksData, tanksData, timeTracker, timeOutId);
     return { changeHeight, tanksData, changeRange, timeTracker };
 }
 

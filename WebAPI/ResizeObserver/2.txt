@@ -1,0 +1,9 @@
+The callback function receives an array of ResizeObserverEntry objects, one for each observed element 
+that changed size.The contentRect property provides details about the new size: width, height, etc.
+
+Step 3: How to Stop Observing Elements and Clean Up a ResizeObserver
+When you no longer want to track an element’s size changes, it’s important to stop observing it
+to avoid memory leaks and unnecessary callback invocations.
+
+resizeObserver.unobserve(element);
+resizeObserver.disconnect();

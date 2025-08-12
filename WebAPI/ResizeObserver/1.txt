@@ -1,0 +1,24 @@
+Understanding the Purpose of ResizeObserver
+ResizeObserver exists to help developers react to changes in the size of a DOM element without 
+constantly polling for changes or relying only on window resize events. Unlike older approaches 
+(like listening to window resize), ResizeObserver is precise—it tells you exactly when any observed
+element changes size.
+
+
+Step 2: Basic Usage of ResizeObserver
+To use ResizeObserver, you first need to create a new instance of it and then call its .observe()
+method on the DOM element you want to watch for size changes.
+
+const resizeObserver = new ResizeObserver((entries) => {
+  entries.forEach(entry => {
+    // This callback runs whenever the element's size changes
+    const { width, height } = entry.contentRect;
+    console.log(`New size: ${width} x ${height}`);
+  });
+});
+
+// Get a reference to the DOM element you want to observe
+const element = document.querySelector('.myElement');
+
+// Start observing size changes
+resizeObserver.observe(element);
