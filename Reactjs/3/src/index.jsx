@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
-import Index from "./FrontEndTasks/Hard/WaterBalancer";
+import App from "./FrontEndTasks/Hard/OTP/App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Index/>);
+root.render(<App/>);
 

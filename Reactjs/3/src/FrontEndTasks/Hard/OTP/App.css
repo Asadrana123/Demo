@@ -1,0 +1,15 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.main-heading {
+    text-align: center;
+}

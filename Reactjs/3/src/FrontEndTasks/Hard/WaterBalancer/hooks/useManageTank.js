@@ -1,9 +1,12 @@
 import React, { useRef } from 'react'
+import { NUMBER_OF_TANKS } from '../config/config';
 import { useState } from 'react'
 function useOperations(setTanksData, tanksData, timeTracker, timeOutId) {
     const changeRange = (value) => {
         timeTracker.current = .5;
-        setTanksData(Array.from({ length: Number(value) + 4 }, () => 0))
+        setTanksData((_prev) => {
+            return Array.from({ length: Number(value) + 4 }, () => 0)
+        })
     }
     const changeHeight = (event, index) => {
         if (event == 'add') {
@@ -34,14 +37,16 @@ function useOperations(setTanksData, tanksData, timeTracker, timeOutId) {
                 else totalLitre += value;
             })
             const avgLitre = totalLitre / tanksData.length;
-            setTanksData(Array.from({ length: tanksData.length }, () => avgLitre));
+            setTanksData((prev) => {
+                return Array.from({ length: prev.length }, () => avgLitre)
+            });
             timeTracker.current = 5;
         }, 1000)
     }
     return { changeHeight, changeRange };
 }
 export default function useManageTank() {
-    const [tanksData, setTanksData] = useState(Array.from({ length: 4 }, () => 0));
+    const [tanksData, setTanksData] = useState(Array.from({ length: NUMBER_OF_TANKS }, () => 0));
     const timeTracker = useRef(1);
     const timeOutId = useRef(null)
     const { changeHeight, changeRange } = useOperations(setTanksData, tanksData, timeTracker, timeOutId);

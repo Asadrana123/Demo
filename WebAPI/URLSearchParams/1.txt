@@ -1,0 +1,16 @@
+Step 1: What is URLSearchParams and Where Does It Come From?
+URLSearchParams is a built-in browser API (part of the modern JavaScript spec, but implemented by 
+browsers).
+It provides convenient methods to work with the query string (“search parameters”) 
+of a URL—like ?user=123&type=admin.
+
+It is not a standalone JavaScript feature, but a Web API, so it works in browsers 
+(and some server environments that mimic browser APIs, like Deno or recent Node.js).
+
+You don't need to install or import anything; the object is available globally in browsers as part of 
+the window's environment.
+
+Summary:
+URLSearchParams is part of the browser’s native JavaScript APIs for working with the search/query 
+portion of URLs.
+

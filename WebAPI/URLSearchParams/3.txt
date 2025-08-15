@@ -1,0 +1,4 @@
+Step 3: How Do You Read Values with URLSearchParams?
+Once you have a URLSearchParams object, you can easily query for parameter values.
+
+You use .get(), .getAll(), and .has() to read out values; you can also iterate over all parameters.

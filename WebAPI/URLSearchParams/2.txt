@@ -1,0 +1,16 @@
+Step 2: How Do You Create a URLSearchParams Object?
+You can create a URLSearchParams object in several ways:
+
+A. From a Query String (most common)
+const params = new URLSearchParams('?user=123&type=admin');
+or without the leading ?:
+const params = new URLSearchParams('user=123&type=admin');
+
+B. From an Object or Array (Map-like)
+const params = new URLSearchParams({ user: '123', type: 'admin' });
+Or with an array of key-value pairs:
+const params = new URLSearchParams([['user', '123'], ['type', 'admin']]);
+
+C. From part of an existing URL
+const url = 'https://example.com/page?user=123&type=admin';
+const params = new URLSearchParams(new URL(url).search); // .search gives query
