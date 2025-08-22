@@ -1,0 +1,35 @@
+The Single Responsibility Principle (SRP) in ReactJS states that each component or function should 
+have only one reason to change, meaning it should do one job and do it well.
+
+Applying SRP to state management in React does not mean you must create a custom hook for every
+component to handle its state logic. Instead, the principle encourages you to:
+
+Make sure each component is responsible for a specific part of your UI, not for multiple, unrelated 
+concerns.
+
+Keep your state management and logic well-organized—sometimes that means extracting complex or 
+reusable state logic into custom hooks, but not always.
+
+Only create a custom hook when multiple components need to share the same logic, or when the 
+logic becomes too complex to keep directly in the component.
+
+For simple components, using useState or useReducer directly inside the component is fine and keeps 
+things simple. For more advanced or reusable logic, a custom hook helps maintain separation and 
+improves testability.
+
+Example of SRP applied in React:
+
+If a form component contains both UI rendering and state management for validation, 
+consider splitting out the validation logic into a custom hook if it’s reused elsewhere. 
+But if the state and logic are unique to the component and simple, you can keep it within that 
+component.
+
+Summary:
+
+SRP means every component (and custom hook) should have a clear, single responsibility.
+
+You should make a hook only if the state logic is complex or reused; you do not need a hook 
+for every single component by default.
+
+Focus on keeping components small, focused, and maintainable; use hooks in a way that supports
+these goals.

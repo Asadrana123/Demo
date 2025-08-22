@@ -1,0 +1,46 @@
+.comment-item {
+  padding: 14px;
+  border-bottom: 1px solid #e4e4e4;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-text {
+  font-size: 1.1rem;
+  color: #232323;
+  word-break: break-word;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+.comment-votes {
+  font-weight: 500;
+  color: #555;
+}
+
+.reply-list {
+  list-style: none;
+  padding-left: 34px;
+  margin-top: 8px;
+  border-left: 2px solid #eef2f6;
+}
+
+/* Optional button styles */
+.action-btn {
+  background: none;
+  border: none;
+  color: #0077ff;
+  cursor: pointer;
+  padding: 0 6px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.action-btn:hover {
+  color: #0053ba;
+}

@@ -2,7 +2,8 @@ Syntax:-
 const [state, dispatch] = useReducer(reducer, initialState);
 Meaning of the Terms
 
-reducer:A function you write that receives the current state and an action, and returns the next state.
+reducer:A function you write that receives the current state and an action, 
+and returns the next state.
 It looks like this:
 
 function reducer(currentState, action) {

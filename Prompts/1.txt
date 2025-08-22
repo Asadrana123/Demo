@@ -1,0 +1,4 @@
+Now I have implemented the full code or front end challenge now your term is to tell me what things
+I have done wrong, if we think about production ready code so think like a senoir 
+software engineer because I am preparing for front end engineer for more than 1 year experience, tell me my mistakes step 
+by step and only one step at once

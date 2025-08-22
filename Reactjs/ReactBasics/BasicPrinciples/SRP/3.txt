@@ -1,0 +1,67 @@
+Expanded “No Need for Custom Hook” List
+1. One-off State
+Just a single value, only used in one simple component.
+
+jsx
+function Counter() {
+  const [count, setCount] = useState(0);
+  return <button onClick={() => setCount(count + 1)}>Increment</button>;
+}
+2. UI-Only Components
+Your component only displays stuff—it doesn’t handle any logic or change state.
+
+jsx
+function InfoCard({ title, description }) {
+  return (
+    <div>
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>
+  );
+}
+3. Calculation or Helper Functions
+Just write a regular function. No state, no React features.
+
+jsx
+function add(a, b) {
+  return a + b;
+}
+4. Logic Used Only Once
+If your logic isn’t duplicated, just leave it in the component.
+
+jsx
+function ProfileEdit() {
+  // logic only needed here
+}
+5. Very Basic useEffect
+You have a simple side effect used once and specific to this component.
+
+jsx
+useEffect(() => {
+  document.title = "Profile Page";
+}, []);
+No need for a hook unless several components set document titles!
+
+6. Styling State
+If you are controlling simple visual state (like hover with CSS), don’t make a hook—just use CSS or component props.
+
+7. Temporary, “Quick and Dirty” Logic
+If you’re prototyping or experimenting, don’t worry about hooks unless things get bigger.
+
+8. Only Rendering Props
+If your component only displays props and doesn’t change anything, it’s just UI.
+
+9. No React Code at All
+If you have code that doesn’t use useState, useEffect, or other React stuff, don’t try to make a hook.
+
+10. Logic Too Tied to UI
+If your logic is specific to just how you show something (like a custom animation), it’s better as a component not a hook.
+
+11. Premature Optimization
+Don’t create a hook just because you “might” reuse logic in the future.
+Wait until you actually need it in more than one place.
+
+Easy Rule:
+If your code is short, simple, and only needed in one spot, keep it in the component.
+Make a custom hook only for messy, complex, or reused logic across multiple components.
+

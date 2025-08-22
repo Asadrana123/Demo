@@ -1,0 +1,27 @@
+Step 1: Understand What "Testing" Means
+Testing in programming is the practice of checking, automatically by code, whether your software works 
+as expected.
+
+Why Test Code?
+To catch bugs early before users see them.
+
+To make sure changes or new features don’t break existing code.
+
+To give you confidence that your app works every time you update it.
+
+For React Apps Specifically
+You can test components to make sure they render correctly and respond to user actions properly.
+
+You can test logic (functions, hooks) to make sure your data and rules work as expected.
+
+Example (not code yet, just concept):
+Imagine you wrote a function that adds two numbers. Testing means you write code that checks:
+“If I give it 1 and 2, do I get 3 as the result?”
+
+Sorts of Things You Might Test Later:
+Does a button show up on the page?
+
+Does clicking the button increase a counter?
+
+Does submitting a form validate the input data correctly?
+
