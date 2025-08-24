@@ -2,5 +2,3 @@
          console.log("hi");
 </script>
 inner content is ignored by the script tag when there is scr attribute.
-
-

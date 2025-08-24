@@ -1,4 +1,4 @@
-export const products = [
+export const data = [
     {
         id: 1,
         name: "Casual Cotton T-Shirt",

@@ -1,0 +1,49 @@
+/* 🔹 Direct child selector (only immediate children) */
+.container > p {
+  color: red;
+}
+
+/* 🔹 Descendant selector (all levels inside container) */
+.container p {
+  color: blue;
+}
+
+/* 🔹 Universal child selector (all direct children, any element) */
+.container > * {
+  margin-bottom: 10px;
+}
+
+/* 🔹 First child */
+.container > :first-child {
+  background: yellow;
+}
+
+/* 🔹 Last child */
+.container > :last-child {
+  background: lightgreen;
+}
+
+/* 🔹 nth-child (by position in parent, regardless of type) */
+.container > :nth-child(2) {
+  border: 2px solid red;
+}
+
+/* 🔹 nth-of-type (by element type and position) */
+.container > p:nth-of-type(2) {
+  font-weight: bold;
+}
+
+/* 🔹 only-child (if the element is the only child of parent) */
+.container > div:only-child {
+  background: pink;
+}
+
+/* 🔹 Direct child with specific class */
+.container > .item {
+  color: orange;
+}
+
+/* 🔹 Descendant with specific class */
+.container .item {
+  color: purple;
+}

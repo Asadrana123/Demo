@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { Children, useContext, useState } from 'react'
 import { createContext } from 'react'
-import { products } from '../data/products'
-const productContext = createContext(products)
-function DataContext() {
+import { data } from '../data/data'
+const ProductContext = createContext(products)
+function DataContext({ children }) {
+    const [productsData, _setProductsData] = useState(products);
     return (
-        <div>
-            dataContext
-        </div>
+        <ProductContext.Provider value={productsData}>
+            {children}
+        </ProductContext.Provider>
     )
 }
 
-export default DataContext
+function useDataContext() {
+    const products = useContext(ProductContext);
+    return products;
+}
+
+export { useDataContext, DataContext };
