@@ -13,7 +13,7 @@ function CommentInput({ onAddComment, comments }) {
                 placeholder="Write a comment..."
             />
             <button className="add-comment-btn" onClick={() => {
-                onAddComment(comments, newComment);
+                onAddComment(newComment);
                 setNewComment('');
             }}>
                 Add

@@ -1,0 +1,25 @@
+3. The "Minimal Parameters" Rule
+Principle: Functions should require the minimum information necessary to do their job
+
+Remember: Every parameter you add makes the function harder to:
+
+Use correctly
+Test thoroughly
+Understand quickly
+Refactor safely
+
+Apply This By: For each parameter, ask "Is this absolutely necessary, or can I derive/calculate 
+this inside the function?"
+
+4. The "Single Source of Truth" Principle
+Principle: Don't make the caller responsible for maintaining data consistency
+
+Remember: Your function signature was forcing callers to:
+
+Find the right array reference
+Pass the correct ID
+Keep track of which array belongs to which comment
+
+Apply This By: If your function needs multiple pieces of related data, 
+accept a simple identifier and look up the rest internally.
+

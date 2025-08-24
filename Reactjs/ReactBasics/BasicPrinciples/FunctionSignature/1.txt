@@ -1,0 +1,23 @@
+Key Learnings from the Function Signature Problem
+Here are the core principles you can apply to any function you write in the future:
+
+1. The "Intuitive Interface" Rule
+Principle: A function should be usable without reading documentation
+
+Remember: If someone looks at your function name and has to guess what parameters to pass,
+the signature is wrong.
+
+Good Example: addComment(text, parentId) ← Self-explanatory
+Bad Example: handleAddComment(targetedArray, text, id) ← What's targetedArray?
+
+Apply This By: Ask yourself "Would a new developer understand how to use this function just 
+by looking at it?"
+
+2. The "Hide Complexity" Principle
+Principle: Internal implementation details should never leak into the public API
+
+Remember: If your function requires the caller to know about your internal data structures,
+you're exposing too much.
+
+Mental Check: "If I change how I store data internally, will this function signature still make sense?"
+

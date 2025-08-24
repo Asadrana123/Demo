@@ -6,7 +6,7 @@ export const updatedState = (state, id, action) => {
                 if (action.type === 'DOWNVOTE') return { ...reply, votes: reply.votes - 1 }
                 if (action.type === 'DELETE') return { ...reply, deleted: true }
                 if (action.type === 'ON_EDIT') return { ...reply, text: action.payload.newText }
-                if (action.type === 'ON_REPLY') return { ...reply, replies: [...reply.replies, action.payload.newCmt] }
+                if (action.type === 'ON_REPLY') return { ...reply, replies: [...reply.replies, action.payload.newReply] }
             }
             return reply;
         })
@@ -22,7 +22,9 @@ export const updatedState = (state, id, action) => {
 
 
 export const generateId = (data, id = null) => {
-    if (data.length === 0) return String(id + 0);
+    if (data.length === 0) {
+        return String(id + 0);
+    }
     const lastIndex = data.length - 1
     const lastId = data[lastIndex].id;
     let ans = 0;
@@ -31,4 +33,9 @@ export const generateId = (data, id = null) => {
         ans = lastId.slice(0, lastIndex) + (Number(lastId.slice(-1)) + 1);
     }
     return String(ans);
+}
+
+export const findReplyArray = (data, id) => {
+    if (id.length === 1) return data[id[0]].replies;
+    return findReplyArray(data[id[0]].replies, id.slice(1));
 }

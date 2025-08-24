@@ -1,36 +1,21 @@
 import React, { use, useReducer } from 'react'
 import { useState, useCallback } from 'react';
 import { initialComments } from '../data/intialData'
-import { generateId } from '../helpers/helpers';
+import { generateId,findReplyArray } from '../helpers/helpers';
 import { reducer } from '../reducers';
 function useCommentSection() {
     const [state, dispatch] = useReducer(reducer, initialComments);
-    const [newComment, setNewComment] = useState("");
-    const handleAddComment = useCallback((targetedArray, text, id) => {
+    const handleAddComment = useCallback((text, id) => {
         if (text.trim()) {
-            const newCmt = {
-                id: generateId(targetedArray, id),
-                text: text,
-                deleted: false,
-                votes: 0,
-                replies: []
-            };
-            dispatch({ type: "ADD_COMMENT", payload: {newCmt} });
+            dispatch({ type: "ADD_COMMENT", payload: { text,id } });
         }
     }, []);
     const onEdit = useCallback((id, newText) => {
         dispatch({ type: 'ON_EDIT', payload: { id, newText } })
     }, [])
-    const onReply = useCallback((replyArray, text, id) => {
+    const onReply = useCallback((text, id) => {
         if (text.trim()) {
-            const newCmt = {
-                id: generateId(replyArray, id),
-                text: text,
-                deleted: false,
-                votes: 0,
-                replies: []
-            };
-            dispatch({ type: 'ON_REPLY', payload: { newCmt, id } })
+            dispatch({ type: 'ON_REPLY', payload: { text, id } })
         }
     }, [])
     const onUpvote = useCallback((id) => {
@@ -42,7 +27,7 @@ function useCommentSection() {
     const onDelete = useCallback((id) => {
         dispatch({ type: 'DELETE', payload: { id } })
     }, [])
-    return { handleAddComment, comments: state, setNewComment, onEdit, onDownvote, onUpvote, onDelete, onReply, newComment }
+    return { handleAddComment, comments: state, onEdit, onDownvote, onUpvote, onDelete, onReply }
 }
 
 export default useCommentSection

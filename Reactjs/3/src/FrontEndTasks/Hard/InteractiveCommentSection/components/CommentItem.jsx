@@ -3,6 +3,7 @@ import "./CommentItem.css";
 
 const CommentItem = React.memo(({ comment, onEdit, onReply, onUpvote, onDownvote, onDelete }) => {
   if (comment.deleted) return null;
+  console.log(comment.id)
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(comment.text);
   const [showReplyInput, setShowReplyInput] = useState(false);
@@ -20,7 +21,7 @@ const CommentItem = React.memo(({ comment, onEdit, onReply, onUpvote, onDownvote
 
   const handleAddReply = () => {
     if (replyText.trim()) {
-      onReply(comment.replies, replyText, comment.id);
+      onReply(replyText, comment.id);
       setReplyText("");
       setShowReplyInput(false);
     }

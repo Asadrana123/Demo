@@ -17,11 +17,13 @@
     "@babel/preset-react": "^7.27.1",
     "axios": "^1.11.0",
     "lodash.throttle": "^4.1.1",
+    "lucide-react": "^0.541.0",
     "parcel": "^2.15.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
-    "buffer": "^6.0.3"
+    "buffer": "^6.0.3",
+    "eslint-plugin-react-hooks": "^5.2.0"
   }
 }

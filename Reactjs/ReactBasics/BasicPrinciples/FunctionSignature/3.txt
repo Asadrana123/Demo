@@ -1,0 +1,35 @@
+5. The "Easy to Use Correctly, Hard to Use Incorrectly" Rule
+Principle: Good APIs make mistakes impossible, not just discouraged
+
+Your function problems:
+✗ Could pass wrong array reference
+✗ Could pass mismatched ID and array
+✗ Could pass array copy instead of reference
+✗ Required deep knowledge of data structure
+
+Better approach:
+
+✓ Only accepts text and optional parentId
+
+✓ Impossible to pass wrong parameters
+
+✓ Internal logic handles all complexity
+
+6. The "Change Impact" Test
+Principle: When you change internal implementation, external usage shouldn't break
+
+Mental Exercise: "If I switch from arrays to objects, or add caching, or 
+change the data structure, how many places in my codebase will break?"
+
+Good design: Only the function internals need to change
+Bad design: Every caller needs update
+
+javascript
+// ❌ Bad - exposes internals, complex signature
+function updateUserData(userArray, userIndex, field, value, validationRules) { ... }
+
+// ✅ Good - simple, encapsulated
+function updateUser(userId, updates) { ... }
+The pattern: Accept identifiers and data, handle complexity internally.
+
+This principle applies to any function you'll ever write - whether it's React components, API endpoints, utility functions, or database operations. Master this, and your code will be much more maintainable and professional!
