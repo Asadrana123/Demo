@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { data } from '../data/data'
+import useProduct from './useSearch'
 function useFilter() {
-    const [products, setProducts] = useState(data);
-    return { products };
+   const {products,setProducts}=useProduct();
+   
 }
 
 export default useFilter

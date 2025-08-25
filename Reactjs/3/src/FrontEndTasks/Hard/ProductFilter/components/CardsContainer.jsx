@@ -1,12 +1,14 @@
 import React from 'react'
 import useFilter from '../hooks/useFilter'
+import { useDataContext } from '../context/dataContext';
 import './CardsContainer.css'
 import ProductCard from './ProductCard';
 function CardsContainer() {
-    const { products } = useFilter();
+    const {state} = useDataContext();
+    console.log(state);
     return (
         <div className='cards-container'>
-            {products?.map((product, index) => {
+            {state.filteredProducts?.map((product, _) => {
                 return <ProductCard key={product.id} product={product} />
             })}
         </div>
