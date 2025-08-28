@@ -1,0 +1,29 @@
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.slider {
+    width: 150px;
+    height: 3px;
+    background-color: #E5736E;
+    position: relative;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgb(122, 122, 148);
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+}
+
+.slider :last-child {
+    left: 80%;
+}

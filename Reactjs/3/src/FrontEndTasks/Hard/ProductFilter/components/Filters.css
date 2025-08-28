@@ -1,7 +1,61 @@
 .filters-container {
-    margin-top: 50px;
+    position: sticky;
+    top: 100px;
+    z-index: 1000;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 12px #0000001a;
+    padding: 27px 21px 22px;
+    background: rgba(255, 255, 255, 0.6);
+    /* semi-transparent */
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.filter {
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid rgb(212, 204, 204);
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+}
+
+.filter :first-child{
+    cursor: pointer;
+}
+.filter :nth-child(2){
+    cursor: pointer;
+}
+
+.dropdown {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    width: 200px;
+    max-height: 300px;
+    padding: 10px 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 4px 12px #0000001a;
+}
+
+.filter-item {
+    padding: 5px 5px;
+    margin: 5px auto;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color .1s ease-in-out;
+}
+
+.filter-item:hover {
+    background-color: aliceblue;
 }

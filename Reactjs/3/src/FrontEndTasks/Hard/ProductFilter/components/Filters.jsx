@@ -1,38 +1,54 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Filters.css';
 import { brands, categories } from '../constants/productConstant';
-//  priceRange:[MIN_PRICE,MAX_PRICE],
-//         brands:[],
-//         category:[],
-//         minRating:0,
-//         hasDiscount:false,
+import useFilter from '../hooks/useFilter';
+import { useDataContext } from '../context/dataContext';
+import Slider from './Slider';
 function Filters() {
-    console.log(brands, categories);
+    const { state } = useDataContext();
+    const [openDropdown, setOpenSetDropdown] = useState('none');
+    const { handleSelectBrand, handleSelectCategory } = useFilter();
+    const handleOpen = (name) => {
+        setOpenSetDropdown((prev) => {
+            if (prev === name) return 'none';
+            else return name;
+        })
+    }
     return (
         <div className='filters-container'>
-            <div className='filter'>
+            <div onClick={() => handleOpen('brands')} className='filter'>
                 Brands
-                <div className='dropdown'>
+                <div style={{ display: openDropdown === 'brands' ? '' : 'none' }} className='dropdown'>
                     {brands?.map((brand, index) => {
-                        return <div key={index} >{brand}</div>
+                        return <div style={{ backgroundColor: state.filters.brands.includes(brand) ? "#d9e5fc" : "" }} onClick={(e) => {
+                            e.stopPropagation();
+                            handleSelectBrand(brand)
+                        }} className='filter-item' key={index} >{brand}</div>
+                    })}
+                </div>
+            </div>
+            <div onClick={() => handleOpen('categories')} className='filter'>
+                Categories
+                <div style={{ display: openDropdown === 'categories' ? '' : 'none' }} className='dropdown'>
+                    {categories?.map((category, index) => {
+                        return <div
+                            style={{ backgroundColor: state.filters.categories.includes(category) ? "#d9e5fc" : "" }}
+                            onClick={(e) => {
+                                e.stopPropagation()
+                                handleSelectCategory(category)
+                            }} className='filter-item' key={index}>
+                            {category}</div>
                     })}
                 </div>
             </div>
             <div className='filter'>
-                Brands
-                <div className='dropdown'>
-                    {categories?.map((brand, index) => {
-                        return <div key={index}>{brand}</div>
-                    })}
-                </div>
+                    <Slider />
             </div>
             <div className='filter'>
-                <input type='range' min='1' max='5' step='.5' />
-            </div>
-            <div className='filter'>
+                <label>Contains Discount</label>
                 <input type='checkbox' />
             </div>
-        </div>
+        </div >
     )
 }
 
