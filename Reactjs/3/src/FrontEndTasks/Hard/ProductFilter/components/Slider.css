@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 25px;
+    min-width: 275px;
 }
 
 .slider {
@@ -10,6 +11,29 @@
     height: 3px;
     background-color: #E5736E;
     position: relative;
+    cursor: default;
+}
+
+.slider::before {
+    position: absolute;
+    top: 0;
+    left: -5px;
+    content: '';
+    width: 10px;
+    height: 3px;
+    background-color: #E5736E;
+    z-index: -1;
+}
+
+.slider::after {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    content: '';
+    width: 10px;
+    height: 3px;
+    background-color: #E5736E;
+    z-index: -1;
 }
 
 .slider-dot {
@@ -21,9 +45,19 @@
     position: absolute;
     top: 50%;
     left: 5%;
-    transform: translate(-50%, -50%);
+    transform: translate(0%, -50%);
+    z-index: 1;
+}
+
+.slider-dot:hover {
+    background-color: rgb(99, 99, 156);
 }
 
 .slider :last-child {
     left: 80%;
+}
+
+.price-text {
+    min-width: 50px;
+    text-align: center;
 }

@@ -1,0 +1,48 @@
+Exactly ✅ — in CSS selectors, the space matters a lot.
+
+A space means “any descendant” (at any depth).
+
+A > means “direct child.”
+
+No space means “the element itself.”
+
+Example:
+<div class="filters-container">
+  <div>Child 1</div>
+  <div>Child 2</div>
+  <div>
+    <span>Nested 1</span>
+    <span>Nested 2</span>
+  </div>
+</div>
+
+1. With a space:
+.filters-container :nth-child(2) {
+  color: red;
+}
+
+
+👉 This will select:
+
+the 2nd <div> inside .filters-container
+
+the 2nd <span> inside the nested <div>
+(basically, any 2nd child anywhere inside).
+
+2. With direct child >:
+.filters-container > :nth-child(2) {
+  color: blue;
+}
+
+
+👉 This will select only the 2nd <div> inside .filters-container (not the <span>s).
+
+3. Without space:
+.filters-container:nth-child(2) {
+  color: green;
+}
+
+
+👉 This will style the .filters-container itself, but only if it is the 2nd child of its parent.
+
+⚡So yes — the space changes the whole meaning.

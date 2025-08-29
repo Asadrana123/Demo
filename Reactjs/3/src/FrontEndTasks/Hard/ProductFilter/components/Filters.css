@@ -27,10 +27,11 @@
     align-items: center;
 }
 
-.filter :first-child{
+.filters-container:first-child {
     cursor: pointer;
 }
-.filter :nth-child(2){
+
+.filters-container > :nth-child(2) {
     cursor: pointer;
 }
 

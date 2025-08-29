@@ -2,8 +2,8 @@ import { data } from "../data/data"
 import { fetchFiltersData } from "../utils.js/productUtils"
 
 
-const MIN_PRICE=100
-const MAX_PRICE=10000
+export const MIN_PRICE=100
+export const MAX_PRICE=10000
 
 export const intialState={
     products:data,

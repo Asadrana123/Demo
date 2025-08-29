@@ -8,7 +8,10 @@ function useFilter() {
    const handleSelectCategory = (category) => {
       dispatch({ type: 'CATEGORY', payload: { category } })
    }
-   return {handleSelectBrand,handleSelectCategory}
+   const handlePriceRange = (value, type) => {
+      dispatch({ type: 'PRICE_RANGE', payload: { value, type } })
+   }
+   return { handleSelectBrand, handleSelectCategory, handlePriceRange }
 }
 
 export default useFilter

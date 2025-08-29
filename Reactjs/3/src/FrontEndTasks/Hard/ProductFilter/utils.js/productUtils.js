@@ -53,3 +53,16 @@ export const filterByCategory = (searchedProducts, selectedCategory, filters) =>
     const filteredByCategories = filterProducts(searchedProducts, filters)
     return { filters, filteredByCategories }
 }
+
+export  const filterByPriceRange = (searchedProducts, value, type, filters) => {
+    if (type === 'MIN') {
+        const newPriceRange = [value, filters.priceRange[1]]
+        filters = { ...filters, price: newPriceRange }
+    }
+    else if (type === 'MAX') {
+        const newPriceRange = [filters.priceRange[0], value]
+        filters = { ...filters, price: newPriceRange }
+    }
+    const filteredByPriceRanges= filterProducts(searchedProducts, filters)
+    return { filters, filteredByPriceRanges }
+}

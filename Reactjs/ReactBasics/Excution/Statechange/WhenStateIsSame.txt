@@ -1,0 +1,21 @@
+Steps That Are Officially Documented:
+1. Update Still Gets Queued ✅ Official
+The setState() call still enqueues the change
+
+React doesn't check for equality at the time you call setState
+
+2. Component Will Re-render (At Least Once) ✅ Official
+React will still trigger a re-render to process the update
+
+This happens because React needs to run the update to determine the final value
+
+3. Comparison Happens ✅ Official
+React compares the new state with previous state using Object.is comparison
+
+This is reference equality for objects, value equality for primitives
+
+4. Subsequent Re-renders Skipped ✅ Official
+"If the next state is equal to the previous state, React will ignore your update"
+
+No further re-renders will occur for that update
+

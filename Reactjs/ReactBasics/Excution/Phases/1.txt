@@ -13,7 +13,8 @@ Runs useMemo, useCallback, and computes output for useEffect/useLayoutEffect
 (but does not execute their functions yet).
 
 2. Commit Phase
-React takes the changes determined in the render phase and updates the real DOM (adds, removes, updates, etc.).
+React takes the changes determined in the render phase and updates 
+the real DOM (adds, removes, updates, etc.).
 
 Runs layout effects (useLayoutEffect, useInsertionEffect) synchronously, immediately 
 after DOM changes but before painting to the screen.

@@ -1,11 +1,11 @@
 
-import { filterProducts, filterByBrand, searchResult, filterByCategory } from "../utils.js/productUtils";
+import { filterProducts, filterByBrand, searchResult, filterByCategory, filterByPriceRange } from "../utils.js/productUtils";
 export default function reducer(state, action) {
-    let result,searchedResult,filteredProducts;
+    let result, searchedResult, filteredProducts;
     switch (action.type) {
         case 'SEARCH':
-             searchedResult = searchResult(state.products, action.payload.searchTerm);
-             filteredProducts = filterProducts(searchedResult, state.filters);
+            searchedResult = searchResult(state.products, action.payload.searchTerm);
+            filteredProducts = filterProducts(searchedResult, state.filters);
             return {
                 ...state,
                 searchedResult,
@@ -20,6 +20,20 @@ export default function reducer(state, action) {
                 filters: result.filters,
             }
         case 'CATEGORY':
+            result = filterByCategory(state.searchedResult, action.payload.category, state.filters);
+            return {
+                ...state,
+                filteredProducts: result.filteredByCategories,
+                filters: result.filters,
+            }
+        case 'CATEGORY':
+            result = filterByPriceRange(state.searchedResult, action.payload.value, action.payload.type, state.filters);
+            return {
+                ...state,
+                filteredProducts: result.filteredByCategories,
+                filters: result.filters,
+            }
+        case 'PRICE_RANGE':
             result = filterByCategory(state.searchedResult, action.payload.category, state.filters);
             return {
                 ...state,
