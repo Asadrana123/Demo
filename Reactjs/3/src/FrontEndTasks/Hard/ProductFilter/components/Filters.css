@@ -27,11 +27,16 @@
     align-items: center;
 }
 
-.filters-container:first-child {
+.filters-container> :first-child {
     cursor: pointer;
 }
 
-.filters-container > :nth-child(2) {
+.filters-container> :nth-child(2) {
+    cursor: pointer;
+}
+
+.filters-container> :nth-child(4) label,
+input {
     cursor: pointer;
 }
 
@@ -59,4 +64,12 @@
 
 .filter-item:hover {
     background-color: aliceblue;
+}
+
+@media screen and (max-width:1050px) {
+    .filters-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
 }

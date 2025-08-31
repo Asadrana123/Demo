@@ -7,7 +7,7 @@ import Slider from './Slider';
 function Filters() {
     const { state } = useDataContext();
     const [openDropdown, setOpenSetDropdown] = useState('none');
-    const { handleSelectBrand, handleSelectCategory } = useFilter();
+    const { handleSelectBrand, handleSelectCategory, handleDiscount } = useFilter();
     const handleOpen = (name) => {
         setOpenSetDropdown((prev) => {
             if (prev === name) return 'none';
@@ -42,11 +42,16 @@ function Filters() {
                 </div>
             </div>
             <div className='filter'>
-                    <Slider />
+                <Slider />
             </div>
             <div className='filter'>
                 <label>Contains Discount</label>
-                <input type='checkbox' />
+                <input onChange={(e) => {
+                    handleDiscount(e.target.checked)
+                }} checked={state.filters.hasDiscount} type='checkbox' />
+            </div>
+             <div className='filter'>
+                 No. of Products: {state.filteredProducts.length}
             </div>
         </div >
     )

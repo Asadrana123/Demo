@@ -13,6 +13,7 @@ export const filterProducts = (products, filters) => {
         if (product.price < filters?.priceRange[0] || product.price > filters?.priceRange[1]) return false;
         if (filters.brands.length && !filters.brands.includes(product.brand)) return false;
         if (filters.categories.length && !filters.categories.includes(product.category)) return false;
+        if(filters.hasDiscount && product.discount===0) return false;
         return true;
 
     })
@@ -54,15 +55,15 @@ export const filterByCategory = (searchedProducts, selectedCategory, filters) =>
     return { filters, filteredByCategories }
 }
 
-export  const filterByPriceRange = (searchedProducts, value, type, filters) => {
-    if (type === 'MIN') {
-        const newPriceRange = [value, filters.priceRange[1]]
-        filters = { ...filters, price: newPriceRange }
-    }
-    else if (type === 'MAX') {
-        const newPriceRange = [filters.priceRange[0], value]
-        filters = { ...filters, price: newPriceRange }
-    }
-    const filteredByPriceRanges= filterProducts(searchedProducts, filters)
+export const filterByPriceRange = (searchedProducts, value, filters) => {
+    const newPriceRange = [value[0], value[1]]
+    filters = { ...filters, priceRange: newPriceRange }
+    const filteredByPriceRanges = filterProducts(searchedProducts, filters)
     return { filters, filteredByPriceRanges }
+}
+
+export const filterByDiscount = (searchedProducts, value, filters) => {
+    filters = { ...filters,hasDiscount:value }
+    const filteredByDiscount = filterProducts(searchedProducts, filters)
+    return { filters, filteredByDiscount }
 }
