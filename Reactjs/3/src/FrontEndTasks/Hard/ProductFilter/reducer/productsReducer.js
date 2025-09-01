@@ -46,12 +46,18 @@ export default function reducer(state, action) {
                 filters: result.filters,
             }
         case 'SORT':
-             result = sortProducts(state.filteredProducts, action.payload.value);
+            result = sortProducts(state.filteredProducts, action.payload.value);
             return {
                 ...state,
                 isReset: false,
                 filteredProducts: result.sortedProducts,
                 sortBy: result.sortBy,
+            }
+        case 'FILTER':
+            result = filterProducts(state.filteredProducts, action.payload.filters);
+            return {
+                ...state,
+                filters: action.payload.filters
             }
         case 'RESET':
             return resetProducts();

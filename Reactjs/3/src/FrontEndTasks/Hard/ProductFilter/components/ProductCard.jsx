@@ -1,12 +1,12 @@
 import React from 'react'
 import './ProductCard.css'
 import StarRating from './StarRating'
-function ProductCard({ product }) {
+const ProductCard = React.memo(({ product }) => {
     return (
         <div className='card-container'>
             <div className='image-container'>
                 {product.isNew && <img className='new-product-badge' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX6uSAmV8y6fNTfgveyCTSRfR0gym63nNggA&s' />}
-                <img alt='Product Image' src="https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673.png" />
+                <img loading='lazy' alt='Product Image' src="https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673.png" />
             </div>
             <div className='product-detail-container'>
                 <h4>{product.name}</h4>
@@ -22,7 +22,7 @@ function ProductCard({ product }) {
             </div>
         </div>
     )
-}
+})
 
 export default ProductCard
 /*

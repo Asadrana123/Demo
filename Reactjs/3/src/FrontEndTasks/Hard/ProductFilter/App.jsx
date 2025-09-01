@@ -1,20 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import CardsContainer from './components/CardsContainer.jsx'
 import { DataContext } from './context/dataContext.js'
 import Filters from './components/Filters.jsx'
 function App() {
-
-    // useEffect(() => {
-    //     window.addEventListener('mousemove', (e) => {
-    //         console.log(e);
-    //     })
-    // })
+    const [smallFiltersVisible, setSmallFiltersVisible] = useState(false);
     return (
         <DataContext>
-            <Navbar />
-            <Filters />
+            <Navbar smallFiltersVisible={smallFiltersVisible} setSmallFiltersVisible={setSmallFiltersVisible} />
+            <Filters smallFiltersVisible={smallFiltersVisible} />
             <CardsContainer />
         </DataContext>
     )

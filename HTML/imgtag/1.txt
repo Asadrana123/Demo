@@ -1,0 +1,5 @@
+| Value       | Meaning                                                                              | When to Use                                                                                                                      |
+| ----------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| **`lazy`**  | Defers loading until the element is close to the viewport (user is about to see it). | For **below-the-fold images** (product thumbnails, blog images, gallery items). Saves bandwidth and speeds up initial page load. |
+| **`eager`** | Loads the resource **immediately**, regardless of whether it’s visible.              | For **above-the-fold content** (hero banner, logo, main product image). Ensures important visuals show instantly.                |
+| **`auto`**  | Leaves it up to the browser to decide whether to load lazily or eagerly.             | When you don’t want to decide yourself. The browser may optimize differently on desktop vs. mobile.                              |

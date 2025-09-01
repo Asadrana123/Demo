@@ -4,9 +4,11 @@ import { brands, categories, sortByContent } from '../constants/productConstant'
 import useFilter from '../hooks/useFilter';
 import { useDataContext } from '../context/dataContext';
 import Slider from './Slider';
-function Filters() {
+import useWindowSize from '../hooks/useWindowSize';
+function Filters({ smallFiltersVisible }) {
     const { state } = useDataContext();
     const [openDropdown, setOpenSetDropdown] = useState('none');
+    const width = useWindowSize();
     const { handleSelectBrand, handleSelectCategory, handleDiscount, handleReset, handleSelectSortContent } = useFilter();
     const handleOpen = (name) => {
         setOpenSetDropdown((prev) => {
@@ -15,7 +17,7 @@ function Filters() {
         })
     }
     return (
-        <div className='filters-container'>
+        <div style={{ transform: smallFiltersVisible ? 'translateX(0%)' : width <= 1180 ? 'translateX(-110%)' : '' }} className='filters-container'>
             <div onClick={() => handleOpen('brands')} className='filter'>
                 Brands
                 <div style={{ display: openDropdown === 'brands' ? '' : 'none' }} className='dropdown'>

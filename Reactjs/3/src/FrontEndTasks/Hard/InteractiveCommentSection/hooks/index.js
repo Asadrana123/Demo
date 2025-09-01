@@ -1,7 +1,6 @@
 import React, { use, useReducer } from 'react'
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { initialComments } from '../data/intialData'
-import { generateId,findReplyArray } from '../helpers/helpers';
 import { reducer } from '../reducers';
 function useCommentSection() {
     const [state, dispatch] = useReducer(reducer, initialComments);
