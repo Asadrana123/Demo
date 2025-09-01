@@ -1,3 +1,4 @@
+import { initialState } from "../constants/productConstant";
 export const getStarWidths = (index, value) => {
     const integerPart = Math.floor(value);
     const decimalPart = Number((value - integerPart).toFixed(2));
@@ -13,7 +14,7 @@ export const filterProducts = (products, filters) => {
         if (product.price < filters?.priceRange[0] || product.price > filters?.priceRange[1]) return false;
         if (filters.brands.length && !filters.brands.includes(product.brand)) return false;
         if (filters.categories.length && !filters.categories.includes(product.category)) return false;
-        if(filters.hasDiscount && product.discount===0) return false;
+        if (filters.hasDiscount && product.discount === 0) return false;
         return true;
 
     })
@@ -63,7 +64,19 @@ export const filterByPriceRange = (searchedProducts, value, filters) => {
 }
 
 export const filterByDiscount = (searchedProducts, value, filters) => {
-    filters = { ...filters,hasDiscount:value }
+    filters = { ...filters, hasDiscount: value }
     const filteredByDiscount = filterProducts(searchedProducts, filters)
     return { filters, filteredByDiscount }
 }
+
+export const sortProducts = (products, sortBy) => {
+    const sortedProducts = [...products].sort((a, b) => {
+        if (sortBy === 'Sort by Price') return a.price - b.price;
+        else if (sortBy === 'Sort by Rating') return b.rating - a.rating;
+    })
+    console.log(sortBy)
+    return { sortBy, sortedProducts }
+}
+
+
+export const resetProducts = () => initialState

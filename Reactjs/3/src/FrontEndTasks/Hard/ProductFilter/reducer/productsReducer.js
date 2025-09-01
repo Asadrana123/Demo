@@ -1,5 +1,5 @@
 
-import { filterProducts, filterByBrand, searchResult, filterByCategory, filterByPriceRange, filterByDiscount } from "../utils.js/productUtils";
+import { filterProducts, filterByBrand, searchResult, filterByCategory, filterByPriceRange, filterByDiscount, resetProducts, sortProducts } from "../utils/productUtils.js";
 export default function reducer(state, action) {
     let result, searchedResult, filteredProducts;
     switch (action.type) {
@@ -8,6 +8,7 @@ export default function reducer(state, action) {
             filteredProducts = filterProducts(searchedResult, state.filters);
             return {
                 ...state,
+                isReset: false,
                 searchedResult,
                 filteredProducts,
                 searchedResult
@@ -16,6 +17,7 @@ export default function reducer(state, action) {
             result = filterByBrand(state.searchedResult, action.payload.brand, state.filters);
             return {
                 ...state,
+                isReset: false,
                 filteredProducts: result.filteredByBrands,
                 filters: result.filters,
             }
@@ -23,13 +25,7 @@ export default function reducer(state, action) {
             result = filterByCategory(state.searchedResult, action.payload.category, state.filters);
             return {
                 ...state,
-                filteredProducts: result.filteredByCategories,
-                filters: result.filters,
-            }
-        case 'CATEGORY':
-            result = filterByPriceRange(state.searchedResult, action.payload.value, action.payload.type, state.filters);
-            return {
-                ...state,
+                isReset: false,
                 filteredProducts: result.filteredByCategories,
                 filters: result.filters,
             }
@@ -37,6 +33,7 @@ export default function reducer(state, action) {
             result = filterByPriceRange(state.searchedResult, action.payload.value, state.filters);
             return {
                 ...state,
+                isReset: false,
                 filteredProducts: result.filteredByPriceRanges,
                 filters: result.filters,
             }
@@ -44,15 +41,19 @@ export default function reducer(state, action) {
             result = filterByDiscount(state.searchedResult, action.payload.value, state.filters);
             return {
                 ...state,
+                isReset: false,
                 filteredProducts: result.filteredByDiscount,
                 filters: result.filters,
             }
-        case 'RESET':
-            filteredProducts = filterProducts(state.products, state.filters);
+        case 'SORT':
+             result = sortProducts(state.filteredProducts, action.payload.value);
             return {
                 ...state,
-                searchedResult: state.products,
-                filteredProducts,
+                isReset: false,
+                filteredProducts: result.sortedProducts,
+                sortBy: result.sortBy,
             }
+        case 'RESET':
+            return resetProducts();
     }
 }

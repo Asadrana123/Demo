@@ -1,6 +1,6 @@
 import React from 'react'
 import './StarRating.css'
-import { getStarWidths } from '../utils.js/productUtils'
+import { getStarWidths } from '../utils/productUtils'
 
 function StarRating({ value }) {
     return (

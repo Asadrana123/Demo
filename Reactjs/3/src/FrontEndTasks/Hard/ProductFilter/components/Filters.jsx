@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './Filters.css';
-import { brands, categories } from '../constants/productConstant';
+import { brands, categories, sortByContent } from '../constants/productConstant';
 import useFilter from '../hooks/useFilter';
 import { useDataContext } from '../context/dataContext';
 import Slider from './Slider';
 function Filters() {
     const { state } = useDataContext();
     const [openDropdown, setOpenSetDropdown] = useState('none');
-    const { handleSelectBrand, handleSelectCategory, handleDiscount } = useFilter();
+    const { handleSelectBrand, handleSelectCategory, handleDiscount, handleReset, handleSelectSortContent } = useFilter();
     const handleOpen = (name) => {
         setOpenSetDropdown((prev) => {
             if (prev === name) return 'none';
@@ -50,8 +50,22 @@ function Filters() {
                     handleDiscount(e.target.checked)
                 }} checked={state.filters.hasDiscount} type='checkbox' />
             </div>
-             <div className='filter'>
-                 No. of Products: {state.filteredProducts.length}
+            <div onClick={() => handleOpen('sort-by')} className='filter'>
+                Sort
+                <div style={{ display: openDropdown === 'sort-by' ? '' : 'none' }} className='dropdown'>
+                    {sortByContent?.map((sortContent, index) => {
+                        return <div style={{ backgroundColor: state.sortBy === sortContent ? "#d9e5fc" : "" }} onClick={(e) => {
+                            e.stopPropagation();
+                            handleSelectSortContent(sortContent)
+                        }} className='filter-item' key={index} >{sortContent}</div>
+                    })}
+                </div>
+            </div>
+            <div className='filter'>
+                No. of Products: {state.filteredProducts.length}
+            </div>
+            <div onClick={handleReset} className='filter'>
+                Reset
             </div>
         </div >
     )

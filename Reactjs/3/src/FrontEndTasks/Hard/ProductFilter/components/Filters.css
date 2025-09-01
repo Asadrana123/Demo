@@ -40,6 +40,17 @@ input {
     cursor: pointer;
 }
 
+.filters-container> :nth-child(5) {
+    cursor: pointer;
+}
+
+
+.filters-container> :nth-child(7) {
+    cursor: pointer;
+}
+
+
+
 .dropdown {
     position: absolute;
     top: 50px;

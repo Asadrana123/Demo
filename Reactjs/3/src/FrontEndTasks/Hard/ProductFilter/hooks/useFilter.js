@@ -14,7 +14,13 @@ function useFilter() {
    const handleDiscount = (value) => {
       dispatch({ type: 'DISCOUNT', payload: { value } })
    }
-   return { handleSelectBrand, handleSelectCategory, handlePriceRange, handleDiscount }
+   const handleReset = () => {
+      dispatch({ type: 'RESET' })
+   }
+   const handleSelectSortContent = (value) => {
+      dispatch({ type: 'SORT', payload: { value } })
+   }
+   return { handleSelectBrand, handleSelectCategory, handlePriceRange, handleDiscount, handleReset, handleSelectSortContent }
 }
 
 export default useFilter
