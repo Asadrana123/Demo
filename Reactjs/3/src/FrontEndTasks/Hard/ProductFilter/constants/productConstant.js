@@ -2,15 +2,15 @@ import { data } from "../data/data"
 import { fetchFiltersData } from "../utils/productUtils.js"
 import { calculatePriceFromSliderPosition } from "../helpers/helpers"
 
-export const MIN_PRICE = 100;
+export const MIN_PRICE = 0;
 export const MAX_PRICE = 10000
 
-export const initialDotOnePosition = 10;
-export const initialDotTwoPosition = 80
+export const initialDotOnePosition = 0;
+export const initialDotTwoPosition = 100
 
 export const initialState = {
     products: data,
-    filteredProducts: data.filter(product => product.price >= calculatePriceFromSliderPosition(initialDotOnePosition) && product.price <= calculatePriceFromSliderPosition(initialDotTwoPosition)),
+    filteredProducts:data,
     searchedResult: data,
     isReset: true,
     filters: {

@@ -1,30 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDataContext } from '../context/dataContext';
+import useUpdateUrl from './useUpdateUrl';
 function useFilter() {
    const { dispatch, state: { filters } } = useDataContext();
-   const params = new URLSearchParams(window.location.search);
+   const { params } = useUpdateUrl();
    useEffect(() => {
-      let newFilters = { ...filters };
-      const brands = params.getAll("Brand");
-      if (brands.length > 0) {
-         newFilters = {
-            ...newFilters,
-            brands
-         };
-      }
-
-      const categories = params.getAll("Category");
-      if (categories.length > 0) {
-         newFilters = {
-            ...newFilters,
-            categories
-         };
-      }
-
-      console.log(newFilters);
-      dispatch({ type: "FILTER", payload: { filters: newFilters } });
-   }, []);
-
+      console.log(params);
+   }, [])
    const handleSelectBrand = (brand) => {
       dispatch({ type: 'BRAND', payload: { brand } })
    }

@@ -1,0 +1,17 @@
+// Core methods
+append(name, value)   // Add a new key-value pair (doesn’t remove existing ones)
+delete(name)          // Remove all values associated with a given key
+get(name)             // Get the first value associated with a given key
+getAll(name)          // Get all values associated with a given key as an array
+has(name)             // Check if a key exists
+set(name, value)      // Set a key to a value (replaces existing ones)
+sort()                // Sort all key/value pairs by key (in place)
+
+// Iteration methods
+entries()             // Returns an iterator of [key, value] pairs
+keys()                // Returns an iterator of all keys
+values()              // Returns an iterator of all values
+forEach(callback)     // Calls a function for each key/value pair
+
+// Special
+toString()            // Converts params to a query string (e.g. "a=1&b=2")

@@ -1,0 +1,28 @@
+new URL() gives you the entire URL broken into parts (protocol, host, path, query, hash, etc.), 
+and also provides .searchParams 
+inside it for query handling.
+// Create URL object
+const url = new URL("https://example.com:8080/path/page.html?name=asad&age=25#section1");
+
+// ---------------- Standard methods ----------------
+url.toString()       // Returns full URL as string → "https://example.com:8080/path/page.html?name=asad&age=25#section1"
+url.toJSON()         // Same as toString(), useful when stringifying → "https://example.com:8080/path/page.html?name=asad&age=25#section1"
+
+// ---------------- URLSearchParams access ----------------
+url.searchParams     // A URLSearchParams object for query string
+// Example:
+url.searchParams.get("name") // "asad"
+url.searchParams.has("age")  // true
+
+// ---------------- Properties (not functions, but important) ----------------
+url.href        // Full URL string
+url.origin      // Protocol + Host (and port if present) → "https://example.com:8080"
+url.protocol    // Protocol with ":" → "https:"
+url.username    // Username in URL (if any) → ""
+url.password    // Password in URL (if any) → ""
+url.host        // Hostname + port → "example.com:8080"
+url.hostname    // Hostname only → "example.com"
+url.port        // Port number → "8080"
+url.pathname    // Path after domain → "/path/page.html"
+url.search      // Query string including "?" → "?name=asad&age=25"
+url.hash        // Fragment including "#" → "#section1"

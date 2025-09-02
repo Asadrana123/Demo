@@ -17,7 +17,8 @@
 .slider::before {
     position: absolute;
     top: 0;
-    left: -5px;
+    left: 0;
+    transform: translateX(-100%);
     content: '';
     width: 10px;
     height: 3px;

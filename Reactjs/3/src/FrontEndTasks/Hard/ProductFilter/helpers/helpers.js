@@ -1,6 +1,5 @@
 import { MAX_PRICE } from "../constants/productConstant";
 export const calculatePriceFromSliderPosition = (percentageValue) => {
-    percentageValue = percentageValue > 0 && percentageValue < 1 ? 0 : percentageValue > 99 && percentageValue < 100 ? 100 : percentageValue
     percentageValue = Math.floor(percentageValue);
     const value = Math.floor((MAX_PRICE) * percentageValue / 100);
     return value;
@@ -17,14 +16,15 @@ const isMouseXPositionUnderSlider = (mouseX, intialPointX, endPointX) => {
     return true;
 }
 
-const calculateDotPosition = (mouseX, intialPointX, endPointX) => {
-    return (mouseX - intialPointX) / (endPointX - intialPointX) * 100;
+const calculateDotPosition = (mouseX, intialPointX, endPointX, flag) => {
+    let value = (mouseX - intialPointX) / (endPointX - intialPointX) * 100;
+    return value > 99 && value < 100 ? 100 : value > 0 && value < 1 ? 0 : value
 }
 
 export const setDotPositionOne = (mouseX, intialPointX, endPointX, setpercentageDotPosition, dotTwoLeft, setMinPrice) => {
     if (isMouseXPositionUnderSlider(mouseX, intialPointX, endPointX)) {
         let position = calculateDotPosition(mouseX, intialPointX, endPointX);
-        let limit = calculateDotPosition(dotTwoLeft, intialPointX, endPointX) - 10
+        let limit = calculateDotPosition(dotTwoLeft, intialPointX, endPointX, 'position of dot two for limit') - 10
         if (position < limit) {
             setpercentageDotPosition(position);
             setMinPrice(calculatePriceFromSliderPosition(position));
@@ -35,7 +35,7 @@ export const setDotPositionOne = (mouseX, intialPointX, endPointX, setpercentage
 export const setDotPositionTwo = (mouseX, intialPointX, endPointX, setpercentageDotPosition, dotOneLeft, setMaxPrice) => {
     if (isMouseXPositionUnderSlider(mouseX, intialPointX, endPointX)) {
         let position = calculateDotPosition(mouseX, intialPointX, endPointX);
-        let limit = calculateDotPosition(dotOneLeft, intialPointX, endPointX) + 10
+        let limit = calculateDotPosition(dotOneLeft, intialPointX, endPointX, 'position of dot one for limit') + 10
         if (position > limit) {
             setpercentageDotPosition(position);
             setMaxPrice(calculatePriceFromSliderPosition(position));

@@ -8,8 +8,8 @@ function Slider() {
         <div className='slider-container'>
             <div className='price-text'>{minPrice.toLocaleString()}</div>
             <div ref={sliderRangeRef} className='slider'>
-                <div tabIndex={1} onKeyDown={(e) => handleKeyDownDotOne(e, setpercentageMoveDotOne, percentageMoveDotOne, percentageMoveDotTwo, setMinPrice)} ref={dotOne} style={{ left: `${percentageMoveDotOne}%` }} className='slider-dot'></div>
-                <div tabIndex={2} onKeyDown={(e) => handleKeyDownDotTwo(e, setpercentageMoveDotTwo, percentageMoveDotTwo, percentageMoveDotOne, setMaxPrice)} ref={dotTwo} style={{ left: `${percentageMoveDotTwo}%`, transform: ' translate(-100%, -50%)' }} className='slider-dot'></div>
+                <div tabIndex={1} onKeyDown={(e) => handleKeyDownDotOne(e, setpercentageMoveDotOne, percentageMoveDotOne, percentageMoveDotTwo, setMinPrice)} ref={dotOne} style={{ left: `${percentageMoveDotOne}%`, transform: ' translate(-50%, -50%)' }} className='slider-dot'></div>
+                <div tabIndex={2} onKeyDown={(e) => handleKeyDownDotTwo(e, setpercentageMoveDotTwo, percentageMoveDotTwo, percentageMoveDotOne, setMaxPrice)} ref={dotTwo} style={{ left: `${percentageMoveDotTwo}%`, transform: ' translate(-50%, -50%)' }} className='slider-dot'></div>
             </div>
             <div className='price-text'>{maxPrice.toLocaleString()}</div>
         </div >
