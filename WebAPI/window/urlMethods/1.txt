@@ -1,0 +1,43 @@
+🔹 window.location (Location API)
+
+The location object represents the current page URL.
+
+Methods
+assign(url)
+Loads a new document at the given URL.
+
+window.location.assign("https://example.com");
+
+
+replace(url)
+Replaces the current document with a new one (no history entry created).
+
+window.location.replace("https://example.com");
+
+
+reload(forceReload)
+Reloads the current page.
+
+window.location.reload();     // normal reload
+window.location.reload(true); // force reload from server
+
+Properties (useful for URL parts)
+
+window.location.href → full URL
+
+window.location.protocol → "https:"
+
+window.location.host → "example.com:3000"
+
+window.location.hostname → "example.com"
+
+window.location.port → "3000"
+
+window.location.pathname → "/about/page"
+
+window.location.search → "?id=10&name=asad"
+
+window.location.hash → "#section1"
+
+window.location.origin → "https://example.com"
+

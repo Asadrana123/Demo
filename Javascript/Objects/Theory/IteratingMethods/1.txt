@@ -1,0 +1,49 @@
+🔹 1. for...in
+
+Loops over enumerable keys of an object.
+
+const user = { name: "Asad", age: 25, country: "India" };
+
+for (let key in user) {
+  console.log(key, user[key]);
+}
+// name Asad
+// age 25
+// country India
+
+
+⚠️ Note: It also loops over inherited properties, so often combined with hasOwnProperty.
+
+🔹 2. Object.keys()
+
+Returns an array of keys → use .forEach, .map, or loops.
+
+Object.keys(user).forEach(key => {
+  console.log(key, user[key]);
+});
+
+🔹 3. Object.values()
+
+Returns an array of values.
+
+Object.values(user).forEach(value => {
+  console.log(value);
+});
+// Asad, 25, India
+
+🔹 4. Object.entries()
+
+Returns an array of [key, value] pairs.
+Great for destructuring.
+
+Object.entries(user).forEach(([key, value]) => {
+  console.log(key, value);
+});
+
+🔹 5. for...of (with Object.entries, Object.keys, or Object.values)
+
+Objects aren’t directly iterable, but you can iterate over arrays derived from them.
+
+for (const [key, value] of Object.entries(user)) {
+  console.log(key, value);
+}

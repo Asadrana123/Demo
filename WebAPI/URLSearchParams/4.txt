@@ -1,6 +1,7 @@
 // Core methods
 append(name, value)   // Add a new key-value pair (doesn’t remove existing ones)
 delete(name)          // Remove all values associated with a given key
+delete(name,value)    // Remove particuler value
 get(name)             // Get the first value associated with a given key
 getAll(name)          // Get all values associated with a given key as an array
 has(name)             // Check if a key exists

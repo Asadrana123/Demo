@@ -22,7 +22,8 @@ function Filters({ smallFiltersVisible }) {
                 Brands
                 <div style={{ display: openDropdown === 'brands' ? '' : 'none' }} className='dropdown'>
                     {brands?.map((brand, index) => {
-                        return <div style={{ backgroundColor: state.filters.brands.includes(brand) ? "#d9e5fc" : "" }} onClick={(e) => {
+                        return <div style={{ backgroundColor: state.filters.brands.includes(brand) ? "#d9e5fc" : "" }} 
+                        onClick={(e) => {
                             e.stopPropagation();
                             handleSelectBrand(brand)
                         }} className='filter-item' key={index} >{brand}</div>

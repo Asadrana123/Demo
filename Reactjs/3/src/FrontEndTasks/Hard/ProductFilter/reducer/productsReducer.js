@@ -57,6 +57,7 @@ export default function reducer(state, action) {
             result = filterProducts(state.filteredProducts, action.payload.filters);
             return {
                 ...state,
+                filteredProducts:result,
                 filters: action.payload.filters
             }
         case 'RESET':

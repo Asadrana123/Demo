@@ -3,15 +3,15 @@ import { useRef, useEffect } from 'react';
 import useFilter from './useFilter';
 import { useDataContext } from '../context/dataContext';
 import { initialDotOnePosition, initialDotTwoPosition } from '../constants/productConstant'
-import { setDotPositionOne, setDotPositionTwo } from '../helpers/helpers';
+import { calculateSliderPositionFromPrice, setDotPositionOne, setDotPositionTwo } from '../helpers/helpers';
 function useSlider() {
     const sliderRangeRef = useRef(null);
     const { handlePriceRange } = useFilter();
     const { state } = useDataContext();
     const dotOne = useRef(null);
     const dotTwo = useRef(null);
-    const [percentageMoveDotOne, setpercentageMoveDotOne] = useState(initialDotOnePosition);
-    const [percentageMoveDotTwo, setpercentageMoveDotTwo] = useState(initialDotTwoPosition);
+    const [percentageMoveDotOne, setpercentageMoveDotOne] = useState(calculateSliderPositionFromPrice(state.filters.priceRange[0]));
+    const [percentageMoveDotTwo, setpercentageMoveDotTwo] = useState(calculateSliderPositionFromPrice(state.filters.priceRange[1]));
     const [minPrice, setMinPrice] = useState(state.filters.priceRange[0]);
     const [maxPrice, setMaxPrice] = useState(state.filters.priceRange[1]);
     const mouseMoveHandlerOne = (e) => {
@@ -34,13 +34,11 @@ function useSlider() {
     }
 
     useEffect(() => {
-        if (state.isReset === true) {
-            setpercentageMoveDotOne(initialDotOnePosition);
-            setpercentageMoveDotTwo(initialDotTwoPosition);
-            setMinPrice(state.filters.priceRange[0]);
-            setMaxPrice(state.filters.priceRange[1])
-        }
-    }, [state])
+        setpercentageMoveDotOne(calculateSliderPositionFromPrice(state.filters.priceRange[0]));
+        setpercentageMoveDotTwo(calculateSliderPositionFromPrice(state.filters.priceRange[1]));
+        setMinPrice(state.filters.priceRange[0]);
+        setMaxPrice(state.filters.priceRange[1])
+    }, [state.filters.priceRange])
 
     useEffect(() => {
         handlePriceRange([minPrice, maxPrice])
@@ -51,9 +49,9 @@ function useSlider() {
         dotTwo.current.addEventListener('mousedown', mouseDownEventHandlerTwo)
         document.addEventListener('mouseup', mouseUpEventHandlerTwo)
         return () => {
-            dotOne.current.removeEventListener('mousedown', mouseDownEventHandlerOne)
+            dotOne.current?.removeEventListener('mousedown', mouseDownEventHandlerOne)
             document.removeEventListener('mouseup', mouseUpEventHandlerOne)
-            dotTwo.current.removeEventListener('mousedown', mouseDownEventHandlerTwo)
+            dotTwo.current?.removeEventListener('mousedown', mouseDownEventHandlerTwo)
             document.removeEventListener('mouseup', mouseUpEventHandlerTwo)
         }
     }, [])

@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDataContext } from '../context/dataContext';
-import useUpdateUrl from './useUpdateUrl';
+import useUrlOperations from './useUpdateUrl';
 function useFilter() {
-   const { dispatch, state: { filters } } = useDataContext();
-   const { params } = useUpdateUrl();
+   const { dispatch, state } = useDataContext();
+   const { convertFiltertoParams, convertParamstoFilter } = useUrlOperations();
    useEffect(() => {
-      console.log(params);
+      convertFiltertoParams(state.filters);
+      console.log(state.filters)
+   }, [state.filters])
+   useEffect(() => {
+      let newFilters = convertParamstoFilter(state.filters);
+      dispatch({ type: 'FILTER', payload: { filters: newFilters } })
    }, [])
    const handleSelectBrand = (brand) => {
       dispatch({ type: 'BRAND', payload: { brand } })

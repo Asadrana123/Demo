@@ -1,0 +1,23 @@
+🔹 window.history (History API)
+
+These methods let you manipulate the session history and indirectly change the URL.
+
+Methods
+
+pushState(state, title, url)
+Adds a new entry to the browser history with a new URL (no reload).
+
+window.history.pushState({}, '', '?page=2');
+
+
+replaceState(state, title, url)
+Replaces the current history entry with a new URL.
+
+window.history.replaceState({}, '', '?filter=active');
+
+
+back() → Goes to the previous page.
+
+forward() → Goes to the next page.
+
+go(n) → Moves forward/backward in history by n steps.
