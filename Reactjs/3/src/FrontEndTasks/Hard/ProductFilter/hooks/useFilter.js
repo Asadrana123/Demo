@@ -3,15 +3,15 @@ import { useDataContext } from '../context/dataContext';
 import useUrlOperations from './useUpdateUrl';
 function useFilter() {
    const { dispatch, state } = useDataContext();
-   const { convertFiltertoParams, convertParamstoFilter } = useUrlOperations();
+   const { convertFiltertoParams} = useUrlOperations();
+   const isIntialLoad = useRef(true);
    useEffect(() => {
+      if (isIntialLoad.current) {
+         isIntialLoad.current = false;
+         return;
+      }
       convertFiltertoParams(state.filters);
-      console.log(state.filters)
    }, [state.filters])
-   useEffect(() => {
-      let newFilters = convertParamstoFilter(state.filters);
-      dispatch({ type: 'FILTER', payload: { filters: newFilters } })
-   }, [])
    const handleSelectBrand = (brand) => {
       dispatch({ type: 'BRAND', payload: { brand } })
    }

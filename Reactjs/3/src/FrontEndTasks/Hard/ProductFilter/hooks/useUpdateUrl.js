@@ -10,30 +10,25 @@ import React from 'react'
 function useUrlOperations() {
     const convertFiltertoParams = (filters) => {
         const params = new URLSearchParams();
-        let flag = false;
         for (const [key, value] of Object.entries(filters)) {
             if (key === 'priceRange') {
                 if (value[0] > 0 || value[1] < 10000) params.append(key, `${value[0]}-${value[1]}`);
                 else params.delete(key);
-                flag = true;
             }
             if (key === 'brands' || key === 'categories') {
                 if (value.length > 0) value.forEach(item => params.append(key, item));
                 else params.delete(key)
-                flag = true;
             }
             if (key === 'minRating') {
                 if (value > 0) params.append(key, value);
                 else params.delete(key);
-                flag = true;
             }
             if (key === 'hasDiscount') {
                 if (value) params.append(key, value);
                 else params.delete(key)
-                flag = true;
             }
         }
-        if (flag) window.history.replaceState({}, '', `${window.location.pathname}?${params}`)
+        window.history.replaceState({}, '', `${window.location.pathname}?${params}`)
     }
     const convertParamstoFilter = (filters) => {
         const params = new URLSearchParams(window.location.search);

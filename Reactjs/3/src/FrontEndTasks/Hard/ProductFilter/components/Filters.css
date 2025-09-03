@@ -58,7 +58,7 @@ input {
     width: 200px;
     max-height: 300px;
     padding: 10px 10px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     background-color: white;
     z-index: 1000;
