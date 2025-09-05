@@ -12,6 +12,7 @@ function useSearch(debounceTime = 300) {
             dispatch({ type: 'SEARCH', payload: { searchTerm: e.target.value.trim() } })
         }, debounceTime)
     }
+    useEffect(() => () => clearTimeout(timeOutId.current), []);
     return { searchTerm, handleSearch };
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import './Filters.css';
 import { brands, categories, sortByContent } from '../constants/productConstant';
 import useFilter from '../hooks/useFilter';
@@ -22,11 +22,11 @@ function Filters({ smallFiltersVisible }) {
                 Brands
                 <div style={{ display: openDropdown === 'brands' ? '' : 'none' }} className='dropdown'>
                     {brands?.map((brand, index) => {
-                        return <div style={{ backgroundColor: state.filters.brands.includes(brand) ? "#d9e5fc" : "" }} 
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            handleSelectBrand(brand)
-                        }} className='filter-item' key={index} >{brand}</div>
+                        return <div style={{ backgroundColor: state.filters.brands.includes(brand) ? "#d9e5fc" : "" }}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleSelectBrand(brand)
+                            }} className='filter-item' key={index} >{brand}</div>
                     })}
                 </div>
             </div>
@@ -57,7 +57,7 @@ function Filters({ smallFiltersVisible }) {
                 Sort
                 <div style={{ display: openDropdown === 'sort-by' ? '' : 'none' }} className='dropdown'>
                     {sortByContent?.map((sortContent, index) => {
-                        return <div style={{ backgroundColor: state.sortBy === sortContent ? "#d9e5fc" : "" }} onClick={(e) => {
+                        return <div style={{ backgroundColor: state.filters.sortBy === sortContent ? "#d9e5fc" : "" }} onClick={(e) => {
                             e.stopPropagation();
                             handleSelectSortContent(sortContent)
                         }} className='filter-item' key={index} >{sortContent}</div>

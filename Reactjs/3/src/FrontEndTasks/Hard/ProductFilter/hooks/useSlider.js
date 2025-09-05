@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { useRef, useEffect } from 'react';
 import useFilter from './useFilter';
 import { useDataContext } from '../context/dataContext';
-import { initialDotOnePosition, initialDotTwoPosition } from '../constants/productConstant'
 import { calculateSliderPositionFromPrice, setDotPositionOne, setDotPositionTwo } from '../helpers/helpers';
 function useSlider() {
     const sliderRangeRef = useRef(null);
@@ -32,16 +30,22 @@ function useSlider() {
     const mouseUpEventHandlerTwo = (e) => {
         document.removeEventListener('mousemove', mouseMoveHandlerTwo);
     }
-
+    // when user will reset then priceRange will change the minPrice,maxPrice state
     useEffect(() => {
-        setpercentageMoveDotOne(calculateSliderPositionFromPrice(state.filters.priceRange[0]));
-        setpercentageMoveDotTwo(calculateSliderPositionFromPrice(state.filters.priceRange[1]));
-        setMinPrice(state.filters.priceRange[0]);
-        setMaxPrice(state.filters.priceRange[1])
+        if (state.isReset) {
+            setpercentageMoveDotOne(calculateSliderPositionFromPrice(state.filters.priceRange[0]));
+            setpercentageMoveDotTwo(calculateSliderPositionFromPrice(state.filters.priceRange[1]));
+            setMinPrice(state.filters.priceRange[0]);
+            setMaxPrice(state.filters.priceRange[1])
+        }
     }, [state.filters.priceRange])
-
     useEffect(() => {
-        handlePriceRange([minPrice, maxPrice])
+        console.log('hi');
+        const timeoutId = setTimeout(() => {
+            handlePriceRange([minPrice, maxPrice])
+
+        }, 100);
+        return () => clearTimeout(timeoutId);
     }, [minPrice, maxPrice])
     useEffect(() => {
         dotOne.current.addEventListener('mousedown', mouseDownEventHandlerOne)

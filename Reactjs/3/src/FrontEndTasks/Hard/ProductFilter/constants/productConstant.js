@@ -10,7 +10,7 @@ export const initialDotTwoPosition = 100
 
 export const initialState = {
     products: data,
-    filteredProducts:data,
+    filteredProducts: data,
     searchedResult: data,
     isReset: true,
     filters: {
@@ -20,8 +20,8 @@ export const initialState = {
         categories: [],
         minRating: 0,
         hasDiscount: false,
+        sortBy: 'none',
     },
-    sortBy: 'none',
 }
 
 

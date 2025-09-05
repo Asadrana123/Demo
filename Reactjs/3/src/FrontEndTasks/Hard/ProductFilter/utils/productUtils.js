@@ -56,8 +56,11 @@ export const filterByCategory = (searchedProducts, selectedCategory, filters) =>
     return { filters, filteredByCategories }
 }
 
-export const filterByPriceRange = (searchedProducts, value, filters) => {
-    const newPriceRange = [value[0], value[1]]
+export const filterByPriceRange = (searchedProducts, value, filters,filteredProducts) => {
+    // if (filters.priceRange[0] === value[0] || filters.priceRange[1] === value[1]){
+    //     return {filters,}
+    // }
+     const newPriceRange = [value[0], value[1]]
     filters = { ...filters, priceRange: newPriceRange }
     const filteredByPriceRanges = filterProducts(searchedProducts, filters)
     return { filters, filteredByPriceRanges }
@@ -69,13 +72,13 @@ export const filterByDiscount = (searchedProducts, value, filters) => {
     return { filters, filteredByDiscount }
 }
 
-export const sortProducts = (products, sortBy) => {
+export const sortProducts = (products, value, filters) => {
+    filters = filters.sortBy === 'none' ? { ...filters, sortBy: value } : value === filters.sortBy ? { ...filters, sortBy: 'none' } : { ...filters, sortBy: value }
     const sortedProducts = [...products].sort((a, b) => {
-        if (sortBy === 'Sort by Price') return a.price - b.price;
-        else if (sortBy === 'Sort by Rating') return b.rating - a.rating;
+        if (filters.sortBy === 'Sort by Price') return a.price - b.price;
+        else if (filters.sortBy === 'Sort by Rating') return b.rating - a.rating;
     })
-    console.log(sortBy)
-    return { sortBy, sortedProducts }
+    return { filters, sortedProducts }
 }
 
 

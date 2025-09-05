@@ -16,7 +16,7 @@ const isMouseXPositionUnderSlider = (mouseX, intialPointX, endPointX) => {
     return true;
 }
 
-const calculateDotPosition = (mouseX, intialPointX, endPointX, flag) => {
+const calculateDotPosition = (mouseX, intialPointX, endPointX) => {
     let value = (mouseX - intialPointX) / (endPointX - intialPointX) * 100;
     return value > 99 && value < 100 ? 100 : value > 0 && value < 1 ? 0 : value
 }
@@ -24,7 +24,7 @@ const calculateDotPosition = (mouseX, intialPointX, endPointX, flag) => {
 export const setDotPositionOne = (mouseX, intialPointX, endPointX, setpercentageDotPosition, dotTwoLeft, setMinPrice) => {
     if (isMouseXPositionUnderSlider(mouseX, intialPointX, endPointX)) {
         let position = calculateDotPosition(mouseX, intialPointX, endPointX);
-        let limit = calculateDotPosition(dotTwoLeft, intialPointX, endPointX, 'position of dot two for limit') - 10
+        let limit = calculateDotPosition(dotTwoLeft+12, intialPointX, endPointX) - 4
         if (position < limit) {
             setpercentageDotPosition(position);
             setMinPrice(calculatePriceFromSliderPosition(position));
@@ -35,7 +35,7 @@ export const setDotPositionOne = (mouseX, intialPointX, endPointX, setpercentage
 export const setDotPositionTwo = (mouseX, intialPointX, endPointX, setpercentageDotPosition, dotOneLeft, setMaxPrice) => {
     if (isMouseXPositionUnderSlider(mouseX, intialPointX, endPointX)) {
         let position = calculateDotPosition(mouseX, intialPointX, endPointX);
-        let limit = calculateDotPosition(dotOneLeft, intialPointX, endPointX, 'position of dot one for limit') + 10
+        let limit = calculateDotPosition(dotOneLeft, intialPointX, endPointX, 'position of dot one for limit') + 4
         if (position > limit) {
             setpercentageDotPosition(position);
             setMaxPrice(calculatePriceFromSliderPosition(position));

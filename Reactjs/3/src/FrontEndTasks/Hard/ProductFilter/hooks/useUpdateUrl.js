@@ -1,12 +1,3 @@
-import React from 'react'
-// filters: {
-// search: '',
-// priceRange: [calculatePriceFromSliderPosition(initialDotOnePosition), calculatePriceFromSliderPosition(initialDotTwoPosition)],
-// brands: [],
-// categories: [],
-// minRating: 0,
-// hasDiscount: false,
-//     },
 function useUrlOperations() {
     const convertFiltertoParams = (filters) => {
         const params = new URLSearchParams();
@@ -27,8 +18,13 @@ function useUrlOperations() {
                 if (value) params.append(key, value);
                 else params.delete(key)
             }
+            if (key === 'sortBy' && value !== 'none') {
+                params.delete(key);
+                params.append(key, value);
+            }
         }
-        window.history.replaceState({}, '', `${window.location.pathname}?${params}`)
+        if (params.size) window.history.replaceState({}, '', `${window.location.pathname}?${params}`)
+        else window.history.replaceState({}, '', window.location.pathname);
     }
     const convertParamstoFilter = (filters) => {
         const params = new URLSearchParams(window.location.search);
@@ -44,6 +40,9 @@ function useUrlOperations() {
             }
             if (key === 'hasDiscount') {
                 filters = { ...filters, [key]: true }
+            }
+            if (key === 'sortBy') {
+                filters = { ...filters, [key]: value }
             }
         }
         return filters;
