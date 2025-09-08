@@ -22,11 +22,15 @@ export const filterProducts = (products, filters, filterType) => {
 }
 
 export const searchResult = (products, searchTerm) => {
-    return products.filter((product, _) => {
-        return product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            product.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            product.tags.join(' ').toLowerCase().includes(searchTerm.toLowerCase())
+    if (!searchTerm || searchTerm.trim() === '') {
+        return products;
+    }
+    const lowerSearchTerm = searchTerm.toLowerCase(); // Calculate once!
+    return products.filter((product) => {
+        return product.name.toLowerCase().includes(lowerSearchTerm) ||
+            product.brand.toLowerCase().includes(lowerSearchTerm) ||
+            product.category.toLowerCase().includes(lowerSearchTerm) ||
+            product.tags.join(' ').toLowerCase().includes(lowerSearchTerm)
     })
 }
 
@@ -43,7 +47,7 @@ export const filterByBrand = (searchedProducts, selectedBrand, filters) => {
         filters = { ...filters, brands }
     }
     else filters = { ...filters, brands: [...filters.brands, selectedBrand] };
-    const filteredByBrands = filterProducts(searchedProducts, filters,BRANDS)
+    const filteredByBrands = filterProducts(searchedProducts, filters, BRANDS)
     return { filters, filteredByBrands }
 }
 
@@ -53,7 +57,7 @@ export const filterByCategory = (searchedProducts, selectedCategory, filters) =>
         filters = { ...filters, categories }
     }
     else filters = { ...filters, categories: [...filters.categories, selectedCategory] };
-    const filteredByCategories = filterProducts(searchedProducts, filters,CATEGORIES)
+    const filteredByCategories = filterProducts(searchedProducts, filters, CATEGORIES)
     return { filters, filteredByCategories }
 }
 
@@ -66,7 +70,7 @@ export const filterByPriceRange = (filteredProducts, value, filters) => {
 
 export const filterByDiscount = (searchedProducts, value, filters) => {
     filters = { ...filters, hasDiscount: value }
-    const filteredByDiscount = filterProducts(searchedProducts, filters,DISCOUNT)
+    const filteredByDiscount = filterProducts(searchedProducts, filters, DISCOUNT)
     return { filters, filteredByDiscount }
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react'
-import { SEARCH } from '../constants/filtersConstant.js';
+import { SEARCH, ALL_FILTERS } from '../constants/filtersConstant.js';
 import { useDataContext } from '../context/dataContext';
 function useSearch(debounceTime = 300) {
     const { dispatch } = useDataContext();
@@ -8,11 +8,15 @@ function useSearch(debounceTime = 300) {
     const handleSearch = useCallback((e) => {
         e.preventDefault()
         setSearchTerm(e.target.value);
+        // if (!e.target.value.trim()) {
+        //     dispatch({ type: ALL_FILTERS })
+        //     return;
+        // }
         clearTimeout(timeOutId.current);
         timeOutId.current = setTimeout(() => {
             dispatch({ type: SEARCH, payload: { searchTerm: e.target.value.trim() } })
         }, debounceTime)
-    },[])
+    }, [])
     useEffect(() => () => clearTimeout(timeOutId.current), []);
     return { searchTerm, handleSearch };
 }

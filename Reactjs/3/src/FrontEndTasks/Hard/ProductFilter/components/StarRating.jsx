@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import './StarRating.css'
 import { getStarWidths } from '../utils/productUtils'
 
+const STAR_INDICES = Array.from({ length: 5 }, (_, index) => index);
+
 function StarRating({ value }) {
     return (
-        Array.from({ length: 5 }).map((_, index) => {
+        STAR_INDICES.map((index) => {
             return (
                 <div key={index} className="star">
                     ☆
-                    <div style={{ width: `${getStarWidths(index, value)}%` }} className="filled-star">
+                    <div  className={`filled-star width-${getStarWidths(index, value)}`}>
                         ★
                     </div>
                 </div>
@@ -17,4 +19,4 @@ function StarRating({ value }) {
     )
 }
 
-export default React.memo(StarRating); 
+export default React.memo(StarRating);

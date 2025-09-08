@@ -9,7 +9,7 @@ import { filterProducts } from '../utils/productUtils';
 function DataContext({ children }) {
     const { convertParamstoFilter, convertFiltertoParams } = useUrlOperations()
     const newFilters = useMemo(() => convertParamstoFilter(initialState.filters), []);
-    const filteredProducts = useMemo(() => filterProducts(initialState.filteredProducts, newFilters,ALL_FILTERS), []);
+    const filteredProducts = useMemo(() => filterProducts(initialState.filteredProducts, newFilters, ALL_FILTERS), []);
     const [state, dispatch] = useReducer(reducer, { ...initialState, filteredProducts: [...filteredProducts], filters: { ...newFilters } });
     useEffect(() => {
         convertFiltertoParams(state.filters)
@@ -21,7 +21,8 @@ function DataContext({ children }) {
     )
 }
 
-function useDataContext() {
+function useDataContext(name = 'unknown') {
+    // console.log(name);
     const { state, dispatch } = useContext(ProductContext);
     return { state, dispatch };
 }

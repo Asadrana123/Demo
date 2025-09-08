@@ -7,7 +7,7 @@ import Slider from './Slider';
 import useWindowSize from '../hooks/useWindowSize';
 import FilterDropdown from './FilterDropdown';
 function Filters({ smallFiltersVisible }) {
-    const { state: { filters, filteredProducts } } = useDataContext();
+    const { state: { filters, filteredProducts } } = useDataContext('filters');
     const width = useWindowSize();
     const { handleDiscount, handleReset, handleSelectSortContent, handleFilterClick, openDropdown, handleFilterSelect } = useFilter();
     return (

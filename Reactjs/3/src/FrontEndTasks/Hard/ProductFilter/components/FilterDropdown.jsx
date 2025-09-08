@@ -22,7 +22,6 @@ function FilterDropdown({ filterName, filterList, openDropdown, handleFilterSele
 
 
 const FilterItems = React.memo(({ backgroundColor, handleFilterItemClick, filterItem }) => {
-    console.log(filterItem);
     return <div
         style={{ backgroundColor: backgroundColor ? backgroundColor : '' }}
         onClick={handleFilterItemClick}
