@@ -1,0 +1,51 @@
+Filters (22.1ms) means the Filters component itself took 22.1 milliseconds to render 
+in the selected update. “3.8s for 43.4ms” means that update happened 3.8 seconds after
+ recording started, and the whole update (all components that re-rendered) took 43.4 milliseconds.
+
+What a commit is
+A commit is one React update cycle where React applies all the changes for that moment and 
+then paints them to the screen.
+
+The Profiler timeline shows one bar per commit; selecting a bar lets inspection of which 
+components contributed work in that commit.
+
+Yellow bar label
+The yellow bar labeled “Filters (22.1ms)” shows how long the Filters component spent rendering 
+in that commit (its own work time, sometimes called self-time).
+
+A larger number and a more yellow color signal this component is a heavier contributor within 
+that commit compared to others shown.
+
+Right-side “3.8s for 43.4ms”
+“3.8s” is a timestamp: the commit occurred 3.8 seconds after pressing Record in the Profiler.
+
+“for 43.4ms” is the total duration of the entire commit: the sum of all rendering work React did 
+across every component that updated in that moment.
+
+How the two numbers relate
+Filters used 22.1ms inside this commit, while all updated components together took 43.4ms; 
+so Filters contributed roughly half of the total work in that commit.
+
+The remaining time (about 21.3ms) came from other components in the same commit 
+(e.g., CardsContainer at 8.6ms, plus smaller components), plus React and DOM work.
+
+“Why did this render? Context changed”
+This tag explains the trigger: a context value changed in a Provider, so any consumers (like Filters)
+ re-rendered as part of the commit.
+
+It does not mean an error; it just identifies the cause so hotspots tied to context changes 
+can be spotted.
+
+How to judge good vs bad
+Under ~16ms per commit keeps within a 60fps frame budget and usually feels smooth; 43.4ms 
+risks visible jank on mid/low-end devices.
+
+For simple UI updates (e.g., opening a dropdown), single-digit milliseconds per component and 
+a total commit comfortably under 16ms is a solid target.
+
+Quick reading recipe
+Read the right-side number first to know the commit’s total cost (e.g., 43.4ms).
+
+Scan the flame bars to find the biggest contributors (e.g., Filters 22.1ms, CardsContainer 8.6ms)
+to decide where optimization will matter most.
+

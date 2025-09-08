@@ -1,46 +1,43 @@
 import { useDataContext } from '../context/dataContext';
-import { useCallback } from 'react';
+import { DISCOUNT,RESET,SORT,PRICE_RANGE } from '../constants/filtersConstant';
+import { useCallback, useState } from 'react';
 function useFilter() {
    const { dispatch } = useDataContext();
-   const handleSelectBrand = useCallback(
-      (brand) => {
-         dispatch({ type: 'BRAND', payload: { brand } });
-      },
-      []
-   );
-
-   const handleSelectCategory = useCallback(
-      (category) => {
-         dispatch({ type: 'CATEGORY', payload: { category } });
-      },
-      []
-   );
-
+   const [openDropdown, setOpenSetDropdown] = useState('none');
+   const handleFilterClick = useCallback((name) => {
+      setOpenSetDropdown((prev) => {
+         if (prev === name) return 'none';
+         else return name;
+      })
+   }, [])
+   const handleFilterSelect = useCallback((type, item) => {
+      dispatch({ type, payload: { item } });
+   }, [])
    const handlePriceRange = useCallback(
       (value) => {
-         dispatch({ type: 'PRICE_RANGE', payload: { value } });
+         dispatch({ type: PRICE_RANGE, payload: { value } });
       },
       []
    );
 
    const handleDiscount = useCallback(
       (value) => {
-         dispatch({ type: 'DISCOUNT', payload: { value } });
+         dispatch({ type: DISCOUNT, payload: { value } });
       },
       []
    );
 
    const handleReset = useCallback(() => {
-      dispatch({ type: 'RESET' });
+      dispatch({ type: RESET });
    }, []);
 
    const handleSelectSortContent = useCallback(
       (value) => {
-         dispatch({ type: 'SORT', payload: { value } });
+         dispatch({ type: SORT, payload: { value } });
       },
       []
    );
-   return { handleSelectBrand, handleSelectCategory, handlePriceRange, handleDiscount, handleReset, handleSelectSortContent }
+   return { handlePriceRange, handleDiscount, handleReset, handleSelectSortContent, openDropdown, handleFilterClick, handleFilterSelect }
 }
 
 export default useFilter

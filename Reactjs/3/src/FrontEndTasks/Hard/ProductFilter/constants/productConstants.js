@@ -1,0 +1,1 @@
+export const NO_OF_PRODUCTS_PER_PAGE=20

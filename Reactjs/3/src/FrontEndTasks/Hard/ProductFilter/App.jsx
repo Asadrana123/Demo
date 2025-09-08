@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './App.css'
-import Navbar from './components/Navbar'
-import CardsContainer from './components/CardsContainer.jsx'
 import { DataContext } from './context/dataContext.js'
 import Filters from './components/Filters.jsx'
+import Navbar from './components/Navbar'
+import CardsContainer from './components/CardsContainer.jsx'
 function App() {
     const [smallFiltersVisible, setSmallFiltersVisible] = useState(false);
     return (

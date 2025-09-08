@@ -1,0 +1,49 @@
+Awesome ✅ — Step 3: Make your Grid responsive
+
+Right now, your grid has fixed width and columnWidth, but in real apps, you want it to 
+resize with the screen.
+
+Step 3 — Use AutoSizer to make Grid fill its parent
+import { FixedSizeGrid as Grid } from "react-window";
+import AutoSizer from "react-virtualized-auto-sizer";
+
+function Cell({ rowIndex, columnIndex, style, data }) {
+  const index = rowIndex * data.columnCount + columnIndex;
+  const item = data.items[index];
+  return <div style={style}>{item}</div>;
+}
+
+export default function ResponsiveGrid() {
+  const items = Array.from({ length: 50 }, (_, i) => `Item ${i + 1}`);
+  const columnCount = 5;
+  const rowCount = Math.ceil(items.length / columnCount);
+
+  return (
+    <div style={{ height: 400, width: "100%" }}>
+      <AutoSizer>
+        {({ height, width }) => {
+          const columnWidth = width / columnCount; // 🔹 dynamic column width
+          return (
+            <Grid
+              columnCount={columnCount}
+              rowCount={rowCount}
+              columnWidth={columnWidth}
+              rowHeight={50}
+              height={height}
+              width={width}
+              itemData={{ items, columnCount }}
+            >
+              {Cell}
+            </Grid>
+          );
+        }}
+      </AutoSizer>
+    </div>
+  );
+}
+
+
+🔑 Key points:
+AutoSizer measures the available width and height of the parent container.
+You calculate columnWidth dynamically → grid cells resize with screen.
+height of Grid can also come from AutoSizer for full responsiveness.

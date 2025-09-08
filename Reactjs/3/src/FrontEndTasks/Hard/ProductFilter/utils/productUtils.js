@@ -1,4 +1,5 @@
-import { initialState } from "../constants/productConstant";
+import { initialState } from "../constants/contextConstant";
+import { BRANDS, CATEGORIES, DISCOUNT, PRICE_RANGE, ALL_FILTERS } from "../constants/filtersConstant";
 export const getStarWidths = (index, value) => {
     const integerPart = Math.floor(value);
     const decimalPart = Number((value - integerPart).toFixed(2));
@@ -9,12 +10,12 @@ export const getStarWidths = (index, value) => {
     else return 0;
 }
 
-export const filterProducts = (products, filters) => {
+export const filterProducts = (products, filters, filterType) => {
     return products.filter((product, _) => {
-        if (product.price < filters?.priceRange[0] || product.price > filters?.priceRange[1]) return false;
-        if (filters.brands.length && !filters.brands.includes(product.brand)) return false;
-        if (filters.categories.length && !filters.categories.includes(product.category)) return false;
-        if (filters.hasDiscount && product.discount === 0) return false;
+        if ((filterType === PRICE_RANGE || filterType === ALL_FILTERS) && product.price < filters?.priceRange[0] || product.price > filters?.priceRange[1]) return false;
+        if ((filterType === BRANDS || filterType === ALL_FILTERS) && filters.brands.length && !filters.brands.includes(product.brand)) return false;
+        if ((filterType === CATEGORIES || filterType === ALL_FILTERS) && filters.categories.length && !filters.categories.includes(product.category)) return false;
+        if ((filterType === DISCOUNT || filterType === ALL_FILTERS) && filters.hasDiscount && product.discount === 0) return false;
         return true;
 
     })
@@ -42,7 +43,7 @@ export const filterByBrand = (searchedProducts, selectedBrand, filters) => {
         filters = { ...filters, brands }
     }
     else filters = { ...filters, brands: [...filters.brands, selectedBrand] };
-    const filteredByBrands = filterProducts(searchedProducts, filters)
+    const filteredByBrands = filterProducts(searchedProducts, filters,BRANDS)
     return { filters, filteredByBrands }
 }
 
@@ -52,23 +53,20 @@ export const filterByCategory = (searchedProducts, selectedCategory, filters) =>
         filters = { ...filters, categories }
     }
     else filters = { ...filters, categories: [...filters.categories, selectedCategory] };
-    const filteredByCategories = filterProducts(searchedProducts, filters)
+    const filteredByCategories = filterProducts(searchedProducts, filters,CATEGORIES)
     return { filters, filteredByCategories }
 }
 
-export const filterByPriceRange = (searchedProducts, value, filters,filteredProducts) => {
-    // if (filters.priceRange[0] === value[0] || filters.priceRange[1] === value[1]){
-    //     return {filters,}
-    // }
-     const newPriceRange = [value[0], value[1]]
+export const filterByPriceRange = (filteredProducts, value, filters) => {
+    const newPriceRange = [value[0], value[1]]
     filters = { ...filters, priceRange: newPriceRange }
-    const filteredByPriceRanges = filterProducts(searchedProducts, filters)
+    const filteredByPriceRanges = filterProducts(filteredProducts, filters, PRICE_RANGE)
     return { filters, filteredByPriceRanges }
 }
 
 export const filterByDiscount = (searchedProducts, value, filters) => {
     filters = { ...filters, hasDiscount: value }
-    const filteredByDiscount = filterProducts(searchedProducts, filters)
+    const filteredByDiscount = filterProducts(searchedProducts, filters,DISCOUNT)
     return { filters, filteredByDiscount }
 }
 

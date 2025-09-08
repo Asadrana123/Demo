@@ -2,7 +2,6 @@
 import { filterProducts, filterByBrand, searchResult, filterByCategory, filterByPriceRange, filterByDiscount, resetProducts, sortProducts } from "../utils/productUtils.js";
 export default function reducer(state, action) {
     let result, searchedResult, filteredProducts;
-    console.log(action.type);
     switch (action.type) {
         case 'SEARCH':
             searchedResult = searchResult(state.products, action.payload.searchTerm);
@@ -14,16 +13,16 @@ export default function reducer(state, action) {
                 filteredProducts,
                 searchedResult
             }
-        case 'BRAND':
-            result = filterByBrand(state.searchedResult, action.payload.brand, state.filters);
+        case 'BRANDS':
+            result = filterByBrand(state.searchedResult, action.payload.item, state.filters);
             return {
                 ...state,
                 isReset: false,
                 filteredProducts: result.filteredByBrands,
                 filters: result.filters,
             }
-        case 'CATEGORY':
-            result = filterByCategory(state.searchedResult, action.payload.category, state.filters);
+        case 'CATEGORIES':
+            result = filterByCategory(state.searchedResult, action.payload.item, state.filters);
             return {
                 ...state,
                 isReset: false,
@@ -31,7 +30,6 @@ export default function reducer(state, action) {
                 filters: result.filters,
             }
         case 'PRICE_RANGE':
-            if(state.filters.priceRange[0] === action.payload.value[0]&&state.filters.priceRange[1] === action.payload.value[1]) return state;
             result = filterByPriceRange(state.searchedResult, action.payload.value, state.filters);
             return {
                 ...state,

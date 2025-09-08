@@ -27,4 +27,4 @@ function Navbar({ setSmallFiltersVisible, smallFiltersVisible }) {
     )
 }
 
-export default Navbar
+export default React.memo(Navbar)

@@ -49,6 +49,7 @@
 h4,
 h5 {
     line-height: .2;
+    white-space: wrap;
 }
 
 h5 {

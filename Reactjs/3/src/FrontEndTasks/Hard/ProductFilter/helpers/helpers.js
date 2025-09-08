@@ -1,4 +1,5 @@
-import { MAX_PRICE } from "../constants/productConstant";
+import { MAX_PRICE } from "../constants/filtersConstant.js";
+import { sliderDebounceTime } from "../constants/sliderConstant";
 export const calculatePriceFromSliderPosition = (percentageValue) => {
     percentageValue = Math.floor(percentageValue);
     const value = Math.floor((MAX_PRICE) * percentageValue / 100);
@@ -21,30 +22,37 @@ const calculateDotPosition = (mouseX, intialPointX, endPointX) => {
     return value > 99 && value < 100 ? 100 : value > 0 && value < 1 ? 0 : value
 }
 
-export const setDotPositionOne = (mouseX, intialPointX, endPointX, setpercentageDotPosition, dotTwoLeft, setMinPrice) => {
+export const setDotPositionOne = (debounceSlider, mouseX, intialPointX, endPointX, setpercentageDotPosition, dotTwoLeft, handlePriceRange, priceRange) => {
     if (isMouseXPositionUnderSlider(mouseX, intialPointX, endPointX)) {
         let position = calculateDotPosition(mouseX, intialPointX, endPointX);
-        let limit = calculateDotPosition(dotTwoLeft+12, intialPointX, endPointX) - 4
+        let limit = calculateDotPosition(dotTwoLeft + 12, intialPointX, endPointX) - 4
+        console.log(position,mouseX,intialPointX);
         if (position < limit) {
             setpercentageDotPosition(position);
-            setMinPrice(calculatePriceFromSliderPosition(position));
+            clearTimeout(debounceSlider.current);
+            debounceSlider.current = setTimeout(() => {
+                handlePriceRange([calculatePriceFromSliderPosition(position), priceRange[1]]);
+            }, sliderDebounceTime)
         }
     }
 }
 
-export const setDotPositionTwo = (mouseX, intialPointX, endPointX, setpercentageDotPosition, dotOneLeft, setMaxPrice) => {
+export const setDotPositionTwo = (debounceSlider, mouseX, intialPointX, endPointX, setpercentageDotPosition, dotOneLeft, handlePriceRange, priceRange) => {
     if (isMouseXPositionUnderSlider(mouseX, intialPointX, endPointX)) {
         let position = calculateDotPosition(mouseX, intialPointX, endPointX);
-        let limit = calculateDotPosition(dotOneLeft, intialPointX, endPointX, 'position of dot one for limit') + 4
+        let limit = calculateDotPosition(dotOneLeft, intialPointX, endPointX) + 4
         if (position > limit) {
             setpercentageDotPosition(position);
-            setMaxPrice(calculatePriceFromSliderPosition(position));
+            clearTimeout(debounceSlider.current);
+            debounceSlider.current = setTimeout(() => {
+                handlePriceRange([priceRange[0], calculatePriceFromSliderPosition(position)]);
+            }, sliderDebounceTime)
         }
     }
 }
 
 
-export const handleKeyDownDotOne = (e, setDotPositionOne, percentageMoveDotOne, percentageMoveDotTwo, setMinPrice) => {
+export const handleKeyDownDotOneHelper = (debounceSlider, e, setDotPositionOne, percentageMoveDotOne, percentageMoveDotTwo, handlePriceRange) => {
     let newPosition = percentageMoveDotOne;
     switch (e.key) {
         case 'ArrowRight':
@@ -57,11 +65,14 @@ export const handleKeyDownDotOne = (e, setDotPositionOne, percentageMoveDotOne, 
             return;
     }
     setDotPositionOne(newPosition);
-    setMinPrice(calculatePriceFromSliderPosition(newPosition))
+    clearTimeout(debounceSlider.current);
+    debounceSlider.current = setTimeout(() => {
+        handlePriceRange([calculatePriceFromSliderPosition(position), priceRange[1]]);
+    }, sliderDebounceTime)
 }
 
 
-export const handleKeyDownDotTwo = (e, setDotPositionTwo, percentageMoveDotTwo, percentageMoveDotOne, setMaxPrice) => {
+export const handleKeyDownDotTwoHelper = (debounceSlider, e, setDotPositionTwo, percentageMoveDotTwo, percentageMoveDotOne, handlePriceRange) => {
     let newPosition = percentageMoveDotTwo;
     switch (e.key) {
         case 'ArrowRight':
@@ -74,5 +85,8 @@ export const handleKeyDownDotTwo = (e, setDotPositionTwo, percentageMoveDotTwo, 
             return;
     }
     setDotPositionTwo(newPosition);
-    setMaxPrice(calculatePriceFromSliderPosition(newPosition))
+    clearTimeout(debounceSlider.current);
+    debounceSlider.current = setTimeout(() => {
+        handlePriceRange([calculatePriceFromSliderPosition(position), priceRange[1]]);
+    }, sliderDebounceTime)
 }

@@ -1,0 +1,35 @@
+Step 1 — The simplest FixedSizeGrid
+
+Here’s the most basic way to use a grid in react-window:
+
+import { FixedSizeGrid as Grid } from "react-window";
+
+function Cell({ rowIndex, columnIndex, style }) {
+  // ✅ always apply style for correct positioning
+  return (
+    <div style={style}>
+      Row {rowIndex}, Col {columnIndex}
+    </div>
+  );
+}
+
+export default function SimpleGrid() {
+  return (
+    <Grid
+      columnCount={5}     // total columns
+      rowCount={1000}     // total rows
+      columnWidth={100}   // each column width (px)
+      rowHeight={35}      // each row height (px)
+      height={300}        // viewport height (px)
+      width={400}         // viewport width (px)
+    >
+      {Cell}
+    </Grid>
+  );
+}
+
+
+🔑 Key points:
+rowIndex & columnIndex are passed to your cell.
+You must apply style to the cell.
+Even if rowCount is 1000, only the visible portion is actually rendered.

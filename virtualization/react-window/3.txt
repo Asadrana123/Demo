@@ -1,0 +1,44 @@
+Step 2 — Passing data into Grid cells with itemData
+
+You don’t want just Row X, Col Y — usually you have real data (like products, images, or a table).
+We pass that data using the itemData prop.
+
+import { FixedSizeGrid as Grid } from "react-window";
+
+function Cell({ rowIndex, columnIndex, style, data }) {
+  // Flatten 2D index → 1D index
+  const index = rowIndex * data.columnCount + columnIndex;
+  const item = data.items[index];
+
+  return (
+    <div style={style}>
+      {item}
+    </div>
+  );
+}
+
+export default function DataGrid() {
+  const items = Array.from({ length: 50 }, (_, i) => `Item ${i + 1}`);
+  const columnCount = 5;
+  const rowCount = Math.ceil(items.length / columnCount);
+
+  return (
+    <Grid
+      columnCount={columnCount}
+      rowCount={rowCount}
+      columnWidth={100}
+      rowHeight={35}
+      height={300}
+      width={400}
+      itemData={{ items, columnCount }}  // ✅ pass data here
+    >
+      {Cell}
+    </Grid>
+  );
+}
+
+
+🔑 Key points:
+itemData can hold anything (arrays, objects, callbacks).
+Inside Cell, you get it via the data prop.
+We map rowIndex + columnIndex → flat index to pick the right item.

@@ -1,0 +1,14 @@
+react-window is a lightweight library for rendering large lists and grids efficiently in React.
+
+Normally, if you render a list of, say, 10,000 items, React will try to render all of them
+ into the DOM. That causes:
+
+Slow rendering
+
+High memory usage
+
+Janky scrolling
+
+👉 react-window solves this by using a technique called windowing (or virtualization).
+It only renders the items that are visible in the viewport (plus a small buffer), and as you scroll,
+it dynamically reuses DOM elements to display the next visible items.
