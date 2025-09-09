@@ -1,17 +1,18 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react'
 import { SEARCH, ALL_FILTERS } from '../constants/filtersConstant.js';
-import { useDataContext } from '../context/dataContext';
+import { useDispatchProvider } from '../context/dataContext.js';
 function useSearch(debounceTime = 300) {
-    const { dispatch } = useDataContext();
+    const dispatch = useDispatchProvider();
     const [searchTerm, setSearchTerm] = useState('');
     const timeOutId = useRef(null)
     const handleSearch = useCallback((e) => {
         e.preventDefault()
         setSearchTerm(e.target.value);
-        // if (!e.target.value.trim()) {
-        //     dispatch({ type: ALL_FILTERS })
-        //     return;
-        // }
+        if (!e.target.value.trim()) {
+            dispatch({ type: ALL_FILTERS })
+            console.log(!e.target.value.trim());
+            return;
+        }
         clearTimeout(timeOutId.current);
         timeOutId.current = setTimeout(() => {
             dispatch({ type: SEARCH, payload: { searchTerm: e.target.value.trim() } })

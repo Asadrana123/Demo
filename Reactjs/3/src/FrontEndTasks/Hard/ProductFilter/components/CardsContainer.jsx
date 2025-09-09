@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from 'react'
-import { useDataContext } from '../context/dataContext';
+import { useStateProvider } from '../context/dataContext';
 import { NO_OF_PRODUCTS_PER_PAGE } from '../constants/productConstants';
 import './CardsContainer.css'
 import ProductCard from './ProductCard';
 function CardsContainer() {
-    const { state: { filteredProducts } } = useDataContext('cardscontainer');
+    const { state: { filteredProducts } } = useStateProvider();
     const [pageNumber, setPageNumber] = useState(0);
     useEffect(() => {
         setPageNumber(0)
     }, [filteredProducts])
     const totalProducts = filteredProducts.length;
-    console.log(totalProducts);
-    const calculateStartIndex = () => pageNumber * NO_OF_PRODUCTS_PER_PAGE
-    const calculateEndIndex = () => pageNumber * NO_OF_PRODUCTS_PER_PAGE + NO_OF_PRODUCTS_PER_PAGE
-    const calculateNumberOfPage = () => totalProducts % NO_OF_PRODUCTS_PER_PAGE === 0 ? totalProducts / NO_OF_PRODUCTS_PER_PAGE : totalProducts / NO_OF_PRODUCTS_PER_PAGE + 1;
+    const calculateStartIndex = () => {
+        const safePageNumber = Number.isFinite(pageNumber) && pageNumber >= 0 ? pageNumber : 0;
+        return safePageNumber * NO_OF_PRODUCTS_PER_PAGE;
+    };
+    const calculateEndIndex = () => {
+        const safePageNumber = Number.isFinite(pageNumber) && pageNumber >= 0 ? pageNumber : 0;
+        return safePageNumber * NO_OF_PRODUCTS_PER_PAGE + NO_OF_PRODUCTS_PER_PAGE;
+    };
+
+    const calculateNumberOfPage = () => {
+        if (!Number.isFinite(totalProducts) || totalProducts <= 0) return 0;
+        return Math.ceil(totalProducts / NO_OF_PRODUCTS_PER_PAGE);
+    };
     return (
         <>
             <div className='cards-container'>
-                {filteredProducts.slice(calculateStartIndex(), calculateEndIndex())?.map((product, _) => {
+                {filteredProducts.slice(calculateStartIndex(), calculateEndIndex())?.map((product) => {
                     return <ProductCard key={product.id} product={product} />
                 })}
             </div>

@@ -23,5 +23,5 @@ const ProductCard = React.memo(({ product }) => {
         </div>
     )
 })
-ProductCard.displayName='ProductCard'
+ProductCard.displayName = 'ProductCard'
 export default ProductCard

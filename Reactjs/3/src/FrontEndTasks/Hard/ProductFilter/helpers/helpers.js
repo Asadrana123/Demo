@@ -1,3 +1,4 @@
+import { data } from "../data/data.js";
 import { MAX_PRICE } from "../constants/filtersConstant.js";
 import { sliderDebounceTime } from "../constants/sliderConstant";
 export const calculatePriceFromSliderPosition = (percentageValue) => {
@@ -25,8 +26,7 @@ const calculateDotPosition = (mouseX, intialPointX, endPointX) => {
 export const setDotPositionOne = (debounceSlider, mouseX, intialPointX, endPointX, setpercentageDotPosition, dotTwoLeft, handlePriceRange, priceRange) => {
     if (isMouseXPositionUnderSlider(mouseX, intialPointX, endPointX)) {
         let position = calculateDotPosition(mouseX, intialPointX, endPointX);
-        let limit = calculateDotPosition(dotTwoLeft + 12, intialPointX, endPointX) - 4
-        console.log(position,mouseX,intialPointX);
+        let limit = calculateDotPosition(dotTwoLeft + 12, intialPointX, endPointX) - 12
         if (position < limit) {
             setpercentageDotPosition(position);
             clearTimeout(debounceSlider.current);
@@ -40,7 +40,7 @@ export const setDotPositionOne = (debounceSlider, mouseX, intialPointX, endPoint
 export const setDotPositionTwo = (debounceSlider, mouseX, intialPointX, endPointX, setpercentageDotPosition, dotOneLeft, handlePriceRange, priceRange) => {
     if (isMouseXPositionUnderSlider(mouseX, intialPointX, endPointX)) {
         let position = calculateDotPosition(mouseX, intialPointX, endPointX);
-        let limit = calculateDotPosition(dotOneLeft, intialPointX, endPointX) + 4
+        let limit = calculateDotPosition(dotOneLeft, intialPointX, endPointX) + 12
         if (position > limit) {
             setpercentageDotPosition(position);
             clearTimeout(debounceSlider.current);
@@ -52,41 +52,73 @@ export const setDotPositionTwo = (debounceSlider, mouseX, intialPointX, endPoint
 }
 
 
-export const handleKeyDownDotOneHelper = (debounceSlider, e, setDotPositionOne, percentageMoveDotOne, percentageMoveDotTwo, handlePriceRange) => {
+export const handleKeyDownDotOneHelper = (
+    debounceSlider,
+    e,
+    setpercentageDotPosition,
+    percentageMoveDotOne,
+    percentageMoveDotTwo,
+    handlePriceRange,
+    priceRange
+) => {
     let newPosition = percentageMoveDotOne;
+
     switch (e.key) {
-        case 'ArrowRight':
-            newPosition = percentageMoveDotOne + 10 >= percentageMoveDotTwo ? percentageMoveDotOne : percentageMoveDotOne + 5;
+        case "ArrowRight":
+            newPosition = Math.min(percentageMoveDotOne + 5, percentageMoveDotTwo - 5);
             break;
-        case 'ArrowLeft':
-            newPosition = percentageMoveDotOne - 5 <= 0 ? 0 : percentageMoveDotOne - 5;
+        case "ArrowLeft":
+            newPosition = Math.max(percentageMoveDotOne - 5, 0);
             break;
-        case 'default':
+        default:
             return;
     }
-    setDotPositionOne(newPosition);
+
+    setpercentageDotPosition(newPosition);
+
     clearTimeout(debounceSlider.current);
     debounceSlider.current = setTimeout(() => {
-        handlePriceRange([calculatePriceFromSliderPosition(position), priceRange[1]]);
-    }, sliderDebounceTime)
-}
+        handlePriceRange([calculatePriceFromSliderPosition(newPosition), priceRange[1]]);
+    }, sliderDebounceTime);
+};
 
-
-export const handleKeyDownDotTwoHelper = (debounceSlider, e, setDotPositionTwo, percentageMoveDotTwo, percentageMoveDotOne, handlePriceRange) => {
+export const handleKeyDownDotTwoHelper = (
+    debounceSlider,
+    e,
+    setpercentageDotPosition,
+    percentageMoveDotTwo,
+    percentageMoveDotOne,
+    handlePriceRange,
+    priceRange
+) => {
     let newPosition = percentageMoveDotTwo;
+
     switch (e.key) {
-        case 'ArrowRight':
-            newPosition = percentageMoveDotTwo + 5 >= 100 ? 100 : percentageMoveDotTwo + 5;
+        case "ArrowRight":
+            newPosition = Math.min(percentageMoveDotTwo + 5, 100);
             break;
-        case 'ArrowLeft':
-            newPosition = percentageMoveDotTwo - 10 <= percentageMoveDotOne ? percentageMoveDotTwo : percentageMoveDotTwo - 5;
+        case "ArrowLeft":
+            newPosition = Math.max(percentageMoveDotTwo - 5, percentageMoveDotOne + 5);
             break;
-        case 'default':
+        default:
             return;
     }
-    setDotPositionTwo(newPosition);
+
+    setpercentageDotPosition(newPosition);
+
     clearTimeout(debounceSlider.current);
     debounceSlider.current = setTimeout(() => {
-        handlePriceRange([calculatePriceFromSliderPosition(position), priceRange[1]]);
-    }, sliderDebounceTime)
+        handlePriceRange([priceRange[0], calculatePriceFromSliderPosition(newPosition)]);
+    }, sliderDebounceTime);
+};
+
+
+export const fetchFiltersData = (products, type) => {
+    return [...new Set(products.map((product) => {
+        if (type === 'brand') return product.brand;
+        if (type === 'category') return product.category;
+    }))]
 }
+
+export const brands = fetchFiltersData(data, 'brand');
+export const categories = fetchFiltersData(data, 'category');

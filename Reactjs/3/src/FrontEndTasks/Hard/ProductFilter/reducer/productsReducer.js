@@ -2,16 +2,16 @@
 import { filterProducts, filterByBrand, searchResult, filterByCategory, filterByPriceRange, filterByDiscount, resetProducts, sortProducts } from "../utils/productUtils.js";
 import { BRANDS, SEARCH, CATEGORIES, PRICE_RANGE, DISCOUNT, SORT, ALL_FILTERS, RESET } from "../constants/filtersConstant.js";
 export default function reducer(state, action) {
-    let result, searchedResult, filteredProducts;
+    let result, searchedResult;
     switch (action.type) {
         case SEARCH:
             searchedResult = searchResult(state.products, action.payload.searchTerm);
-            filteredProducts = filterProducts(searchedResult, state.filters, ALL_FILTERS);
+            result = filterProducts(searchedResult, state.filters);
             return {
                 ...state,
                 isReset: false,
                 searchedResult,
-                filteredProducts,
+                filteredProducts:result,
             }
         case BRANDS:
             result = filterByBrand(state.searchedResult, action.payload.item, state.filters);

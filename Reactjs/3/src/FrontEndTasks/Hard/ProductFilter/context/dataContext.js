@@ -1,12 +1,13 @@
-import React, { Children, useContext, useEffect, useReducer, useRef, useMemo } from 'react'
+import React, { useContext, useEffect, useReducer, useMemo } from 'react'
 import { createContext } from 'react'
-import { initialState } from '../constants/contextConstant';
-import { ALL_FILTERS } from '../constants/filtersConstant';
+import { initialState } from '../reducer/initialState.js';
 import reducer from '../reducer/productsReducer';
-const ProductContext = createContext();
+import { ALL_FILTERS } from '../constants/filtersConstant';
+const StateContext = createContext();
+const DispatchContext = createContext();
 import useUrlOperations from '../hooks/useUpdateUrl';
 import { filterProducts } from '../utils/productUtils';
-function DataContext({ children }) {
+function ProductProivder({ children }) {
     const { convertParamstoFilter, convertFiltertoParams } = useUrlOperations()
     const newFilters = useMemo(() => convertParamstoFilter(initialState.filters), []);
     const filteredProducts = useMemo(() => filterProducts(initialState.filteredProducts, newFilters, ALL_FILTERS), []);
@@ -15,17 +16,24 @@ function DataContext({ children }) {
         convertFiltertoParams(state.filters)
     }, [state.filters])
     return (
-        <ProductContext.Provider value={{ state, dispatch }}>
-            {children}
-        </ProductContext.Provider>
+        <StateContext.Provider value={state}>
+            <DispatchContext.Provider value={dispatch}>
+                {children}
+            </DispatchContext.Provider>
+        </StateContext.Provider>
     )
 }
 
-function useDataContext(name = 'unknown') {
-    // console.log(name);
-    const { state, dispatch } = useContext(ProductContext);
-    return { state, dispatch };
+
+
+function useStateProvider() {
+    const state= useContext(StateContext);
+    return {state}
 }
 
-export { useDataContext, DataContext };
+function useDispatchProvider() {
+    return useContext(DispatchContext)
+}
+
+export { useStateProvider, useDispatchProvider, ProductProivder };
 

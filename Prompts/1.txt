@@ -7,3 +7,11 @@ by step and only one step at once
 Now give me another front end challenge which will force me to push my
 limits and as you know I am preparing for front end engineer role or interview for more than 
 1 year experience I want to practice challenges which are related to inteview or machine coding round
+
+
+For code improvement:-
+it is front end task solved by me, review its 1. Readability 2. Reusablity of components 3. 
+seperation of concerns 4. state managment discipline 5.Performance Consciousness 6. scalability 7. 
+code quality 8. optimization 9. maintainablity 10. file and folder strcuture 11. and all other things
+which you think are important for me as preparation for interview 12. give me suggestions to imropve
+but only one suggestion at once

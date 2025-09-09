@@ -1,0 +1,28 @@
+Step 1: Understanding what a memory leak really is
+Simple definition:
+
+A memory leak happens when your program keeps memory that it no longer needs, 
+so the garbage collector can’t free it.
+
+Think of it like this: you borrow books from a library but never return them, 
+even though you don’t need them anymore. The library eventually runs out of space.
+
+In a website or app, memory leaks accumulate over time, making the app slower 
+and eventually crashing it.
+
+Key points:
+
+Memory that should be freed is still referenced somewhere → GC can’t collect it.
+Not all memory growth is a leak — sometimes caches or temporary objects grow naturally.
+Leaks are most visible in long-running apps: dashboards, chat apps, SPA (Single Page Apps), etc.
+
+💡 Example analogy for a React app:
+You add a bunch of event listeners to a component when it mounts.
+
+If you forget to remove them when the component unmounts, those listeners keep 
+the component in memory, even though it’s no longer visible.
+
+Over time, repeating this action creates a memory leak.
+
+✅ Step 1 takeaway:
+Memory leak = wasted memory that never gets freed, which over time slows down or crashes your app.

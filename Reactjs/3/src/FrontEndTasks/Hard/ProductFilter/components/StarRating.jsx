@@ -19,4 +19,4 @@ function StarRating({ value }) {
     )
 }
 
-export default React.memo(StarRating);
+export default StarRating;

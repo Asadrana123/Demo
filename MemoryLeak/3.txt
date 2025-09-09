@@ -1,0 +1,44 @@
+Step 3: Example of a React memory leak
+
+Imagine a component that sets up a timer but doesn’t clean it up:
+import React, { useState, useEffect } from 'react';
+
+function TimerComponent() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // Start a timer
+    const interval = setInterval(() => {
+      setCount(prev => prev + 1);
+    }, 1000);
+
+    // ❌ Missing cleanup → memory leak
+  }, []);
+
+  return <div>Count: {count}</div>;
+}
+
+export default TimerComponent;
+
+What happens:
+Every second, setCount updates state → component re-renders.
+
+If this component unmounts, the interval still runs because we never cleared it.
+That interval keeps a reference to the component’s state and closures → memory is not freed.
+
+Over time, if you mount/unmount this component many times, memory usage 
+grows continuously → app slows or crashes.
+
+How to fix it:
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCount(prev => prev + 1);
+  }, 1000);
+
+  // ✅ Cleanup on unmount
+  return () => clearInterval(interval);
+}, []);
+
+
+Now, when the component unmounts, the interval is cleared.
+Memory can be freed by the garbage collector.

@@ -1,0 +1,50 @@
+Step 2: Why memory leaks happen
+
+Memory leaks happen when something in your code keeps holding 
+references to objects you no longer need, so the garbage collector (GC) cannot free them.
+
+Common causes in JavaScript:
+Global variables
+
+let hugeData = new Array(1e6).fill('x'); // stays in memory until explicitly removed
+
+
+If you don’t clear it or reuse it, it stays in memory.
+
+Forgotten timers / intervals
+setInterval(() => console.log('running'), 1000);
+// If you never clearInterval, this keeps running and keeps closures alive
+
+
+Event listeners not removed
+window.addEventListener('resize', onResize);
+// If you don’t remove this on cleanup, memory stays occupied
+
+
+Closures capturing large objects
+
+function setup() {
+  const largeArray = new Array(1e6).fill('x');
+  return () => console.log(largeArray[0]); // closure keeps `largeArray` alive
+}
+
+
+Even if setup is done, largeArray stays in memory.
+React-specific causes:
+Components that keep timers, listeners, or subscriptions after unmount
+
+useEffect(() => {
+  const interval = setInterval(doWork, 1000);
+  // missing cleanup → memory leak
+}, []);
+
+
+Storing huge data in state unnecessarily
+const [data, setData] = useState(hugeArray);
+
+
+If component unmounts but references persist, memory remains allocated.
+Forgotten async tasks
+
+Fetch calls or subscriptions that complete after a component unmounts,
+ holding closures to state or props.
