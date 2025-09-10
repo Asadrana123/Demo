@@ -1,0 +1,42 @@
+Internal Architecture
+React.lazy() is a factory function that creates a special component type that React's 
+reconciler recognizes. Here's the critical understanding:
+
+javascript
+// What React.lazy() actually returns
+function lazy(componentImport) {
+  const LazyComponent = {
+    $$typeof: Symbol.for('react.lazy'),
+    _payload: componentImport,
+    _init: (payload) => {
+      if (payload._status === undefined) {
+        payload._status = 'pending';
+        payload._result = payload().then(
+          module => {
+            payload._status = 'resolved';
+            payload._result = module.default;
+          },
+          error => {
+            payload._status = 'rejected';
+            payload._result = error;
+          }
+        );
+      }
+      
+      if (payload._status === 'resolved') {
+        return payload._result;
+      } else {
+        throw payload._result; // Promise or Error
+      }
+    }
+  };
+  
+  return LazyComponent;
+}
+
+
+Bundle Splitting Mechanics:
+Chunk naming: 1.chunk.js, 2.chunk.js (or custom names)
+Dependency extraction: Shared libraries automatically split
+Cache behavior: Browser caches chunks with hash-based names
+Loading strategy: Chunks loaded in parallel when possible

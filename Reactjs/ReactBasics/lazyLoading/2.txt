@@ -1,0 +1,50 @@
+Why Suspense is needed
+
+Problem: Components can be asynchronous
+Some components don’t have their code/data immediately.
+
+Examples:
+Lazy-loaded React components (React.lazy)
+Data fetched with fetch or libraries like Relay
+Images or other resources
+const LazyComp = React.lazy(() => import("./BigComp"));
+
+
+The actual component isn’t ready yet → import() returns a Promise.
+React’s render expects synchronous JSX
+
+React’s render function cannot return a Promise.
+
+If a component isn’t ready, React needs a way to pause rendering without breaking the app.
+
+Suspense provides the “pause and fallback” mechanism
+
+Suspense lets React:
+
+Catch the thrown Promise from the lazy component.
+Render a fallback UI (<Spinner /> or skeleton).
+Retry rendering automatically when the Promise resolves.
+
+<Suspense fallback={<div>Loading...</div>}>
+  <LazyComp />
+</Suspense>
+
+
+Without Suspense → app crashes
+Lazy component throws a Promise
+No boundary → React treats it as an uncaught error → crash
+Benefits of Suspense
+No manual loading state for every lazy component
+Works with multiple lazy components (nested Suspense boundaries)
+Integrates with future concurrent features in React (streaming, transitions, etc.)
+Keeps your code clean and declarative
+
+In short (engineer view)
+
+Problem: Some components/resources aren’t ready during render.
+
+Solution: Suspense acts as a catch-and-wait boundary, shows a fallback, and retries 
+render automatically.
+
+Mechanism: Component throws Promise → Suspense catches → renders fallback → Promise resolves → 
+fiber re-renders subtree.

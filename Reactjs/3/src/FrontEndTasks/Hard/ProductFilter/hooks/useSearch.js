@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react'
-import { SEARCH, ALL_FILTERS } from '../constants/filtersConstant.js';
-import { useDispatchProvider } from '../context/dataContext.js';
+import { SEARCH, ALL_FILTERS } from '../constants/filtersConstant';
+import { useDispatchProvider } from '../context/dataContext';
 function useSearch(debounceTime = 300) {
     const dispatch = useDispatchProvider();
     const [searchTerm, setSearchTerm] = useState('');
@@ -10,7 +10,6 @@ function useSearch(debounceTime = 300) {
         setSearchTerm(e.target.value);
         if (!e.target.value.trim()) {
             dispatch({ type: ALL_FILTERS })
-            console.log(!e.target.value.trim());
             return;
         }
         clearTimeout(timeOutId.current);

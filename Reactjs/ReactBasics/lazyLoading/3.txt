@@ -1,0 +1,50 @@
+Mastering React Lazy Functions - Step 2
+Step 2: Suspense - The Required Partner
+When you use React.lazy(), you must wrap it with Suspense. 
+This is not optional - your app will crash without it.
+
+Why Suspense is Required:
+javascript
+const LazyComponent = lazy(() => import('./MyComponent'));
+
+function App() {
+  return (
+    <div>
+      {/* ❌ This will crash your app */}
+      <LazyComponent />
+    </div>
+  );
+}
+Error: A React component suspended while rendering, but no fallback UI was provided.
+
+The Fix - Wrap with Suspense:
+javascript
+import React, { lazy, Suspense } from 'react';
+
+const LazyComponent = lazy(() => import('./MyComponent'));
+
+function App() {
+  return (
+    <div>
+      {/* ✅ This works */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyComponent />
+      </Suspense>
+    </div>
+  );
+}
+What Suspense Does:
+Shows fallback UI while the lazy component is downloading
+
+Automatically switches to the actual component once it loads
+
+Handles loading states for you
+
+Basic Pattern:
+javascript
+<Suspense fallback={<LoadingSpinner />}>
+  {showComponent && <LazyComponent />}
+</Suspense>
+Key Point: The fallback prop is what users see while your component is downloading from 
+the server. Make it meaningful!
+

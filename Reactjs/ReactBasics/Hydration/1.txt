@@ -38,8 +38,8 @@ This HTML is sent to the browser as part of the page:
 No JavaScript, no event handlers, no interactivity yet!
 
 2. Browser Loads the Page
-The user instantly sees the UI (“Count: 0” and the button), but clicking the button won't do anything right away.
-
+The user instantly sees the UI (“Count: 0” and the button), but clicking the button won't 
+do anything right away.
 At this point, the page is just HTML—static and inert.
 
 3. Browser Loads React JS Bundle

@@ -11,9 +11,10 @@ export default function reducer(state, action) {
                 ...state,
                 isReset: false,
                 searchedResult,
-                filteredProducts:result,
+                filteredProducts: result,
             }
         case BRANDS:
+            console.log(state.filters);
             result = filterByBrand(state.searchedResult, action.payload.item, state.filters);
             return {
                 ...state,

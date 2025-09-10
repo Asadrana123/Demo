@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import './App.css'
-import { ProductProivder } from './context/dataContext.js'
+import { ProductProivder } from './context/dataContext.jsx'
 import Filters from './components/Filters.jsx'
 import Navbar from './components/Navbar'
+
 import CardsContainer from './components/CardsContainer.jsx'
 function App() {
     const [smallFiltersVisible, setSmallFiltersVisible] = useState(false);

@@ -1,6 +1,7 @@
 Now I have implemented the full code or front end challenge now your term is to tell me what things
 I have done wrong, if we think about production ready code so think like a senoir 
-software engineer because I am preparing for front end engineer for more than 1 year experience, tell me my mistakes step 
+software engineer because I am preparing for front end engineer for more than 1 year experience, 
+tell me my mistakes step 
 by step and only one step at once
 
 
@@ -15,3 +16,7 @@ seperation of concerns 4. state managment discipline 5.Performance Consciousness
 code quality 8. optimization 9. maintainablity 10. file and folder strcuture 11. and all other things
 which you think are important for me as preparation for interview 12. give me suggestions to imropve
 but only one suggestion at once
+
+
+and one more thing explain me the things in depth as much as 
+needed for senoir front end engineer

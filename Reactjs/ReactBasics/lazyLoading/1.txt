@@ -1,0 +1,42 @@
+Mastering React Lazy Functions - Step 1
+Step 1: What is React.lazy() and Why Use It?
+React.lazy() lets you load components only when they're actually needed, instead of 
+loading everything when your app first starts.
+
+The Problem It Solves:
+javascript
+// Without lazy loading - ALL components load immediately
+import Dashboard from './Dashboard';  // 50kb
+import Reports from './Reports';      // 30kb  
+import Settings from './Settings';    // 20kb
+
+// Your app bundle: 100kb+ right away
+The Solution:
+javascript
+import { lazy } from 'react';
+
+// Only load when actually rendered
+const Dashboard = lazy(() => import('./Dashboard'));
+Basic Example:
+javascript
+import React, { lazy, useState } from 'react';
+
+const HeavyComponent = lazy(() => import('./HeavyComponent'));
+
+function App() {
+  const [show, setShow] = useState(false);
+  
+  return (
+    <div>
+      <button onClick={() => setShow(true)}>
+        Load Heavy Component
+      </button>
+      
+      {/* This component only downloads when show becomes true */}
+      {show && <HeavyComponent />}
+    </div>
+  );
+}
+Key Point: The component file (HeavyComponent.js) won't be downloaded from the server 
+until someone clicks the button and show becomes true.
+

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import useFilter from './useFilter';
 import { useStateProvider } from '../context/dataContext';
-import { calculateSliderPositionFromPrice, handleKeyDownDotOneHelper, handleKeyDownDotTwoHelper, setpercentageMoveDotOne, setDotPositionTwo } from '../helpers/helpers';
+import { calculateSliderPositionFromPrice, handleKeyDownDotOneHelper, handleKeyDownDotTwoHelper, setDotPositionOne, setDotPositionTwo } from '../helpers/helpers';
 function useSlider() {
     const sliderRangeRef = useRef(null);
     const { handlePriceRange } = useFilter();
@@ -13,7 +13,7 @@ function useSlider() {
     const [percentageMoveDotOne, setpercentageMoveDotOne] = useState(calculateSliderPositionFromPrice(priceRange[0]));
     const [percentageMoveDotTwo, setpercentageMoveDotTwo] = useState(calculateSliderPositionFromPrice(priceRange[1]));
     const mouseMoveHandlerOne = (e) => {
-        setpercentageMoveDotOne(debounceSlider, e.clientX, Math.floor(sliderRangeRef.current.getBoundingClientRect().left), sliderRangeRef.current.getBoundingClientRect().right, setpercentageMoveDotOne, dotTwo.current.getBoundingClientRect().left, handlePriceRange, priceRangeRef.current)
+        setDotPositionOne(debounceSlider, e.clientX, Math.floor(sliderRangeRef.current.getBoundingClientRect().left), sliderRangeRef.current.getBoundingClientRect().right, setpercentageMoveDotOne, dotTwo.current.getBoundingClientRect().left, handlePriceRange, priceRangeRef.current)
     }
     const mouseDownEventHandlerOne = (e) => {
         document.addEventListener('mousemove', mouseMoveHandlerOne)

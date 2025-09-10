@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useReducer, useMemo } from 'react'
 import { createContext } from 'react'
 import { initialState } from '../reducer/initialState.js';
-import reducer from '../reducer/productsReducer';
-import { ALL_FILTERS } from '../constants/filtersConstant';
+import reducer from '../reducer/productsReducer.js';
+import { ALL_FILTERS } from '../constants/filtersConstant.js';
 const StateContext = createContext();
 const DispatchContext = createContext();
-import useUrlOperations from '../hooks/useUpdateUrl';
-import { filterProducts } from '../utils/productUtils';
+import useUrlOperations from '../hooks/useUpdateUrl.js';
+import { filterProducts } from '../utils/productUtils.js';
 function ProductProivder({ children }) {
     const { convertParamstoFilter, convertFiltertoParams } = useUrlOperations()
     const newFilters = useMemo(() => convertParamstoFilter(initialState.filters), []);
