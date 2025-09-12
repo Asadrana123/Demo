@@ -1,6 +1,6 @@
 import { data } from "../data/data.js";
 import { MAX_PRICE } from "../constants/filtersConstant.js";
-import { sliderDebounceTime } from "../constants/sliderConstant";
+import { DEBOUNCE_TIMES } from "../constants/appConstants.js";
 export const calculatePriceFromSliderPosition = (percentageValue) => {
     percentageValue = Math.floor(percentageValue);
     const value = Math.floor((MAX_PRICE) * percentageValue / 100);
@@ -32,7 +32,7 @@ export const setDotPositionOne = (debounceSlider, mouseX, intialPointX, endPoint
             clearTimeout(debounceSlider.current);
             debounceSlider.current = setTimeout(() => {
                 handlePriceRange([calculatePriceFromSliderPosition(position), priceRange[1]]);
-            }, sliderDebounceTime)
+            }, DEBOUNCE_TIMES.SLIDER)
         }
     }
 }
@@ -46,7 +46,7 @@ export const setDotPositionTwo = (debounceSlider, mouseX, intialPointX, endPoint
             clearTimeout(debounceSlider.current);
             debounceSlider.current = setTimeout(() => {
                 handlePriceRange([priceRange[0], calculatePriceFromSliderPosition(position)]);
-            }, sliderDebounceTime)
+            }, DEBOUNCE_TIMES.SLIDER)
         }
     }
 }
@@ -79,7 +79,7 @@ export const handleKeyDownDotOneHelper = (
     clearTimeout(debounceSlider.current);
     debounceSlider.current = setTimeout(() => {
         handlePriceRange([calculatePriceFromSliderPosition(newPosition), priceRange[1]]);
-    }, sliderDebounceTime);
+    }, DEBOUNCE_TIMES.SLIDER);
 };
 
 export const handleKeyDownDotTwoHelper = (
@@ -109,7 +109,7 @@ export const handleKeyDownDotTwoHelper = (
     clearTimeout(debounceSlider.current);
     debounceSlider.current = setTimeout(() => {
         handlePriceRange([priceRange[0], calculatePriceFromSliderPosition(newPosition)]);
-    }, sliderDebounceTime);
+    }, DEBOUNCE_TIMES.SLIDER);
 };
 
 

@@ -1,33 +1,48 @@
 import React, { useEffect, useState } from 'react'
-import { useStateProvider } from '../context/dataContext';
-import { NO_OF_PRODUCTS_PER_PAGE } from '../constants/productConstants';
+import { useFilteredProductsProvider } from '../context/dataContext';
+import { PAGINATION } from '../constants/appConstants';
 import './CardsContainer.css'
 import ProductCard from './ProductCard';
 function CardsContainer() {
-    const { state: { filteredProducts } } = useStateProvider();
-    const [pageNumber, setPageNumber] = useState(0);
+    const filteredProducts = useFilteredProductsProvider();
+    if (!filteredProducts || !Array.isArray(filteredProducts)) {
+        return <div className="error-state">Unable to load products. Please refresh the page.</div>;
+    }
+    console.log('in cards container');
+    const [pageNumber, setPageNumber] = useState(PAGINATION.INITIAL_PAGE);
     useEffect(() => {
-        setPageNumber(0)
+        setPageNumber(PAGINATION.INITIAL_PAGE)
     }, [filteredProducts])
     const totalProducts = filteredProducts.length;
     const calculateStartIndex = () => {
         const safePageNumber = Number.isFinite(pageNumber) && pageNumber >= 0 ? pageNumber : 0;
-        return safePageNumber * NO_OF_PRODUCTS_PER_PAGE;
+        return safePageNumber * PAGINATION.PRODUCTS_PER_PAGE;
     };
     const calculateEndIndex = () => {
         const safePageNumber = Number.isFinite(pageNumber) && pageNumber >= 0 ? pageNumber : 0;
-        return safePageNumber * NO_OF_PRODUCTS_PER_PAGE + NO_OF_PRODUCTS_PER_PAGE;
+        return safePageNumber * PAGINATION.PRODUCTS_PER_PAGE + PAGINATION.PRODUCTS_PER_PAGE;
     };
 
     const calculateNumberOfPage = () => {
         if (!Number.isFinite(totalProducts) || totalProducts <= 0) return 0;
-        return Math.ceil(totalProducts / NO_OF_PRODUCTS_PER_PAGE);
+        return Math.ceil(totalProducts / PAGINATION.PRODUCTS_PER_PAGE);
     };
+
     return (
         <>
             <div className='cards-container'>
                 {filteredProducts.slice(calculateStartIndex(), calculateEndIndex())?.map((product) => {
-                    return <ProductCard key={product.id} product={product} />
+                    return <ProductCard
+                        key={product.id}
+                        isNew={product.isNew}
+                        image={product.image}
+                        name={product.name}
+                        brand={product.brand}
+                        price={product.price}
+                        originalPrice={product.originalPrice}
+                        discount={product.discount}
+                        rating={product.rating}
+                    />
                 })}
             </div>
             {totalProducts === 0 &&

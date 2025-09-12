@@ -1,11 +1,10 @@
-import { useDispatchProvider } from '../context/dataContext';
 import { DISCOUNT, RESET, SORT, PRICE_RANGE } from '../constants/filtersConstant';
 import { useCallback, useState } from 'react';
-import { useStateProvider } from '../context/dataContext';
+import { useFilterProvider, useDispatchProvider } from '../context/dataContext';
 import useWindowSize from './useWindowSize';
 function useFilter() {
    const dispatch = useDispatchProvider();
-   const { state: { filters, filteredProducts } } = useStateProvider();
+   const { filters } = useFilterProvider();
    const width = useWindowSize();
    const [openDropdown, setOpenSetDropdown] = useState('none');
    const handleFilterClick = useCallback((name) => {
@@ -41,7 +40,7 @@ function useFilter() {
       },
       []
    );
-   return { handlePriceRange, handleDiscount, handleReset, handleSelectSortContent, openDropdown, handleFilterClick, handleFilterSelect,width,filters,totalProducts:filteredProducts.length }
+   return { handlePriceRange, handleDiscount, handleReset, handleSelectSortContent, openDropdown, handleFilterClick, handleFilterSelect, width, filters }
 }
 
 export default useFilter

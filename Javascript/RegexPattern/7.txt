@@ -1,0 +1,29 @@
+// Step 7 — Escaping special characters with backslash \
+
+// 1. Dot (.) normally matches any character
+console.log(/./.test("."));        // true → matches anything, including "."
+console.log(/\./.test("."));       // true → matches literal dot
+console.log(/\./.test("a"));       // false → only matches "."
+
+// 2. Plus (+) normally means "one or more"
+console.log(/a+/.test("aa"));      // true → one or more 'a's
+console.log(/\+/.test("a+b"));     // true → literal '+'
+
+// 3. Question mark (?) normally means "zero or one"
+console.log(/a?/.test("a"));       // true → zero or one 'a'
+console.log(/\?/.test("a?b"));     // true → literal '?'
+
+// 4. Other common escaped symbols
+console.log(/\*/.test("5*3"));     // true → literal '*'
+console.log(/\^/.test("^start"));  // true → literal '^'
+console.log(/\$/.test("end$"));    // true → literal '$'
+
+// 5. Backslash itself
+console.log(/\\/ .test("\\"));     // true → match single backslash
+console.log(/\\/ .test("/"));      // false → forward slash not matched
+
+// --- Practice ---
+console.log(/\./.test("1.2"));     // true → literal dot
+console.log(/\+/.test("3+2"));     // true → literal plus
+console.log(/\?/.test("what?"));   // true → literal question mark
+console.log(/\\/.test("C:\\Windows")) // true → literal backslash

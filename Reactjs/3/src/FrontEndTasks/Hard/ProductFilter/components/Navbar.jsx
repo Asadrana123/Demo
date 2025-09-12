@@ -3,8 +3,9 @@ import './Navbar.css'
 import { Search, Menu,X } from "lucide-react";
 import useSearch from '../hooks/useSearch';
 import useWindowSize from '../hooks/useWindowSize';
+import { DEBOUNCE_TIMES } from '../constants/appConstants';
 function Navbar({ setSmallFiltersVisible, smallFiltersVisible }) {
-    const { searchTerm, handleSearch } = useSearch();
+    const { searchTerm, handleSearch } = useSearch(DEBOUNCE_TIMES.SEARCH);
     const width = useWindowSize();
     return (
         <div className='navbar-container'>

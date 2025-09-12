@@ -1,0 +1,33 @@
+// Step 5 — Predefined character classes
+
+// 1. \d → matches any digit [0-9]
+console.log(/\d/.test("123"));       // true → contains digits
+console.log(/\d/.test("abc"));       // false → no digits
+
+// 2. \D → matches any non-digit [^0-9]
+console.log(/\D/.test("123"));       // false → all digits
+console.log(/\D/.test("abc"));       // true → contains non-digits
+
+// 3. \w → matches any word character [a-zA-Z0-9_]
+console.log(/\w/.test("hello"));     // true → letters are word chars
+console.log(/\w/.test("123"));       // true → numbers are word chars
+console.log(/\w/.test("@#$"));       // false → symbols are NOT word chars
+
+// 4. \W → matches any non-word character [^a-zA-Z0-9_]
+console.log(/\W/.test("@#$"));       // true → symbols
+console.log(/\W/.test("hello"));     // false → letters are word chars
+
+// 5. \s → matches any whitespace (space, tab, newline)
+console.log(/\s/.test(" "));         // true
+console.log(/\s/.test("\t"));        // true
+console.log(/\s/.test("a"));         // false
+
+// 6. \S → matches any non-whitespace
+console.log(/\S/.test(" "));         // false
+console.log(/\S/.test("a"));         // true
+
+// --- Practice ---
+console.log(/\d/.test("Room 42"));   // true → contains digits
+console.log(/\w/.test("!@#"));       // false → only symbols
+console.log(/\s/.test("Hello World"));// true → space exists
+console.log(/\W/.test("Hello!"));    // true → '!' is non-word

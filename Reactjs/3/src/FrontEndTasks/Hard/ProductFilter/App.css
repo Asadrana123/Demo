@@ -1,3 +1,37 @@
+/* Create src/styles/variables.css */
+:root {
+  /* Spacing System */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px; 
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 30px;
+  --spacing-3xl: 32px;
+
+  /* Component Sizes */
+  --card-min-width: 180px;
+  --card-max-width: 230px;
+  --filter-padding: 10px;
+  --border-radius: 5px;
+  --navbar-padding: 12px 24px;
+
+  /* Shadows */
+  --shadow-light: 2px 4px 10px 0 rgba(0, 0, 0, 0.2);
+  --shadow-heavy: 8px 8px 10px rgba(0, 0, 0, 0.5);
+  --shadow-glass: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* Colors */
+  --border-color: rgb(212, 204, 204);
+  --bg-glass: rgba(255, 255, 255, 0.6);
+  --text-orange: rgb(235, 127, 39);
+
+  /* Breakpoints */
+  --mobile: 768px;
+  --tablet: 1000px;
+  --desktop: 1180px;
+}
+
 * {
     box-sizing: border-box;
 }

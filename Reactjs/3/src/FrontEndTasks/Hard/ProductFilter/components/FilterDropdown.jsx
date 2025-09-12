@@ -1,7 +1,9 @@
 import React from 'react'
 import { useCallback } from 'react';
 import './FilterDropDown.css'
-function FilterDropdown({ filterName, filterList, openDropdown, handleFilterSelect, handleFilterClick, currentFilters }) {
+import useFilter from '../hooks/useFilter';
+function FilterDropdown({ filterName, filterList, currentFilters }) {
+    const { openDropdown, handleFilterSelect, handleFilterClick } = useFilter();
     const handleFilterItemClick = useCallback((e) => {
         e.stopPropagation();
         handleFilterSelect(filterName.toUpperCase(), e.target.innerText)

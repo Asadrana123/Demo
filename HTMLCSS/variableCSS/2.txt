@@ -1,0 +1,27 @@
+# Example: Local CSS Variable
+
+/* Global variable defined in :root */
+:root {
+  --primary-color: blue;
+}
+
+/* Local variable inside a section */
+.section {
+  --primary-color: red; /*  Overrides global variable locally */
+  padding: 20px;
+}
+
+.section h1 {
+  color: var(--primary-color); /* Uses red (local) */
+}
+
+.other-section h1 {
+  color: var(--primary-color); /* Uses blue (global) */
+}
+
+
+
+Example of runtime change:
+
+document.documentElement.style.setProperty('--primary-color', 'green');
+This immediately updates all elements using var(--primary-color) without needing to rebuild CSS.

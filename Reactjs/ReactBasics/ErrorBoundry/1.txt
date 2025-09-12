@@ -1,0 +1,33 @@
+# Step 1: What is an Error Boundary in React
+
+- Definition:
+  An Error Boundary is a React component that catches JavaScript errors anywhere in its child 
+  component tree, logs those errors, and displays a fallback UI instead of crashing the whole app.
+
+- Key points:
+  1. Only works for class components (as of React 18).
+  2. Catches errors in:
+     - Rendering
+     - Lifecycle methods
+     - Constructors of child components
+  3. Does NOT catch:
+     - Event handlers
+     - Asynchronous code like setTimeout or Promises (unless wrapped in try/catch)
+     - Server-side rendering errors
+
+- Why we need it:
+  Without Error Boundaries, any runtime error in a component tree crashes the entire React app.
+
+- Example:
+function Buggy() {
+  throw new Error("I crashed!");
+  return <div>Hello</div>;
+}
+
+- Without an Error Boundary → whole app crashes.
+- With an Error Boundary → only this component’s UI is replaced by a fallback UI.
+
+- Summary:
+  - Error Boundary = safety net for component tree.
+  - Only works in class components.
+  - Protects UI from crashing completely.

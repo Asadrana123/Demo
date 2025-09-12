@@ -1,0 +1,29 @@
+// Step 6 — Grouping () and alternation |
+
+// 1. Grouping with parentheses ()
+// Groups part of a pattern together, so you can apply quantifiers or extract matches
+console.log(/(ab)+/.test("ab"));       // true → 'ab' once
+console.log(/(ab)+/.test("abab"));     // true → 'ab' repeated
+console.log(/(ab)+/.test("aca"));      // false → incomplete 'ab'
+
+// 2. Alternation | → "or" operator
+console.log(/cat|dog/.test("I have a dog"));    // true → matches 'dog'
+console.log(/cat|dog/.test("I have a cat"));    // true → matches 'cat'
+console.log(/cat|dog/.test("I have a fish"));   // false → neither
+
+// 3. Combining groups and alternation
+console.log(/I (like|love) JavaScript/.test("I love JavaScript"));  // true
+console.log(/I (like|love) JavaScript/.test("I like JavaScript"));  // true
+console.log(/I (like|love) JavaScript/.test("I hate JavaScript"));  // false
+
+// 4. Capturing groups — extract matched text
+const match = /I (like|love) JavaScript/.exec("I love JavaScript");
+console.log(match[0]); // "I love JavaScript" → full match
+console.log(match[1]); // "love" → captured group
+
+// --- Practice ---
+console.log(/apple|orange/.test("I like apple"));       // true → 'apple'
+console.log(/apple|orange/.test("I like grapes"));      // false → neither
+console.log(/go(d|t)/.test("got"));                     // true → matches 'got'
+console.log(/go(d|t)/.test("god"));                     // true → matches 'god'
+console.log(/go(d|t)/.test("gop"));                     // false → doesn't match

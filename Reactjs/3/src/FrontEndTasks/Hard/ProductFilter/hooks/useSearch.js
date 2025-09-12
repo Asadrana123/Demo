@@ -9,11 +9,13 @@ function useSearch(debounceTime = 300) {
         e.preventDefault()
         setSearchTerm(e.target.value);
         if (!e.target.value.trim()) {
+            console.log('in empty');
             dispatch({ type: ALL_FILTERS })
             return;
         }
         clearTimeout(timeOutId.current);
         timeOutId.current = setTimeout(() => {
+            console.log('in non empty')
             dispatch({ type: SEARCH, payload: { searchTerm: e.target.value.trim() } })
         }, debounceTime)
     }, [])

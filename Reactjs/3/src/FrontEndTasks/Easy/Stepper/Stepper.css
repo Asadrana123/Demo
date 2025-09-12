@@ -1,0 +1,156 @@
+.stepper-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.stepper-container h1 {
+  color: #333;
+  margin-bottom: 40px;
+  font-size: 32px;
+}
+
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.step-circle.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.step-title {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.step-line {
+  position: absolute;
+  top: 20px;
+  left: 60%;
+  width: 80%;
+  height: 2px;
+  background-color: #e0e0e0;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.step-line.completed {
+  background-color: #007bff;
+}
+
+.step-container:last-child .step-line {
+  display: none;
+}
+
+.step-description {
+  font-size: 18px;
+  color: #333;
+  margin: 30px 0;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.btn.previous {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn.next {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .stepper-container {
+    padding: 20px;
+  }
+  
+  .stepper {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .step-container {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+  
+  .step-line {
+    display: none;
+  }
+  
+  .step-title {
+    margin-top: 0;
+  }
+  
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

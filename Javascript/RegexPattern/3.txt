@@ -1,0 +1,24 @@
+// Step 3 — Character sets [ ... ] (matching one character from a set)
+
+// 1. Basic character set
+console.log(/[aeiou]/.test("cat"));     // true → 'a' is a vowel
+console.log(/[aeiou]/.test("sky"));     // false → no vowels
+
+// 2. Character range
+console.log(/[a-z]/.test("Cat"));       // true → 'a' is between a-z
+console.log(/[A-Z]/.test("Cat"));       // true → 'C' is between A-Z
+console.log(/[0-9]/.test("Room 42"));   // true → '4' is a number
+
+// 3. Negated character set [^ ... ]
+console.log(/[^aeiou]/.test("cat"));    // true → 'c' is NOT a vowel
+console.log(/[^0-9]/.test("42"));       // false → all are digits
+
+// 4. Combine ranges and literals
+console.log(/[a-zA-Z0-9]/.test("@"));   // false → @ is not a letter or number
+console.log(/[a-zA-Z0-9@]/.test("@"));  // true → @ is allowed now
+
+// --- Practice ---
+console.log(/[aeiou]/.test("hello"));    // true → has vowels
+console.log(/[^aeiou]/.test("sky"));     // true → 's' is consonant
+console.log(/[0-9]/.test("abc123"));     // true → contains digits
+console.log(/[A-Z]/.test("javascript")); // false → no uppercase letters

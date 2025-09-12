@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react'
 import useFilter from './useFilter';
-import { useStateProvider } from '../context/dataContext';
+import { useFilterProvider } from '../context/dataContext';
 import { calculateSliderPositionFromPrice, handleKeyDownDotOneHelper, handleKeyDownDotTwoHelper, setDotPositionOne, setDotPositionTwo } from '../helpers/helpers';
 function useSlider() {
     const sliderRangeRef = useRef(null);
     const { handlePriceRange } = useFilter();
-    const { state: { filters: { priceRange }, isReset } } = useStateProvider();
+    const { filters: { priceRange }, isReset  } = useFilterProvider();
     const dotOne = useRef(null);
     const dotTwo = useRef(null);
     const priceRangeRef = useRef(priceRange)

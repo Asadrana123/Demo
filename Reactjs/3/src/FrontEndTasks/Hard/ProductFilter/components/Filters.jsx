@@ -5,12 +5,13 @@ import { sortByContent } from '../constants/filtersConstant';
 import useFilter from '../hooks/useFilter';
 import Slider from './Slider';
 import FilterDropdown from './FilterDropdown';
+import { useFilteredProductsProvider } from '../context/dataContext';
 function Filters({ smallFiltersVisible }) {
-    const { handleDiscount, handleReset, handleSelectSortContent, handleFilterClick, openDropdown, handleFilterSelect,width,filters,totalProducts } = useFilter();
+    const { handleDiscount, handleReset, handleSelectSortContent, width, filters, openDropdown, handleFilterClick } = useFilter();
     return (
         <div style={{ transform: smallFiltersVisible ? 'translateX(0%)' : width <= 1180 ? 'translateX(-110%)' : '' }} className='filters-container'>
-            <FilterDropdown currentFilters={filters?.brands} filterName='Brands' filterList={brands} handleFilterClick={handleFilterClick} openDropdown={openDropdown} handleFilterSelect={handleFilterSelect} />
-            <FilterDropdown currentFilters={filters?.categories} filterName='Categories' filterList={categories} handleFilterClick={handleFilterClick} openDropdown={openDropdown} handleFilterSelect={handleFilterSelect} />
+            <FilterDropdown currentFilters={filters?.brands} filterName='Brands' filterList={brands} />
+            <FilterDropdown currentFilters={filters?.categories} filterName='Categories' filterList={categories} />
             <div className='filter'>
                 <Slider />
             </div>
@@ -24,22 +25,25 @@ function Filters({ smallFiltersVisible }) {
                 Sort
                 <div style={{ display: openDropdown === 'sort-by' ? '' : 'none' }} className='dropdown'>
                     {sortByContent?.map((sortContent, index) => {
-                        return <div style={{ backgroundColor: filters.sortBy === sortContent ? "#d9e5fc" : "" }} onClick={(e) => {
-                            e.stopPropagation();
-                            handleSelectSortContent(sortContent)
-                        }} className='filter-item' key={index} >{sortContent}</div>
+                        return <div style={{ backgroundColor: filters.sortBy === sortContent ? "#d9e5fc" : "" }}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleSelectSortContent(sortContent)
+                            }} className='filter-item' key={index} >{sortContent}</div>
                     })}
                 </div>
             </div>
-            <div className='filter'>
-                No. of Products: {totalProducts}
-            </div>
-
+            <NumberOfProducts />
             <div onClick={handleReset} className='filter'>
                 Reset
             </div>
         </div >
     )
+}
+
+const NumberOfProducts = () => {
+    const filteredProducts = useFilteredProductsProvider();
+    return <div className='filter'>No. of Products: {filteredProducts.length}</div>
 }
 
 export default Filters

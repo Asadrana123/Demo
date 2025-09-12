@@ -2,26 +2,34 @@
     position: sticky;
     top: 100px;
     z-index: 1000;
-    margin-top: 20px;
+    margin-top: var(--spacing-xl);
+    /* was 20px */
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 20px;
-    box-shadow: 0 4px 12px #0000001a;
+    gap: var(--spacing-xl);
+    /* was 20px */
+    box-shadow: var(--shadow-glass);
+    /* was 0 4px 12px #0000001a */
     padding: 27px 21px 22px;
-    background: rgba(255, 255, 255, 0.6);
-    /* semi-transparent */
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+    /* Keep as is - specific design */
+    background: var(--bg-glass);
+    /* was rgba(255, 255, 255, 0.6) */
+    backdrop-filter: blur(var(--spacing-md));
+    /* was blur(10px) */
 }
 
 .filter {
     position: relative;
-    font-size: 16px;
+    font-size: var(--spacing-lg);
+    /* was 16px */
     font-weight: bold;
-    padding: 10px;
-    border: 1px solid rgb(212, 204, 204);
-    border-radius: 5px;
+    padding: var(--filter-padding);
+    /* was 10px */
+    border: 1px solid var(--border-color);
+    /* was rgb(212, 204, 204) */
+    border-radius: var(--border-radius);
+    /* was 5px */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,41 +58,42 @@ input {
 }
 
 
-
 .dropdown {
     position: absolute;
     top: 50px;
-    left: 20px;
+    left: var(--spacing-xl);
+    /* was 20px */
     width: 200px;
     max-height: 300px;
-    padding: 10px 10px;
+    padding: var(--filter-padding);
+    /* was 10px 10px */
     overflow-y: auto;
-    overflow-x: hidden;
     background-color: white;
     z-index: 1000;
-    box-shadow: 0 4px 12px #0000001a;
+    box-shadow: var(--shadow-glass);
+    /* was 0 4px 12px #0000001a */
 }
 
 .filter-item {
-    padding: 5px 5px;
-    margin: 5px auto;
-    font-size: 14px;
-    font-weight: bold;
-    transition: background-color .1s ease-in-out;
+  padding: var(--spacing-sm); /* was 5px 5px */
+  margin: var(--spacing-sm) auto; /* was 5px auto */
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color .1s ease-in-out;
 }
+
 
 .filter-item:hover {
     background-color: aliceblue;
 }
 
-@media screen and (max-width:1180px) {
-    .filters-container {
-        flex-direction: column;
-        align-items: flex-start;
-        position: fixed;
-        width: 100%;
-        transform: translateX(-110%);
-        transition: transform .3s ease-in-out;
-    }
-
+@media screen and (max-width: 1180px) {
+  .filters-container {
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    width: 100%;
+    transform: translateX(-110%);
+    transition: transform .3s ease-in-out;
+  }
 }

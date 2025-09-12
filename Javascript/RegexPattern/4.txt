@@ -1,0 +1,29 @@
+// Step 4 — Quantifiers (*, +, ?, {n}, {n,}, {n,m})
+
+// 1. Asterisk (*) → zero or more times
+console.log(/a*/.test(""));        // true → zero 'a's is ok
+console.log(/a*/.test("aaa"));     // true → 'a' repeated 3 times
+console.log(/a*/.test("b"));       // true → zero 'a's before 'b'
+
+// 2. Plus (+) → one or more times
+console.log(/a+/.test(""));        // false → needs at least 1 'a'
+console.log(/a+/.test("aaa"));     // true
+console.log(/a+/.test("b"));       // false → no 'a'
+
+// 3. Question mark (?) → zero or one time
+console.log(/a?/.test(""));        // true → zero 'a's is ok
+console.log(/a?/.test("a"));       // true → one 'a'
+console.log(/a?/.test("aa"));      // true → matches only the first 'a'
+
+// 4. Curly braces {n}, {n,}, {n,m} → exact or range
+console.log(/a{3}/.test("aaa"));    // true → exactly 3 'a's
+console.log(/a{3}/.test("aa"));     // false → needs 3
+console.log(/a{2,}/.test("aaaa"));  // true → 2 or more
+console.log(/a{2,4}/.test("aaa"));  // true → between 2 and 4
+
+// --- Practice ---
+console.log(/b*/.test("bbbbb"));    // true → zero or more 'b's
+console.log(/b+/.test(""));         // false → at least 1 'b'
+console.log(/b?/.test("b"));        // true → zero or one 'b'
+console.log(/b{2,3}/.test("bbb"));  // true → 2 to 3 'b's
+console.log(/b{2,3}/.test("b"));    // false → not enough 'b's

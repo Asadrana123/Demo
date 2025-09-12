@@ -1,0 +1,24 @@
+Step 1(b) — What are flags in regex?
+
+When you write a regex in JavaScript, the basic shape is:
+
+/pattern/flags
+
+pattern = the rules for what text you want to match
+flags = little switches you can turn on/off to change how the regex behaves
+Think of flags like extra options.
+
+The most common flags you’ll see as a front-end developer
+
+g — global
+Without g, regex stops after the first match.
+With g, regex finds all matches.
+
+'hello hello'.match(/hello/)     // ["hello"]
+'hello hello'.match(/hello/g)    // ["hello", "hello"]
+
+i — case insensitive
+Makes regex ignore whether letters are uppercase or lowercase.
+
+/hello/.test('Hello')      // false
+/hello/i.test('Hello')     // true

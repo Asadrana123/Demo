@@ -1,0 +1,20 @@
+// Step 2 — Basic special symbols in regex
+
+// 1. Dot (.) → matches any single character (except newline)
+console.log(/.at/.test("cat"));   // true → "c" + "at"
+console.log(/.at/.test("hat"));   // true → "h" + "at"
+console.log(/.at/.test("at"));    // false → needs one char before "at"
+
+// 2. Caret (^) → matches only at the START of the string
+console.log(/^hello/.test("hello world")); // true → starts with "hello"
+console.log(/^hello/.test("say hello"));   // false → doesn't start with "hello"
+
+// 3. Dollar sign ($) → matches only at the END of the string
+console.log(/world$/.test("hello world")); // true → ends with "world"
+console.log(/world$/.test("worldwide"));   // false → not at the end
+
+// --- Practice ---
+console.log(/^cat/.test("catnap"));  // true → starts with "cat"
+console.log(/dog$/.test("hotdog"));  // true → ends with "dog"
+console.log(/.../.test("sun"));      // true → 3 chars total
+console.log(/.../.test("go"));       // false → only 2 chars

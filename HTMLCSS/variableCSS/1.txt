@@ -1,0 +1,33 @@
+# Step 1: What is a CSS Variable?
+
+- Definition:
+  A CSS Variable (CSS Custom Property) is a value defined once and reused throughout 
+  your stylesheet.
+  - Syntax: --variable-name: value;
+  - Access with var(--variable-name).
+
+- Example:
+:root {
+  --main-color: #3498db;
+  --padding: 16px;
+}
+
+.button {
+  background-color: var(--main-color);
+  padding: var(--padding);
+}
+
+- Key Points:
+  1. Variables start with '--'.
+  2. Typically defined in :root to make them global.
+  3. Can be overridden in specific selectors for scoped values.
+
+- Benefits:
+  - Centralized control over values like colors, spacing, fonts.
+  - Makes themes and dynamic styling easier.
+  - Reduces repetition in CSS.
+
+- Summary:
+  - CSS Variables = reusable values in CSS.
+  - Defined with --name and accessed with var(--name).
+  - Can be global (:root) or local (inside a selector).
