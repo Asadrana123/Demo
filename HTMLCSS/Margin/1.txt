@@ -1,0 +1,19 @@
+/* Margin Collapsing - Point to Point */
+
+/* Rules */
+1. Only vertical margins collapse (margin-top, margin-bottom).
+2. When two vertical margins meet, the larger one wins (they don’t add).
+3. Cases:
+   - Adjacent siblings → gap = larger margin.
+   - Parent & first/last child → child’s margin can escape parent.
+   - Empty blocks → top & bottom margins collapse together.
+
+/* Example */
+div + div { margin-top: 20px; }
+div { margin-bottom: 30px; }
+/* Gap = 30px, not 50px */
+
+/* How to Prevent */
+- Add padding or border to parent
+- Use overflow: auto | hidden on parent
+- Use display: flex or grid (no collapsing)

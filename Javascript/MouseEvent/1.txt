@@ -1,0 +1,21 @@
+// Mouse Event Position Properties
+
+// Relative to the viewport (browser window)
+event.clientX   // X coordinate
+event.clientY   // Y coordinate
+
+// Relative to the entire document (includes scroll)
+event.pageX     // X coordinate
+event.pageY     // Y coordinate
+
+// Relative to the screen (monitor)
+event.screenX   // X coordinate
+event.screenY   // Y coordinate
+
+// Relative to the event target element
+event.offsetX   // X coordinate
+event.offsetY   // Y coordinate
+
+// Relative to last mouse event position (movement only)
+event.movementX // Difference in X
+event.movementY // Difference in Y

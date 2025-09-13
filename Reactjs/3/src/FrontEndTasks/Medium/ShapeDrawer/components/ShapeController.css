@@ -1,0 +1,13 @@
+.shape-controller {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.shape-controller div {
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,17 @@
+.shape-container {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    height: 80vh;
+    border: 3px solid red;
+    overflow: hidden;
+}
+
+.shape-container div {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: blue;
+    transform: translate(-50%,-50%);
+}

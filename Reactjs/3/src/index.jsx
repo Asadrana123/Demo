@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./FrontEndTasks/Medium/PasswordStrength/App";
+import App from "./FrontEndTasks/Medium/ShapeDrawer/App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <App/>

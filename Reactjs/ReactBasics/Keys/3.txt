@@ -1,0 +1,37 @@
+🚫 Bad Key Examples in React
+
+1. Using array index as key
+{items.map((item, index) => (
+  <li key={index}>{item.name}</li>
+))}
+❌ Bad because if list order changes (insert/delete), index changes → React mismatches items → causes bugs (like losing input state).
+
+---
+
+2. Using non-unique values
+{users.map(user => (
+  <li key={user.role}>{user.name}</li>
+))}
+❌ Bad because multiple items can have the same role → keys must be unique. React won’t know which element is which.
+
+---
+
+3. Using random values (Math.random or Date.now)
+{items.map(item => (
+  <li key={Math.random()}>{item.name}</li>
+))}
+❌ Bad because a new key is generated every render → React thinks all items are new → destroys & recreates DOM nodes → poor performance + state loss.
+
+---
+
+4. Using mutable/changing properties
+{products.map(product => (
+  <li key={product.indexThatMightChange}>{product.name}</li>
+))}
+❌ Bad because if that property changes between renders, React treats it as a different node → causes re-rendering issues.
+
+---
+
+✅ Rule of Thumb:
+- Keys must be UNIQUE + STABLE across renders.
+- Best choice → use a unique id from your data (e.g., `item.id`).

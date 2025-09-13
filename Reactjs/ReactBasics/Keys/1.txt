@@ -1,0 +1,34 @@
+/*---------------------
+Keys decide DOM node reuse. React still updates children/props of that node if they are different.
+*----------------------/
+
+Learning React Key Props - Step by Step
+Step 1: What Are Key Props and Why Do They Exist?
+Let's start with the fundamentals. Key props are special attributes in React 
+that help React identify which items have changed, been added, or removed when
+ working with lists of elements.
+
+The Simple Explanation
+Think of key props like name tags at a party. When people arrive or leave the party, 
+you can quickly identify who's new, who left, and who's still there by looking at their name tags. 
+Without name tags, you'd have to check everyone's face individually, which takes much longer.
+
+Why React Needs Keys
+When React renders a list of elements, it needs to figure out:
+
+Which items are new?
+
+Which items were removed?
+
+Which items just moved to a different position?
+
+Which items stayed the same but their content changed?
+
+Without keys, React has to guess, and it often guesses wrong, leading to:
+
+Performance issues (unnecessary re-renders)
+
+Bugs (wrong components getting updated)
+
+Lost component state (input fields losing focus, form data disappearing)
+
