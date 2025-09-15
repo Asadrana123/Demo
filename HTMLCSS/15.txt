@@ -1,0 +1,30 @@
+CSS Transition Property
+
+/* TRANSITION PROPERTY */
+- Enables smooth changes of CSS properties over time.
+- Triggered when a property value changes (e.g., on hover or JavaScript update).
+- Syntax: `transition: [property] [duration] [timing-function] [delay];`
+
+Example:
+button {
+  transition: background-color 0.3s ease-in-out 0s;
+}
+
+button:hover {
+  background-color: red;
+}
+
+Explanation of each part:
+
+| Part            | Purpose                                            |
+|-----------------|---------------------------------------------------|
+| property        | CSS property to animate (e.g., `width`, `all`)   |
+| duration        | How long the transition takes (e.g., `0.5s`)     |
+| timing-function | Speed curve of the animation (e.g., `ease`, `linear`, `cubic-bezier(...)`) |
+| delay           | Time to wait before animation starts (e.g., `0s`)|
+
+Important notes:
+- Can animate multiple properties separated by commas.
+- Default values if omitted:  
+  `property: all`, `duration: 0s` (no animation), `timing-function: ease`, `delay: 0s`
+- Does not work on all CSS properties (e.g., `display` cannot be transitioned).

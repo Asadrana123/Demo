@@ -1,0 +1,45 @@
+------------------------------------------------------------
+|      PROPERTY      |            DESCRIPTION              |
+------------------------------------------------------------
+| transform          | - Applies visual transformations    |
+|                    |   like rotate, scale, translate,    |
+|                    |   skew directly to an element.      |
+|                    | - Has immediate effect unless       |
+|                    |   combined with transition/animation|
+|                    | - Syntax:                          |
+|                    |   transform: rotate(45deg);         |
+------------------------------------------------------------
+| transition         | - Animates property changes         |
+|                    |   smoothly over time.               |
+|                    | - Requires a trigger (e.g., hover,  |
+|                    |   class change).                    |
+|                    | - Can't repeat automatically.       |
+|                    | - Syntax:                          |
+|                    |   transition: transform 0.5s ease;  |
+------------------------------------------------------------
+| animation          | - Keyframe-based animation over time|
+|                    | - Can loop, pause, reverse, delay.  |
+|                    | - Does not need user interaction.   |
+|                    | - More control than transition.     |
+|                    | - Syntax:                          |
+|                    |   animation: moveBox 2s infinite;   |
+|                    |   @keyframes moveBox {              |
+|                    |     from { transform: translateX(0); }|
+|                    |     to { transform: translateX(100px); }|
+|                    |   }                                 |
+------------------------------------------------------------
+
+# Summary:
+- transform: Defines the change.
+- transition: Animates the change on trigger.
+- animation: Runs keyframed sequences automatically.
+
+
+position:absolute:
+top: 50%; and left: 50%;
+This places the top-left corner of the .inner-dot at 50% from the top and 50% from the left of the .loader.
+But at this point, the dot's top-left corner is centered, not the center of the dot.
+🔹 transform: translate(-50%, -50%);
+This shifts the element back by 50% of its own width and height, effectively centering the dot itself.
+-50% in X-axis → moves it leftward by half its own width.
+-50% in Y-axis → moves it upward by half its own height.

@@ -1,0 +1,6 @@
+What is z-index?
+
+The z-index is a CSS property that determines the stack order of overlapping HTML elements. 
+Elements with a higher z-index value appear in front of those with a lower value. It only works on 
+elements that have a position property set to something other than static (e.g., relative, absolute, 
+fixed, or sticky).

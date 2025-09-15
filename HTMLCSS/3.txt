@@ -1,0 +1,33 @@
+Differences Between Inline, Block, and Inline-block Elements (CSS)
+
+/* INLINE ELEMENTS */
+- Do not start on a new line.
+- Only take up as much width as necessary.
+- Respect horizontal padding and margin, but NOT vertical margin/padding.
+- Cannot set width and height (ignored).
+- Common inline elements: <span>, <a>, <strong>, <em>, <b>, <i>
+
+Example:
+<span style="background: yellow; padding: 10px;">Inline Element</span>
+
+/* BLOCK ELEMENTS */
+- Always start on a new line.
+- Take up the full width available (by default: width: 100%).
+- Respect all padding and margin (both horizontal and vertical).
+- You can set width and height.
+- Common block elements: <div>, <p>, <h1>-<h6>, <section>, <article>, <header>
+
+Example:
+<div style="background: yellow; padding: 10px;">Block Element</div>
+
+/* INLINE-BLOCK ELEMENTS */
+- Behave like inline elements — do NOT start on a new line.
+- BUT: Respect all padding, margin, width, and height like block elements.
+- Useful when you want elements side-by-side but still need box-model control.
+
+Example:
+<span style="display: inline-block; background: yellow; padding: 10px; width: 150px;">Inline-Block Element</span>
+
+
+IMG tag:-
+<img> is inline by default, but inherits all the behavior of inline-block elements — width, height, margin, padding, and flow control.

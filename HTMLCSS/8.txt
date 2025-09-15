@@ -1,0 +1,47 @@
+DIFFERENCE BETWEEN position: sticky AND position: fixed
+
+| Feature                  | position: sticky                             | position: fixed                              |
+|--------------------------|----------------------------------------------|-----------------------------------------------|
+| Reference Point          | Nearest scrollable ancestor (like relative)  | Viewport (browser window)                     |
+| Scroll Behavior          | Scrolls with content until a point, then "sticks" | Does NOT scroll with content (always fixed) |
+| Offset Properties Work?  | ✅ Yes                                        | ✅ Yes                                         |
+| Stays in Flow Initially? | ✅ Yes (acts like relative at first)         | ❌ No (removed from flow)                      |
+| Removed from Flow?       | ❌ No                                         | ✅ Yes                                         |
+| Triggers Sticky Behavior | When scroll reaches the defined offset       | Instantly fixed based on defined offset       |
+| Parent Clipping Risk     | ✅ Yes (clipped if parent has `overflow: hidden`) | ❌ No (not affected by parent overflow)   |
+| Use Case Example         | Sticky table headers, section titles         | Navbar, chat button, back-to-top button       |
+
+-----------------------
+POSITION: STICKY (EXPLANATION)
+
+→ Hybrid between `relative` and `fixed`.
+→ Element scrolls with content until it hits a defined offset (e.g., `top: 0`), then "sticks" in place.
+→ Once its parent is out of view, it disappears with it.
+→ Requires a scrollable ancestor to work correctly.
+
+Example:
+<div style="position: sticky; top: 0;">I stick to the top while scrolling</div>
+
+-----------------------
+POSITION: FIXED (EXPLANATION)
+
+→ Fully removed from the normal document flow.
+→ Always fixed to a position relative to the viewport.
+→ Does not move when you scroll.
+→ Always visible (unless manually hidden).
+
+Example:
+<div style="position: fixed; top: 0; width: 100%;">I stay at the top no matter what</div>
+
+-----------------------
+KEY DIFFERENCE SUMMARY:
+
+- Sticky: Starts like `relative`, becomes `fixed` when scroll reaches offset.
+- Fixed: Always stuck
+
+
+ Sticky only works when:
+It can scroll with its container.
+It has room to reach the sticky threshold.
+It’s not clipped out of visibility.
+

@@ -1,0 +1,18 @@
+Step 1 (mini) — What is a Promise?
+
+A Promise is an object representing a value that will be available in the future (after async work).
+
+It can be in 3 states:
+
+pending → not finished yet
+
+fulfilled → success, has a value
+
+rejected → failed, has an error
+
+
+const p = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("done"), 1000);
+});
+
+p.then(value => console.log(value)); // after 1s → "done"

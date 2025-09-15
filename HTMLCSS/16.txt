@@ -1,0 +1,12 @@
+Difference Between Transition and Animation (CSS)
+
+| Feature               | Transition                                        | Animation                                        |
+|-----------------------|-------------------------------------------------|-------------------------------------------------|
+| Purpose               | Animate changes between two states smoothly      | Create complex, multi-step animations            |
+| Trigger               | Triggered by CSS property change (e.g., hover)  | Runs automatically or controlled by CSS/JS      |
+| Control               | Simple start and end states                       | Keyframes define multiple intermediate steps     |
+| Duration              | Single duration for the whole transition         | Duration can be set, repeated, reversed, etc.    |
+| Looping               | No looping, runs once per change                  | Can loop infinitely or a set number of times     |
+| Properties Animated   | Only animates changed properties                  | Animates multiple properties via keyframes       |
+| Syntax Complexity     | Simple syntax                                     | More complex syntax with @keyframes               |
+| Use Cases             | Simple hover effects, fades, size changes         | Complex loaders, attention grabbers, sequences   |

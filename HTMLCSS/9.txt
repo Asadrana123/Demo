@@ -1,0 +1,43 @@
+CSS POSITION: STICKY
+
+/* HYBRID BEHAVIOR */
+→ `position: sticky` is a combination of `relative` and `fixed`.
+→ The element behaves like `relative` until it reaches a defined scroll position (using top/left/right/bottom).
+→ Once that position is reached, it behaves like `fixed` and sticks in place — but only **within its parent container**.
+
+/* OFFSET PROPERTIES WORK */
+→ You can use top, left, right, bottom to define where it should “stick”.
+
+/* REQUIRES A SCROLLABLE CONTEXT */
+→ For sticky to work:
+   - The parent must have enough height for scrolling.
+   - The parent should NOT have `overflow: hidden`, or it may clip/hide the sticky element.
+
+/* STAYS INSIDE PARENT */
+→ The element sticks only **until the bottom of its parent container**.
+→ Once the parent is out of view, the sticky element scrolls away with it.
+
+/* IN FLOW INITIALLY */
+→ Unlike `absolute` or `fixed`, `sticky` elements stay **in the normal document flow** until they stick.
+
+/* COMMON USE CASES */
+→ Sticky headers, sticky sidebars, section labels in scrolling lists.
+
+/* BROWSER SUPPORT */
+→ Fully supported in all major modern browsers.
+
+/* EXAMPLE */
+<div style="position: sticky; top: 0;">
+  I will scroll with the page, but when I reach the top, I’ll stick there.
+</div>
+
+/* SUMMARY */
+| Property              | position: sticky                             |
+|-----------------------|-----------------------------------------------|
+| Hybrid behavior       | ✅ Yes (relative + fixed)                     |                         |
+| Offsets work?         | ✅ Yes (top, bottom, etc.)                    |
+| Reference point       | Nearest scrollable ancestor (not viewport)   |
+| Scroll behavior       | Scrolls → Sticks → Scrolls out with parent   |
+| Removed from flow?    | ❌ No                                         |
+| Use case              | Section headers, sticky nav within container |
+| Parent clipping risk  | ✅ Yes (if overflow: hidden)                 |

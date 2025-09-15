@@ -1,0 +1,21 @@
+/ ✅ JSON Functions
+JSON.stringify({a:1});          // '{"a":1}'
+JSON.parse('{"a":1}');          // {a:1}
+
+// ✅ Date Functions
+const d = new Date();
+d.getFullYear();                // 2025
+d.getMonth();                   // 0–11
+d.getDate();                    // day of month
+d.getDay();                     // 0–6 (Sun=0)
+d.getHours();                   // 0–23
+d.toISOString();                // "2025-09-14T..."
+Date.now();                     // timestamp (ms)
+
+// ✅ Utility Functions
+setTimeout(()=>console.log("hi"),1000); // run once after 1s
+setInterval(()=>console.log("hi"),1000);// run every 1s
+clearTimeout(id);               // stop timeout
+clearInterval(id);              // stop interval
+typeof 123;                     // "number"
+Array.isArray([1,2]);           // true
