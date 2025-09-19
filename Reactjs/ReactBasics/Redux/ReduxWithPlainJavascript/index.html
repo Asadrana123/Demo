@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Redux Plain JS Example</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #count {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Counter App with Redux (Plain JS)</h1>
+    <button id="increment">Increment</button>
+    <button id="decrement">Decrement</button>
+    <div>Count: <span id="count">0</span></div>
+
+    <!-- Working Redux CDN Links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.min.js"></script>
+
+    <script>
+        // Check if Redux loaded
+        console.log('Redux available:', typeof Redux !== 'undefined');
+
+        const { createStore } = Redux;
+        console.log('Redux', Redux);
+        // Rest of your code...
+        function counterReducer(state = { count: 0 }, action) {
+            switch (action.type) {
+                case 'INCREMENT':
+                    return { count: state.count + 1 };
+                case 'DECREMENT':
+                    return { count: state.count - 1 };
+                default:
+                    return state;
+            }
+        }
+
+        const store = createStore(counterReducer, { count: 5 });
+        console.log('store', store);
+        const countEl = document.getElementById('count');
+        store.subscribe(() => {
+            countEl.textContent = store.getState().count;
+        });
+
+        document.getElementById('increment').addEventListener('click', () => {
+            store.dispatch({ type: 'INCREMENT' });
+        });
+        document.getElementById('decrement').addEventListener('click', () => {
+            store.dispatch({ type: 'DECREMENT' });
+        });
+    </script>
+</body>
+
+</html>

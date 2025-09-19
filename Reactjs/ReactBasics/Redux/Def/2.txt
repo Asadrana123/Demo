@@ -1,0 +1,81 @@
+REDUX STEP 2: THE THREE FUNDAMENTAL PRINCIPLES 
+
+========================================
+PRINCIPLE 1: SINGLE SOURCE OF TRUTH
+========================================
+
+DEFINITION: All app state lives in ONE Redux store
+
+WHY IT MATTERS:
+- Prevents "prop drilling" through multiple components
+- Makes debugging easier - all data in one place  
+- Enables features like time-travel debugging
+- Server-side rendering becomes simpler
+
+INTERVIEW EXPLANATION:
+"Instead of passing props through 5 components to share cart data, Redux lets any component
+ access cart data directly from one central store."
+
+WHEN TO USE:
+- Multiple components need same data
+- Deep component nesting
+- State needs to persist across routes
+- Complex state interactions
+
+========================================
+PRINCIPLE 2: STATE IS READ-ONLY  
+========================================
+
+DEFINITION: Cannot mutate state directly - must dispatch actions
+
+WHY IT MATTERS:
+- Makes all changes trackable
+- Enables predictable state updates
+- Supports debugging and testing
+- Prevents accidental state mutations
+
+INTERVIEW EXPLANATION:
+"We can't change state directly like state.cart.push(item). We must dispatch actions like 
+{ type: 'ADD_ITEM', payload: item } which makes every change trackable."
+
+CODE EXAMPLES:
+❌ WRONG: state.cart.push(newItem)
+✅ CORRECT: dispatch({ type: 'ADD_TO_CART', payload: newItem })
+
+========================================
+PRINCIPLE 3: PURE FUNCTION REDUCERS
+========================================
+
+DEFINITION: State changes through pure functions (reducers)
+
+PURE FUNCTION RULES:
+- Same input → same output (always)
+- No side effects (no API calls, console.log, random numbers)
+- Don't mutate parameters
+- Return new objects/arrays
+
+WHY PURE FUNCTIONS:
+- Predictable behavior
+- Easy to test
+- Enables time-travel debugging
+- Better performance optimizations
+
+INTERVIEW EXPLANATION:
+"Reducers take current state + action and return new state.
+ No API calls or random values inside - just predictable logic."
+
+BASIC REDUCER EXAMPLE:
+function cartReducer(state = [], action) {
+  switch (action.type) {
+    case 'ADD_ITEM':
+      return [...state, action.payload];  // Returns NEW array
+    case 'REMOVE_ITEM':
+      return state.filter(item => item.id !== action.payload.id);
+    default:
+      return state;  // Always return state for unknown actions
+  }
+}
+
+
+
+

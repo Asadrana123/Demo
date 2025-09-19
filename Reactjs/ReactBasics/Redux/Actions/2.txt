@@ -1,0 +1,98 @@
+========================================
+ACTION EXAMPLES BY SCENARIO
+========================================
+
+1. FORM HANDLING:
+export const updateUserProfile = (field, value) => ({
+  type: 'user/profileUpdated',
+  payload: { field, value }
+});
+
+export const submitForm = (formData) => ({
+  type: 'form/submitStarted',
+  payload: formData
+});
+
+2. API CALLS:
+export const fetchUsersStart = () => ({
+  type: 'api/fetchUsersStarted'
+});
+
+export const fetchUsersSuccess = (users) => ({
+  type: 'api/fetchUsersSucceeded',
+  payload: users
+});
+
+export const fetchUsersError = (error) => ({
+  type: 'api/fetchUsersFailed',
+  payload: error,
+  error: true
+});
+
+3. UI STATE:
+export const toggleSidebar = () => ({
+  type: 'ui/sidebarToggled'
+});
+
+export const setLoadingState = (isLoading) => ({
+  type: 'ui/loadingStateChanged',
+  payload: { isLoading }
+});
+
+========================================
+ADVANCED ACTION PATTERNS
+========================================
+
+1. ACTION WITH VALIDATION:
+export const addTodo = (text) => {
+  if (!text || text.trim().length === 0) {
+    throw new Error('Todo text cannot be empty');
+  }
+  
+  return {
+    type: 'todos/todoAdded',
+    payload: {
+      id: generateId(),
+      text: text.trim(),
+      completed: false,
+      createdAt: Date.now()
+    }
+  };
+};
+
+2. CONDITIONAL ACTIONS:
+export const toggleTodo = (id, currentStatus) => ({
+  type: currentStatus ? 'todos/todoUnchecked' : 'todos/todoChecked',
+  payload: { id }
+});
+
+3. BATCH ACTIONS:
+export const addMultipleTodos = (todos) => ({
+  type: 'todos/multipleTodosAdded',
+  payload: { todos }
+});
+
+========================================
+KEY RULES FOR ACTIONS
+========================================
+
+1. PLAIN OBJECTS ONLY:
+   ✅ { type: 'ADD_TODO', payload: data }
+   ❌ new AddTodoAction(data)  // Not a plain object
+
+2. TYPE IS REQUIRED:
+   ✅ { type: 'ADD_TODO' }
+   ❌ { payload: data }  // Missing type
+
+3. ACTIONS DESCRIBE EVENTS:
+   ✅ 'user/loginAttempted'  // What happened
+   ❌ 'user/setLoggedIn'     // What should happen
+
+4. NO BUSINESS LOGIC IN ACTIONS:
+   Actions only describe what happened
+   Business logic goes in reducers
+
+5. SERIALIZABLE DATA:
+   Only include data that can be serialized to JSON
+   No functions, dates (use timestamps), or complex objects
+

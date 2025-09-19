@@ -1,0 +1,95 @@
+// 2. Create reducer
+function appReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return {
+        ...state,
+        todos: [...state.todos, action.payload]
+      };
+    case 'SET_FILTER':
+      return {
+        ...state,
+        filter: action.payload
+      };
+    default:
+      return state;
+  }
+}
+
+// 3. Create store
+const store = createStore(appReducer);
+
+// 4. Use store methods
+console.log(store.getState()); // Initial state
+
+store.dispatch({
+  type: 'ADD_TODO',
+  payload: { id: 1, text: 'Learn Redux', completed: false }
+});
+
+console.log(store.getState()); // Updated state with new todo
+
+========================================
+HOW STORE WORKS INTERNALLY (SIMPLIFIED)
+========================================
+
+function createStore(reducer, preloadedState) {
+  let state = preloadedState;
+  const listeners = [];
+
+  function getState() {
+    return state;
+  }
+
+  function dispatch(action) {
+    state = reducer(state, action);  // Reducer updates state
+    listeners.forEach(listener => listener());  // Notify subscribers
+  }
+
+  function subscribe(listener) {
+    listeners.push(listener);
+    return function unsubscribe() {
+      const index = listeners.indexOf(listener);
+      listeners.splice(index, 1);
+    };
+  }
+
+  return { dispatch, subscribe, getState };
+}
+
+========================================
+KEY RULES FOR REDUX STORE
+========================================
+
+1. SINGLE STORE RULE:
+   - Only one store per application
+   - If you need to split logic, use multiple reducers, not stores
+
+2. STATE ACCESS RULE:
+   - Never access state directly: state.todos ❌
+   - Always use getState(): store.getState().todos ✅
+
+3. STATE UPDATE RULE:
+   - Never mutate state directly: state.todos.push(item) ❌
+   - Always dispatch actions: store.dispatch({type: 'ADD_TODO'}) ✅
+
+4. PURE FUNCTION RULE:
+   - Store's reducer must be a pure function
+   - Same input always produces same output
+
+========================================
+CONNECTING STORE TO REACT (PREVIEW)
+========================================
+
+import { Provider } from 'react-redux';
+
+// Wrap your entire app
+function App() {
+  return (
+    <Provider store={store}>
+      <YourAppComponents />
+    </Provider>
+  );
+}
+
+

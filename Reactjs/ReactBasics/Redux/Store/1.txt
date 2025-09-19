@@ -1,0 +1,87 @@
+REDUX STEP 3: UNDERSTANDING THE REDUX STORE
+
+========================================
+WHAT IS THE REDUX STORE?
+========================================
+
+DEFINITION: The Redux store is the central container that holds your entire application state
+
+KEY CHARACTERISTICS:
+- Single source of truth for ALL application data
+- JavaScript object that contains your app's state tree
+- Only ONE store per Redux application
+- State can only be changed through dispatching actions
+
+SIMPLE ANALOGY:
+Think of the store like a bank vault:
+- All your valuable data (state) is stored safely in one place
+- You can't directly access it - must use official procedures
+- Every transaction (state change) is recorded and tracked
+
+========================================
+CREATING A STORE
+========================================
+
+BASIC STORE CREATION:
+import { createStore } from 'redux';
+
+// Your reducer function
+function counterReducer(state = { count: 0 }, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { count: state.count + 1 };
+    case 'DECREMENT':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+
+// Create the store
+const store = createStore(counterReducer);
+
+STORE WITH INITIAL STATE:
+const initialState = { count: 5 };
+const store = createStore(counterReducer, initialState);
+
+========================================
+STORE METHODS (THE IMPORTANT ONES)
+========================================
+
+1. getState()
+PURPOSE: Returns the current state of your application
+USAGE: store.getState()
+
+EXAMPLE:
+console.log(store.getState()); // { count: 0 }
+
+2. dispatch(action)
+PURPOSE: The ONLY way to change state - sends actions to reducer
+USAGE: store.dispatch({ type: 'ACTION_TYPE', payload: data })
+
+EXAMPLE:
+store.dispatch({ type: 'INCREMENT' });
+console.log(store.getState()); // { count: 1 }
+
+3. subscribe(listener)
+PURPOSE: Register callback functions that run when state changes
+USAGE: store.subscribe(() => { console.log('State changed!') })
+
+EXAMPLE:
+const unsubscribe = store.subscribe(() => {
+  console.log('Current state:', store.getState());
+});
+
+// To stop listening
+unsubscribe();
+
+========================================
+COMPLETE STORE EXAMPLE
+========================================
+
+// 1. Define initial state
+const initialState = {
+  todos: [],
+  filter: 'ALL'
+};
+

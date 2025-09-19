@@ -1,0 +1,27 @@
+**Redux Mastery - Step 1: What is Redux?**
+
+- **Definition:** Redux is a predictable state container for JavaScript apps.  
+
+- **Problem It Solves:**  
+  Managing shared state in React can get messy:
+  - useState & props only work well for local state
+  - Passing state and update functions through many components is cumbersome
+  - Example: A shopping cart needs to be displayed in the header, cart page, and updated from multiple 
+  pages
+
+- **Redux Solution:**  
+  - Central **store** holds all important app data  
+  - Any component can:
+    - Read data from the store  
+    - Send updates to the store  
+    - React to data changes automatically  
+
+- **When to Use Redux:**  
+  - Complex state shared across many components  
+  - State needs to persist across page navigation  
+  - Predictable state updates are required  
+
+- **Interview Tip:** Not always needed—React state is sufficient for simple apps.
+
+
+

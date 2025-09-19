@@ -1,0 +1,78 @@
+--- Redux & React-Redux Q&A Summary ---
+
+Q1: What is Redux?
+A: Redux is a predictable state container for JavaScript apps.
+- Holds global state in a single store.
+- Actions describe what happened.
+- Reducers decide how state changes.
+- Predictable updates, easy debugging, and time-travel possible.
+
+Q2: What does “actions describe what happened” mean?
+A:
+- Action is a plain JS object that records an event.
+- Example: { type: "cart/itemAdded", payload: { id: 1 } }
+- Action announces the event; reducer updates state accordingly.
+
+Q3: Why “what happened” and not “what is happening”?
+A:
+- Actions represent completed events (facts).
+- This makes Redux predictable, debuggable, and replayable.
+
+Q4: Does the item really get added when action is dispatched?
+A:
+- No, action only says: “User added an item”.
+- Reducer actually updates the state.
+
+Q5: Who tells what happened — action or reducer?
+A:
+- Action tells what happened.
+- Reducer tells how state should change because of that event.
+
+Q6: Actions should read like news headlines — what does it mean?
+A:
+- Action type should be self-explanatory: "cart/itemAdded" → reads like “Cart item added”.
+- Avoid generic names like "ITEM_ADDED" which don’t show context.
+
+Q7: We use constants for action types, is it good?
+A:
+- Classic Redux: use constants (const ADD_TODO = 'todos/todoAdded';) → avoids typos, centralizes types.
+- Redux Toolkit: constants are optional since slice actions auto-generate descriptive types.
+
+Q8: Where does "todos/todoAdded" help?
+A:
+- Avoids collisions in large apps.
+- Debugging clarity in Redux DevTools.
+- Scales better for hundreds of actions.
+- Automatically descriptive in modern Redux Toolkit.
+
+Q9: Difference between Redux and React-Redux
+Aspect               | Redux                       | React-Redux
+--------------------|----------------------------|------------------------------
+Main Role            | State management engine     | Connects Redux store to React components
+Knowledge of React   | None                        | Required
+Provides Hooks       | No                          | Yes (useSelector, useDispatch)
+Optimizes Rendering  | No                          | Yes, prevents unnecessary renders
+Store Management     | Yes                         | No
+Usage Outside React  | Yes                         | No
+
+Q10: When to use Redux vs React-Redux
+- Redux: complex/shared state, predictable updates, state persists across pages.
+- React-Redux: in React apps, connects components to the Redux store (Provider, useSelector, useDispatch).
+
+Q11: Work of Redux vs React-Redux (in-depth)
+- Redux: holds store, defines actions, processes reducers, manages state, predictable updates.
+- React-Redux: provides Provider, hooks, efficient connection of React components to Redux store, optimizes rendering.
+
+Q12: Can Redux be used with plain JavaScript?
+A:
+- Yes, Redux is framework-agnostic.
+- Steps:
+  1. Install Redux: npm install redux
+  2. Create a reducer function.
+  3. Create a store: const store = createStore(reducer)
+  4. Subscribe to state changes: store.subscribe(() => console.log(store.getState()))
+  5. Dispatch actions: store.dispatch({ type: 'INCREMENT' })
+
+Q13: Summary of roles
+- Redux = manages all app state and state updates.
+- React-Redux = connects React components to Redux store and provides hooks for state access and dispatch.
