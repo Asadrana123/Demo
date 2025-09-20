@@ -1,0 +1,33 @@
+Difference Between Node and Element:-
+Node:
+A node is a general term for any kind of object in the DOM (Document Object Model).
+/There are different types of nodes (element, text, attribute, comment, etc.).
+Think of a node as a basic "building block" in the DOM that could represent anything in the document.
+
+Document node
+
+Whole page object: document
+Example: document.nodeType === 9
+
+Element node
+Any tag: <div>, <p>, <span>, <a>, <img>
+
+Example: document.querySelector('div').nodeType === 1
+Text node
+
+The text inside elements
+Example: in <p>Hello</p>, “Hello” is a text node (nodeType 3)
+
+Comment node
+HTML comments
+
+Example: <!-- note --> is a comment node (nodeType 8)
+
+Attribute node
+Attributes on elements: id, class, href, src
+Example: el.getAttributeNode('id') has nodeType 2
+
+DocumentType node
+The <!DOCTYPE html> declaration
+Example: document.doctype.nodeType === 10
+

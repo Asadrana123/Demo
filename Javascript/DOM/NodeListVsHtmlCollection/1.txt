@@ -1,0 +1,31 @@
+NodeList vs HTMLCollection in JavaScript:
+
+1. Source:
+   - NodeList: Returned by querySelectorAll(), childNodes, etc.
+   - HTMLCollection: Returned by getElementsByClassName(), getElementsByTagName(), etc.
+
+2. Content:
+   - NodeList: Can contain ANY type of node (elements, text nodes, comments).
+   - HTMLCollection: Contains ONLY element nodes (ignores text/comments).
+
+3. Live vs Static:
+   - NodeList: 
+       * querySelectorAll() → STATIC (doesn’t auto-update when DOM changes).
+       * childNodes → LIVE.
+   - HTMLCollection: Always LIVE (auto-updates if DOM changes).
+
+4. Iteration:
+   - NodeList: Has forEach() (in modern browsers) + supports for...of + index access.
+   - HTMLCollection: No forEach(), only index access and length.
+
+5. Methods:
+   - NodeList: Only length, item(), and forEach() (modern).
+   - HTMLCollection: length, item(index), namedItem(name/id).
+
+6. Conversion:
+   - Both are array-like, not true arrays.
+   - Use Array.from() or spread [...] to convert to real array.
+
+7. Use Case:
+   - NodeList: More flexible, works great with querySelectorAll for CSS selectors.
+   - HTMLCollection: Faster for grabbing many elements by tag/class but less convenient for iteration.

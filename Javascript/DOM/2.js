@@ -2,6 +2,7 @@
 // To manipulate something on a webpage using JavaScript, you first need to select it.
 document.getElementById('id')
 // This selects a single element by its id attribute.
+
 document.querySelector('selector')
 // This selects the first element that matches a CSS selector.
 // 🔹 Tag selector

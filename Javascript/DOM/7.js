@@ -9,6 +9,7 @@ myDiv.append(newElement)
 
 
 //difference between append and appendChild:-
+
 //appendChild()
 // Only accepts a Node (like an element or text node).
 // Returns the appended node.
