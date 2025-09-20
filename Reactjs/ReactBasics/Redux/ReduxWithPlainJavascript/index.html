@@ -50,7 +50,7 @@
             }
         }
 
-        const store = createStore(counterReducer, { count: 5 });
+        const store = createStore(counterReducer);
         console.log('store', store);
         const countEl = document.getElementById('count');
         store.subscribe(() => {

@@ -1,0 +1,494 @@
+REDUX STEP 6: CONNECTING REDUX TO REACT
+
+========================================
+OVERVIEW: WHAT WE'RE CONNECTING
+========================================
+
+WHAT WE HAVE SO FAR:
+✓ Redux Store (holds state)
+✓ Actions (describe what happened)
+✓ Reducers (update state)
+
+WHAT WE NEED:
+- Way for React components to read Redux state
+- Way for React components to dispatch actions
+- Bridge between Redux world and React world
+
+THE SOLUTION: React-Redux Library
+- Provider component (makes store available)
+- useSelector hook (read state)
+- useDispatch hook (send actions)
+
+========================================
+STEP 1: INSTALL REACT-REDUX
+========================================
+
+INSTALLATION:
+npm install react-redux
+
+WHAT THIS GIVES US:
+- Provider component
+- useSelector hook
+- useDispatch hook  
+- connect() function (legacy)
+
+========================================
+STEP 2: PROVIDER COMPONENT SETUP
+========================================
+
+WHAT IS PROVIDER?
+The Provider component makes the Redux store available to ALL components in your React app
+
+WHERE TO USE IT:
+Wrap your entire app (or the parts that need Redux) with Provider
+
+BASIC SETUP:
+// index.js or main.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import App from './App';
+
+// Your reducer
+function counterReducer(state = { count: 0 }, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { count: state.count + 1 };
+    case 'DECREMENT':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+
+// Create store
+const store = createStore(counterReducer);
+
+// Wrap App with Provider
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+WHY PROVIDER WORKS:
+- Uses React Context API internally
+- Passes store down through component tree
+- Any child component can now access the store
+- No need to manually pass store as props
+
+========================================
+STEP 3: READING STATE WITH useSelector
+========================================
+
+WHAT IS useSelector?
+Hook that lets you extract data from Redux store state
+
+BASIC SYNTAX:
+const data = useSelector(selectorFunction);
+
+SIMPLE EXAMPLE:
+// Counter.js
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+function Counter() {
+  // Extract count from Redux state
+  const count = useSelector(state => state.count);
+  
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+    </div>
+  );
+}
+
+export default Counter;
+
+ADVANCED EXAMPLES:
+
+1. SELECTING SPECIFIC DATA:
+// Select user name only
+const userName = useSelector(state => state.user.name);
+
+// Select completed todos only
+const completedTodos = useSelector(state => 
+  state.todos.filter(todo => todo.completed)
+);
+
+// Select cart total
+const cartTotal = useSelector(state => 
+  state.cart.items.reduce((total, item) => total + item.price, 0)
+);
+
+2. MULTIPLE SELECTIONS:
+function UserProfile() {
+  const user = useSelector(state => state.auth.user);
+  const isLoading = useSelector(state => state.auth.isLoading);
+  const error = useSelector(state => state.auth.error);
+  
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  
+  return <div>Welcome, {user.name}!</div>;
+}
+
+3. COMPUTED VALUES:
+function TodoStats() {
+  const stats = useSelector(state => {
+    const todos = state.todos;
+    return {
+      total: todos.length,
+      completed: todos.filter(t => t.completed).length,
+      remaining: todos.filter(t => !t.completed).length
+    };
+  });
+  
+  return (
+    <div>
+      <p>Total: {stats.total}</p>
+      <p>Completed: {stats.completed}</p>
+      <p>Remaining: {stats.remaining}</p>
+    </div>
+  );
+}
+
+========================================
+STEP 4: DISPATCHING ACTIONS WITH useDispatch
+========================================
+
+WHAT IS useDispatch?
+Hook that gives you access to the dispatch function
+
+BASIC SYNTAX:
+const dispatch = useDispatch();
+dispatch(action);
+
+SIMPLE EXAMPLE:
+// Counter.js
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+function Counter() {
+  const count = useSelector(state => state.count);
+  const dispatch = useDispatch();
+  
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => dispatch({ type: 'INCREMENT' })}>
+        +
+      </button>
+      <button onClick={() => dispatch({ type: 'DECREMENT' })}>
+        -
+      </button>
+    </div>
+  );
+}
+
+USING ACTION CREATORS:
+// actions/counterActions.js
+export const increment = () => ({
+  type: 'INCREMENT'
+});
+
+export const decrement = () => ({
+  type: 'DECREMENT'
+});
+
+export const incrementByAmount = (amount) => ({
+  type: 'INCREMENT_BY_AMOUNT',
+  payload: { amount }
+});
+
+// Counter.js
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement, incrementByAmount } from './actions/counterActions';
+
+function Counter() {
+  const count = useSelector(state => state.count);
+  const dispatch = useDispatch();
+  
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => dispatch(increment())}>+1</button>
+      <button onClick={() => dispatch(decrement())}>-1</button>
+      <button onClick={() => dispatch(incrementByAmount(5))}>+5</button>
+    </div>
+  );
+}
+
+========================================
+STEP 5: COMPLETE TODO APP EXAMPLE
+========================================
+
+// store/todoReducer.js
+const initialState = {
+  todos: [],
+  filter: 'ALL'
+};
+
+export default function todoReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return {
+        ...state,
+        todos: [
+          ...state.todos,
+          {
+            id: Date.now(),
+            text: action.payload.text,
+            completed: false
+          }
+        ]
+      };
+    case 'TOGGLE_TODO':
+      return {
+        ...state,
+        todos: state.todos.map(todo =>
+          todo.id === action.payload.id
+            ? { ...todo, completed: !todo.completed }
+            : todo
+        )
+      };
+    case 'DELETE_TODO':
+      return {
+        ...state,
+        todos: state.todos.filter(todo => todo.id !== action.payload.id)
+      };
+    default:
+      return state;
+  }
+}
+
+// actions/todoActions.js
+export const addTodo = (text) => ({
+  type: 'ADD_TODO',
+  payload: { text }
+});
+
+export const toggleTodo = (id) => ({
+  type: 'TOGGLE_TODO',
+  payload: { id }
+});
+
+export const deleteTodo = (id) => ({
+  type: 'DELETE_TODO',
+  payload: { id }
+});
+
+// components/TodoList.js
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addTodo, toggleTodo, deleteTodo } from '../actions/todoActions';
+
+function TodoList() {
+  const todos = useSelector(state => state.todos);
+  const dispatch = useDispatch();
+  const [inputText, setInputText] = useState('');
+  
+  const handleAddTodo = () => {
+    if (inputText.trim()) {
+      dispatch(addTodo(inputText.trim()));
+      setInputText('');
+    }
+  };
+  
+  return (
+    <div>
+      <div>
+        <input 
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+          placeholder="Enter todo..."
+        />
+        <button onClick={handleAddTodo}>Add Todo</button>
+      </div>
+      
+      <ul>
+        {todos.map(todo => (
+          <li key={todo.id}>
+            <input 
+              type="checkbox"
+              checked={todo.completed}
+              onChange={() => dispatch(toggleTodo(todo.id))}
+            />
+            <span style={{ 
+              textDecoration: todo.completed ? 'line-through' : 'none' 
+            }}>
+              {todo.text}
+            </span>
+            <button onClick={() => dispatch(deleteTodo(todo.id))}>
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default TodoList;
+
+// index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import TodoList from './components/TodoList';
+import todoReducer from './store/todoReducer';
+
+const store = createStore(todoReducer);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Provider store={store}>
+    <TodoList />
+  </Provider>
+);
+
+========================================
+STEP 6: LEGACY connect() FUNCTION
+========================================
+
+WHAT IS connect()?
+Higher-order component that connects React components to Redux store (older pattern)
+
+WHY LEARN IT?
+- Legacy codebases still use it
+- Understanding helps with interview questions
+- Shows how things worked before hooks
+
+BASIC STRUCTURE:
+connect(mapStateToProps, mapDispatchToProps)(Component)
+
+EXAMPLE:
+// Counter.js (using connect)
+import React from 'react';
+import { connect } from 'react-redux';
+
+function Counter({ count, increment, decrement }) {
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+    </div>
+  );
+}
+
+const mapStateToProps = (state) => ({
+  count: state.count
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  increment: () => dispatch({ type: 'INCREMENT' }),
+  decrement: () => dispatch({ type: 'DECREMENT' })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+
+HOOKS VS CONNECT COMPARISON:
+// Using Hooks (Modern)
+function Counter() {
+  const count = useSelector(state => state.count);
+  const dispatch = useDispatch();
+  
+  return (
+    <button onClick={() => dispatch({ type: 'INCREMENT' })}>
+      {count}
+    </button>
+  );
+}
+
+// Using connect (Legacy)
+function Counter({ count, increment }) {
+  return <button onClick={increment}>{count}</button>;
+}
+
+const mapStateToProps = state => ({ count: state.count });
+const mapDispatchToProps = dispatch => ({
+  increment: () => dispatch({ type: 'INCREMENT' })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+
+========================================
+BEST PRACTICES FOR REACT-REDUX
+========================================
+
+1. PROVIDER PLACEMENT:
+✅ GOOD: Wrap entire app
+<Provider store={store}>
+  <App />
+</Provider>
+
+❌ BAD: Multiple providers
+<Provider store={store1}>
+  <ComponentA />
+</Provider>
+<Provider store={store2}>
+  <ComponentB />
+</Provider>
+
+2. useSelector PATTERNS:
+✅ GOOD: Select minimal data
+const user = useSelector(state => state.auth.user);
+
+❌ BAD: Select entire state
+const everything = useSelector(state => state);
+
+3. useDispatch PATTERNS:
+✅ GOOD: Use action creators
+const dispatch = useDispatch();
+dispatch(addTodo(text));
+
+❌ BAD: Inline action objects
+dispatch({ type: 'ADD_TODO', payload: { text, id: Math.random() } });
+
+4. COMPONENT STRUCTURE:
+✅ GOOD: Separate concerns
+function TodoList() {
+  const todos = useSelector(state => state.todos);
+  const dispatch = useDispatch();
+  
+  return (
+    <div>
+      {todos.map(todo => 
+        <TodoItem 
+          key={todo.id} 
+          todo={todo} 
+          onToggle={() => dispatch(toggleTodo(todo.id))}
+        />
+      )}
+    </div>
+  );
+}
+
+========================================
+TROUBLESHOOTING COMMON ISSUES
+========================================
+
+1. "Cannot read property of undefined":
+CAUSE: Component trying to access store before Provider is set up
+SOLUTION: Make sure Provider wraps your component
+
+2. "useSelector must be used within Provider":
+CAUSE: Component using useSelector outside Provider
+SOLUTION: Ensure Provider is ancestor of component
+
+3. "Actions not updating state":
+CAUSE: Forgetting to dispatch actions
+SOLUTION: Always use dispatch(action), not just action
+
+4. "Component not re-rendering":
+CAUSE: State mutation instead of returning new state
+SOLUTION: Always return new state objects in reducers
+
+========================================
+NEXT: Step 7 - Redux Middleware & Async Actions
+========================================
