@@ -1,6 +1,9 @@
 **Redux Mastery - Step 1: What is Redux?**
 
-- **Definition:** Redux is a predictable state container for JavaScript apps.  
+- **Definition:** Redux is a standalone state management library that holds app state in a 
+single store and updates it via actions and reducers, 
+usable with any UI (React, Vue, Angular, plain JS).
+It’s for predictable, centralized state and time‑travel/debug tooling; not tied to React by itself.
 
 - **Problem It Solves:**  
   Managing shared state in React can get messy:
@@ -20,8 +23,4 @@
   - Complex state shared across many components  
   - State needs to persist across page navigation  
   - Predictable state updates are required  
-
-- **Interview Tip:** Not always needed—React state is sufficient for simple apps.
-
-
 

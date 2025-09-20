@@ -1,0 +1,37 @@
+========================================
+PRINCIPLE 3: PURE FUNCTION REDUCERS
+========================================
+
+DEFINITION: State changes through pure functions (reducers)
+
+PURE FUNCTION RULES:
+- Same input → same output (always)
+- No side effects (no API calls, console.log, random numbers)
+- Don't mutate parameters
+- Return new objects/arrays
+
+WHY PURE FUNCTIONS:
+- Predictable behavior
+- Easy to test
+- Enables time-travel debugging
+- Better performance optimizations
+
+INTERVIEW EXPLANATION:
+"Reducers take current state + action and return new state.
+ No API calls or random values inside - just predictable logic."
+
+BASIC REDUCER EXAMPLE:
+function cartReducer(state = [], action) {
+  switch (action.type) {
+    case 'ADD_ITEM':
+      return [...state, action.payload];  // Returns NEW array
+    case 'REMOVE_ITEM':
+      return state.filter(item => item.id !== action.payload.id);
+    default:
+      return state;  // Always return state for unknown actions
+  }
+}
+
+
+
+

@@ -1,0 +1,162 @@
+REDUX STEP 5: UNDERSTANDING REDUCERS
+
+========================================
+WHAT ARE REDUCERS?
+========================================
+
+DEFINITION: Reducers are pure functions that specify how the application 
+state changes in response to actions
+
+KEY CHARACTERISTICS:
+- Pure functions: (state, action) => newState
+- Take current state and action as parameters
+- Return a completely new state object
+- Never mutate the original state
+- Handle all possible action types
+- Must have a default case
+
+SIMPLE ANALOGY:
+Think of a reducer like a cashier at a bank:
+- They receive a transaction request (action)
+- They look at current account balance (state)  
+- They calculate new balance based on transaction
+- They give you a new receipt with updated balance (new state)
+- They never modify your original receipt
+
+========================================
+PURE FUNCTION RULES FOR REDUCERS
+========================================
+
+WHAT MAKES A FUNCTION PURE:
+1. Same input always produces same output
+2. No side effects (no API calls, console.log, DOM manipulation)
+3. No mutation of input parameters
+4. No dependence on external variables
+5. Deterministic behavior
+
+PURE FUNCTION EXAMPLE:
+✅ PURE:
+const add = (a, b) => a + b;
+add(2, 3); // Always returns 5
+
+❌ IMPURE:
+let count = 0;
+const addToCount = (x) => {
+  count += x;  // Modifies external variable
+  return count;
+};
+
+WHY REDUCERS MUST BE PURE:
+- Redux compares old state === new state by reference
+- If you mutate state, Redux thinks nothing changed
+- Time-travel debugging requires predictable state changes
+- Testing becomes much easier
+- Better performance with React.memo and useSelector
+
+========================================
+BASIC REDUCER STRUCTURE
+========================================
+
+BASIC REDUCER PATTERN:
+function reducerName(state = initialState, action) {
+  switch (action.type) {
+    case 'ACTION_TYPE_1':
+      return {
+        ...state,
+        // update specific properties
+      };
+    case 'ACTION_TYPE_2':
+      return {
+        ...state,
+        // update specific properties  
+      };
+    default:
+      return state;  // ALWAYS include default case
+  }
+}
+
+SIMPLE COUNTER EXAMPLE:
+const initialState = {
+  count: 0
+};
+
+function counterReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return {
+        ...state,
+        count: state.count + 1
+      };
+    case 'DECREMENT':
+      return {
+        ...state,
+        count: state.count - 1
+      };
+    case 'RESET':
+      return {
+        ...state,
+        count: 0
+      };
+    default:
+      return state;
+  }
+}
+
+========================================
+ADVANCED REDUCER EXAMPLES
+========================================
+
+1. TODO LIST REDUCER:
+const initialState = {
+  todos: [],
+  filter: 'ALL'
+};
+
+function todosReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return {
+        ...state,
+        todos: [
+          ...state.todos,
+          {
+            id: action.payload.id,
+            text: action.payload.text,
+            completed: false,
+            createdAt: Date.now()
+          }
+        ]
+      };
+      
+    case 'REMOVE_TODO':
+      return {
+        ...state,
+        todos: state.todos.filter(todo => todo.id !== action.payload.id)
+      };
+      
+    case 'TOGGLE_TODO':
+      return {
+        ...state,
+        todos: state.todos.map(todo =>
+          todo.id === action.payload.id
+            ? { ...todo, completed: !todo.completed }
+            : todo
+        )
+      };
+      
+    case 'SET_FILTER':
+      return {
+        ...state,
+        filter: action.payload.filter
+      };
+      
+    default:
+      return state;
+  }
+}
+
+
+
+========================================
+NEXT: Step 6 - Connecting Redux to React
+========================================

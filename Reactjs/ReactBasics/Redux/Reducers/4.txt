@@ -1,0 +1,81 @@
+========================================
+COMMON REDUCER PATTERNS
+========================================
+
+1. ARRAY OPERATIONS:
+// Add item
+return {
+  ...state,
+  items: [...state.items, newItem]
+};
+
+// Remove item
+return {
+  ...state,
+  items: state.items.filter(item => item.id !== itemId)
+};
+
+// Update item
+return {
+  ...state,
+  items: state.items.map(item =>
+    item.id === itemId
+      ? { ...item, ...updates }
+      : item
+  )
+};
+
+2. LOADING STATES:
+function apiReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'FETCH_START':
+      return { ...state, loading: true, error: null };
+    case 'FETCH_SUCCESS':
+      return { ...state, loading: false, data: action.payload };
+    case 'FETCH_ERROR':
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+}
+
+3. TOGGLE STATES:
+function uiReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'TOGGLE_SIDEBAR':
+      return { ...state, sidebarOpen: !state.sidebarOpen };
+    case 'TOGGLE_MODAL':
+      return { ...state, modalOpen: !state.modalOpen };
+    default:
+      return state;
+  }
+}
+
+========================================
+DEBUGGING REDUCERS
+========================================
+
+1. ALWAYS LOG STATE CHANGES:
+function debugReducer(state, action) {
+  console.log('Previous state:', state);
+  console.log('Action:', action);
+  
+  const newState = yourReducer(state, action);
+  
+  console.log('New state:', newState);
+  return newState;
+}
+
+2. VALIDATE ACTION PAYLOADS:
+function validateReducer(state, action) {
+  switch (action.type) {
+    case 'ADD_TODO':
+      if (!action.payload || !action.payload.text) {
+        console.error('ADD_TODO requires payload.text');
+        return state;
+      }
+      return addTodoLogic(state, action);
+    default:
+      return state;
+  }
+}

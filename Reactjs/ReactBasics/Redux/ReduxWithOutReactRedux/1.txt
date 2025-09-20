@@ -1,0 +1,32 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { createStore } from 'redux';
+
+// Redux: reducer + store
+const initial = { count: 0 };
+function counter(state = initial, action) {
+  switch (action.type) {
+    case 'inc': return { count: state.count + 1 };
+    case 'dec': return { count: state.count - 1 };
+    default: return state;
+  }
+}
+const store = createStore(counter);
+
+// React components that read/dispatch directly
+function App() {
+  const { count } = store.getState();
+  return (
+    <div style={{ fontFamily: 'sans-serif', padding: 16 }}>
+      <h2>Count: {count}</h2>
+      <button onClick={() => store.dispatch({ type: 'dec' })}>-</button>
+      <button onClick={() => store.dispatch({ type: 'inc' })}>+</button>
+    </div>
+  );
+}
+
+// Imperative render + subscribe
+const root = createRoot(document.getElementById('root'));
+const render = () => root.render(<App />);
+render();
+store.subscribe(render);

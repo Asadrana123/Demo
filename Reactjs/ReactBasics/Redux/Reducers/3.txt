@@ -1,0 +1,79 @@
+========================================
+REDUCER BEST PRACTICES
+========================================
+
+1. NEVER MUTATE STATE:
+❌ WRONG:
+function badReducer(state, action) {
+  state.todos.push(action.payload);  // Mutating original state
+  return state;
+}
+
+✅ CORRECT:
+function goodReducer(state, action) {
+  return {
+    ...state,
+    todos: [...state.todos, action.payload]  // Creating new array
+  };
+}
+
+2. ALWAYS RETURN NEW OBJECTS:
+❌ WRONG:
+function badReducer(state, action) {
+  if (action.type === 'UPDATE_USER') {
+    state.user.name = action.payload.name;  // Mutating nested object
+    return state;
+  }
+  return state;
+}
+
+✅ CORRECT:
+function goodReducer(state, action) {
+  switch (action.type) {
+    case 'UPDATE_USER':
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          name: action.payload.name
+        }
+      };
+    default:
+      return state;
+  }
+}
+
+3. HANDLE ALL ACTION TYPES:
+function reducer(state = initialState, action) {
+  switch (action.type) {
+    case 'KNOWN_ACTION':
+      return { ...state, /* updates */ };
+    default:
+      return state;  // ESSENTIAL: Return unchanged state for unknown actions
+  }
+}
+
+4. USE MEANINGFUL ACTION TYPES:
+✅ GOOD: 'user/profileUpdated', 'cart/itemAdded'
+❌ BAD: 'UPDATE', 'CHANGE'
+
+5. NORMALIZE STATE SHAPE:
+❌ DEEPLY NESTED:
+{
+  users: [
+    {
+      id: 1,
+      posts: [
+        { id: 1, comments: [{ id: 1, text: 'comment' }] }
+      ]
+    }
+  ]
+}
+
+✅ NORMALIZED:
+{
+  users: { 1: { id: 1, name: 'John' } },
+  posts: { 1: { id: 1, userId: 1, title: 'Post' } },
+  comments: { 1: { id: 1, postId: 1, text: 'comment' } }
+}
+
