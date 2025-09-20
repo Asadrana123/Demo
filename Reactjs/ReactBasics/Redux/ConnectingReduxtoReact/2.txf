@@ -1,0 +1,137 @@
+========================================
+STEP 6: LEGACY connect() FUNCTION
+========================================
+
+WHAT IS connect()?
+Higher-order component that connects React components to Redux store (older pattern)
+
+WHY LEARN IT?
+- Legacy codebases still use it
+- Understanding helps with interview questions
+- Shows how things worked before hooks
+
+BASIC STRUCTURE:
+connect(mapStateToProps, mapDispatchToProps)(Component)
+
+EXAMPLE:
+// Counter.js (using connect)
+import React from 'react';
+import { connect } from 'react-redux';
+
+function Counter({ count, increment, decrement }) {
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+    </div>
+  );
+}
+
+const mapStateToProps = (state) => ({
+  count: state.count
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  increment: () => dispatch({ type: 'INCREMENT' }),
+  decrement: () => dispatch({ type: 'DECREMENT' })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+
+HOOKS VS CONNECT COMPARISON:
+// Using Hooks (Modern)
+function Counter() {
+  const count = useSelector(state => state.count);
+  const dispatch = useDispatch();
+  
+  return (
+    <button onClick={() => dispatch({ type: 'INCREMENT' })}>
+      {count}
+    </button>
+  );
+}
+
+// Using connect (Legacy)
+function Counter({ count, increment }) {
+  return <button onClick={increment}>{count}</button>;
+}
+
+const mapStateToProps = state => ({ count: state.count });
+const mapDispatchToProps = dispatch => ({
+  increment: () => dispatch({ type: 'INCREMENT' })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+
+========================================
+BEST PRACTICES FOR REACT-REDUX
+========================================
+
+1. PROVIDER PLACEMENT:
+✅ GOOD: Wrap entire app
+<Provider store={store}>
+  <App />
+</Provider>
+
+❌ BAD: Multiple providers
+<Provider store={store1}>
+  <ComponentA />
+</Provider>
+<Provider store={store2}>
+  <ComponentB />
+</Provider>
+
+2. useSelector PATTERNS:
+✅ GOOD: Select minimal data
+const user = useSelector(state => state.auth.user);
+
+❌ BAD: Select entire state
+const everything = useSelector(state => state);
+
+3. useDispatch PATTERNS:
+✅ GOOD: Use action creators
+const dispatch = useDispatch();
+dispatch(addTodo(text));
+
+❌ BAD: Inline action objects
+dispatch({ type: 'ADD_TODO', payload: { text, id: Math.random() } });
+
+4. COMPONENT STRUCTURE:
+✅ GOOD: Separate concerns
+function TodoList() {
+  const todos = useSelector(state => state.todos);
+  const dispatch = useDispatch();
+  
+  return (
+    <div>
+      {todos.map(todo => 
+        <TodoItem 
+          key={todo.id} 
+          todo={todo} 
+          onToggle={() => dispatch(toggleTodo(todo.id))}
+        />
+      )}
+    </div>
+  );
+}
+
+========================================
+TROUBLESHOOTING COMMON ISSUES
+========================================
+
+1. "Cannot read property of undefined":
+CAUSE: Component trying to access store before Provider is set up
+SOLUTION: Make sure Provider wraps your component
+
+2. "useSelector must be used within Provider":
+CAUSE: Component using useSelector outside Provider
+SOLUTION: Ensure Provider is ancestor of component
+
+3. "Actions not updating state":
+CAUSE: Forgetting to dispatch actions
+SOLUTION: Always use dispatch(action), not just action
+
+4. "Component not re-rendering":
+CAUSE: State mutation instead of returning new state
+SOLUTION: Always return new state objects in reducers
