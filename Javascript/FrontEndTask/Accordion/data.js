@@ -5,7 +5,7 @@ export const contentArray = [
   },
   {
     heading: "Features",
-    text: "Our product has multiple features like speed, reliability, and security."
+    text: "Our product has multiple features like speed and security."
   },
   {
     heading: "Conclusion",
