@@ -1,0 +1,22 @@
+Reflow vs Repaint vs Composite (Browser Rendering)
+
+1. Reflow (Layout)
+   - What: Recalculates element size/position/layout.
+   - Triggers: width, height, margin, padding, display, DOM add/remove, font-size.
+   - Cost: Expensive (can affect whole page).
+   - Example: element.style.width = "200px";
+
+2. Repaint
+   - What: Redraws pixels without changing layout.
+   - Triggers: color, background-color, visibility, text-decoration.
+   - Cost: Medium (only redraws visuals).
+   - Example: element.style.backgroundColor = "red";
+
+3. Composite
+   - What: Moves or combines existing painted layers.
+   - Triggers: transform (translate, scale, rotate), opacity, will-change.
+   - Cost: Very cheap (GPU optimized).
+   - Example: element.style.transform = "translateX(100px)";
+
+Performance Hierarchy:
+Reflow > Repaint > Composite

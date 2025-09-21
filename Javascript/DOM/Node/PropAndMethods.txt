@@ -1,0 +1,41 @@
+DOM Node Properties:
+- nodeType           // type of node (1=Element, 3=Text, etc.)
+- nodeName           // name of the node (e.g., DIV, P)
+- nodeValue          // value of the node (mostly for text nodes)
+- parentNode         // reference to parent node
+- childNodes         // NodeList of all child nodes (includes text)
+- firstChild         // first child node
+- lastChild          // last child node
+- nextSibling        // next sibling node
+- previousSibling    // previous sibling node
+- parentElement      // parent if it’s an element
+- textContent        // all text inside node
+- innerHTML          // HTML content inside the element
+- outerHTML          // HTML including the element itself
+- id                 // element id
+- className          // element class
+- classList          // DOMTokenList for classes
+- style              // CSSStyleDeclaration for inline styles
+- attributes         // NamedNodeMap of attributes
+- dataset            // access data-* attributes
+- tagName            // same as nodeName for elements
+
+DOM Node Methods:
+- appendChild(node)           // add child at the end
+- insertBefore(newNode, refNode) // insert before reference node
+- removeChild(node)           // remove a child node
+- replaceChild(newNode, oldNode) // replace a child node
+- hasChildNodes()             // true if node has children
+- cloneNode(deep)             // clone node (true for deep clone)
+- contains(node)              // true if node is inside this node
+- getAttribute(name)          // get attribute value
+- setAttribute(name, value)   // set attribute value
+- removeAttribute(name)       // remove an attribute
+- toggleAttribute(name)       // toggle boolean attribute
+- matches(selector)           // checks if node matches CSS selector
+- closest(selector)           // returns nearest ancestor matching selector
+- querySelector(selector)     // first matching child element
+- querySelectorAll(selector)  // NodeList of matching children
+- scrollIntoView(options)     // scroll node into view
+- focus()                     // focus element
+- blur()                      // remove focus
