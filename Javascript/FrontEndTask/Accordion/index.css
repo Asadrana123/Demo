@@ -37,10 +37,24 @@ body {
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     border-top: 20px solid black;
+    transition: transform .3s ease-in-out;
 }
 
 .content {
     overflow: hidden;
     max-height: 0px;
     transition: max-height .2s ease-in-out;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+
+#checkbox-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
 }
