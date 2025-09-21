@@ -27,7 +27,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
+    background-color:rgba(0, 0, 0, 0.5);
     display: none;
 }
 
@@ -56,7 +56,5 @@ body {
 }
 
 
-#header .close-button {
-    visibility: hidden;
-}
+
 
