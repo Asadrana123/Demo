@@ -7,6 +7,40 @@ body {
 }
 
 #container {
+    margin: 0 auto;
     margin-top: 50px;
+    width: 80%;
 }
 
+.item {
+    margin-bottom: 10px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+
+.title h3 {
+    line-height: 0;
+}
+
+
+.title span {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid black;
+}
+
+.content {
+    overflow: hidden;
+    max-height: 0px;
+    transition: max-height .2s ease-in-out;
+}
