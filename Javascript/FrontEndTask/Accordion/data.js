@@ -9,7 +9,7 @@ export const contentArray = [
   },
   {
     heading: "Conclusion",
-    text: "In conclusion, this product will help you achieve your goals faster."
+    text: "In conclusion, this product will help you achieve your goals"
   }
 ];
 
