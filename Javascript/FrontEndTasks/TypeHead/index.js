@@ -7,7 +7,7 @@ var timeOutId = null;
 const fetchSearchResult = async (text) => {
     const controller = new AbortController();
     const { signal } = controller;
-    setTimeout(() => controller.abort(), 20000)
+    setTimeout(() => controller.abort(), 2000)
     try {
         const response = await fetch(`https://api.datamuse.com/sug?s=${text}`, { signal });
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`)
