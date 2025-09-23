@@ -1,5 +1,6 @@
 1. Network Errors
-These happen when the request cannot be completed due to connectivity issues, DNS failure, CORS issues, or the request being blocked.
+These happen when the request cannot be completed due to connectivity issues,
+DNS failure, CORS issues, or the request being blocked.
 
 Examples: No internet, server down, request timeout, blocked by browser.
 

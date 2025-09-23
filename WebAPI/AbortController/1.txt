@@ -3,7 +3,28 @@ The first thing you need to do is create a controller object that will let you l
 // Step 1: Create an AbortController
 const controller = new AbortController();
 
-
 controller is now an instance of AbortController.
-
 This object has a signal property and an abort() method (we’ll use them in the next steps).
+
+
+Step 2: Access the signal from the controller
+const signal = controller.signal;
+
+The signal is an object you will pass to an async operation, like fetch.
+It tells the operation: “Listen to this signal so I can abort if needed.”
+
+
+
+// Step 1: Create an AbortController
+const controller = new AbortController();
+
+// Step 2: Get the signal from the controller
+const signal = controller.signal;
+
+// Step 3: Use the signal with fetch
+fetch('https://jsonplaceholder.typicode.com/todos/1', { signal })
+
+// Step 4: Abort the fetch request after 2 seconds
+setTimeout(() => {
+  controller.abort();
+}, 2000);
