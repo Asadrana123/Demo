@@ -1,0 +1,9 @@
+The first thing you need to do is create a controller object that will let you later cancel a request.
+
+// Step 1: Create an AbortController
+const controller = new AbortController();
+
+
+controller is now an instance of AbortController.
+
+This object has a signal property and an abort() method (we’ll use them in the next steps).

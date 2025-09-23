@@ -14,13 +14,14 @@ const fetchSearchResult = async (text) => {
 }
 
 const showResults = (resultList) => {
-    const newNodes = resultList.map((result) => {
+    const newNodes = resultList.slice(0,5).map((result) => {
         const node = document.createElement('div');
         node.textContent = result.word;
         node.setAttribute('class', 'result');
         return node;
     })
     loader.style.display = 'none'
+    resultContainer.style.display='flex'
     resultContainer.replaceChildren(...newNodes);
 }
 
@@ -29,12 +30,20 @@ const showLoading = () =>{
     resultContainer.style.display='none'
 }
 
+const handleEmptyInput=()=>{
+    loader.style.display='none';
+    resultContainer.style.display='none';
+}
 
-input.addEventListener('change', async (e) => {
-    if (e.target.value.length === 0) return;
+
+input.addEventListener('input',(e) => {
+    if (e.target.value.length === 0) {
+        handleEmptyInput();
+        return;
+    }
     showLoading();
     clearTimeout(timeOutId)
     timeOutId = setTimeout(() => {
         fetchSearchResult(e.target.value)
-    }, 150)
+    }, 200)
 })

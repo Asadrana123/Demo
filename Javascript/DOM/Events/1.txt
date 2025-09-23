@@ -1,0 +1,36 @@
+// Mouse Events
+click, dblclick, mousedown, mouseup, mouseenter, mouseleave, mouseover, mouseout, mousemove, contextmenu
+
+// Keyboard Events
+keydown, keyup, keypress
+
+// Form Events
+submit, reset, focus, blur, input, change, select
+
+// Window Events
+load, unload, resize, scroll, error
+
+// Drag & Drop Events
+drag, dragstart, dragend, dragenter, dragleave, dragover, drop
+
+// Clipboard Events
+copy, cut, paste
+
+// Media Events
+play, pause, ended, volumechange, timeupdate, loadeddata, canplay, canplaythrough
+
+// Touch Events (mobile)
+touchstart, touchend, touchmove, touchcancel
+
+// Pointer Events
+pointerdown, pointerup, pointermove, pointerover, pointerout, pointerenter, pointerleave, gotpointercapture, lostpointercapture
+
+// Animation & Transition Events
+animationstart, animationend, animationiteration
+transitionstart, transitionend, transitionrun, transitioncancel
+
+// Focus Events
+focusin, focusout
+
+// Miscellaneous Events
+contextmenu, wheel, beforeunload, visibilitychange
