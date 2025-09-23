@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+
+.main{
+     margin: 50px auto;
+     width: 100%;
+}
+
+.input-container{
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: none;
+}
