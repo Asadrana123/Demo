@@ -2,19 +2,31 @@ const input = document.getElementsByTagName('input')[0]
 const loader = document.getElementById('loader');
 const resultContainer = document.getElementById('results-container');
 const errorContainer = document.getElementById('error-container');
-var timeOutId = null;
+const debounceInput = debounce(fetchSearchResult, 500);
+var controller;
+function debounce(fn, delay) {
+    let timeOutId = null;
+    return function (text) {
+        clearTimeout(timeOutId)
+        if (text.length === 0) {
+            handleEmptyInput();
+            return;
+        }
+        timeOutId = setTimeout(() => fn(text), delay)
+    }
+}
 
-const fetchSearchResult = async (text) => {
-    const controller = new AbortController();
-    const { signal } = controller;
-    setTimeout(() => controller.abort(), 2000)
+async function fetchSearchResult(text) {
     try {
-        const response = await fetch(`https://api.datamuse.com/sug?s=${text}`, { signal });
-        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`)
+        const response = await fetch(`https://api.datamuse.com/sug?s=${text}`);
+        console.log(text);
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const searchResult = await response.json();
         showResults(searchResult);
     } catch (err) {
-        showError(err)
+        if (err.name !== 'AbortError') {
+            showError(err)
+        }
     }
 }
 
@@ -62,12 +74,5 @@ const handleEmptyInput = () => {
 
 input.addEventListener('input', (e) => {
     showLoading();
-    clearTimeout(timeOutId)
-    if (e.target.value.length === 0) {
-        handleEmptyInput();
-        return;
-    }
-    timeOutId = setTimeout(() => {
-        fetchSearchResult(e.target.value)
-    }, 200)
+    debounceInput(e.target.value);
 })
