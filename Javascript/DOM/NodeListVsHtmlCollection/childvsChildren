@@ -1,0 +1,9 @@
+childNodes
+Returns a NodeList (can include many types of nodes: element nodes, text nodes, comment nodes, etc.).
+LIVE → updates automatically when DOM changes.
+
+Includes everything inside, even text like line breaks (\n) between tags.
+🔹 children
+Returns an HTMLCollection (only element nodes).
+LIVE → updates automatically when DOM changes.
+Ignores text nodes, comments, etc. → only <tags> are included.

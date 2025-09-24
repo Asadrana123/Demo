@@ -6,6 +6,7 @@ const errorContainer = document.getElementById('error-container');
 const closeButton = document.getElementById('close-button')
 const noResult = document.getElementById('no-result')
 const debounceInput = debounce(fetchSearchResult, 500);
+var currentFocusIndex = -1;
 var controller;
 async function fetchSearchResult(text) {
     controller = new AbortController();
@@ -101,3 +102,12 @@ input.addEventListener('input', (e) => {
 })
 
 
+document.addEventListener('keydown', (e) => {
+    
+    if (e.key === 'ArrowDown') {
+        currentFocusIndex = currentFocusIndex === -1 ? 0 : currentFocusIndex + 1;
+    }
+    if (e.key === 'ArrowUp') {
+        currentFocusIndex = currentFocusIndex === -1 ? 0 : currentFocusIndex + 1;
+    }
+})
