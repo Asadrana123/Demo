@@ -14,14 +14,22 @@ body {
 .input-container {
     width: 60%;
     margin: 0 auto;
+    padding: 10px;
     border: 1px solid black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 input {
     width: 100%;
-    padding: 10px;
     outline: none;
     border: none;
+}
+
+#close-button {
+    cursor: pointer;
+    display: none;
 }
 
 #loader {
@@ -34,6 +42,12 @@ input {
     border-bottom: 2px solid black;
     border-radius: 100%;
     animation: loading 1s infinite linear;
+}
+
+#no-result {
+    display: none;
+    margin: 10px auto;
+    text-align: center;
 }
 
 #results-container {

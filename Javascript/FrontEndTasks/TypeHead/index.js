@@ -3,6 +3,8 @@ const input = document.getElementsByTagName('input')[0]
 const loader = document.getElementById('loader');
 const resultContainer = document.getElementById('results-container');
 const errorContainer = document.getElementById('error-container');
+const closeButton = document.getElementById('close-button')
+const noResult = document.getElementById('no-result')
 const debounceInput = debounce(fetchSearchResult, 500);
 var controller;
 async function fetchSearchResult(text) {
@@ -12,6 +14,7 @@ async function fetchSearchResult(text) {
         controller = null;
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const searchResult = await response.json();
+        console.log(searchResult);
         showResults(searchResult);
     } catch (err) {
         if (err.name !== 'AbortError') {
@@ -39,26 +42,33 @@ const showError = (err) => {
 }
 
 const showResults = (resultList) => {
+    loader.style.display = 'none'
+    if (resultList.length === 0) {
+        noResult.style.display = 'block'
+        return;
+    }
     const newNodes = resultList.slice(0, 5).map((result) => {
         const node = document.createElement('div');
         node.textContent = result.word;
         node.setAttribute('class', 'result');
         return node;
     })
-    loader.style.display = 'none'
     resultContainer.style.display = 'flex'
     resultContainer.replaceChildren(...newNodes);
 }
 
 const showLoading = () => {
     loader.style.display = 'block';
-    resultContainer.style.display = 'none'
+    resultContainer.style.display = 'none';
+    noResult.style.display = 'none';
+    closeButton.style.display = 'block';
 }
 
 const handleEmptyInput = () => {
     loader.style.display = 'none';
     resultContainer.style.display = 'none';
-    errorContainer.style.display = 'none'
+    errorContainer.style.display = 'none';
+    closeButton.style.display = 'none';
 }
 
 
@@ -68,6 +78,16 @@ const cancelOngoingRequest = () => {
         controller.abort()
     }
 }
+
+const handleCloseButton = () => {
+    input.value = '';
+    input.focus();
+    noResult.style.display = 'none';
+    closeButton.style.display = 'none';
+    resultContainer.style.display = 'none';
+}
+
+closeButton.addEventListener('click', () => handleCloseButton())
 
 input.addEventListener('input', (e) => {
     showLoading();
@@ -79,3 +99,5 @@ input.addEventListener('input', (e) => {
     }
     debounceInput(e.target.value);
 })
+
+
