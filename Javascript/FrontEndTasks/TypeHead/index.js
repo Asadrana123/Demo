@@ -1,25 +1,15 @@
+import { debounce } from "./debounce.js";
 const input = document.getElementsByTagName('input')[0]
 const loader = document.getElementById('loader');
 const resultContainer = document.getElementById('results-container');
 const errorContainer = document.getElementById('error-container');
 const debounceInput = debounce(fetchSearchResult, 500);
 var controller;
-function debounce(fn, delay) {
-    let timeOutId = null;
-    return function (text) {
-        clearTimeout(timeOutId)
-        if (text.length === 0) {
-            handleEmptyInput();
-            return;
-        }
-        timeOutId = setTimeout(() => fn(text), delay)
-    }
-}
-
 async function fetchSearchResult(text) {
+    controller = new AbortController();
     try {
-        const response = await fetch(`https://api.datamuse.com/sug?s=${text}`);
-        console.log(text);
+        const response = await fetch(`https://api.datamuse.com/sug?s=${text}`, { signal: controller.signal });
+        controller = null;
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const searchResult = await response.json();
         showResults(searchResult);
@@ -72,7 +62,20 @@ const handleEmptyInput = () => {
 }
 
 
+const cancelOngoingRequest = () => {
+    if (controller) {
+        console.log('hi');
+        controller.abort()
+    }
+}
+
 input.addEventListener('input', (e) => {
     showLoading();
+    if (!e.target.value) {
+        handleEmptyInput();
+        cancelOngoingRequest();
+        debounceInput.cancel();
+        return;
+    }
     debounceInput(e.target.value);
 })
