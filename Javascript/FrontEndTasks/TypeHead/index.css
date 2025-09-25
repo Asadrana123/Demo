@@ -29,11 +29,9 @@ input {
 
 #close-button {
     cursor: pointer;
-    display: none;
 }
 
 #loader {
-    display: none;
     margin: 20px auto;
     width: 25px;
     height: 25px;
@@ -45,13 +43,11 @@ input {
 }
 
 #no-result {
-    display: none;
     margin: 10px auto;
     text-align: center;
 }
 
 #results-container {
-    display: flex;
     flex-direction: column;
     gap: 5px;
     margin: 10px auto;
@@ -64,7 +60,6 @@ input {
 }
 
 #error-container {
-    display: none;
     width: 60%;
     margin: 20px auto;
     padding: 10px;
@@ -72,12 +67,20 @@ input {
     border: 1px solid black;
 }
 
-.hide{
-    display: none;
+.highlight{
+    border: 1px solid black;
+}
+
+.remove{
+   display: none;
 }
 
 .show{
     display: block;
+}
+
+.show-flex{
+    display: flex;
 }
 
 @keyframes loading {

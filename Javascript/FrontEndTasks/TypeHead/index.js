@@ -36,17 +36,17 @@ const showError = (err) => {
     } else if (err.message.includes("500")) {
         userMessage = "Something went wrong on our server. Please try again later.";
     }
-    loader.style.display = 'none'
-    resultContainer.style.display = 'none'
+    loader.classList.replace('show', 'remove')
+    resultContainer.classList.replace('show-flex', 'remove')
     errorContainer.textContent = userMessage;
-    errorContainer.style.display = 'block'
+    errorContainer.classList.replace('remove', 'show')
     console.error("Technical error:", err); // for debugging
 }
 
 const showResults = (resultList) => {
-    loader.style.display = 'none'
+    loader.classList.replace('show', 'remove')
     if (resultList.length === 0) {
-        noResult.style.display = 'block'
+        noResult.classList.replace('remove', 'show')
         return;
     }
     const newNodes = resultList.slice(0, 5).map((result) => {
@@ -55,22 +55,22 @@ const showResults = (resultList) => {
         node.setAttribute('class', 'result');
         return node;
     })
-    resultContainer.style.display = 'flex'
+    resultContainer.classList.replace('remove', 'show-flex')
     resultContainer.replaceChildren(...newNodes);
 }
 
 const showLoading = () => {
-    loader.style.display = 'block';
-    resultContainer.style.display = 'none';
-    noResult.style.display = 'none';
-    closeButton.style.display = 'block';
+    loader.classList.replace('remove', 'show')
+    resultContainer.style.display = 'none'
+    noResult.classList.replace('show', 'remove')
+    closeButton.classList.replace('remove', 'show')
 }
 
 const handleEmptyInput = () => {
-    loader.style.display = 'none';
-    resultContainer.style.display = 'none';
-    errorContainer.style.display = 'none';
-    closeButton.style.display = 'none';
+    loader.classList.replace('show', 'remove')
+    resultContainer.classList.replace('show', 'remove')
+    errorContainer.classList.replace('show', 'remove')
+    closeButton.classList.replace('show', 'remove')
 }
 
 
@@ -83,9 +83,9 @@ const cancelOngoingRequest = () => {
 const handleCloseButton = () => {
     input.value = '';
     input.focus();
-    noResult.style.display = 'none';
-    closeButton.style.display = 'none';
-    resultContainer.style.display = 'none';
+    noResult.classList.replace('show', 'remove')
+    closeButton.classList.replace('show', 'remove')
+    resultContainer.classList.replace('show-flex', 'remove')
 }
 
 closeButton.addEventListener('click', () => handleCloseButton())
@@ -112,7 +112,7 @@ document.addEventListener('keydown', (e) => {
         currentFocusIndex = currentFocusIndex === -1 ? resultNodes.length - 1 : currentFocusIndex - 1;
         currentFocusIndex = currentFocusIndex < 0 ? currentFocusIndex + resultNodes.length : currentFocusIndex
     }
-    resultNodes[currentFocusIndex].style.border = '1px solid black';
-    if (previousFocusIndex != -1) resultNodes[previousFocusIndex].style.border = 'none';
+    resultNodes[currentFocusIndex].classList.toggle('highlight');
+    if (previousFocusIndex != -1) resultNodes[previousFocusIndex].classList.toggle('highlight');
     previousFocusIndex = currentFocusIndex;
 })
