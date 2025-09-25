@@ -8,6 +8,7 @@ const closeButton = document.getElementById('close-button')
 const noResult = document.getElementById('no-result')
 const debounceInput = debounce(fetchSearchResult, 500);
 var currentFocusIndex = -1;
+var previousFocusIndex = -1;
 var controller;
 async function fetchSearchResult(text) {
     controller = new AbortController();
@@ -43,7 +44,6 @@ const showError = (err) => {
 }
 
 const showResults = (resultList) => {
-    console.log(resultNodes);
     loader.style.display = 'none'
     if (resultList.length === 0) {
         noResult.style.display = 'block'
@@ -103,13 +103,16 @@ input.addEventListener('input', (e) => {
 
 
 document.addEventListener('keydown', (e) => {
-    if (resultNodes.length == 0 || (e.key !== 'ArroDown' && e.key != 'ArrowUp')) return;
+    if (resultNodes.length == 0 || (e.key !== 'ArrowDown' && e.key != 'ArrowUp')) return;
     if (e.key === 'ArrowDown') {
         currentFocusIndex = currentFocusIndex === -1 ? 0 : currentFocusIndex + 1;
+        currentFocusIndex = currentFocusIndex % resultNodes.length;
     }
-    if (e.key === 'ArrowUp') {
+    else if (e.key === 'ArrowUp') {
         currentFocusIndex = currentFocusIndex === -1 ? resultNodes.length - 1 : currentFocusIndex - 1;
+        currentFocusIndex = currentFocusIndex < 0 ? currentFocusIndex + resultNodes.length : currentFocusIndex
     }
-     currentFocusIndex = Math.min()
-    console.log(currentFocusIndex);
+    resultNodes[currentFocusIndex].style.border = '1px solid black';
+    if (previousFocusIndex != -1) resultNodes[previousFocusIndex].style.border = 'none';
+    previousFocusIndex = currentFocusIndex;
 })

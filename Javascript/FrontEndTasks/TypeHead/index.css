@@ -72,6 +72,14 @@ input {
     border: 1px solid black;
 }
 
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
 @keyframes loading {
     from {
         transform: rotate(0deg);
