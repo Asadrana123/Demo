@@ -57,13 +57,16 @@ const showResults = (resultList) => {
     })
     resultContainer.classList.replace('remove', 'show-flex')
     resultContainer.replaceChildren(...newNodes);
+    currentFocusIndex = -1;
+    previousFocusIndex = -1;
 }
 
 const showLoading = () => {
     loader.classList.replace('remove', 'show')
-    resultContainer.style.display = 'none'
+    resultContainer.classList.replace('show-flex', 'remove')
     noResult.classList.replace('show', 'remove')
     closeButton.classList.replace('remove', 'show')
+
 }
 
 const handleEmptyInput = () => {
@@ -102,7 +105,8 @@ input.addEventListener('input', (e) => {
 })
 
 
-document.addEventListener('keydown', (e) => {
+
+input.addEventListener('keydown', (e) => {
     if (resultNodes.length == 0 || (e.key !== 'ArrowDown' && e.key != 'ArrowUp')) return;
     if (e.key === 'ArrowDown') {
         currentFocusIndex = currentFocusIndex === -1 ? 0 : currentFocusIndex + 1;
