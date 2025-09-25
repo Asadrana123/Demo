@@ -1,0 +1,16 @@
+Microtasks (higher priority – run just after current JS execution, before macrotasks):
+- Promise callbacks (.then, .catch, .finally)
+- MutationObserver callbacks
+- queueMicrotask()
+
+Macrotasks (lower priority – scheduled in task queue, run after microtasks are cleared):
+- setTimeout
+- setInterval
+- setImmediate (Node.js only)
+- requestAnimationFrame (browser only)
+- I/O tasks (network events, DOM events, file system events)
+- MessageChannel callbacks
+
+👉 Rule of thumb:
+- Microtask = promises + microtask API (runs immediately after current execution).
+- Macrotask = timers, events, rendering (runs in next event loop tick).
