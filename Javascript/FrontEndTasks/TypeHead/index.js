@@ -2,6 +2,7 @@ import { debounce } from "./debounce.js";
 const input = document.getElementsByTagName('input')[0]
 const loader = document.getElementById('loader');
 const resultContainer = document.getElementById('results-container');
+const resultNodes = resultContainer.children;
 const errorContainer = document.getElementById('error-container');
 const closeButton = document.getElementById('close-button')
 const noResult = document.getElementById('no-result')
@@ -15,7 +16,6 @@ async function fetchSearchResult(text) {
         controller = null;
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const searchResult = await response.json();
-        console.log(searchResult);
         showResults(searchResult);
     } catch (err) {
         if (err.name !== 'AbortError') {
@@ -43,6 +43,7 @@ const showError = (err) => {
 }
 
 const showResults = (resultList) => {
+    console.log(resultNodes);
     loader.style.display = 'none'
     if (resultList.length === 0) {
         noResult.style.display = 'block'
@@ -75,7 +76,6 @@ const handleEmptyInput = () => {
 
 const cancelOngoingRequest = () => {
     if (controller) {
-        console.log('hi');
         controller.abort()
     }
 }
@@ -103,11 +103,13 @@ input.addEventListener('input', (e) => {
 
 
 document.addEventListener('keydown', (e) => {
-    
+    if (resultNodes.length == 0 || (e.key !== 'ArroDown' && e.key != 'ArrowUp')) return;
     if (e.key === 'ArrowDown') {
         currentFocusIndex = currentFocusIndex === -1 ? 0 : currentFocusIndex + 1;
     }
     if (e.key === 'ArrowUp') {
-        currentFocusIndex = currentFocusIndex === -1 ? 0 : currentFocusIndex + 1;
+        currentFocusIndex = currentFocusIndex === -1 ? resultNodes.length - 1 : currentFocusIndex - 1;
     }
+     currentFocusIndex = Math.min()
+    console.log(currentFocusIndex);
 })

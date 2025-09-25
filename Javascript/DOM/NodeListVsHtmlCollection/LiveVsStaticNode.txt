@@ -7,10 +7,12 @@ HTMLCollection (from getElementsByTagName/getElementsByClassName/children) is li
 
 Live vs static depends on how the collection is obtained, not just on “NodeList vs HTMLCollection.”
 
-Rule of thumb: querySelectorAll → static NodeList; childNodes → live NodeList; 
+Rule of thumb: 
+querySelectorAll → static NodeList; childNodes → live NodeList; 
 children/getElements* → live HTMLCollection.
 
 children gives only element nodes (no text or comments);
+
 childNodes includes elements,
  ext (whitespace/newlines), and comments.
 
