@@ -10,13 +10,13 @@ Live vs static depends on how the collection is obtained, not just on “NodeLis
 Rule of thumb: querySelectorAll → static NodeList; childNodes → live NodeList; 
 children/getElements* → live HTMLCollection.
 
-children gives only element nodes (no text or comments); childNodes includes elements,
- text (whitespace/newlines), and comments.
+children gives only element nodes (no text or comments);
+childNodes includes elements,
+ ext (whitespace/newlines), and comments.
 
 Example (whitespace matters):
 
 HTML:
-
 <ul id="list"> <li>A</li> <li>B</li> </ul>
 childNodes → [Text, LI, Text, LI, Text], length = 5 (live).
 
@@ -41,4 +41,3 @@ paras.length; // increases
 
 Use children when only element elements are needed; use childNodes when text/comment nodes also matter.
 
-Prefer static snapshots (querySelectorAll) for predictable iteration; re-query after mutations if needed.
