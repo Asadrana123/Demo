@@ -1,0 +1,19 @@
+The enclosing lexical context is the surrounding code scope (function, block, or module) 
+in which a piece of code is defined.
+
+It’s determined at write time (where the code is written), not at runtime (how it’s called).
+Variables, this, and other bindings are resolved by looking “outward” into this enclosing context.
+
+
+function outer() {   // outer = enclosing lexical context of inner
+  let x = 10;
+  function inner() {
+    console.log(x); // inner looks into outer
+  }
+  inner();
+}
+outer();
+
+
+Lexical context = "my scope".
+Enclosing lexical context = "the scope outside mine".
