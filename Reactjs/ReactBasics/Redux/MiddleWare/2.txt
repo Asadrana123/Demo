@@ -1,0 +1,115 @@
+========================================
+WHAT IS A THUNK?
+========================================
+
+DEFINITION:
+A thunk is a function returned by an action creator that receives
+(dispatch, getState) and can run async code. When async finishes, it dispatches plain actions.
+
+SHAPE:
+const someThunk = (args) => async (dispatch, getState) => {
+  // async work here
+  dispatch({ type: 'some/action', payload: data });
+};
+
+========================================
+ASYNC FLOW WITH THUNK
+========================================
+
+ACTION TYPES:
+- users/fetchStarted
+- users/fetchSucceeded
+- users/fetchFailed
+
+THUNK ACTION CREATOR:
+export const fetchUsers = () => async (dispatch, getState) => {
+  try {
+    dispatch({ type: 'users/fetchStarted' });
+    const res = await fetch('https://jsonplaceholder.typicode.com/users');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    dispatch({ type: 'users/fetchSucceeded', payload: data });
+  } catch (err) {
+    dispatch({ type: 'users/fetchFailed', payload: String(err) });
+  }
+};
+
+USAGE IN COMPONENT:
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsers } from './usersThunks';
+
+export default function UsersList() {
+  const dispatch = useDispatch();
+  const { users, loading, error } = useSelector(s => s);
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p style={{ color: 'red' }}>Error: {error}</p>;
+
+  return (
+    <ul>
+      {users.map(u => <li key={u.id}>{u.name}</li>)}
+    </ul>
+  );
+}
+
+========================================
+ADD A LOGGER MIDDLEWARE (OPTIONAL)
+========================================
+
+CUSTOM LOGGER:
+const logger = store => next => action => {
+  console.log('%c dispatch', 'color: #4CAF50;', action);
+  const result = next(action);
+  console.log('%c next state', 'color: #03A9F4;', store.getState());
+  return result;
+};
+
+APPLY MULTIPLE MIDDLEWARE:
+const store = createStore(usersReducer, applyMiddleware(thunk, logger));
+
+========================================
+ERROR HANDLING & CANCELLATION
+========================================
+
+BASIC ERROR HANDLING:
+- Try/catch in thunks
+- Dispatch a clear failure action
+- Store human-readable error messages
+- Show error UI based on state.error
+
+CANCELLATION (SIMPLE):
+- Track a requestId in state
+- When a new fetch starts, store requestId
+- After fetch resolves, only dispatch success if requestId matches latest
+- For complex cancellation, consider advanced tools later
+
+========================================
+BEST PRACTICES
+========================================
+
+- Keep reducers pure; no fetch or side effects in reducers
+- Dispatch a started action before async work
+- Always handle success and failure actions
+- Keep action types descriptive: "domain/event" (e.g., "users/fetchSucceeded")
+- Derive loading/error UI from state (no ad-hoc flags in components)
+- Keep thunks small; delegate complex transformations to pure helpers
+
+========================================
+COMMON PITFALLS
+========================================
+
+- Forgetting to return new state in reducers (immutability)
+- Dispatching non-serializable payloads (stick to JSON-serializable)
+- Swallowing errors silently (always dispatch failure)
+- Over-selecting with useSelector (select only what you need)
+- Triggering repeated requests in useEffect without stable deps
+
+========================================
+NEXT:
+- Step 8: Redux Toolkit basics (configureStore, createSlice, createAsyncThunk)
+- Convert the above example to Redux Toolkit for cleaner, modern code
