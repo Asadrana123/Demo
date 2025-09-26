@@ -1,6 +1,6 @@
-Step 1 (mini) — What is a Promise?
 
-A Promise is an object representing a value that will be available in the future (after async work).
+//A Promise is an object in JavaScript that represents the eventual
+//completion or failure of an asynchronous operation.
 
 It can be in 3 states:
 

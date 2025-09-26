@@ -1,0 +1,6 @@
+// Promise.any() takes an array of promises and returns a single promise that:
+// ✅ Resolves as soon as one promise fulfills
+// ❌ Rejects only if all promises reject
+
+
+//also it will show aggregation error all promises we are passing into any they all get rejected

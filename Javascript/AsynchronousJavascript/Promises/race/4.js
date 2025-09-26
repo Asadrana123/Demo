@@ -19,5 +19,5 @@ const p1 = new Promise((resolve, reject) => {
       console.log("Race rejected with:", err);
     });
   
-  console.log("End of script");
+
   

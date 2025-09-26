@@ -1,0 +1,20 @@
+// Example 1: Unhandled rejection
+Promise.reject("Oops!"); 
+// No .catch() attached
+// Output (browser/Node):
+// Uncaught (in promise) Oops!
+
+// Example 2: Handled rejection
+Promise.reject("Oops!")
+    .catch((err) => console.log("Handled:", err));
+// Output:
+// Handled: Oops!
+
+/*
+Notes:
+- If a promise rejects and no .catch() or rejection handler is attached, 
+  JavaScript will show an "UnhandledPromiseRejection" warning or error.
+- This applies to all asynchronous promise rejections.
+- In Node.js, unhandled rejections may terminate the process in future versions.
+- Best practice: always attach .catch() or handle errors with try { await } catch {}.
+*/

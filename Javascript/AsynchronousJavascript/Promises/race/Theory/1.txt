@@ -1,0 +1,2 @@
+//Promise.race() takes an array of promises and returns a single promise that:
+//Settles (resolves or rejects) as soon as any one of the promises does.
