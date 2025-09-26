@@ -3,8 +3,10 @@ WHAT IS A THUNK?
 ========================================
 
 DEFINITION:
-A thunk is a function returned by an action creator that receives
-(dispatch, getState) and can run async code. When async finishes, it dispatches plain actions.
+It allows you to write action creators that return a function instead of an action object.
+That function can perform asynchronous tasks (like API calls) and then dispatch 
+normal actions when ready.
+Without thunk (or another async middleware), Redux can only handle plain action objects.
 
 SHAPE:
 const someThunk = (args) => async (dispatch, getState) => {
