@@ -1,0 +1,154 @@
+The 'this' Keyword in JavaScript - Complete Guide
+
+
+1. Global Space
+Rule: In global space, this always refers to the global object.
+
+console.log(this); // Window object (in browser)
+Key Points:
+Global object varies by JavaScript runtime:
+Browser: window object
+Node.js: global object
+Other runtimes: Can be different
+
+2. Inside Functions
+Rule: The value of this inside functions depends on strict mode vs non-strict mode.
+
+Non-Strict Mode
+javascript
+function x() {
+    console.log(this); // Window object
+}
+x();
+
+Strict Mode
+javascript
+"use strict";
+function x() {
+    console.log(this); // undefined
+}
+x();
+
+This Substitution
+Important Concept: In non-strict mode only, if the value of this is undefined or null, 
+JavaScript replaces it with the global object.
+function printThis() {
+    console.log(this);
+}
+
+printThis.call(undefined); // window (non-strict)
+printThis.call(null);      // window (non-strict)
+
+
+3. How Function is Called Matters
+Rule: The value of this depends on how the function is called.
+
+"use strict";
+function x() {
+    console.log(this);
+}
+
+x(); // undefined (called without reference)
+window.x(); // Window object (called with reference)
+
+
+4. Inside Object Methods
+Rule: When this is inside a method, it refers to the object that contains the method.
+const obj = {
+    a: 10,
+    x: function() {
+        console.log(this); // obj object
+        console.log(this.a); // 10
+    }
+};
+obj.x(); // 'this' refers to obj
+
+
+
+5. Call, Apply, and Bind Methods
+Rule: These methods allow you to override the value of this and share methods between objects.
+
+const student = {
+    name: "Akshay",
+    printName: function() {
+        console.log(this.name);
+    }
+};
+
+const student2 = {
+    name: "Deepika"
+};
+
+// Using call to share method
+student.printName(); // "Akshay"
+student.printName.call(student2); // "Deepika"
+
+
+6. Inside Arrow Functions
+Rule: Arrow functions do not have their own this binding. 
+They take the value from their enclosing lexical context.
+
+Basic Example
+javascript
+const obj = {
+    a: 10,
+    x: () => {
+        console.log(this); // Window object (global context)
+    }
+};
+obj.x(); // 'this' is NOT obj, it's Window
+
+
+Nested Example (Tricky)
+javascript
+const obj2 = {
+    a: 20,
+    x: function() {
+        // Arrow function inside regular function
+        const y = () => {
+            console.log(this); // obj2 object
+        };
+        y();
+    }
+};
+
+obj2.x(); // 'this' inside arrow function equals 'this' of enclosing function
+Key Concept: Arrow function behaves as if it doesn't exist - it takes this value from where it's lexically enclosed.
+
+7. Inside DOM Elements
+Rule: In DOM event handlers, this refers to the HTML element that triggered the event.
+
+xml
+<button onclick="alert(this)">Click me</button>
+<!-- 'this' refers to the button element -->
+
+<button onclick="alert(this.tagName)">Click me</button>
+<!-- Prints: "BUTTON" -->
+
+
+
+Key Interview Points
+this in global space = global object
+
+this in functions depends on strict/non-strict mode
+
+This substitution happens only in non-strict mode
+
+Function call method determines this value
+
+Arrow functions inherit this from enclosing scope
+
+Object methods have this as the containing object
+
+call/apply/bind can override this value
+
+DOM elements have this as the HTML element
+
+Important Definitions
+Method: A function inside an object
+
+Enclosing Lexical Context: Where the arrow function is written/enclosed in the code
+
+This Substitution: JavaScript replacing undefined/null this with global object (non-strict mode only)
+
+Global Object: The top-level object in JavaScript runtime (Window in browser, Global in Node.js)

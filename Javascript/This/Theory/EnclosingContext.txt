@@ -1,0 +1,2 @@
+Enclosing lexical context = the place where the arrow function is defined, not where it is called.
+Arrow functions take this from that surrounding scope (nearest normal function or global scope).
