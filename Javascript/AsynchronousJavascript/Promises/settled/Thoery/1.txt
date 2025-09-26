@@ -1,0 +1,28 @@
+// Promise.allSettled Example
+
+const p1 = Promise.resolve(10);      // fulfilled
+const p2 = 20;                        // non-promise, treated as fulfilled
+const p3 = Promise.reject("fail");    // rejected
+
+Promise.allSettled([p1, p2, p3])
+    .then(results => console.log(results));
+
+/*
+Output:
+[
+  { status: "fulfilled", value: 10 },
+  { status: "fulfilled", value: 20 },
+  { status: "rejected", reason: "fail" }
+]
+
+Explanation:
+1. Purpose: Waits for all promises to settle (fulfilled or rejected) and always resolves.
+2. Difference from Promise.all:
+   - Promise.all rejects immediately if any promise rejects.
+   - Promise.allSettled waits for all promises to settle and never rejects.
+3. Return value: Array of objects:
+   - { status: "fulfilled", value: <value> }
+   - { status: "rejected", reason: <error> }
+4. Non-promise values are treated as already fulfilled.
+5. Maintains the same order as the input array.
+*/
