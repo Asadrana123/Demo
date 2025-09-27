@@ -20,7 +20,7 @@ Shafi Khan
 7 * 5 = 35 people
 35 * 7
 Shafi Khan
-14:
+14
 Polyfills:
  - Arrays
     : map, filter, reduce, flat
