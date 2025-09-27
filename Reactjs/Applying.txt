@@ -19,7 +19,6 @@ Shafi Khan
 7 companies
 7 * 5 = 35 people
 35 * 7
-Shafi Kh
 Polyfills:
  - Arrays
     : map, filter, reduce, flat
