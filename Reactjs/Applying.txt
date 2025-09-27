@@ -1,0 +1,41 @@
+Shafi Khan
+14:08
+https://shafikhan.hashnode.dev/the-coldmail-that-koed-the-recession-to-land-me-4-offers
+Shafi Khan
+14:18
+- Where to find jobs?
+    - Instahyre, wellfound, linkedin, naukri
+- How to apply?
+    - Cold mailing
+        - Hiring manangers
+            - linkedin
+            - gmail -> apollo.io
+            - 5 
+            - 3 days
+        - Cold mail template
+        - How? Whom? What things 
+        
+
+7 companies
+7 * 5 = 35 people
+35 * 7
+Shafi Khan
+14:22
+Polyfills:
+ - Arrays
+    : map, filter, reduce, flat
+ - Objects
+    : call, apply, bind
+ - Promises
+    : all, allSettled, race, any
+Shafi Khan
+14:27
+const calculator = createCalculator(10);
+
+console.log(calculator.add(5));       // 15
+console.log(calculator.subtract(3));  // 12
+console.log(calculator.multiply(2));  // 24
+console.log(calculator.divide(4));    // 6
+console.log(calculator.getValue());   // 6
+calculator.reset();
+console.log(calculator.getValue());   // 0
