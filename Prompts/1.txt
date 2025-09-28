@@ -20,3 +20,8 @@ but only one suggestion at once
 
 and one more thing explain me the things in depth as much as 
 needed for senoir front end engineer
+
+
+For Summary:-
+make summary from this lecture so I can revise in future, 
+include everything which is being taught by teacher

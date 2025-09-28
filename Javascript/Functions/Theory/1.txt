@@ -1,0 +1,99 @@
+
+Function Statement
+
+Definition: A function statement is the traditional way of creating a function using the 
+function keyword followed by a name.
+
+Syntax:
+function a() {
+    console.log("a called");
+}
+a(); // Function call
+
+Key Points:
+- This is the most common way to declare functions
+- Functions are the heart of JavaScript and very powerful
+
+Function Expression
+
+Definition: A function expression is when you assign a function to a variable.
+The function acts like a value.
+
+Syntax:
+var b = function() {
+    console.log("b called");
+};
+b(); // Function call
+
+Key Points:
+- Functions act like values in JavaScript
+- You can assign functions to variables
+- This is possible in JavaScript but not in many other programming languages
+
+Function Statement vs Function Expression
+
+Major Difference: Hoisting
+
+Hoisting Behavior:
+
+Function Statement:
+a(); // This works! Prints "a called"
+function a() {
+    console.log("a called");
+}
+
+Function Expression:
+b(); // This throws an error!
+var b = function() {
+    console.log("b called");
+};
+
+Why this happens:
+- Function Statement: During the memory creation phase, 
+a gets the complete function assigned to it
+- Function Expression: b is treated like any other variable and 
+gets undefined initially. The function is assigned only when the code execution reaches that line
+
+Function Declaration
+
+Important: Function Declaration and Function Statement are the same thing. 
+These are just different jargons used interchangeably.
+
+Anonymous Functions
+
+Definition: A function without a name is an anonymous function.
+
+Syntax:
+function() {
+    console.log("This is anonymous");
+}
+
+Key Points:
+- Anonymous functions cannot exist independently
+- Creating them standalone results in a Syntax Error: "Function statements require a function name"
+- They are used where functions are treated as values
+
+Usage:
+var b = function() {  // Anonymous function used as value
+    console.log("b called");
+};
+
+Named Function Expression
+
+Definition: A function expression where the anonymous function has a name.
+
+Syntax:
+var b = function xyz() {
+    console.log("b called");
+};
+b(); // This works
+
+Important Corner Case:
+var b = function xyz() {
+    console.log(xyz); // This works inside the function
+};
+xyz(); // This throws ReferenceError: xyz is not defined
+
+Why: The function name xyz is created as a local variable inside the function scope, 
+not in the outer scope.
+

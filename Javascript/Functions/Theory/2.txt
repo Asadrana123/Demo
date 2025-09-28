@@ -1,0 +1,74 @@
+Pure function: Only works with its input parameters, doesn’t touch outside.
+Impure function: Touches/modifies anything outside its parameters/local variables.
+
+Parameters vs Arguments
+These terms are NOT interchangeable
+
+Parameters:
+- The identifiers/labels in the function definition
+- Local variables inside the function scope
+- Cannot be accessed outside the function
+
+Arguments:
+- The actual values passed when calling the function
+
+Example:
+function example(param1, param2) {  // param1, param2 are PARAMETERS
+    console.log(param1, param2);
+}
+example(1, 2);  // 1, 2 are ARGUMENTS
+
+First Class Functions
+
+Definition: The ability to use functions as values is known as first-class functions.
+
+What makes functions first-class:
+
+1. Assign to variables:
+var b = function() { console.log("assigned to variable"); };
+
+2. Pass as arguments:
+function b(param1) {
+    console.log(param1); // Receives a function
+}
+b(function() { console.log("passed as argument"); });
+
+3. Return from functions:
+function b() {
+    return function() {
+        console.log("returned from function");
+    };
+}
+var returned = b();
+
+Key Point: This ability to be used as values, passed as arguments, 
+and returned from functions is what makes functions "first-class" in JavaScript.
+
+First Class Citizens
+
+Definition: "Functions are first-class citizens" means exactly the same as "first-class functions".
+
+Both terms refer to:
+- Functions can be used as values
+- Functions can be assigned to variables  
+- Functions can be passed as arguments
+- Functions can be returned from other functions
+
+Note: This is just different terminology used in blogs, articles, and books.
+Understanding this helps when reading JavaScript documentation and articles.
+
+Additional Notes
+
+Const/Let with Function Expressions:
+const b = function() {
+    console.log("b called");
+};
+- Behaves the same as let and const variables
+- Follows temporal dead zone rules
+- Same hoisting behavior as regular const/let variables
+
+Arrow Functions:
+- Function statements, expressions, and declarations can also be written using arrow functions
+- Arrow functions were introduced in ES6 (ECMAScript 2015)
+- The instructor mentions this will be covered in a separate dedicated video
+
