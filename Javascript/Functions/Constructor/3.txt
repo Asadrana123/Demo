@@ -1,0 +1,26 @@
+// Step 3 — Using Prototype for Methods
+
+// Definition:
+// The prototype is an object that is shared by all instances
+// created from a constructor. Methods added to the prototype
+// are not copied to each object — all objects share the same method.
+
+// Example:
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// Adding a method to the prototype
+Person.prototype.sayHello = function () {
+  console.log("Hi, my name is " + this.name);
+};
+
+const p1 = new Person('Asha', 25);
+const p2 = new Person('Rahul', 30);
+
+p1.sayHello(); // Hi, my name is Asha
+p2.sayHello(); // Hi, my name is Rahul
+
+// Now both objects share the same sayHello method
+console.log(p1.sayHello === p2.sayHello); // true
