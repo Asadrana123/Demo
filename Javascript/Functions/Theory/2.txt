@@ -13,7 +13,7 @@ Arguments:
 - The actual values passed when calling the function
 
 Example:
-function example(param1, param2) {  // param1, param2 are PARAMETERS
+function example(param1, param2) {  // param1, param2 are PARAMETER
     console.log(param1, param2);
 }
 example(1, 2);  // 1, 2 are ARGUMENTS
