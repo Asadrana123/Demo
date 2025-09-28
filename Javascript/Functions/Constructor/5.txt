@@ -1,0 +1,32 @@
+// Step 5 — Properties on Constructor vs Prototype
+
+// Definition:
+// - Properties defined inside the constructor belong to each object individually.
+// - Properties added to the prototype are shared across all objects.
+
+// Example:
+function Person(name) {
+  this.name = name;          // Own property
+}
+
+// Shared property on prototype
+Person.prototype.species = "Homo Sapiens";
+
+const p1 = new Person('Asha');
+const p2 = new Person('Rahul');
+
+console.log(p1.name);    // Asha (own property)
+console.log(p2.name);    // Rahul (own property)
+
+console.log(p1.species); // Homo Sapiens (from prototype)
+console.log(p2.species); // Homo Sapiens (from prototype)
+
+// Changing prototype property affects all objects
+Person.prototype.species = "Human";
+console.log(p1.species); // Human
+console.log(p2.species); // Human
+
+// Changing own property affects only that object
+p1.name = "Anita";
+console.log(p1.name); // Anita
+console.log(p2.name); // Rahul

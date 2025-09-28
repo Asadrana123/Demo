@@ -1,0 +1,28 @@
+// Step 4 — Checking Instances and Prototype Chain
+
+// Definition:
+// Every object created by a constructor has a link to the constructor's prototype.
+// You can check if an object is created by a constructor using `instanceof`,
+// and access its prototype via `__proto__` or Object.getPrototypeOf().
+
+// Example:
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.sayHello = function () {
+  console.log("Hi, my name is " + this.name);
+};
+
+const p = new Person('Asha', 25);
+
+// Check instance
+console.log(p instanceof Person); // true
+
+// Check prototype
+console.log(p.__proto__ === Person.prototype);                 // true
+console.log(Object.getPrototypeOf(p) === Person.prototype);    // true
+
+// You can also check if the method comes from prototype
+console.log(p.sayHello === Person.prototype.sayHello); // true

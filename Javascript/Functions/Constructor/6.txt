@@ -1,0 +1,23 @@
+// Step 6 — hasOwnProperty & Property Lookup
+
+// Definition:
+// - `hasOwnProperty` checks if a property exists directly on the object, not in the prototype chain.
+// - JavaScript looks up properties in this order: own property → prototype chain → null.
+
+// Example:
+function Person(name) {
+  this.name = name; // own property
+}
+
+Person.prototype.species = "Homo Sapiens"; // prototype property
+
+const p = new Person('Asha');
+
+console.log(p.name);           // Asha (own property)
+console.log(p.species);        // Homo Sapiens (from prototype)
+
+console.log(p.hasOwnProperty('name'));    // true
+console.log(p.hasOwnProperty('species')); // false
+
+// Accessing a non-existent property
+console.log(p.age); // undefined
