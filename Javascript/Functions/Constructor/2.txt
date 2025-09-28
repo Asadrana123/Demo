@@ -1,0 +1,26 @@
+// Step 2 — Adding Methods in Function Constructor
+
+// Definition:
+// Methods (functions) can be added inside the constructor,
+// but this creates a *new copy of the method* for every object.
+// A better approach is to use the prototype (we’ll see that in Step 3).
+
+// Example 1: Method inside constructor
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+
+  // Method inside constructor
+  this.sayHello = function () {
+    console.log("Hi, my name is " + this.name);
+  };
+}
+
+const p1 = new Person('Asha', 25);
+const p2 = new Person('Rahul', 30);
+
+p1.sayHello(); // Hi, my name is Asha
+p2.sayHello(); // Hi, my name is Rahul
+
+// But notice: each object (p1, p2) has its own copy of sayHello.
+console.log(p1.sayHello === p2.sayHello); // false
