@@ -1,0 +1,20 @@
+// Step 1 — Function Constructor Basics
+
+// Definition:
+// A function constructor in JavaScript is a regular function that is used
+// with the "new" keyword to create objects. 
+// It automatically creates a new object, binds "this" to it, and returns it.
+
+// Example:
+function Person(name, age) {
+  this.name = name; // "this" refers to the new object
+  this.age = age;
+}
+
+// Creating an object using the constructor
+const p = new Person('Asha', 25);
+
+console.log(p);       // -> Person { name: 'Asha', age: 25 }
+console.log(p.name);  // -> 'Asha'
+
+// Note: Arrow functions cannot be used as constructors.
