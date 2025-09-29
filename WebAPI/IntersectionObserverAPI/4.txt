@@ -24,36 +24,33 @@
 <body>
 
   <div class="box" id="box1">Box 1</div>
-  <div class="box" id="box2">Box 2</div>
-  <div class="box" id="box3">Box 3</div>
-  <div class="box" id="box4">Box 4</div>
-  <div class="box" id="box5">Box 5</div>
+<div class="box" id="box2">Box 2</div>
+<div class="box" id="box3">Box 3</div>
 
-  <script>
-    // 1. Select all elements you want to observe
-    const boxes = document.querySelectorAll(".box");
+<script>
+const boxes = document.querySelectorAll(".box");
 
-    // 2. Create the IntersectionObserver
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          console.log(`${entry.target.id} is visible`);
-          entry.target.style.background = "lightgreen"; // example: change color
-          // Optional: stop observing after it becomes visible
-          // observer.unobserve(entry.target);
-        } else {
-          // Reset background if element goes out of view
-          entry.target.style.background = "lightblue";
-        }
-      });
-    }, {
-      root: null,       // viewport is root
-      rootMargin: "0px",
-      threshold: 0.5    // 50% of element must be visible
-    });
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      if (entry.target.id === "box1") {
+        entry.target.style.background = "lightgreen";
+        console.log("Box 1 is visible → Change to green");
+      } 
+      else if (entry.target.id === "box2") {
+        entry.target.style.background = "lightcoral";
+        console.log("Box 2 is visible → Change to red");
+      } 
+      else if (entry.target.id === "box3") {
+        entry.target.style.background = "lightgoldenrodyellow";
+        console.log("Box 3 is visible → Change to yellow");
+      }
+    }
+  });
+}, { threshold: 0.5 });
 
-    // 3. Observe all boxes
-    boxes.forEach(box => observer.observe(box));
-  </script>
+boxes.forEach(box => observer.observe(box));
+</script>
+
 </body>
 </html>
