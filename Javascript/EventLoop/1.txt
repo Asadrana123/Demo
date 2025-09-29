@@ -1,0 +1,270 @@
+JavaScript is synchronous, single-threaded language with just ONE call stack and can do ONE thing at a time.
+
+Key Concepts Overview
+1. JavaScript Engine & Call Stack
+Call stack executes any execution context which enters it
+
+Time, tide and JS waits for none - Call stack has no timer
+
+JavaScript has only 1 call stack present inside the JavaScript engine
+
+2. Browser Superpowers (Web APIs)
+None of these are part of JavaScript! These are extra superpowers that browser provides:
+
+setTimeout()
+
+DOM APIs
+
+fetch()
+
+localStorage
+
+console (yes, even console.log is not JS!)
+
+location
+
+And many more
+
+JavaScript gets access to these powers via the browser through the global object window:
+
+javascript
+window.console.log() // But since window is in global scope, we can access without writing it
+console.log() // Same as above
+3. setTimeout Explained with Examples
+Basic setTimeout Example:
+javascript
+console.log("start");
+setTimeout(function cb() {
+    console.log("timer");
+}, 5000);
+console.log("end");
+
+// Output: start end timer (after 5 seconds)
+What happens behind the scenes:
+
+console.log("start") - executed immediately
+
+setTimeout() - callback registered in Web API environment, timer starts
+
+console.log("end") - executed immediately
+
+After 5000ms, callback moves to callback queue
+
+Event loop pushes callback to call stack when it's empty
+
+console.log("timer") executes
+
+Complex setTimeout Example:
+javascript
+setTimeout(function () {
+    console.log("timer");
+}, 5000);
+
+function x(y) {
+    console.log("x");
+    y();
+}
+
+x(function y() {
+    console.log("y");
+});
+
+// Output: x y timer (after 5 seconds)
+4. Event Listeners & Closures
+Basic Event Listener:
+xml
+<!-- index.html -->
+<button id="clickMe">Click Me!</button>
+javascript
+// index.js
+document.getElementById("clickMe").addEventListener("click", function xyz() {
+    console.log("Button clicked");
+});
+Event Listener with Closure:
+javascript
+let count = 0;
+document.getElementById("clickMe").addEventListener("click", function xyz() {
+    console.log("Button clicked", ++count);
+});
+
+// Better approach using closure for data privacy:
+function attachEventList() {
+    let count = 0;
+    document.getElementById("clickMe").addEventListener("click", function xyz() {
+        console.log("Button clicked", ++count);
+        // Callback function forms closure with outer scope (count)
+    });
+}
+attachEventList();
+5. Event Loop & Callback Queue
+Event Loop's job: Keep checking callback queue and if found something, push it to call stack and delete from callback queue.
+
+Why do we need Callback Queue?
+Suppose user clicks button 6 times:
+
+6 callback functions are put inside callback queue
+
+Event loop checks if call stack is empty
+
+Elements from callback queue are popped off, put in call stack, executed, then removed
+
+6. Fetch & Microtask Queue
+Example with setTimeout and fetch:
+javascript
+console.log("Start");
+
+setTimeout(function cbT() {
+    console.log("CB Timeout");
+}, 5000);
+
+fetch("https://api.netflix.com").then(function cbF() {
+    console.log("CB Netflix");
+}); // takes 2 seconds to get response
+
+// millions of lines of code
+console.log("End");
+
+// Output: Start End "CB Netflix" "CB Timeout"
+Execution Flow:
+
+console.log("Start") executes
+
+setTimeout registers cbT in Web API environment
+
+fetch registers cbF in Web API environment
+
+console.log("End") executes
+
+After 2 seconds, cbF goes to Microtask Queue
+
+After 5 seconds, cbT goes to Callback Queue
+
+Microtask Queue has HIGHER priority than Callback Queue
+
+So cbF executes first, then cbT
+
+7. Microtask Queue vs Callback Queue
+Microtask Queue contains:
+
+Promise callbacks (.then(), .catch(), .finally())
+
+queueMicrotask()
+
+MutationObserver
+
+Callback Queue (Macrotask Queue) contains:
+
+setTimeout callbacks
+
+setInterval callbacks
+
+DOM event callbacks
+
+Other Web API callbacks
+
+Priority Example:
+javascript
+console.log("Start");
+
+setTimeout(() => console.log("Timeout"), 0);
+
+Promise.resolve().then(() => console.log("Promise resolved"));
+
+console.log("End");
+
+// Output: Start End "Promise resolved" Timeout
+8. Starvation of Callback Queue
+If microtask queue keeps getting filled with new microtasks, the callback queue functions might never get executed - this is called starvation of callback queue.
+
+9. Trust Issues with setTimeout
+setTimeout doesn't guarantee exact timing:
+javascript
+console.log("Start");
+
+setTimeout(function cb() {
+    console.log("Callback");
+}, 5000);
+
+console.log("End");
+// Millions of lines of code to execute
+
+// setTimeout guarantees AT LEAST the given timer, not exactly
+// Could take 6, 7, or even 10 seconds depending on call stack
+setTimeout with 0ms delay:
+javascript
+console.log("Start");
+
+setTimeout(function cb() {
+    console.log("Callback");
+}, 0);
+
+console.log("End");
+
+// Output: Start End Callback
+// Even with 0ms, callback must go through the queue
+// Can be used to defer less important functions
+10. Practical Interview Question
+Print 1 after 1 sec, 2 after 2 sec till 5:
+
+Wrong Approach (var):
+javascript
+function x() {
+    for (var i = 1; i <= 5; i++) {
+        setTimeout(function () {
+            console.log(i);
+        }, i * 1000);
+    }
+    console.log("Namaste Javascript");
+}
+x();
+// Output: Namaste Javascript 6 6 6 6 6
+Correct Approach (let):
+javascript
+function x() {
+    for (let i = 1; i <= 5; i++) {
+        setTimeout(function () {
+            console.log(i);
+        }, i * 1000);
+    }
+    console.log("Namaste Javascript");
+}
+x();
+// Output: Namaste Javascript 1 2 3 4 5 (with proper delays)
+Correct Approach with var (using closure):
+javascript
+function x() {
+    for (var i = 1; i <= 5; i++) {
+        function close(i) {
+            setTimeout(function () {
+                console.log(i);
+            }, i * 1000);
+        }
+        close(i); // Creates new copy of i each time
+    }
+    console.log("Namaste Javascript");
+}
+x();
+// Output: Namaste Javascript 1 2 3 4 5 (with proper delays)
+11. Event Loop FAQs
+Q: When does the event loop start?
+A: Event loop is a single-thread, almost infinite loop that's always running.
+
+Q: Are only async web API callbacks registered in web API environment?
+A: YES, synchronous callbacks (like in map, filter, reduce) aren't registered in Web API environment.
+
+Q: How does setTimeout(0) work?
+A: The callback still needs to wait until Call Stack is empty. So 0ms callback might wait 100ms if stack is busy.
+
+Key Takeaways
+JavaScript is synchronous and single-threaded but can perform async operations using Web APIs
+
+Event Loop enables JavaScript to be non-blocking despite being single-threaded
+
+Microtasks have higher priority than regular callback tasks
+
+setTimeout doesn't guarantee exact timing - only minimum delay
+
+Closures with event listeners can cause memory leaks if not handled properly
+
+Never block the main thread - fundamental rule of JavaScript
+
