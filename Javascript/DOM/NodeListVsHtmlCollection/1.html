@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>childNodes Example</title>
+</head>
+
+<body>
+    <div id="parent">
+        <p class="p">Paragraph 1</p>
+        <p class="p">Paragraph 2</p>
+        <p class="p">Paragraph 1</p>
+        <p class="p">Paragraph 2</p>
+        <p class="p">Paragraph 1</p>
+        <p class="p">Paragraph 2</p>
+        <p class="p">Paragraph 1</p>
+        <p class="p">Paragraph 2</p>
+    </div>
+
+    <script>
+        let parent = document.getElementById("parent");
+        let nodes1 = document.querySelectorAll('.p'); // static node list
+        let nodes2 = parent.childNodes; // live NodeList
+        let nodes3 = parent.children; //HTMLCollection
+        console.log(nodes1, nodes2, nodes3)
+    </script>
+</body>
+
+</html>

@@ -1,31 +1,30 @@
 
 querySelectorAll returns a static NodeList that does not auto-update after DOM changes.
-
 childNodes returns a live NodeList that updates immediately when children are added/removed.
-
 HTMLCollection (from getElementsByTagName/getElementsByClassName/children) is live and auto-updates.
-
 Live vs static depends on how the collection is obtained, not just on “NodeList vs HTMLCollection.”
 
 Rule of thumb: 
-querySelectorAll → static NodeList; childNodes → live NodeList; 
+querySelectorAll → static NodeList; 
+childNodes → live NodeList; 
 children/getElements* → live HTMLCollection.
 
 children gives only element nodes (no text or comments);
-
 childNodes includes elements,
- ext (whitespace/newlines), and comments.
+ text (whitespace/newlines), and comments.
 
 Example (whitespace matters):
-
 HTML:
-<ul id="list"> <li>A</li> <li>B</li> </ul>
+<ul id="list"> 
+<li>A</li>
+ <li>B</li>
+  </ul>
 childNodes → [Text, LI, Text, LI, Text], length = 5 (live).
-
 children → [LI, LI], length = 2 (live).
+Use children when only element elements are needed; use childNodes when text/comment nodes also matter.
+
 
 Minimal code demos:
-
 Static NodeList:
 const items = document.querySelectorAll('#list li');
 document.getElementById('list').appendChild(document.createElement('li'));
@@ -41,5 +40,4 @@ const paras = document.getElementsByTagName('p');
 document.body.appendChild(document.createElement('p'));
 paras.length; // increases
 
-Use children when only element elements are needed; use childNodes when text/comment nodes also matter.
 

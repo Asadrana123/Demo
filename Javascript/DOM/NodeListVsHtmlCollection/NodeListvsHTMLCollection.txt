@@ -5,7 +5,7 @@ NodeList vs HTMLCollection in JavaScript:
    - HTMLCollection: Returned by getElementsByClassName(), getElementsByTagName(), etc.
 
 2. Content:
-   - NodeList: Can contain ANY type of node (elements, text nodes, comments).
+   - NodeList: live:- only element nodes static:- all nodes (text,comment)
    - HTMLCollection: Contains ONLY element nodes (ignores text/comments).
 
 3. Live vs Static:

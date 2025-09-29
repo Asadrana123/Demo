@@ -1,12 +1,3 @@
-// Creating Elements Dynamically
-// JavaScript lets you create new HTML elements on the fly using the DOM. This is super useful when you
-// want to build things like:
-const myDiv = document.getElementById('my-id');
-const newElement = document.createElement('div');
-document.body.append(newElement);
-//or
-myDiv.append(newElement)
-
 
 //difference between append and appendChild:-
 
