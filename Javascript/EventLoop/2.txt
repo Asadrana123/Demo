@@ -1,0 +1,75 @@
+Event Listener with Closure:
+let count = 0;
+document.getElementById("clickMe").addEventListener("click", function xyz() {
+    console.log("Button clicked", ++count);
+});
+
+// Better approach using closure for data privacy:
+function attachEventList() {
+    let count = 0;
+    document.getElementById("clickMe").addEventListener("click", function xyz() {
+        console.log("Button clicked", ++count);
+        // Callback function forms closure with outer scope (count)
+    });
+}
+attachEventList();
+5. Event Loop & Callback Queue
+the event is loop is a mechanism which helps javascript to run asycrhounus callbacks by 
+continously tracking call stack
+push it to call stack and delete from callback queue.
+Why do we need Callback Queue?
+Suppose user clicks button 6 times:
+
+6 callback functions are put inside callback queue
+Event loop checks if call stack is empty
+Elements from callback queue are popped off, put in call stack, executed, then removed
+
+6. Fetch & Microtask Queue
+Example with setTimeout and fetch:
+javascript
+console.log("Start");
+
+setTimeout(function cbT() {
+    console.log("CB Timeout");
+}, 5000);
+
+fetch("https://api.netflix.com").then(function cbF() {
+    console.log("CB Netflix");
+}); // takes 2 seconds to get response
+
+// millions of lines of code
+console.log("End");
+
+// Output: Start End "CB Netflix" "CB Timeout"
+Execution Flow:
+console.log("Start") executes
+setTimeout registers cbT in Web API environment
+fetch registers cbF in Web API environment
+console.log("End") executes
+After 2 seconds, cbF goes to Microtask Queue
+After 5 seconds, cbT goes to Callback Queue
+Microtask Queue has HIGHER priority than Callback Queue
+So cbF executes first, then cbT
+
+7. Microtask Queue vs Callback Queue
+Microtask Queue contains:
+Promise callbacks (.then(), .catch(), .finally())
+queueMicrotask()
+MutationObserver
+Callback Queue (Macrotask Queue) contains:
+setTimeout callbacks
+setInterval callbacks
+DOM event callbacks
+Other Web API callbacks
+
+Priority Example:
+console.log("Start");
+setTimeout(() => console.log("Timeout"), 0);
+Promise.resolve().then(() => console.log("Promise resolved"));
+console.log("End");
+
+// Output: Start End "Promise resolved" Timeout
+8. Starvation of Callback Queue
+If microtask queue keeps getting filled with new microtasks, the callback queue functions might 
+never get executed - this is called starvation of callback queue.
+

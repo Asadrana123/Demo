@@ -1,0 +1,86 @@
+9. Trust Issues with setTimeout
+setTimeout doesn't guarantee exact timing:
+javascript
+console.log("Start");
+
+setTimeout(function cb() {
+    console.log("Callback");
+}, 5000);
+
+console.log("End");
+// Millions of lines of code to execute
+
+// setTimeout guarantees AT LEAST the given timer, not exactly
+// Could take 6, 7, or even 10 seconds depending on call stack
+setTimeout with 0ms delay:
+javascript
+console.log("Start");
+
+setTimeout(function cb() {
+    console.log("Callback");
+}, 0);
+
+console.log("End");
+
+// Output: Start End Callback
+// Even with 0ms, callback must go through the queue
+// Can be used to defer less important functions
+10. Practical Interview Question
+Print 1 after 1 sec, 2 after 2 sec till 5:
+
+Wrong Approach (var):
+function x() {
+    for (var i = 1; i <= 5; i++) {
+        setTimeout(function () {
+            console.log(i);
+        }, i * 1000);
+    }
+    console.log("Namaste Javascript");
+}
+x();
+// Output: Namaste Javascript 6 6 6 6 6
+Correct Approach (let):
+javascript
+function x() {
+    for (let i = 1; i <= 5; i++) {
+        setTimeout(function () {
+            console.log(i);
+        }, i * 1000);
+    }
+    console.log("Namaste Javascript");
+}
+x();
+
+// Output: Namaste Javascript 1 2 3 4 5 (with proper delays)
+Correct Approach with var (using closure):
+javascript
+function x() {
+    for (var i = 1; i <= 5; i++) {
+        function close(i) {
+            setTimeout(function () {
+                console.log(i);
+            }, i * 1000);
+        }
+        close(i); // Creates new copy of i each time
+    }
+    console.log("Namaste Javascript");
+}
+x();
+// Output: Namaste Javascript 1 2 3 4 5 (with proper delays)
+11. Event Loop FAQs
+Q: When does the event loop start?
+A: Event loop is a single-thread, almost infinite loop that's always running.
+Q: Are only async web API callbacks registered in web API environment?
+A: YES, synchronous callbacks (like in map, filter, reduce) aren't registered in Web API environment.
+Q: How does setTimeout(0) work?
+A: The callback still needs to wait until Call Stack is empty. So 0ms callback might wait 100ms 
+if stack is busy.
+
+Key Takeaways
+JavaScript is synchronous and single-threaded but can perform async operations using Web APIs
+Event Loop enables JavaScript to be non-blocking despite being single-threaded
+Microtasks have higher priority than regular callback tasks
+setTimeout doesn't guarantee exact timing - only minimum delay
+Closures with event listeners can cause memory leaks if not handled properly
+Never block the main thread - fundamental rule of JavaScript
+
