@@ -26,34 +26,45 @@ Polyfills:
 
 Greetings,
 
+
+
 I saw the Linkedin job posting to fill the role of SDE. I'm interested
-in the job. It is something I'm passionate about. Rather than just
-sending you my CV, I decided to send you my portfolio and source code.
-This work will hopefully show you why I would be a great candidate for
-the job. My experience in full-stack development and real-time
+
+in the job. It is something I'm passionate about. Rather than just sending you my CV, I decided to send you my portfolio and source code. This work will hopefully show you why I would be a great candidate for the job. My experience in full-stack development and real-time
+
 applications demonstrates my technical capabilities.
 
-I have worked as a Software Developer at Rangi Lalls from August 2024
-to Present, where I engineered full-stack auction platforms using MERN
-stack and implemented real-time WebSocket communication. Previously, I
-was a Software Developer Intern at Rangi Lalls from March 2024 to July
-2024, and also served as a Teaching Assistant at Coding Ninjas for
-React.js and Data Structures & Algorithms from August 2023 to November
-2023.
+
+
+I have worked as a Software Developer at Rangi Lalls from August 2024 to Present, where I engineered full-stack auction platforms using MERN stack and implemented real-time WebSocket communication. Previously, I was a Software Developer Intern at Rangi Lalls from March 2024 to July
+
+2024, and also served as a Teaching Assistant at Coding Ninjas for React.js and Data Structures & Algorithms from August 2023 to November 2023.
+
+
 
 You can access my Portfolio and source cod
+
 https://portfolio-three-phi-83.vercel.app/
 
 https://github.com/Asadrana123
 
+
+
 I was able to find the JD via,
 
-https://www.linkedin.com/jobs/view/4234465378/?alternateChannel=search&eBP=NOT_ELIGIBLE_FOR_CHARGING&refId=iauVVt7ev5M2T4OJPVuWEg%3D%3D&trackingId=m%2Fw2Xy8K82mbHS%2FjXY1NKg%3D%3D
 
-I'd love to schedule a time to discuss my suitability for the role
-within the next fortnight.
+
+https://www.linkedin.com/jobs/view/4304006705/?alternateChannel=search&eBP=BUDGET_EXHAUSTED_JOB&refId=Yc%2Fvs8K8hLWBjiNBrkDmaw%3D%3D&trackingId=t%2Fl6uw5U9AWVKNq8WnZ5%2Bg%3D%3D&trk=d_flagship3_postapply_default_confirmation
+
+
+
+I'd love to schedule a time to discuss my suitability for the role within the next fortnight.
+
+
 
 Sincerely,
+
 Asad Lukman,
 asadlukman246@gmail.com
 +91-6395891873
+
