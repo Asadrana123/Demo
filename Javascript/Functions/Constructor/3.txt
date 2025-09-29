@@ -1,9 +1,9 @@
 // Step 3 — Using Prototype for Methods
 
 // Definition:
-// The prototype is an object that is shared by all instances
-// created from a constructor. Methods added to the prototype
-// are not copied to each object — all objects share the same method.
+// The prototype is an object that is shared by all instances created from a constructor. 
+Methods added to the prototype
+are not copied to each object — all objects share the same method.
 
 // Example:
 function Person(name, age) {
