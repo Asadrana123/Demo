@@ -10,11 +10,14 @@ function callback(entries, observer) {
 
 
 Options object properties
-root: The element that is used as the viewport for checking visibility. Defaults to the browser viewport if null.
+root: The element that is used as the viewport for checking visibility. 
+Defaults to the browser viewport if null.
 
-rootMargin: Margin around the root. Can grow or shrink the root bounding box, specified like CSS margin
+rootMargin: Margin around the root. Can grow or shrink the root bounding box, 
+specified like CSS margin
 (e.g. "10px 20px 30px 40px").
 
-threshold: A single number or array of numbers between 0 and 1 indicating at what visibility percentage(s)
+threshold: A single number or array of numbers between 0 and 1 
+indicating at what visibility percentage(s)
 to trigger the callback. 0 means any visibility, 1 means fully visible.
 

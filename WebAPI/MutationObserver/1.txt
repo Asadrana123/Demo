@@ -1,0 +1,26 @@
+MutationObserver in JavaScript is used to watch for changes in the DOM (Document Object Model) 
+and execute a callback whenever such changes happen. It’s especially useful when you want to react 
+to dynamic changes in your webpage without 
+constantly polling the DOM.
+
+// Select the target node
+const targetNode = document.getElementById('myDiv');
+
+// Create a MutationObserver instance
+const observer = new MutationObserver((mutationsList, observer) => {
+    for (const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            console.log('Child nodes changed!');
+        } else if (mutation.type === 'attributes') {
+            console.log(`Attribute ${mutation.attributeName} changed!`);
+        }
+    }
+});
+
+// Configuration for the observer
+const config = { attributes: true, childList: true, subtree: true };
+
+// Start observing
+observer.observe(targetNode, config);
+// To stop observing
+// observer.disconnect();

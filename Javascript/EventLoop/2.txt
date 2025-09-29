@@ -41,6 +41,7 @@ fetch("https://api.netflix.com").then(function cbF() {
 console.log("End");
 
 // Output: Start End "CB Netflix" "CB Timeout"
+
 Execution Flow:
 console.log("Start") executes
 setTimeout registers cbT in Web API environment
@@ -74,4 +75,15 @@ console.log("End");
 
 If your microtasks keep generating more microtasks, the callback queue (macrotasks) can never get a 
 chance to run. This is called starvation of the callback queue.
+
+function endlessMicrotask() {
+  Promise.resolve().then(() => {
+    console.log("Microtask running");
+    endlessMicrotask(); // keeps adding more microtasks
+  });
+}
+endlessMicrotask();
+
+setTimeout(() => console.log("Macrotask running"), 0);
+
 
