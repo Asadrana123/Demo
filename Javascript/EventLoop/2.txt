@@ -56,6 +56,7 @@ Microtask Queue contains:
 Promise callbacks (.then(), .catch(), .finally())
 queueMicrotask()
 MutationObserver
+
 Callback Queue (Macrotask Queue) contains:
 setTimeout callbacks
 setInterval callbacks
@@ -70,6 +71,7 @@ console.log("End");
 
 // Output: Start End "Promise resolved" Timeout
 8. Starvation of Callback Queue
-If microtask queue keeps getting filled with new microtasks, the callback queue functions might 
-never get executed - this is called starvation of callback queue.
+
+If your microtasks keep generating more microtasks, the callback queue (macrotasks) can never get a 
+chance to run. This is called starvation of the callback queue.
 
