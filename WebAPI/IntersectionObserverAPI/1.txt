@@ -10,29 +10,19 @@ Useful for lazy loading images, infinite scrolling, animations on scroll, and mo
 ✅ Options you can pass:
 
 root
-
 The element used as the viewport for checking visibility.
-
 Default: null → which means the browser viewport itself.
-
 Example: root: document.querySelector(".scroll-container")
 
 rootMargin
-
 A margin around the root element, like CSS margin.
-
 Values: pixels (px) or percentages (%).
-
 Useful for triggering earlier or later.
-
 Example: "0px 0px -100px 0px" → start observing 100px before the element leaves the viewport.
 
 threshold
-
 A single number (0 to 1) or an array of numbers.
-
 Defines how much of the target must be visible to trigger the callback.
-
 Example:
 0 → trigger as soon as even 1px is visible.
 1.0 → trigger only when the entire element is visible.

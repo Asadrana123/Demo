@@ -4,6 +4,7 @@
 
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #main {
@@ -15,11 +16,31 @@ body {
     align-items: center;
 }
 
-.show{
+.result {
+
+    width: 80%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: rgb(186, 241, 241);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+#loading {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.show {
     display: block;
     text-align: center;
 }
 
-.hide{
+.hide {
     display: none;
+}
+
+#intersection-container {
+    height: 100px;
 }
