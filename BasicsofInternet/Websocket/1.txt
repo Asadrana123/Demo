@@ -3,10 +3,6 @@
 ✅ Its purpose: enable full-duplex, bidirectional communication between a 
 client (like a browser) and a server over a single, long-lived TCP connection.
 
-🔥 WHAT is a WebSocket?
-✅ WebSocket is a network protocol — officially defined by RFC 6455.
-✅ Its purpose: enable full-duplex, bidirectional communication between a 
-client (like a browser) and a server over a single, long-lived TCP connection.
 
 
 ✅ HOW does it work?
