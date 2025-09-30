@@ -1,27 +1,29 @@
-1. What is your actual work currently?
+Current work:
+Currently working as a Software Developer at Rangi Lalls, building the auction platform interface 
+for Vihara AI with real-time bidding updates and UI performance optimization. Work focuses on 
+creating faster, smoother bidding experiences through targeted front-end improvements. 
+Responsibilities include client-side validation and error handling to improve reliability, 
+along with building responsive interfaces for modern applications.
 
-Currently, I am working as a Software Developer at Rangi Lalls, where I focus on the frontend 
-development of a full-stack auction platform. My role involves building responsive and user-friendly
-interfaces using React, ensuring smooth real-time updates with WebSockets, and optimizing performance 
-for a seamless user experience. I also work on improving validation and error handling on the client 
-side to maintain reliability in production.
+Projects:
+- Vihara AI (Auction UI): Real-time bid updates, clear status and error messages, responsive layouts, 
+reusable components for a smooth bidding experience.
+- ChatWave: Next.js chat interface with user search, group chats, image and text messaging, 
+and simple in-app notifications using Chakra UI.
+- LinkUp: Next.js social app interface for posts, comments, likes, image uploads, and simple 
+sign-in flows with clean, responsive UI using Tailwind/Material UI.
 
+Willing to relocate:
+Yes, open to relocating and happy to plan a smooth transition with clear timelines.
 
-3. Tell me about your projects.
+Project types:
+- Real-time user interfaces (bidding, chat, notifications).
+- Social and community UIs (feeds, posts, comments, likes).
+- Responsive, accessible web apps built with React/Next.js and modern UI libraries.
 
-*"I have worked on several projects:
-ChatWave: A chat application built with Node.js, Next.js, and MongoDB. It supports user search, 
-group chat, real-time messaging, notifications, and even has an integrated AI chatbot.
-
-LinkUp: A social media web app built with Next.js and Firebase, featuring image sharing, commenting,
-liking, and Google authentication.
-
-Auction Platform (Vihara AI): A full-stack MERN application with real-time bidding, admin dashboards,
-and performance-optimized communication channels.
-
-
-What type of projects have you made?
-Most of my projects are full-stack web applications focused on real-time communication and user
-engagement. For example, chat applications, social media platforms, and an auction system. I’ve 
-worked extensively with React, Next.js, Node.js, MongoDB, and WebSockets to deliver scalable, 
-high-performance applications. My projects emphasize both functionality and user experience.
+Challenges faced (Vihara AI):
+- Keeping live bid updates smooth during fast changes on the screen.
+- Making pages feel fast even with constant activity and real-time events.
+- Showing clear messages for form checks and errors to keep flows simple.
+- Keeping layouts usable on many devices and screen sizes.
+- Turning designs into reusable parts while keeping the look the same.
