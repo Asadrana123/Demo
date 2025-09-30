@@ -1,5 +1,6 @@
-A function that “remembers” the variables from the scope in which it was defined — 
-even after that scope has finished executing.
+A closure in JavaScript is a function along with its lexical environment. In simple words, 
+it means a function can “remember” and access variables from the scope where it was created,
+even after that outer scope has finished executing.
 
 
 Closures aren’t formed when you just write nested functions.
@@ -13,7 +14,8 @@ Scope: Controls access to a variable like decides which variable is accesible by
 
 Closure: Keeps track of variable even when the outer function is done with excuting
 
-Garbage Collection:-JavaScript doesn’t garbage collect outer function’s variables if they’re still referenced 
+Garbage Collection:-JavaScript doesn’t garbage collect outer function’s variables 
+if they’re still referenced 
 by an inner function that is still in use (e.g., returned, stored, or passed elsewhere).
 That inner function closes over the variables — and this is what forms a closure.
 

@@ -13,6 +13,7 @@ function attachEventList() {
     });
 }
 attachEventList();
+
 5. Event Loop & Callback Queue
 the event is loop is a mechanism which helps javascript to run asycrhounus callbacks by 
 continously tracking call stack
