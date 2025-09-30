@@ -1,15 +1,15 @@
 1. What is your actual work currently?
 
-Currently, I am working as a Software Developer at Rangi Lalls, where I am developing a 
-full-stack auction platform using the MERN stack. My role involves building real-time features 
-with WebSockets, optimizing performance, and ensuring a smooth user experience. I also focus on 
-robust error handling and validation to maintain a reliable production system.
+Currently, I am working as a Software Developer at Rangi Lalls, where I focus on the frontend 
+development of a full-stack auction platform. My role involves building responsive and user-friendly
+interfaces using React, ensuring smooth real-time updates with WebSockets, and optimizing performance 
+for a seamless user experience. I also work on improving validation and error handling on the client 
+side to maintain reliability in production.
 
 
 3. Tell me about your projects.
 
 *"I have worked on several projects:
-
 ChatWave: A chat application built with Node.js, Next.js, and MongoDB. It supports user search, 
 group chat, real-time messaging, notifications, and even has an integrated AI chatbot.
 
@@ -18,3 +18,10 @@ liking, and Google authentication.
 
 Auction Platform (Vihara AI): A full-stack MERN application with real-time bidding, admin dashboards,
 and performance-optimized communication channels.
+
+
+What type of projects have you made?
+Most of my projects are full-stack web applications focused on real-time communication and user
+engagement. For example, chat applications, social media platforms, and an auction system. I’ve 
+worked extensively with React, Next.js, Node.js, MongoDB, and WebSockets to deliver scalable, 
+high-performance applications. My projects emphasize both functionality and user experience.
