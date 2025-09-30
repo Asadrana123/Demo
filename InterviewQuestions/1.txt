@@ -27,3 +27,19 @@ Challenges faced (Vihara AI):
 - Showing clear messages for form checks and errors to keep flows simple.
 - Keeping layouts usable on many devices and screen sizes.
 - Turning designs into reusable parts while keeping the look the same.
+
+Problem:
+During the Vihara auction UI, the live bid panel felt jittery and sometimes 
+showed out-of-order updates when many events arrived quickly.
+
+Diagnosis:
+Profiling showed frequent re-renders from rapid state updates and race conditions between 
+incoming socket messages and local UI state.
+
+Fix:
+Batched state updates, debounced noncritical renders, and normalized event handling so only 
+the latest relevant update re-rendered the affected components.
+
+Result:
+The bid view became smooth and predictable under heavy activity, with clearer status and 
+error messages for edge cases.
