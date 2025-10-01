@@ -1,0 +1,23 @@
+🏢 1. Early-Stage Startup (1–50 employees)
+Priority:
+1. Founder / Co-Founder
+2. Hiring Manager / Team Lead
+3. Senior Engineer / Tech Lead
+4. Any Engineer (SDE)
+5. HR / Recruiter
+
+🏢 2. Mid-Size Company (50–500 employees)
+Priority:
+1. Hiring Manager / Engineering Manager
+2. Senior Engineer / Tech Lead
+3. SDE (any level)
+4. HR / Recruiter
+5. Founder
+
+🏢 3. Large Company / Big Tech (500+ employees)
+Priority:
+1. Hiring Manager (Engineering Manager, Director, etc.)
+2. Senior SDE / Staff Engineer / Tech Lead
+3. SDE (mid/junior)
+4. HR / Recruiter
+5. Founder/CEO (not useful)
