@@ -1,0 +1,70 @@
+What is a Prototype?
+In JavaScript, every object has an internal link to another object 
+called its prototype.
+
+Prototype acts as a blueprint or template object from which an object inherits 
+properties and methods.
+
+This linkage happens via the internal __proto__ property.
+
+What is Prototypal Inheritance?
+Prototypal inheritance means objects inherit properties and methods from 
+other objects through the prototype chain.
+
+Unlike classical inheritance with classes, JS uses objects linked directly to 
+other objects for inheritance.
+
+The Prototype Chain
+When accessing a property or method on an object, JS:
+First checks if it exists on the own object.
+If not found, it looks up to the object's prototype (__proto__).
+Continues up the chain until reaching null.
+This is the prototype chain, enabling shared behavior and code reuse.
+
+
+__proto__ Explained
+__proto__ is the internal property linking an object to its prototype.
+
+It connects objects forming the chaining that powers inheritance.
+
+Constructor Functions and Prototype
+Functions used as constructors have a special property .prototype.
+Objects created via new Constructor() inherit from Constructor.prototype.
+
+Example
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function() {
+  console.log('Hello, ' + this.name);
+};
+
+const p1 = new Person('Alice');
+p1.greet(); // Hello, Alice
+p1 does not own greet but inherits it from Person.prototype.
+
+Using Object.create()
+Creates a new object with a specified prototype.
+
+const proto = { greet() { console.log('Hi'); } };
+const obj = Object.create(proto);
+obj.greet(); // Hi
+ES6 Class Syntax
+Provides syntactic sugar over prototypal inheritance.
+
+Behind the scenes, class uses prototypes.
+
+Native Objects and Prototypes
+Arrays, functions, dates, etc., inherit from their respective prototypes.
+
+All eventually inherit from Object.prototype.
+
+hasOwnProperty()
+Used to check if a property exists directly on the object, not on its prototype chain.
+
+Common Pitfalls
+Modifying prototypes affects all objects inheriting from them, which can 
+cause bugs (prototype pollution).
+
+Shadowing inherited properties by redefining them on the object itself.
