@@ -1,0 +1,67 @@
+How JavaScript Code is Executed & Call Stack
+Overview
+This lecture explains how JavaScript code runs inside the JS Engine behind the scenes.
+Focus on Execution Context creation, phases, function calls, and the Call Stack.
+
+Execution Context Creation
+When a JS program runs, the Global Execution Context (GEC) is created.
+An Execution Context has two main components:
+
+Memory Component: Stores variables and functions.
+Code Component: Executes code line-by-line.
+
+Two Phases of Execution Context Creation
+
+1. Memory Allocation Phase (Creation Phase)
+JS engine scans the whole code.
+Allocates memory for variables and functions.
+Variables initialized with the special value undefined.
+Functions get the entire function code stored in memory.
+
+2. Code Execution Phase
+Code executes line by line.
+Variables get actual values assigned.
+Functions run when invoked.
+
+Example Walkthrough
+var n = 2;
+
+function square(num) {
+  var ans;
+  ans = num * num;
+  return ans;
+}
+
+var square2 = square(n);
+var square4 = square(4);
+
+Variables:
+n initially undefined in memory, then assigned 2 during execution.
+
+Function square(num):
+Memory allocated with full code during creation.
+Parameters (num) and local variables (ans) allocated memory as undefined during invocation.
+
+Function Invocation:
+A new Execution Context is created for each function call.
+In that context, memory and code phases apply similarly.
+
+Return statement:
+Returns control and value back to caller.
+Execution Context of function is destroyed after return.
+After function completes, the value returned replaces the caller's variable.
+
+Call Stack
+JS Engine manages execution contexts in a Call Stack.
+Call Stack is a LIFO stack structure:
+Global Execution Context pushed first.
+New function call pushes new Execution Context on top.
+When function finishes, Execution Context popped off.
+Control returns to context below on the stack.
+
+Other Names for Call Stack
+Execution Context Stack
+Program Stack
+Control Stack
+Runtime Stack
+Machine Stack

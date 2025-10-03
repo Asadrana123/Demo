@@ -1,0 +1,26 @@
+How JavaScript Works & Execution Context 
+Core Concept
+Everything in JavaScript happens inside an Execution Context — a container where the code runs.
+Execution Context is like a big box with two main components:
+
+Components of Execution Context
+Memory Component (Variable Environment)
+Stores variables and functions as key-value pairs.
+Example: variable A = 10 stored with key "A" and value 10.
+Also called the Variable Environment.
+
+Code Component (Thread of Execution)
+Executes JavaScript code one line at a time.
+Also called the Thread of Execution.
+
+JavaScript Execution Characteristics:-
+JavaScript is a synchronous single-threaded language.
+Single-threaded: Only one command runs at a time.
+Synchronous: Commands run in order and the next line runs only after the current one finishes.
+
+Important Notes
+Despite Ajax (asynchronous calls) existence, core JavaScript execution is synchronous and single-threaded.
+This core behavior means JavaScript cannot process multiple commands simultaneously in the main thread
+
+
+

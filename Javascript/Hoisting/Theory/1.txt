@@ -1,0 +1,76 @@
+Introduction
+Hoisting is one of the most famous and misunderstood concepts in JavaScript.
+It refers to how variables and functions are processed before code execution.
+Hoisting behavior is tied to the creation of the Execution Context.
+
+What is Hoisting?
+At the start of program execution, during the Memory Allocation Phase of the Execution Context,
+JS allocates memory for all variables and functions.
+
+Variables are initialized with the value undefined.
+Functions are fully loaded into memory with their definitions.
+This means you can access variables and functions before they appear in the code without a runtime error.
+Key Examples & Behavior
+Accessing a variable before declaration
+
+
+console.log(x); // undefined
+var x = 7;
+x is undefined because memory for x is allocated with undefined initially.
+
+Calling a function before declaration:-
+getName(); // Works fine, prints defined output
+function getName() { console.log('Namaste JavaScript'); }
+Function declarations are hoisted entirely.
+
+Undeclared variables
+If the variable is not declared anywhere, trying to access it throws a ReferenceError: not defined.
+
+Function expressions and arrow functions
+
+js
+console.log(getName); // undefined
+var getName = () => { console.log('Namaste JS'); };
+Here, getName acts like a variable with initial value undefined.
+
+Function expressions and arrow functions are not hoisted like function declarations.
+
+Behind the Scenes: Execution Context & Memory Allocation
+When JS runs code, it creates an Execution Context in two phases:
+
+Memory Allocation Phase:
+
+Memory reserved for all variables and functions.
+
+Variables initialized as undefined, function declarations get full function objects.
+
+Code Execution Phase: Code runs line by line.
+
+The Global Execution Context is created for your program.
+
+When a function is called, a new execution context is created and pushed onto the call stack.
+
+After a function finishes, its execution context is popped from the stack.
+
+Difference Between undefined and not defined
+undefined: Variable exists in memory but has no assigned value yet.
+
+not defined: Variable or function is not declared anywhere, so it does not exist in memory.
+
+
+
+Interview Tip
+Avoid saying JS moves code up;
+
+Explain hoisting as the memory allocation during the creation phase of execution context where variables get undefined and functions are fully stored.
+
+Demonstrate understanding of difference between declaration types.
+
+Bonus: Demo of Call Stack & Execution Context
+Global execution context is created and added to call stack when code begins.
+
+Invoking a function creates a new execution context pushed to call stack.
+
+After function execution, its context is popped off.
+
+This process manages the flow of function calls and execution in JS.
