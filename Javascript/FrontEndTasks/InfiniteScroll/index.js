@@ -1,6 +1,7 @@
 const mainContainer = document.getElementById('main');
 const loadingContainer = document.getElementById('loading');
 const intersectionContainer = document.getElementById('intersection-container');
+const errorContainer = document.getElementById('error-container');
 var isLoading = false;
 var start = 0;
 var end = 10;
@@ -16,6 +17,7 @@ const debounce = (fn) => {
 
 const showResult = (data) => {
     loadingContainer.classList.replace('show', 'hide');
+    errorContainer.classList.replace('show', 'hide');
     isLoading = false;
     for (let i = 0; i < data.length; i++) {
         const result = document.createElement('div');
@@ -31,17 +33,32 @@ const showResult = (data) => {
     end += 10;
 };
 
+const showError = (text) => {
+    errorContainer.textContent = text;
+    errorContainer.classList.replace('hide', 'show');
+    loadingContainer.classList.replace('show', 'hide');
+}
+
 const fetchResult = () => {
-    fetch(`https://jsonplaceholder.typicode.com/posts?_start=${start}&_end=${end}`)
-        .then((response) => response.json())
+    fetch(`https://jsonplaceholder.typicode.com/psts?_start=${start}&_end=${end}`)
+        .then((response) => {
+            if (!response.ok) {
+                console.log(response);
+                throw new Error(`Error HTTP Status ${response.status}`)
+            }
+            return response.json()
+        })
         .then((data) => showResult(data))
-        .catch((err) => console.log(err))
+        .catch((err) => {
+            showError('Error Occurred Please Try Again')
+        })
 };
 
 const debounceFunction = debounce(fetchResult);
 
 const startFetching = () => {
-    loadingContainer.classList.replace('hide', 'show')
+    loadingContainer.classList.replace('hide', 'show');
+    errorContainer.classList.replace('show', 'hide');
     isLoading = true;
     debounceFunction()
 };

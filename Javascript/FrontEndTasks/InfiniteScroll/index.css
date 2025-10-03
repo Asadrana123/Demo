@@ -32,6 +32,12 @@ body {
     font-weight: bold;
 }
 
+#error-container {
+    text-align: center;
+    color: red;
+    font-size: 24px;
+}
+
 .show {
     display: block;
     text-align: center;

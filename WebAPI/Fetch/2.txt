@@ -15,3 +15,7 @@ Alternatively, you can read the response body manually with streams to process d
 9. Why is fetch designed to complete when headers arrive but body still streams?
 It allows faster start of processing, better memory usage, and flexibility for various data types.
 
+response.ok:-
+response.ok === false doesn’t mean no response. It means the server did respond, 
+but with an error status code.
+
