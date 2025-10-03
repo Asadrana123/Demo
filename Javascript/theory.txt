@@ -60,4 +60,4 @@ splice()
 concat()
 
 
-ABCDEF
+ABC
