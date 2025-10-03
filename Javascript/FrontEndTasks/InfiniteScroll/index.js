@@ -19,6 +19,10 @@ const showResult = (data) => {
     loadingContainer.classList.replace('show', 'hide');
     errorContainer.classList.replace('show', 'hide');
     isLoading = false;
+    if (data.length === 0) {
+        observer.unobserve(intersectionContainer);
+        return;
+    }
     for (let i = 0; i < data.length; i++) {
         const result = document.createElement('div');
         result.setAttribute('class', 'result');
@@ -38,19 +42,35 @@ const showError = (text) => {
     errorContainer.classList.replace('hide', 'show');
     loadingContainer.classList.replace('show', 'hide');
 }
+async function handleApiError(response) {
+    let message = null;
+    try {
+        const data = await response.json();
+        message = data.message;
+        console.log(message)
+    } catch {
+        // response body not JSON, ignore
+    }
 
+    switch (response.status) {
+        case 400: throw new Error(message || 'Bad request');
+        case 401: throw new Error(message || 'Unauthorized');
+        case 403: throw new Error(message || 'Forbidden');
+        case 404: throw new Error(message || 'Not found');
+        case 500: throw new Error(message || 'Server error, try later');
+        default: throw new Error(message || `Error ${response.status}`);
+    }
+}
 const fetchResult = () => {
-    fetch(`https://jsonplaceholder.typicode.com/psts?_start=${start}&_end=${end}`)
+    fetch(`https://jsonplaceholder.typicode.com/posts?_start=${start}&_end=${end}`)
         .then((response) => {
-            if (!response.ok) {
-                console.log(response);
-                throw new Error(`Error HTTP Status ${response.status}`)
-            }
+            if (!response.ok) handleApiError(response)
             return response.json()
         })
         .then((data) => showResult(data))
         .catch((err) => {
-            showError('Error Occurred Please Try Again')
+            if (err.name == 'TypeError') showError('Network Error Please Try Again');
+            else showError(err.message);
         })
 };
 
