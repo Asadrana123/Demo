@@ -1,23 +1,34 @@
-🏢 1. Early-Stage Startup (1–50 employees)
-Priority:
-1. Founder / Co-Founder
-2. Hiring Manager / Team Lead / Engineering Manager
-3. Senior Engineer / Tech Lead
-4. Any Engineer (SDE)
-5. HR / Recruiter
+Early-Stage Startup (1–50 employees)
+Direct calls are common, and founders are heavily involved in hiring.
 
-🏢 2. Mid-Size Company (50–500 employees)
-Priority:
-1. Hiring Manager 
-2. Senior Engineer / Tech Lead
-3. SDE (any level)
-4. HR / Recruiter
-5. Founder
+Best people to connect with:
+Founder / Co-Founder (they often reply personally on LinkedIn)
+Hiring Manager / Team Lead / Engineering Manager
+Senior Engineer / Tech Lead (close to founder, strong say in hiring)
+SDE (peer referral works, since teams are small)
+HR / Recruiter (low priority; many startups don’t even have a dedicated HR)
 
-🏢 3. Large Company / Big Tech (500+ employees)
-Priority:
-1. Hiring Manager (Engineering Manager, Director, etc.)
-2. Senior SDE / Staff Engineer / Tech Lead
-3. SDE (mid/junior)
-4. HR / Recruiter
-5. Founder/CEO (not useful)
+Mid-Size Company (50–500 employees)
+
+Startups become structured here: dedicated hiring managers and 
+team leads drive hiring, but referrals still work well.
+
+Best people to connect with:
+Hiring Manager (Engineering Manager, Product Lead — strongest influence)
+Senior Engineer / Tech Lead (likely to refer if they see your skills fit)
+SDEs (still useful for referrals; mid-size firms reward referrals)
+HR / Recruiter (secondary; they only screen after tech approves)
+Founder (not as relevant; less involved at this size)
+
+Large Company / Big Tech (500+ employees)
+
+Hiring is highly structured and recruiters handle volume, but referrals 
+from engineers carry huge weight.
+
+Best people to connect with:
+Hiring Manager (Director/Engineering Manager — strongest if reachable)
+Senior Engineer / Staff Engineer / Tech Lead (their referrals are highly valued)
+SDEs (good for referrals if senior isn’t reachable; best practical option)
+HR / Recruiter (they’re the gatekeepers, only useful if you already applied)
+Founder/CEO (irrelevant; no role in your application)
+
