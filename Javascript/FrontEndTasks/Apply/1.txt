@@ -22,50 +22,30 @@ Polyfills:
  - Promises
     : all, allSettled, race, any
 
+Subject: Application for Software Development Engineer (SDE) Role
+
 Greetings,
 
+I saw the LinkedIn job posting for the SDE role, and I’m very interested in the opportunity. It’s something I’m truly passionate about. Rather than just sending my CV, I decided to share my portfolio and source code to demonstrate why I’d be a great fit for the position. My experience in software engineering and building real-time applications showcases my technical capabilities.
 
+I have worked as a Software Developer at Rangi Lalls from August 2024 to Present, where I engineered auction platforms using the MERN stack and implemented real-time WebSocket communication. Previously, I was a Software Developer Intern at Rangi Lalls from March 2024 to July 2024, and also served as a Teaching Assistant at Coding Ninjas for React.js and Data Structures & Algorithms from August 2023 to November 2023.
 
-I saw the Linkedin job posting to fill the role of SDE. I'm interested
+You can access my portfolio and source code here:
 
-in the job. It is something I'm passionate about. Rather than just sending you my CV, I decided to send you my portfolio and source code. This work will hopefully show you why I would be a great candidate for the job. My experience in full-stack development and real-time
-
-applications demonstrates my technical capabilities.
-
-
-
-I have worked as a Software Developer at Rangi Lalls from August 2024 to Present, where I engineered full-stack auction platforms using MERN stack and implemented real-time WebSocket communication. Previously, I was a Software Developer Intern at Rangi Lalls from March 2024 to July
-
-2024, and also served as a Teaching Assistant at Coding Ninjas for React.js and Data Structures & Algorithms from August 2023 to November 2023.
-
-
-
-You can access my Portfolio and source cod
-
-https://portfolio-three-phi-83.vercel.app/
+https://portfolio-three-phi-83.vercel.app/ 
 
 https://github.com/Asadrana123
 
+I came across the job description here:
 
+LinkedIn Job Post
 
-I was able to find the JD via,
-
-
-
-https://www.linkedin.com/jobs/view/4304006705/?alternateChannel=search&eBP=BUDGET_EXHAUSTED_JOB&refId=Yc%2Fvs8K8hLWBjiNBrkDmaw%3D%3D&trackingId=t%2Fl6uw5U9AWVKNq8WnZ5%2Bg%3D%3D&trk=d_flagship3_postapply_default_confirmation
-
-
-
-I'd love to schedule a time to discuss my suitability for the role within the next fortnight.
-
-
+I’d love to schedule a time to discuss my suitability for the role within the next fortnight.
 
 Sincerely,
-
-Asad Lukman,
+Asad Lukman
 asadlukman246@gmail.com
 +91-6395891873
-
 
 
 Hi, following up on my earlier message about the Job role. If you’re not the right person, could you please direct me to who can help me? Thanks, Asad
