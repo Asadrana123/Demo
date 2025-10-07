@@ -22,13 +22,13 @@ Polyfills:
  - Promises
     : all, allSettled, race, any
 
-Subject: Application for Software Development Engineer (SDE) Role
+Application for Software Development Engineer (SDE) Role
 
 Greetings,
 
 I saw the LinkedIn job posting for the SDE role, and I’m very interested in the opportunity. It’s something I’m truly passionate about. Rather than just sending my CV, I decided to share my portfolio and source code to demonstrate why I’d be a great fit for the position. My experience in software engineering and building real-time applications showcases my technical capabilities.
 
-I have worked as a Software Developer at Rangi Lalls from August 2024 to Present, where I engineered auction platforms using the MERN stack and implemented real-time WebSocket communication. Previously, I was a Software Developer Intern at Rangi Lalls from March 2024 to July 2024, and also served as a Teaching Assistant at Coding Ninjas for React.js and Data Structures & Algorithms from August 2023 to November 2023.
+I have worked as a Software Developer at Rangi Lalls from August 2024 to Present, where I engineered auction platforms and implemented real-time communication. Previously, I was a Software Developer Intern at Rangi Lalls from March 2024 to July 2024, and also served as a Teaching Assistant at Coding Ninjas for React.js and Data Structures & Algorithms from August 2023 to November 2023.
 
 You can access my portfolio and source code here:
 
