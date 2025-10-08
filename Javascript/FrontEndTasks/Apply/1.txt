@@ -26,27 +26,51 @@ Application for Software Development Engineer (SDE) Role
 
 Greetings,
 
-I saw the LinkedIn job posting for the SDE role, and I’m very interested in the opportunity. It’s something I’m truly passionate about. Rather than just sending my CV, I decided to share my portfolio and source code to demonstrate why I’d be a great fit for the position. My experience in software engineering and building real-time applications showcases my technical capabilities.
 
-I have worked as a Software Developer at Rangi Lalls from August 2024 to Present, where I engineered auction platforms and implemented real-time communication. Previously, I was a Software Developer Intern at Rangi Lalls from March 2024 to July 2024, and also served as a Teaching Assistant at Coding Ninjas for React.js and Data Structures & Algorithms from August 2023 to November 2023.
+
+I saw the LinkedIn job posting for the SDE role, and I’m very
+
+interested in the opportunity. It’s something I’m truly passionate about. Rather than just sending my CV, I decided to share my portfolioc and source code to demonstrate why I’d be a great fit for the position. My experience in software engineering and building real-time applications showcases my technical capabilities.
+
+
+
+I have worked as a Software Engineer at Rangi Lalls from August 2024 to Present, where I engineered auction platforms and implemented real-time communication. Previously, I was a Software Developer Intern at Rangi Lalls from March 2024 to July 2024, and also served as a Teaching Assistant at Coding Ninjas for React.js and Data Structures & Algorithms from August 2023 to November 2023.
+
+
 
 You can access my portfolio and source code here:
 
-https://portfolio-three-phi-83.vercel.app/ 
+
+
+https://portfolio-three-phi-83.vercel.app/
+
+
 
 https://github.com/Asadrana123
 
+
+
 I came across the job description here:
 
-LinkedIn Job Post
 
-I’d love to schedule a time to discuss my suitability for the role within the next fortnight.
+
+https://www.linkedin.com/jobs/view/4310338664/?alternateChannel=search&eBP=NOT_ELIGIBLE_FOR_CHARGING&refId=pf4FzO70fDDTXHE9b%2FExwQ%3D%3D&trackingId=Y7ypmlGoH0IAueXuZdxXxw%3D%3D&trk=d_flagship3_job_details
+
+
+
+I’d love to schedule a time to discuss my suitability for the role
+
+within the next fortnight.
+
+
 
 Sincerely,
-Asad Lukman
-asadlukman246@gmail.com
-+91-6395891873
 
+Asad Lukman
+
+asadlukman246@gmail.com
+
++91-6395891873
 
 Hi, following up on my earlier message about the Job role. If you’re not the right person, could you please direct me to who can help me? Thanks, Asad
 

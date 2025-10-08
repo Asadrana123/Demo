@@ -39,36 +39,3 @@ const dog = new Animal('Dog');
 dog.speak(); // "Dog makes a noise."
 Each object created via a constructor function has its internal prototype (__proto__)
 pointing to the constructor’s .prototype.
-
-4. proto vs prototype
-__proto__: A property on every object, referencing its direct prototype.
-prototype: A property on functions only, used as a blueprint for instances created by the function.
-
-Example:
-function Person(name) { this.name = name; }
-Person.prototype.age = 25;
-var willem = new Person('Willem');
-
-console.log(willem.__proto__ === Person.prototype); // true
-console.log(willem.age); // 25
-5. Property Shadowing
-If an object has its own property, it will "shadow" (override) properties of the same name further up the prototype chain.
-
-js
-const o = {
-  b: 2,
-  __proto__: {
-    b: 3,
-  },
-};
-console.log(o.b); // 2 (own property shadows prototype’s)
-6. Inheritance in JavaScript
-Objects can inherit from other objects directly. This is called prototypal inheritance, distinct from classical inheritance (classes).
-
-You can set the prototype using Object.setPrototypeOf():
-
-js
-let objConstant = {class:10, sec:"b", classTeacher:"Ritu"};
-let student1 = {name:"shubham", rollNo:32};
-Object.setPrototypeOf(student1, objConstant);
-console.log(student1.classTeacher); // "Ritu"

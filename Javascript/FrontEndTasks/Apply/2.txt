@@ -8,6 +8,8 @@ Senior Engineer / Tech Lead (close to founder, strong say in hiring)
 SDE (peer referral works, since teams are small)
 HR / Recruiter (low priority; many startups don’t even have a dedicated HR)
 
+
+
 Mid-Size Company (50–500 employees)
 
 Startups become structured here: dedicated hiring managers and 
@@ -19,6 +21,8 @@ Senior Engineer / Tech Lead (likely to refer if they see your skills fit)
 SDEs (still useful for referrals; mid-size firms reward referrals)
 HR / Recruiter (secondary; they only screen after tech approves)
 Founder (not as relevant; less involved at this size)
+
+
 
 Large Company / Big Tech (500+ employees)
 
