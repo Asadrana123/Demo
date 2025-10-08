@@ -1,9 +1,3 @@
-//functions internal [[Prototype]] points to Function.prototype.
-//But their .prototype property is a regular object meant for instances!
-//functionname.constructor---will points to who made this fucntion that is construtor function --Function
-//functionname.prototype.construtor--it will point to functionname again because it is constructorfor object
-//  which will 
-//be created using this constructor function
 function Person() { }
 Person.prototype.sayHi = function () {
     console.log('Hi');
@@ -12,8 +6,8 @@ function Employee() { }
 Employee.prototype = new Person();
 console.log(Employee.prototype.constructor)
 Employee.prototype.constructor = Employee;
-//console.log(Employee.prototype.constructor)
-//Employee.prototype.__proto__ = Person.prototype
+console.log(Employee.prototype.constructor)
+Employee.prototype.__proto__ = Person.prototype
 const emp = new Employee();
 emp.sayHi();
 console.log(emp instanceof Object);
