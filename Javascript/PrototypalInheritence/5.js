@@ -7,7 +7,7 @@ Employee.prototype = new Person();
 console.log(Employee.prototype.constructor)
 Employee.prototype.constructor = Employee;
 console.log(Employee.prototype.constructor)
-//Employee.prototype.__proto__ = Person.prototype
+Employee.prototype.__proto__ = Person.prototype
 const emp = new Employee();
 emp.sayHi();
 console.log(emp instanceof Object);

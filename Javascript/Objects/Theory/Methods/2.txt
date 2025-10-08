@@ -1,2 +1,53 @@
 When you write:
 obj instanceof Constructor
+
+Each object in JavaScript has a hidden link to another object called its prototype
+JavaScript keeps climbing this chain of parents
+
+It either finds the Constructor.prototype
+
+
+ 🧩 Step 3 — How `instanceof` works internally (explained step by step)
+
+When you write:
+    obj instanceof Constructor
+JavaScript follows these internal steps:
+
+
+ --------------------------
+ Step 3.1 — Check if right-hand side is a function
+ --------------------------
+Only functions can be used as constructors.
+If it's not a function, JavaScript throws a TypeError.
+
+const obj = {};
+ console.log(obj instanceof {}); 
+ ❌ TypeError: Right-hand side of 'instanceof' is not callable
+
+
+JavaScript looks at the internal [[Prototype]] of the object,
+which you can access using Object.getPrototypeOf(obj).
+
+const dog = new Animal();
+let proto = Object.getPrototypeOf(dog);
+------------------------
+JavaScript walks up the prototype chain step by step.
+It compares each parent until it either finds the constructor’s prototype
+or reaches null.
+
+
+function instanceOf(obj, Constructor) {
+  if (typeof Constructor !== "function") {
+    throw new TypeError("Right-hand side must be callable");
+  }
+
+  let prototype = Constructor.prototype;
+  let proto = Object.getPrototypeOf(obj);
+
+  while (proto !== null) {
+    if (proto === prototype) return true;
+    proto = Object.getPrototypeOf(proto);
+  }
+
+  return false;
+}
