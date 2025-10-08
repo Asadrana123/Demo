@@ -1,10 +1,2 @@
-instanceof is an operator in JavaScript.
-object instanceof Constructor
-whether it exists in the object’s prototype chain.
-
-
-function Animal() {}
-const dog = new Animal();
-
-console.log(dog instanceof Animal); // true
-console.log(dog instanceof Object); // true
+When you write:
+obj instanceof Constructor

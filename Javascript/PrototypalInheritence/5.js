@@ -7,7 +7,7 @@ Employee.prototype = new Person();
 console.log(Employee.prototype.constructor)
 Employee.prototype.constructor = Employee;
 console.log(Employee.prototype.constructor)
-Employee.prototype.__proto__ = Person.prototype
+//Employee.prototype.__proto__ = Person.prototype
 const emp = new Employee();
 emp.sayHi();
 console.log(emp instanceof Object);
@@ -15,5 +15,3 @@ console.log(emp instanceof Person);
 console.log(emp instanceof Employee);
 console.log(emp.constructor === Employee);
 console.log(emp.constructor === Person);
-//emp is an instance of Employee, so emp's [[Prototype]] is Employee.prototype.
-//emp --> Employee.prototype --> Person.prototype --> Object.prototype
