@@ -1,5 +1,6 @@
 //A constructor is a function that creates and initializes an object.
-//Every object (including functions) has a constructor property that points to the function that created it.
+//Every object (including functions) has a constructor property that points to the function 
+that created it.
 function Animal(name) {
     this.name = name;
 }
