@@ -27,10 +27,8 @@ This is called the prototype chain.
 
 3. Prototypal Inheritance
 Objects in JavaScript inherit properties and methods from their prototype.
-
 Constructor functions have a .prototype property used to attach methods:
 
-js
 function Animal(name) {
   this.name = name;
 }
@@ -39,16 +37,14 @@ Animal.prototype.speak = function() {
 }
 const dog = new Animal('Dog');
 dog.speak(); // "Dog makes a noise."
-Each object created via a constructor function has its internal prototype (__proto__) pointing to the constructor’s .prototype.
+Each object created via a constructor function has its internal prototype (__proto__)
+pointing to the constructor’s .prototype.
 
 4. proto vs prototype
 __proto__: A property on every object, referencing its direct prototype.
-
 prototype: A property on functions only, used as a blueprint for instances created by the function.
 
 Example:
-
-js
 function Person(name) { this.name = name; }
 Person.prototype.age = 25;
 var willem = new Person('Willem');
