@@ -14,6 +14,7 @@ function Dog() {
      Animal.call(this);
     this.breed = 'Labrador';
 }
+
 Dog.prototype = Object.create(Animal.prototype);
 //if you do Dog.prototype = Object.create(Animal);
 //then you are setting Animal as its prototype
