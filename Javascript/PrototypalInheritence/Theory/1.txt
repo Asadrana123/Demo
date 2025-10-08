@@ -13,8 +13,6 @@ If not found, it checks the object's prototype, and keeps following up the chain
 (prototypes of prototypes) until it reaches null (the root).
 
 Example:
-
-js
 const o = {
   a: 1,
   b: 2,
