@@ -4,10 +4,13 @@ to another object.
 
 You can access it using . __proto__ on an object, though Object.getPrototypeOf() is the standard method.
 
-The prototype object provides shared methods and properties for all instances created via a constructor function.
+The prototype object provides shared methods and properties for all instances created via a 
+constructor function.
 
 2. What is the Prototype Chain?
-Searching for a property: When accessing a property, JavaScript first looks on the object itself. If not found, it checks the object's prototype, and keeps following up the chain (prototypes of prototypes) until it reaches null (the root).
+Searching for a property: When accessing a property, JavaScript first looks on the object itself. 
+If not found, it checks the object's prototype, and keeps following up the chain 
+(prototypes of prototypes) until it reaches null (the root).
 
 Example:
 
