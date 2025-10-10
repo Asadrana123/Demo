@@ -1,28 +1,3 @@
-// :-Object.create(Vehicle.prototype) and new Vehicle() are related but not exactly the same. 
-// They both create an object that inherits from Vehicle.prototype, but they do it in different ways:
-
-// Object.create(Vehicle.prototype):
-// This creates a new object and explicitly sets its prototype to Vehicle.prototype.
-// It does not invoke the Vehicle constructor, meaning the constructor's code 
-// (such as setting instance properties) 
-// won't be executed.
-
-// new Vehicle():
-// This creates a new object and sets its prototype to Vehicle.prototype,
-// just like Object.create(Vehicle.prototype).
-// However, new Vehicle() also calls the Vehicle constructor, 
-// which means any logic inside the constructor (such as initializing instance properties) is executed.
-
-// //Difference:
-// B.prototype = A.prototype; → Shares the same prototype object (no new object created).
-// B.prototype = new A(); → Creates a new object using A, so B.prototype is a new instance, not the exact 
-// same object.
-
-//what thing decides that some object is instance of other object or not
-// Only one thing decides:
-// 👉 Prototype chain 🔥
-// If anywhere in the object's prototype chain, the prototype of the constructor appears,
-// then instanceof will return true.
 function A() {}
 A.prototype.x = 10;
 
