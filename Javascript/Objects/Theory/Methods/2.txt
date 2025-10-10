@@ -10,7 +10,7 @@ It either finds the Constructor.prototype
  🧩 Step 3 — How `instanceof` works internally (explained step by step)
 
 When you write:
-    obj instanceof Constructor
+obj instanceof Constructor
 JavaScript follows these internal steps:
 
 
@@ -34,7 +34,6 @@ let proto = Object.getPrototypeOf(dog);
 JavaScript walks up the prototype chain step by step.
 It compares each parent until it either finds the constructor’s prototype
 or reaches null.
-
 
 function instanceOf(obj, Constructor) {
   if (typeof Constructor !== "function") {
