@@ -1,0 +1,2 @@
+to get folder str
+tree /f /a > folder_structure.txt
