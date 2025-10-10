@@ -1,5 +1,5 @@
 
-Lexical context → the scope/environment where a piece of code currently exists and resolves variables.
+Lexical context → the environment where a piece of code currently exists and resolves variables.
 Lexical context (lexical environment) in JavaScript is created only by:
 Functions
 Blocks ({} in if, for, while, etc.)
