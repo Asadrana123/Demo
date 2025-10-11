@@ -21,7 +21,7 @@ const o = {
     c: 4,
   },
 };
-console.log(o.c); // 4   (found on prototype)
+console.log(o.c); // 4  
 console.log(o.d); // undefined (property not found)
 This is called the prototype chain.
 
