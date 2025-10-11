@@ -1,4 +1,4 @@
-Create a new empty object: JavaScript creates a new object, 
+JavaScript creates a new object, 
 which will become the this context inside the constructor.
 
 Set prototype: The new object's internal [[Prototype]] property is set 

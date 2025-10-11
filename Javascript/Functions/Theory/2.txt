@@ -1,6 +1,6 @@
 Pure function: Only works with its input parameters, doesn’t touch outside.
 Impure function: Touches/modifies anything outside its parameters/local variables.
-
+or depends on something outside of its own inputs
 Parameters vs Arguments
 These terms are NOT interchangeable
 
