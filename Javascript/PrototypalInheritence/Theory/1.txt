@@ -40,4 +40,4 @@ dog.speak(); // "Dog makes a noise."
 Each object created via a constructor function has its internal prototype (__proto__)
 pointing to the constructor’s .prototype.
 
-
+aaaaaaaaaa
