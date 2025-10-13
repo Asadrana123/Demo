@@ -42,4 +42,4 @@ pointing to the constructor’s .prototype.
 
 
 
-ABCD
+AB
