@@ -41,5 +41,3 @@ Each object created via a constructor function has its internal prototype (__pro
 pointing to the constructor’s .prototype.
 
 
-
-AB
