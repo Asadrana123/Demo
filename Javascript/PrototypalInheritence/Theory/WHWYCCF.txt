@@ -2,7 +2,7 @@ JavaScript creates a new object,
 which will become the this context inside the constructor.
 
 Set prototype: The new object's internal [[Prototype]] property is set 
-to the constructor function's .prototype property.
+to the constructor function's .prototype property. both share the same reference
 
 Bind this: The constructor function is executed with this bound to the new object.
 
