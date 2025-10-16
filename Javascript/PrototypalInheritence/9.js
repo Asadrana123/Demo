@@ -7,4 +7,3 @@ const a2 = new A();
 a1.num = 10;
 delete a1.num;
 
-console.log(a1.num === a2
