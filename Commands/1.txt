@@ -1,2 +1,6 @@
 to get folder str
 tree /f /a > folder_structure.txt
+
+remove file or folder from repo
+git rm --cached .env
+and commit it and push
