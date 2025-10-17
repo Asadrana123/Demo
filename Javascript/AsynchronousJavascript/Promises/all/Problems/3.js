@@ -7,3 +7,5 @@ function squareAfterDelay(n) {
     return new Promise(resolve => setTimeout(() => resolve(n * n), n));
 }
 
+Promise.all([squareAfterDelay(nums[0]),squareAfterDelay(nums[1]),squareAfterDelay(nums[2])])
+.then((data)=>console.log(data));
