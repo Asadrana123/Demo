@@ -1,3 +1,5 @@
+//Task: Use Promise.all to fetch all URLs in parallel, but make sure that even if some requests fail, you get an 
+//array of results with null for failed ones.
 const urls = ["api/user", "api/posts", "api/comments"];
 
 function fetchData(url) {

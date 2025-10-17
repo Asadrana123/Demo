@@ -1,10 +1,14 @@
-//Promise.all()
-//Waits for all promises to resolve. If any of them rejects, the entire Promise.all is rejected.
-// if all promises get resolved then it returns an array of resolved promises otherwise
-//  it will returned reject promise
-// This does not start the promises — because the promises are already running by the time you pass them 
+Promise.all()
+Waits for all promises to resolve. If any of them rejects, the entire Promise.all is rejected.
+if all promises get resolved then it returns an array of resolved promises otherwise
+it will returned reject promise
+This does not start the promises — because the promises are already running by the time you pass them 
 
 
  Non-promise values (numbers, strings, booleans, null, undefined, plain objects) are treated as 
  already-fulfilled values, so Promise.all includes them unchanged in the results and still resolves 
  asynchronously.
+
+
+ Promise.all decides the indexing of the returned array based on the order of 
+ the promises in the input iterable — not on the order in which the promises resolve.
