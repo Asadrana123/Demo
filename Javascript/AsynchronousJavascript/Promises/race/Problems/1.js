@@ -14,4 +14,3 @@ Promise.race([fetchData(),flag])
       console.log(err);
 })
 
-//AAA
