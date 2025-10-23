@@ -27,4 +27,3 @@ Explanation:
 5. Maintains the same order as the input array.
 */
 
-AA
