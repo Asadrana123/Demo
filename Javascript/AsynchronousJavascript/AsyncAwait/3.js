@@ -1,4 +1,5 @@
-//If one the promises fail then it will skip all the below await and directly will jump to the catch block 
+//If one the promises fail then it will skip all the below await and directly 
+// will jump to the catch block 
 //to show error of rejected promise
 
 const p1=Promise.resolve(1);
