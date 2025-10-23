@@ -1,9 +1,3 @@
-
-// ⚔️ Challenge 2 — Retry Failed Jobs Automatically
-// You’ll extend your previous logic:
-// If any job fails, it should be retried once automatically.
-// If it succeeds on retry → count as success.
-// If it fails again → stay failed.
 function job(id) {
     return new Promise((resolve, reject) => {
         const time = Math.floor(Math.random() * 900) + 100;
@@ -24,16 +18,19 @@ Promise.allSettled([
     job(4),
     job(5)
 ]).then((results) => {
-    const result = results.reduce(async (acc, result) => {
+   results.reduce(async (acc, result) => {
         if (result.status === 'fulfilled') acc.success++;
         else {
             acc.retry++;
+            try{
             const retriedResult = await job(result.value.id);
             if (retriedResult.status === 'fulfilled') acc.success++;
-            else acc.failure++
+            }
+            catch(err){
+             acc.failure++   
+            }
         }
         return acc;
-    }, { success: 0, failure: 0, retry: 0, time: Date.now() - start })
-    console.log(result);
+    }, { success: 0, failure: 0, retry: 0, time: Date.now() - start }).then((result)=>console.log(result))
 })
 
