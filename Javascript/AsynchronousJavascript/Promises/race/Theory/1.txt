@@ -1,6 +1,3 @@
 //Promise.race() takes an array of promises and returns a single promise that:
 //Settles (resolves or rejects) as soon as any one of the promises does.
 
-continue:--
-https://chatgpt.com/c/68e68d3d-15b8-8323-9fb4-f4defbbc5120
-https://www.perplexity.ai/search/const-obj-val-1-inc-function-v-1CcAiokDS.a6la6KUvM2ig
